@@ -2,7 +2,7 @@ import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
 // Languages
-import en from './lang/en_EN.json';
+import en from '../lang/en_EN.json';
 
 i18n.use(LanguageDetector).init({
   resources: {
