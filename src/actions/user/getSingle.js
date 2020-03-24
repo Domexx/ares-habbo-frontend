@@ -3,20 +3,13 @@ import routes from '../helpers/apiRoutes';
 
 /**
  * Get Users Data
- * @param {*} id optional - The Id to Select if none given, it returns self
+ * @param {*} id The Id to Select
  */
-const getUser = id => {
-  // Defaults to the ME Route
-  let getRoute = routes.user.me;
-
-  if (id) {
-    getRoute = `${routes.users.get}/${id}`;
-  }
-
+const getSingle = id => {
   return new Promise((resolve, reject) => {
     reqwest({
       method: 'GET',
-      url: getRoute,
+      url: `${routes.users.get}/${id}`,
       type: 'json',
     })
       .then(result => {
@@ -28,4 +21,4 @@ const getUser = id => {
   });
 };
 
-export default getUser;
+export default getSingle;
