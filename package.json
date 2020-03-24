@@ -22,6 +22,7 @@
     "react-i18next": "^11.3.3",
     "react-router-dom": "^5.1.2",
     "reqwest": "^2.0.5",
+    "sha512": "^0.0.1",
     "validator": "^12.2.0"
   },
   "devDependencies": {
