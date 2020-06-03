@@ -6,7 +6,11 @@ export const environment = {
   production: false,
 
   app: {
-    title: 'Ares ~ '
+    title: 'Ares ~ ',
+
+    // Language
+    fallbackLanguage: 'de',
+    defaultLang: 'de',
   }
 };
 

@@ -6,9 +6,6 @@ import { TranslatePipe } from '@ngx-translate/core';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  providers: [
-    TranslatePipe
-  ]
 })
 export class HomeComponent implements OnInit {
 
