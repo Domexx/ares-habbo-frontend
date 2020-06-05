@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { TitleService } from 'src/app/services/title.service';
-import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-home',

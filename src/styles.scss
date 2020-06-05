@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+/**
+  * @template ARES - 2020
+  * @author necmi & madness
+  * @license GNU General Public License v3.0 <https://gitlab.com/arescms/ares-frontend/-/blob/master/LICENSE>
+  */
+
+@import 'fonts.scss';
+
+html {
+  body {
+    height: 100vh;
+    background-color: #202225;
+    font-family: 'Titillium Web', sans-serif;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+main {
+  flex: 1;
+}
+
+.ares--logo {
+    background-image: url('./assets/images/logo.png');
+    background-repeat: no-repeat;
+    height: 3.6rem;
+    width: 6.5rem;
+}

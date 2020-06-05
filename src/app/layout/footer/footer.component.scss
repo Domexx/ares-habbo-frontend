@@ -1,0 +1,16 @@
+:host {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100vw;
+    height: 9.5rem;
+    background-color: #1B1D20;
+    font-size: 15px;
+}
+
+p {
+    opacity: .7;
+}
+
+.bg-dark {
+    background-color: #151719 !important;
+}
