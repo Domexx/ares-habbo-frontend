@@ -15,6 +15,12 @@
         }
     },
 
+    "DASHBOARD": {
+        "HERO": {
+            "PAGE": "<h5 class='mb-0'>Hallo {{ username }}!</h5> <span>Here are your important tasks, updates and alerts.</span>"
+        }
+    },
+
     "FOOTER": {
         "RIGHTS_RESERVED": "&nbsp; &copy; 2020. Alle Rechte an dieser Website vorbehalten.",
         "NOT_SULAKE": "Diese Website gehört nicht der Sulake Corporation und wird nicht von Habbo Hotel &reg; betrieben."

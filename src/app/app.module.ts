@@ -15,6 +15,7 @@ import { TitleService } from './services/title.service';
 import { environment } from 'src/environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from './modules/layout/layout.module';
+import { LanguageService } from './services/language.service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/lang/', '.json');
@@ -45,9 +46,15 @@ export function HttpLoaderFactory(http: HttpClient) {
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(private translate: TranslateService) {
-    translate.addLangs(['en', 'de']);
+  constructor(private translate: TranslateService,
+              private languageService: LanguageService) {
+    translate.addLangs(['en', 'de', 'tr']);
     translate.setDefaultLang(environment.app.defaultLang);
-    translate.use(environment.app.useLang);
+
+    if (translate.getLangs().indexOf(this.languageService.language) === -1) {
+      this.languageService.language = environment.app.defaultLang;
+    }
+
+    translate.use(this.languageService.language);
   }
 }

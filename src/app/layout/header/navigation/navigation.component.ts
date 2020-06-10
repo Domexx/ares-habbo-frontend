@@ -8,11 +8,18 @@ import { environment } from 'src/environments/environment';
 })
 export class NavigationComponent implements OnInit {
   hotelName: string;
+  isCollapsed = false;
+  navbarHeight: number;
 
   constructor() { }
 
   ngOnInit(): void {
     this.hotelName = environment.app.hotelName;
+    this.navbarHeight = $('.navbar').height();
+  }
+
+  toggle() {
+    this.isCollapsed = !this.isCollapsed;
   }
 
 }

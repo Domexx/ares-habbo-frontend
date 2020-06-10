@@ -37,6 +37,11 @@ main {
 .ares--hero {
   height: 13rem;
   margin-bottom: 1.5rem;
+  position: relative;
+
+  & > .container {
+    height: 100%;
+  }
 }
 
 /* icons */
@@ -51,6 +56,13 @@ main {
   height: 2.5rem;
   padding-right: 3.5rem;
   margin-top: -6px;
+}
+
+.icon--gift {
+  background-image: url('./assets/images/icons/gift.png');
+  background-repeat: no-repeat;
+  height: 24px;
+  width: 24px;
 }
 
 .icon--dashboard {
@@ -82,6 +94,13 @@ main {
 
 .icon--lang-en {
   background-image: url('./assets/images/icons/lang/en.png');
+  background-repeat: no-repeat;
+  height: 32px;
+  width: 22px;
+}
+
+.icon--lang-tr {
+  background-image: url('./assets/images/icons/lang/tr.png');
   background-repeat: no-repeat;
   height: 32px;
   width: 22px;

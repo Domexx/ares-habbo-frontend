@@ -1,31 +1,31 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { TranslateService } from '@ngx-translate/core';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LanguageService {
-  languages: string[];
+  private currentLangSubject: BehaviorSubject<string>;
+  public currentLang: Observable<string>;
 
   constructor(private translateService: TranslateService) {
-    if (this.language === null || typeof this.language === 'undefined') {
-      this.language = this.translateService.getBrowserCultureLang();
+    if (!localStorage.getItem('ares-lang')) {
+      localStorage.setItem('ares-lang', this.translateService.getBrowserLang());
     }
 
-    this.languages = this.translateService.getLangs();
-
-    if (this.languages.indexOf(this.language) === -1) {
-      this.language = environment.app.defaultLang;
-    }
+    this.currentLangSubject = new BehaviorSubject<string>(localStorage.getItem('ares-lang'));
+    this.currentLang = this.currentLangSubject.asObservable();
   }
 
   set language(lang: string) {
-    this.translateService.use(lang);
     localStorage.setItem('ares-lang', lang);
+    this.currentLangSubject.next(lang);
+    this.translateService.use(lang);
   }
 
   get language(): string {
-    return localStorage.getItem('ares-lang');
+    return this.currentLangSubject.value;
   }
 }

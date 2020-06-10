@@ -1,5 +1,8 @@
 <section class="ares--hero bg-red">
+    <div id="asteroids"></div>
+    <div id="room"></div>
 
+    <div class="container" [innerHTML]="'DASHBOARD.HERO.PAGE' | translate: { username: 'necmi' }"></div>
 </section>
 
 <section id="ares--settings">
@@ -7,6 +10,9 @@
         <ul class="float-right">
             <li (click)="switchLanguage(lang)" *ngFor="let lang of languages" [class.active]='lang === languageService.language'>
                 <div [class]="'icon--lang-' + lang"></div>
+            </li>
+            <li>
+                <div class="icon--gift"></div>
             </li>
         </ul>
     </div>

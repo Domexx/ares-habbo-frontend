@@ -12,6 +12,6 @@ export class AppComponent implements OnInit {
               private languageService: LanguageService) { }
 
   ngOnInit(): void {
-    
+
   }
 }

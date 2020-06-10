@@ -15,6 +15,12 @@
             }
         }
     },
+
+    "DASHBOARD": {
+        "HERO": {
+            "PAGE": "<h5 class='mb-0'>Hello {{ username }}!</h5> <span>Here are your important tasks, updates and alerts.</span>"
+        }
+    },
     
     "FOOTER": {
         "RIGHTS_RESERVED": "&nbsp; &copy; 2020. All rights reserved.",
