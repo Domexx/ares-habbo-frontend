@@ -1,0 +1,27 @@
+.ares--hero {
+    background-image: url('../../../assets/images/hero/asteriods.png');
+    background-repeat: no-repeat;
+    background-position: top left;
+}
+
+#ares--settings {
+    ul {
+        padding: 0;
+        
+        & > li {
+            list-style-type: none;
+            background-color: var(--main-bg-gray);
+            float: left;
+            padding: .5rem 1rem;
+            cursor: pointer;
+            margin-right: 1rem;
+            border-radius: 4px;
+            transition: all .3s;
+        
+            &:hover,
+            &.active {
+                background-color: var(--main-bg-red);
+            }
+        }
+    }
+}

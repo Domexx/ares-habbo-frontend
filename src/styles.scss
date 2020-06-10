@@ -11,6 +11,7 @@
   --main-font-color: #fff;
   --main-bg-red: #B41030;
   --main-bg-dark: #1C1D20;
+  --main-bg-gray: #292B2F;
 }
 
 html {
@@ -27,10 +28,15 @@ main {
 }
 
 .ares--logo {
-    background-image: url('./assets/images/logo.png');
-    background-repeat: no-repeat;
-    height: 3.6rem;
-    width: 6.5rem;
+  background-image: url('./assets/images/logo.png');
+  background-repeat: no-repeat;
+  height: 3.6rem;
+  width: 6.5rem;
+}
+
+.ares--hero {
+  height: 13rem;
+  margin-bottom: 1.5rem;
 }
 
 /* icons */
@@ -45,6 +51,40 @@ main {
   height: 2.5rem;
   padding-right: 3.5rem;
   margin-top: -6px;
+}
+
+.icon--dashboard {
+  background-image: url('./assets/images/icons/dashboard.png');
+  background-repeat: no-repeat;
+}
+
+.icon--articles {
+  background-image: url('./assets/images/icons/articles.png');
+  background-repeat: no-repeat;
+}
+
+.icon--employees {
+  background-image: url('./assets/images/icons/employees.png');
+  background-repeat: no-repeat;
+}
+
+.icon--settings {
+  background-image: url('./assets/images/icons/settings.png');
+  background-repeat: no-repeat;
+}
+
+.icon--lang-de {
+  background-image: url('./assets/images/icons/lang/de.png');
+  background-repeat: no-repeat;
+  height: 32px;
+  width: 22px;
+}
+
+.icon--lang-en {
+  background-image: url('./assets/images/icons/lang/en.png');
+  background-repeat: no-repeat;
+  height: 32px;
+  width: 22px;
 }
 
 /* form-control */
@@ -80,4 +120,13 @@ main {
 
 .bg-dark {
   background-color: var(--main-bg-dark) !important;
+}
+
+.bg-gray {
+  background-color: var(--main-bg-gray) !important;
+}
+
+/* utilities */
+.cursor-pointer {
+  cursor: pointer;
 }

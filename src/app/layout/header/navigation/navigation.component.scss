@@ -1,31 +1,55 @@
 .navbar {
-    height: 4.5rem;
+    height: 6rem;
+
+    & .navbar-brand {
+        margin-right: 2rem;
+    }
 
     & #navbar {
         .navbar-nav {
             .nav-item {
-                &.active {
-                    .nav-link {
-
-                    }
-                }
-
                 .nav-link {
                     text-transform: uppercase;
                     font-weight: 600;
                     position: relative;
-                    letter-spacing: .1rem;
+                    transition: color .3s;
+
+                    &.active {
+                        color: #fff;
+                    }
 
                     &::before {
                         content: '';
                         display: inline-flex;
                         position: absolute;
                         left: 0;
-                        top: -1rem;
-                        height: 5rem;
+                        top: -.4rem;
+                        height: 3.5rem;
                         width: 2px;
                         border-left: 2px solid var(--main-bg-color);
                     }
+
+                    &:hover,
+                    &:focus,
+                    &.active {
+                        color: #fff;
+                    }
+                }
+
+                .icon--dashboard {
+                    background-position: center center;
+                }
+
+                .icon--articles {
+                    background-position: center center;
+                }
+
+                .icon--employees {
+                    background-position: center center;
+                }
+
+                .icon--settings {
+                    background-position: center center;
                 }
 
                 &:last-child > .nav-link::after {
@@ -33,8 +57,8 @@
                     display: inline-flex;
                     position: absolute;
                     right: 0;
-                    top: -1rem;
-                    height: 5rem;
+                    top: -.4rem;
+                    height: 3.5rem;
                     width: 2px;
                     border-left: 2px solid var(--main-bg-color);
                 }
