@@ -1,7 +1,17 @@
-<app-header></app-header>
+<ng-container *ngIf="userService.isAuthenthicated(); else guest">
+    <app-header></app-header>
 
-<main>
-    <router-outlet></router-outlet>
-</main>
+    <main>
+        <router-outlet></router-outlet>
+    </main>
 
-<app-footer></app-footer>
+    <app-footer></app-footer>
+</ng-container>
+
+<ng-template #guest>
+    <main>
+        <router-outlet></router-outlet>
+    </main>
+    
+    <app-footer></app-footer>
+</ng-template>

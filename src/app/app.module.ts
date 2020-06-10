@@ -37,7 +37,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     }),
     HomeModule,
-    LayoutModule
+    LayoutModule,
   ],
   providers: [
     TitleService

@@ -6,14 +6,19 @@
 
 @import 'fonts.scss';
 
+:root {
+  --main-bg-color: #202225;
+  --main-font-color: #fff;
+  --main-bg-red: #B41030;
+  --main-bg-dark: #1C1D20;
+}
+
 html {
   body {
     height: 100vh;
-    background-color: #202225;
+    background-color: var(--main-bg-color);
     font-family: 'Titillium Web', sans-serif;
-    color: #fff;
-    display: flex;
-    flex-direction: column;
+    color: var(--main-font-color);
   }
 }
 
@@ -26,4 +31,53 @@ main {
     background-repeat: no-repeat;
     height: 3.6rem;
     width: 6.5rem;
+}
+
+/* icons */
+.icons--key::before {
+  content: " ";
+  display: block;
+  background-image: url('./assets/images/icons/key.png');
+  background-repeat: no-repeat;
+  background-size: 2.2rem;
+  background-position: center center;
+  width: 1rem;
+  height: 2.5rem;
+  padding-right: 3.5rem;
+  margin-top: -6px;
+}
+
+/* form-control */
+.form-control {
+  background-color: #292B2F;
+  border: none;
+  border-radius: 2px;
+}
+
+/* alerts */
+.alert {
+  border-color: transparent;
+  color: #fff;
+  display: flex;
+  padding: .5rem 0 0 .5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.75);
+  
+  &.alert-danger {
+    background-color: #B41030;
+  }
+
+  &.icons--key {
+    line-height: 1.5rem;
+  }
+}
+
+/* bg */
+.bg-red {
+  background-color: var(--main-bg-red) !important;
+}
+
+.bg-dark {
+  background-color: var(--main-bg-dark) !important;
 }

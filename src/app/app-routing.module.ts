@@ -6,6 +6,11 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
     pathMatch: 'full'
+  },
+
+  {
+    path: 'me',
+    loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule),
   }
 ];
 

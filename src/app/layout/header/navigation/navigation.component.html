@@ -1,1 +1,28 @@
-<p>navigation works!</p>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+    <div class="container">
+        <a class="navbar-brand" routerLink="/">Top navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink='dashboard'>Dashboard</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="articles" translate='NAVIGATOR.NEWS'></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" routerLink='employees' translate='NAVIGATOR.EMPLOYEES'></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" routerLink='settings' translate='NAVIGATOR.SETTINGS'></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

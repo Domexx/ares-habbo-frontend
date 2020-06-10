@@ -1,4 +1,21 @@
 {
+    "NAVIGATOR": {
+        "NEWS": "neuigkeiten",
+        "EMPLOYEES": "employees",
+        "SETTINGS": "settings"
+    },
+
+    "HOME": {
+        "ALERT": "Logge dich jetzt ein und werde ein Teil einer tollen Community.",
+
+        "FORM": {
+            "INPUT": {
+                "USERNAME": "Username",
+                "PASSWORD": "Password"
+            }
+        }
+    },
+    
     "FOOTER": {
         "RIGHTS_RESERVED": "&nbsp; &copy; 2020. All rights reserved.",
         "NOT_SULAKE": "This website is not owned by Sulake Corporation and is not operated by Habbo Hotel &reg;."
