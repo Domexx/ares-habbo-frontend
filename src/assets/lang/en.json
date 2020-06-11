@@ -12,7 +12,9 @@
             "INPUT": {
                 "USERNAME": "Username",
                 "PASSWORD": "Password"
-            }
+            },
+
+            "BUTTON": "Sign In"
         }
     },
 

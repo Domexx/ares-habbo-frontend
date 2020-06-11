@@ -3,21 +3,23 @@
         <div class="container login--container">
             <div class="alert alert-danger icons--key" [translate]="'HOME.ALERT'"></div>
 
-            <form class="mt-5">
+            <form [formGroup]="authForm" (submit)="onSubmit()" class="mt-5">
                 <div class="form-group">
-                    <input type="text" class="form-control p-4" [placeholder]="'HOME.FORM.INPUT.USERNAME' | translate" />
+                    <input type="text" class="form-control p-4" formControlName="username" [placeholder]="'HOME.FORM.INPUT.USERNAME' | translate" required autocomplete="username" />
                 </div>
 
                 <div class="form-group">
-                    <input type="password" class="form-control p-4" [placeholder]="'HOME.FORM.INPUT.PASSWORD' | translate" />
+                    <input type="password" class="form-control p-4" formControlName="password" [placeholder]="'HOME.FORM.INPUT.PASSWORD' | translate" required autocomplete="current-password" />
                 </div>
+
+                <button class="btn btn-danger" [translate]="'HOME.FORM.BUTTON'"></button>
             </form>
         </div>
     </div>
 
     <div class="col-6 bg-red">
         <div class="room">
-            <img src="../../../assets/images/rooms/vip.png" alt="second slide" style="display: block; width: 100%;">
+            <img src="../../../assets/images/rooms/vip.png" alt="second slide">
         </div>
     </div>
 </div>
