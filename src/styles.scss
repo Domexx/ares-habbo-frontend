@@ -107,6 +107,13 @@ main {
   width: 22px;
 }
 
+.icon--credits {
+  background-image: url('./assets/images/icons/credits.png');
+  background-repeat: no-repeat;
+  height: 32px;
+  width: 22px;
+}
+
 /* form-control */
 .form-control {
   background-color: #292B2F;
@@ -131,6 +138,11 @@ main {
   &.icons--key {
     line-height: 1.5rem;
   }
+}
+
+/* cards */
+.card {
+  background-color: #292B2F;
 }
 
 /* bg */

@@ -2,18 +2,67 @@
     <div id="asteroids"></div>
     <div id="room"></div>
 
-    <div class="container" [innerHTML]="'DASHBOARD.HERO.PAGE' | translate: { username: user.username }"></div>
+    <div class="container" [innerHTML]="'DASHBOARD.HERO.PAGE' | translate: { username: user?.username }"></div>
 </section>
 
-<section id="ares--settings">
-    <div class="container">
-        <ul class="float-right">
-            <li (click)="switchLanguage(lang)" *ngFor="let lang of languages" [class.active]='lang === languageService.language'>
-                <div [class]="'icon--lang-' + lang"></div>
-            </li>
-            <li>
-                <div class="icon--gift"></div>
-            </li>
-        </ul>
+<div class="container">
+    <ul id="ares--lang">
+        <li (click)="switchLanguage(lang)" *ngFor="let lang of languages" [class.active]='lang === languageService.language'>
+            <div [class]="'icon--lang-' + lang"></div>
+        </li>
+        <li>
+            <div class="icon--gift"></div>
+        </li>
+    </ul>
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card card-default">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-3 d-flex justify-content-center">
+                            <div class="user--figure" [style.backgroundImage]="'url('+ look + ')'"></div>
+                        </div>
+
+                        <div class="col-5">
+                            {{ user?.username }}
+                        </div>
+
+                        <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                            <div class="row pt-3">
+                                <div class="col-4">
+                                    <div class="user--info credits">
+                                        <div class="img-wrapper">
+                                            <img src="../../../assets/images/icons/credits.png" />
+                                        </div>
+
+                                        <p>{{ user?.credits }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-4">
+                                    <div class="user--info diamonds">
+                                        <div class="img-wrapper">
+                                            <img src="../../../assets/images/icons/diamonds.png" />
+                                        </div>
+                                        <p>{{ user?.points }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-4">
+                                    <div class="user--info duckets">
+                                        <div class="img-wrapper">
+                                            <img src="../../../assets/images/icons/duckets.png" />
+                                        </div>
+                                        
+                                        <p>{{ user?.pixels }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</section>
+</div>

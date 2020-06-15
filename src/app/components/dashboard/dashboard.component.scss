@@ -34,6 +34,47 @@
     }
 }
 
+.user--figure {
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    background-position: 0 -2rem;
+    background-size: 90%;
+}
+
+.user--info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bold;
+
+    & > .img-wrapper {
+        min-height: 32px;
+        
+        & > img {
+            width: fit-content;
+        }
+    }
+
+    & > p {
+        padding-top: .6rem;
+    }
+
+    &.credits {
+        color: #F4AB53;
+    }
+
+    &.diamonds {
+        color: #82D6DB;
+    }
+
+    &.duckets {
+        color: #CF58B9;
+    }
+}
+
 @media (max-width: 768px) {  
     .ares--hero {
         #asteroids {
@@ -46,27 +87,28 @@
     }
 }
 
-#ares--settings {
-    ul {
-        padding: 0;
-        
-        & > li {
-            list-style-type: none;
-            background-color: var(--main-bg-gray);
-            float: left;
-            padding: .5rem 1rem;
-            cursor: pointer;
-            margin-right: 1rem;
-            border-radius: 4px;
-            transition: all .3s;
-            box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.3803921568627451);
-            height: 3rem;
-            max-height: 3rem;
-        
-            &:hover,
-            &.active {
-                background-color: var(--main-bg-red);
-            }
+#ares--lang {
+    padding: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    & > li {
+        list-style-type: none;
+        background-color: var(--main-bg-gray);
+        float: left;
+        padding: .5rem 1rem;
+        cursor: pointer;
+        margin-right: 1rem;
+        border-radius: 4px;
+        transition: all .3s;
+        box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.3803921568627451);
+        height: 3rem;
+        max-height: 3rem;
+    
+        &:hover,
+        &.active {
+            background-color: var(--main-bg-red);
         }
     }
 }

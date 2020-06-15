@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LayoutModule } from './modules/layout/layout.module';
 import { LanguageService } from './services/language.service';
 import { JwtInterceptor } from './handlers/auth/jwt.interceptor';
+import { ErrorInterceptor } from './handlers/auth/error.interceptor';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/lang/', '.json');
@@ -44,6 +45,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [
     TitleService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })
