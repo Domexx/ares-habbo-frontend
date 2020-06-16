@@ -135,6 +135,13 @@
 }
 
 .article {
+    transition: all 0.15s;
+
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 14px rgba(0,0,0,0.16);
+    }
+
     & .article--info {
         .article--user {
             width: 32px;
@@ -169,6 +176,12 @@
         height: 80px;
         border-radius: 5px;
         position: relative;
+
+        & > img {
+            width: 100%;
+            object-fit: cover;
+            height: 80px;
+        }
     }
 
     & .article--title {
