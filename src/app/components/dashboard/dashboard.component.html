@@ -15,20 +15,31 @@
         </li>
     </ul>
 
-    <div class="row">
+    <div class="row mb-4">
         <div class="col-12">
             <div class="card card-default">
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-3 d-flex justify-content-center">
+                        <div class="col-sm-4 col-md-4 col-lg-2 col-xl-2 d-flex justify-content-center">
                             <div class="user--figure" [style.backgroundImage]="'url('+ look + ')'"></div>
                         </div>
 
-                        <div class="col-5">
-                            {{ user?.username }}
+                        <div class="col-sm-8 col-md-8 col-lg-7 col-xl-7 d-flex flex-column">
+                            <h4 class="user-name m-0">{{ user?.username }}</h4>
+
+                            <div class="d-inline-flex">
+                                <strong [translate]="'DASHBOARD.YOUR_RANK'"></strong> <i>Beginner</i>
+                            </div>
+
+                            <div class="d-inline-flex pt-3">
+                                <div class="icon--xp pr-4"></div>
+                                <div class="progress experience-bar w-75">
+                                    <div class="progress-bar w-75">4000 / 5000</div>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                        <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3">
                             <div class="row pt-3">
                                 <div class="col-4">
                                     <div class="user--info credits">
@@ -61,6 +72,99 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-2">
+                    <div class="card article">
+                        <div class="card-body">
+                            <div class="article--info d-flex align-items-center">
+                                <div class="article--user">
+                                    <img src="https://www.habbo.com.br/habbo-imaging/avatarimage?&amp;user=OGabrielBraga&amp;action=std&amp;direction=3&amp;head_direction=3&amp;img_format=png&amp;gesture=std&amp;headonly=0&amp;size=s">
+                                </div>
+                                <span>necmi</span>
+
+                                <div class="d-flex align-items-center">
+                                    <span class="article--date">22.06.2020</span>
+                                </div>
+                            </div>
+
+                            <div class="article--thumb mt-2">
+                                <img src="">
+                            </div>
+
+                            <p class="article--title">Room of the Week</p>
+                            <span class="article--description">
+                                Gib dir mühe for the best room and you will win amenakoi so geht das
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-2">
+                    <div class="card article">
+                        <div class="card-body">
+                            <div class="article--info d-flex align-items-center">
+                                <div class="article--user">
+                                    <img src="https://www.habbo.com.br/habbo-imaging/avatarimage?&amp;user=OGabrielBraga&amp;action=std&amp;direction=3&amp;head_direction=3&amp;img_format=png&amp;gesture=std&amp;headonly=0&amp;size=s">
+                                </div>
+
+                                <span>necmi</span>
+
+                                <div class="d-flex align-items-center">
+                                    <span class="article--date">22.06.2020</span>
+                                </div>
+                            </div>
+
+                            <div class="article--thumb mt-2">
+                                <img src="">
+                            </div>
+
+                            <p class="article--title">Room of the Week</p>
+                            <span class="article--description">
+                                Gib dir mühe for the best room and you will win amenakoi so geht das
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-2">
+                    <div class="card article">
+                        <div class="card-body">
+                            <div class="article--info d-flex align-items-center">
+                                <div class="article--user">
+                                    <img src="https://www.habbo.com.br/habbo-imaging/avatarimage?&amp;user=OGabrielBraga&amp;action=std&amp;direction=3&amp;head_direction=3&amp;img_format=png&amp;gesture=std&amp;headonly=0&amp;size=s">
+                                </div>
+                                <span>necmi</span>
+
+                                <div class="d-flex align-items-center">
+                                    <span class="article--date">22.06.2020</span>
+                                </div>
+                            </div>
+
+                            <div class="article--thumb mt-2">
+                                <img src="">
+                            </div>
+
+                            <p class="article--title">Room of the Week</p>
+                            <span class="article--description">
+                                Gib dir mühe for the best room and you will win amenakoi so geht das
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-4">
+            <div class="card">
+                <div class="card-body">
+                    <h3>PLACEHOLDER</h3>
                 </div>
             </div>
         </div>
