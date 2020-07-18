@@ -1,11 +1,9 @@
 <div class="row h-100">
-  <div class="col-xl-5 col-lg-5 col-md-12 col-lg-12 mb-xl-0 mb-lg-0 mb-5 px-4">
-    <div class="container d-flex flex-column">
+  <div class="col-xl-5 col-lg-5 col-md-12 col-lg-12 mb-xl-0 mb-lg-0 mb-5">
+    <div class="container w-75 d-flex flex-column mt-middle mt-md-2 mt-sm-2">
       <img src="logo.png" class="my-5 mx-auto"/>
 
-      <div class="alert alert-danger icons--key" [translate]="'HOME.ALERT'"></div>
-
-      <form [formGroup]="authForm" (submit)="onSubmit()" class="mt-5">
+      <form [formGroup]="authForm" (submit)="onSubmit()">
         <div class="mb-3">
           <label for="username" class="form-label" [translate]="'HOME.FORM.INPUT.USERNAME.LABEL'"></label>
           <input type="text" id="username" class="form-control p-4" formControlName="username" required
@@ -19,7 +17,7 @@
                  autocomplete="current-password"/>
         </div>
 
-        <button class="btn btn-danger float-right" [translate]="'HOME.FORM.BUTTON'"></button>
+        <button class="btn btn-danger w-100 mt-2" [translate]="'HOME.FORM.BUTTON'"></button>
       </form>
     </div>
   </div>

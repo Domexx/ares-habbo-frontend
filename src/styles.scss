@@ -140,6 +140,10 @@ main {
   border-radius: 2px;
 }
 
+.btn {
+  padding: .8rem;
+}
+
 /* alerts */
 .alert {
   border-color: transparent;
@@ -183,4 +187,8 @@ main {
 /* utilities */
 .cursor-pointer {
   cursor: pointer;
+}
+
+.mt-middle {
+  margin-top: calc(100vh - 85vh);
 }

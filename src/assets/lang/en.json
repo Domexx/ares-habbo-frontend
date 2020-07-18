@@ -7,12 +7,15 @@
   "HOME": {
     "ALERT": "Logge dich jetzt ein und werde ein Teil einer tollen Community.",
     "FORM": {
-      "USERNAME": {
-        "LABEL": "Username",
-        "HELP": "You can also sign in with your E-Mail address"
-      },
-      "PASSWORD": {
-        "LABEL": "Password"
+      "INPUT": {
+        "USERNAME": {
+          "LABEL": "Username",
+          "HELP": "You can also sign in with your E-Mail address"
+        },
+        "PASSWORD": {
+          "LABEL": "Password"
+        },
+        "EMPTY": "Please provide a username and password."
       },
       "BUTTON": "Sign In"
     }
