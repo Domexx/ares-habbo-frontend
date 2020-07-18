@@ -1,33 +1,30 @@
 {
-    "NAVIGATOR": {
-        "NEWS": "news",
-        "EMPLOYEES": "employees",
-        "SETTINGS": "settings"
-    },
-
-    "HOME": {
-        "ALERT": "Logge dich jetzt ein und werde ein Teil einer tollen Community.",
-
-        "FORM": {
-            "INPUT": {
-                "USERNAME": "Username",
-                "PASSWORD": "Password"
-            },
-
-            "BUTTON": "Sign In"
-        }
-    },
-
-    "DASHBOARD": {
-        "HERO": {
-            "PAGE": "<h5 class='mb-0'>Hello {{ username }}!</h5> <span>Here are your important tasks, updates and alerts.</span>"
-        },
-
-        "YOUR_RANK": "YOUR RANK:"
-    },
-    
-    "FOOTER": {
-        "RIGHTS_RESERVED": "&nbsp; &copy; 2020. All rights reserved.",
-        "NOT_SULAKE": "This website is not owned by Sulake Corporation and is not operated by Habbo Hotel &reg;."
+  "NAVIGATOR": {
+    "NEWS": "news",
+    "EMPLOYEES": "employees",
+    "SETTINGS": "settings"
+  },
+  "HOME": {
+    "ALERT": "Logge dich jetzt ein und werde ein Teil einer tollen Community.",
+    "FORM": {
+      "USERNAME": {
+        "LABEL": "Username",
+        "HELP": "You can also sign in with your E-Mail address"
+      },
+      "PASSWORD": {
+        "LABEL": "Password"
+      },
+      "BUTTON": "Sign In"
     }
+  },
+  "DASHBOARD": {
+    "HERO": {
+      "PAGE": "<h5 class='mb-0'>Hello {{ username }}!</h5> <span>Here are your important tasks, updates and alerts.</span>"
+    },
+    "YOUR_RANK": "YOUR RANK:"
+  },
+  "FOOTER": {
+    "RIGHTS_RESERVED": "&nbsp; &copy; 2020. All rights reserved.",
+    "NOT_SULAKE": "This website is not owned by Sulake Corporation and is not operated by Habbo Hotel &reg;."
+  }
 }

@@ -4,6 +4,7 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { UserService } from 'src/app/services/user.service';
 import { Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import {AlertService} from '../../services/alert.service';
 
 @Component({
   selector: 'app-home',
@@ -20,13 +21,16 @@ export class HomeComponent implements OnInit, OnDestroy {
   constructor(private titleService: TitleService,
               private formBuilder: FormBuilder,
               private userService: UserService,
-              private router: Router) { }
+              private router: Router,
+              private alertService: AlertService) { }
 
   ngOnInit(): void {
     this.authForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
+
+    this.alertService.error("test");
 
     this.titleService.setTitle('Home');
   }

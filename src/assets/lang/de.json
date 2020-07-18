@@ -9,8 +9,13 @@
         "ALERT": "Logge dich jetzt ein und werde ein Teil einer tollen Community.",
         "FORM": {
             "INPUT": {
-                "USERNAME": "Benutzername",
-                "PASSWORD": "Passwort"
+                "USERNAME": {
+                  "LABEL": "Benutzername",
+                  "HELP": "Du kannst dich auch mit deiner E-Mail Addresse anmelden"
+                },
+                "PASSWORD": {
+                  "LABEL": "Passwort"
+                }
             },
 
             "BUTTON": "Anmelden"
