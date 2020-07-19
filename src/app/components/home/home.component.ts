@@ -1,12 +1,13 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
-import { TitleService } from 'src/app/services/title.service';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
-import { UserService } from 'src/app/services/user.service';
-import { Subscription } from 'rxjs';
-import { Router } from '@angular/router';
+import {Component, OnInit, OnDestroy} from '@angular/core';
+import {TitleService} from 'src/app/services/title.service';
+import {FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
+import {UserService} from 'src/app/services/user.service';
+import {Subscription} from 'rxjs';
+import {Router} from '@angular/router';
 import {AlertService} from '../../services/alert.service';
 import {HttpErrorResponse} from '@angular/common/http';
 import {TranslateService} from '@ngx-translate/core';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -14,19 +15,22 @@ import {TranslateService} from '@ngx-translate/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit, OnDestroy {
+  hotelName = environment.app.hotelName || 'Ares';
+  registerAnchor = `<a routerLink="/register">${this.translateService.instant('HOME.NO_ACCOUNT.ANCHOR')}</a>`;
+
   authForm: FormGroup;
-  isSubmited = false;
+  submitted = false;
 
   authSubscription: Subscription;
   userSubscription: Subscription;
-  translationSubscription: Subscription;
 
   constructor(private titleService: TitleService,
               private formBuilder: FormBuilder,
               private userService: UserService,
               private router: Router,
               private alertService: AlertService,
-              private translateService: TranslateService) { }
+              private translateService: TranslateService) {
+  }
 
   ngOnInit(): void {
     this.authForm = this.formBuilder.group({
@@ -38,14 +42,10 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(): void {
-    this.isSubmited = true;
+    this.submitted = true;
 
     if (!this.f.username.value || !this.f.password.value) {
-      this.translationSubscription = this.translateService.get('HOME.FORM.INPUT.EMPTY').subscribe({
-        next: (value: string) => this.alertService.error(value),
-        error: () => this.alertService.error('Please enter your username and password')
-      });
-
+      this.alertService.error(this.translateService.instant('HOME.FORM.INPUT.EMPTY'));
       return;
     }
 
@@ -67,10 +67,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     if (this.userSubscription && !this.userSubscription.closed) {
       this.userSubscription.unsubscribe();
-    }
-
-    if (this.translationSubscription && !this.translationSubscription) {
-      this.translationSubscription.unsubscribe();
     }
   }
 

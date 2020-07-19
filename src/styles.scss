@@ -136,8 +136,16 @@ main {
 /* form-control */
 .form-control {
   background-color: #292B2F;
-  border: none;
   border-radius: 2px;
+  border: 1px solid #373a40 !important;
+  transition: .25s background-color;
+  color: #fff;
+
+  &:focus {
+    box-shadow: unset;
+    background-color: #303235;
+    color: #fff;
+  }
 }
 
 .btn {
@@ -190,5 +198,5 @@ main {
 }
 
 .mt-middle {
-  margin-top: calc(100vh - 85vh);
+  margin-top: calc(100vh - 85vh) !important;
 }

@@ -1,23 +1,23 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppRoutingModule } from './app-routing.module';
+import {AppRoutingModule} from './app-routing.module';
 
-import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS} from '@angular/common/http';
-import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import {HttpClientModule, HttpClient, HTTP_INTERCEPTORS} from '@angular/common/http';
+import {TranslateModule, TranslateLoader, TranslateService} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
-import { HomeModule } from './modules/home/home.module';
+import {HomeModule} from './modules/home/home.module';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
 
-import { TitleService } from './services/title.service';
-import { environment } from 'src/environments/environment';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LayoutModule } from './modules/layout/layout.module';
-import { LanguageService } from './services/language.service';
-import { JwtInterceptor } from './handlers/auth/jwt.interceptor';
-import { ErrorInterceptor } from './handlers/auth/error.interceptor';
+import {TitleService} from './services/title.service';
+import {environment} from 'src/environments/environment';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {LayoutModule} from './modules/layout/layout.module';
+import {LanguageService} from './services/language.service';
+import {JwtInterceptor} from './handlers/auth/jwt.interceptor';
+import {ErrorInterceptor} from './handlers/auth/error.interceptor';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/lang/', '.json');
@@ -25,7 +25,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,9 +34,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserAnimationsModule,
     TranslateModule.forRoot({
       loader: {
-          provide: TranslateLoader,
-          useFactory: (HttpLoaderFactory),
-          deps: [HttpClient]
+        provide: TranslateLoader,
+        useFactory: (HttpLoaderFactory),
+        deps: [HttpClient]
       }
     }),
     HomeModule,
@@ -44,8 +44,8 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [
     TitleService,
-    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
   ],
   bootstrap: [AppComponent]
 })

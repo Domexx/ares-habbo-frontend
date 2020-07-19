@@ -18,6 +18,11 @@
         "EMPTY": "Please provide a username and password."
       },
       "BUTTON": "Sign In"
+    },
+
+    "NO_ACCOUNT": {
+      "TEXT": "Don't have an account yet? ",
+      "ANCHOR": "Join {{ hotelName }}"
     }
   },
   "DASHBOARD": {

@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from '../../components/home/home.component';
-import { RedirectIfAuthenthicatedGuard } from 'src/app/guards/redirect-if-authenthicated.guard';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
+import {HomeComponent} from '../../components/home/home.component';
+import {RedirectIfAuthenthicatedGuard} from 'src/app/guards/redirect-if-authenthicated.guard';
 
 const routes: Routes = [
   {
@@ -15,4 +15,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class HomeRoutingModule { }
+export class HomeRoutingModule {
+}

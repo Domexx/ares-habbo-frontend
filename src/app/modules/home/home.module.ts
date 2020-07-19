@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 
-import { HomeRoutingModule } from './home-routing.module';
-import { HomeComponent } from '../../components/home/home.component';
-import { TranslateModule } from '@ngx-translate/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import {HomeRoutingModule} from './home-routing.module';
+import {HomeComponent} from '../../components/home/home.component';
+import {TranslateModule} from '@ngx-translate/core';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [HomeComponent],
@@ -16,4 +16,5 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   providers: []
 })
-export class HomeModule { }
+export class HomeModule {
+}
