@@ -28,6 +28,17 @@ main {
   flex: 1;
 }
 
+a {
+  color: #888888;
+  text-decoration: none;
+  transition: color .25s;
+
+  &:hover,
+  &:focus {
+    color: #cecbcb;
+  }
+}
+
 .ares--logo {
   background-image: url('./assets/images/logo.png');
   background-repeat: no-repeat;
