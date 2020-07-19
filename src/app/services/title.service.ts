@@ -6,14 +6,10 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class TitleService {
-  
-  constructor(private TITLE: Title) { }
 
-  get title(): string {
-    return this.TITLE.getTitle();
-  }
+  constructor(private title: Title) { }
 
   setTitle(value: string): void {
-    this.TITLE.setTitle(`${environment.app.title} ${value}`);
+    this.title.setTitle(`${environment.app.title} ${value}`);
   }
 }

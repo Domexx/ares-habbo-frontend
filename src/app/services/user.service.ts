@@ -1,10 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from 'src/environments/environment';
-import {map, catchError} from 'rxjs/operators';
+import {map} from 'rxjs/operators';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {User} from '../models/user/User';
-import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
