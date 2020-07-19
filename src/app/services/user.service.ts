@@ -13,10 +13,7 @@ export class UserService {
   private userSubject: BehaviorSubject<User>;
   public user$: Observable<User>;
 
-  constructor(
-    private http: HttpClient,
-    private router: Router
-  ) {
+  constructor(private http: HttpClient) {
     this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('ares-user')));
     this.user$ = this.userSubject.asObservable();
   }
@@ -39,18 +36,18 @@ export class UserService {
   }
 
   logout(): void {
-    if (this.isAuthenthicated) {
-      localStorage.removeItem('ares-token');
-      localStorage.removeItem('ares-user');
-
-      this.userSubject.next(null);
+    if (!this.isAuthenticated) {
+      return;
     }
 
-    this.router.navigateByUrl('/');
+    localStorage.removeItem('ares-token');
+    localStorage.removeItem('ares-user');
+
+    this.userSubject.next(null);
   }
 
-  get isAuthenthicated(): boolean {
-    return this.user && this.token ? true : false;
+  get isAuthenticated(): boolean {
+    return !!(this.user && this.token);
   }
 
   get user(): User {

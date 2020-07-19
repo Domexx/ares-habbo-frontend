@@ -1,6 +1,7 @@
 {
   "NAVIGATOR": {
     "NEWS": "news",
+    "COMMUNITY": "community",
     "EMPLOYEES": "employees",
     "SETTINGS": "settings"
   },

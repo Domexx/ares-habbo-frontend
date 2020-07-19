@@ -9,7 +9,7 @@ import { UserService } from '../services/user.service';
 export class ActiveSessionGuard implements CanActivateChild {
   constructor(private userService: UserService) { }
 
-  canActivateChild(childRoute: ActivatedRouteSnapshot, 
+  canActivateChild(childRoute: ActivatedRouteSnapshot,
                    state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
     this.userService.getUser().subscribe();
     return true;

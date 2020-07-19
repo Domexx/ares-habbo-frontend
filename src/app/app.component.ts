@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {Component, OnInit, OnDestroy, AfterViewInit, ChangeDetectorRef, AfterViewChecked} from '@angular/core';
 import { UserService } from './services/user.service';
 
 @Component({
@@ -6,7 +6,16 @@ import { UserService } from './services/user.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewChecked {
+  isAuthenticated = false;
 
-  constructor(public userService: UserService) { }
+  constructor(
+    private userService: UserService,
+    private cdRef: ChangeDetectorRef
+  ) { }
+
+  ngAfterViewChecked(): void {
+    this.isAuthenticated = this.userService.isAuthenticated;
+    this.cdRef.detectChanges();
+  }
 }
