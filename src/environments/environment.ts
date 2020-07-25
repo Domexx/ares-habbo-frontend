@@ -3,7 +3,7 @@ export const environment = {
 
   app: {
     // API
-    endpoint: 'https://ares.ddev.site',
+    endpoint: 'https://ares.ddev.site/api',
 
     // Website
     hotelName: 'Ares',

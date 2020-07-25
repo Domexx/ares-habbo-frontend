@@ -1,9 +1,8 @@
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
 
-import {ActiveSessionGuard} from './guards/active-session.guard';
-
 import {LogoutComponent} from './components/logout/logout.component';
+import {ActiveSessionGuard} from './guards/active-session.guard';
 import {AuthGuard} from './guards/auth.guard';
 
 const routes: Routes = [
@@ -11,6 +10,10 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
     pathMatch: 'full'
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('./modules/register/register.module').then(m => m.RegisterModule)
   },
   {
     path: 'dashboard',

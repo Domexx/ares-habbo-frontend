@@ -1,0 +1,88 @@
+<div class="d-flex flex-column flex-fill justify-content-center align-items-center h-100">
+  <div class="container h-100 w-75 d-flex flex-column">
+    <div class="d-flex h-100 flex-column justify-content-center align-items-center">
+      <img src="logo.png" class="mb-5 mx-auto mt-5 mt-xl-0 mt-lg-0" alt="Logo" />
+
+      <ul id="form--progress">
+        <li [class]="usernameStep ? 'success' : ''">
+          <img class="progress--icon" src="assets/images/icons/articles.png" />
+          <strong [translate]="'REGISTER.STEPS.USERNAME'"></strong>
+        </li>
+        <li [class]="passwordStep ? 'success' : ''">
+          <img class="progress--icon" src="assets/images/icons/settings.png" />
+          <strong [translate]="'REGISTER.STEPS.PASSWORD'">Passwort</strong>
+        </li>
+        <li [class]="mailStep ? 'success' : ''">
+          <img class="progress--icon" src="assets/images/icons/articles.png" />
+          <strong [translate]="'REGISTER.STEPS.MAIL'"></strong>
+        </li>
+        <li [class]="lookStep ? 'success' : ''">
+          <img class="progress--icon" src="assets/images/icons/articles.png" />
+          <strong [translate]="'REGISTER.STEPS.LOOK'"></strong>
+        </li>
+      </ul>
+
+      <form class="w-50" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div id="step-username" [hidden]="this.usernameStep" [@fadeIn]>
+          <div class="mb-3">
+            <label for="username" class="form-label" [translate]="'REGISTER.FORM.INPUT.USERNAME.LABEL'"></label>
+
+            <input type="text" id="username" class="form-control p-4" formControlName="username" required
+                   autocomplete="username" aria-describedby="usernameHelp" />
+
+            <div id="usernameHelp" class="form-text" [translate]="'HOME.FORM.INPUT.USERNAME.HELP'"></div>
+          </div>
+
+          <button type="button" class="btn btn-danger float-right" (click)="onUsernameSubmit()" translate="REGISTER.FORM.BUTTONS.NEXT"></button>
+        </div>
+
+        <div id="step-password" [hidden]="!this.usernameStep || this.passwordStep" [@fadeIn]>
+          <div class="mb-3">
+            <label for="password" class="form-label" [translate]="'HOME.FORM.INPUT.PASSWORD.LABEL'"></label>
+            <input type="password" id="password" class="form-control p-4" formControlName="password" required
+                   autocomplete="current-password" aria-describedby="passwordHelp" />
+
+            <div id="passwordHelp" class="form-text" [translate]="'HOME.FORM.INPUT.USERNAME.HELP'"></div>
+          </div>
+
+          <div class="mb-3">
+            <label for="confirm-password" class="form-label" [translate]="'HOME.FORM.INPUT.PASSWORD.LABEL'"></label>
+            <input type="password" id="confirm-password" class="form-control p-4" formControlName="confirmPassword" required
+                   autocomplete="current-password" aria-describedby="confirmPasswordHelp" />
+            <div id="confirmPasswordHelp" class="form-text" [translate]="'HOME.FORM.INPUT.USERNAME.HELP'"></div>
+          </div>
+
+          <button type="button" class="btn btn-danger float-left" (click)="switch('username')" translate="REGISTER.FORM.BUTTONS.BACK"></button>
+          <button class="btn btn-danger float-right" (click)="onPasswordSubmit()" translate="REGISTER.FORM.BUTTONS.NEXT"></button>
+        </div>
+
+        <div id="step-mail" [hidden]="!this.passwordStep || this.mailStep" [@fadeIn]>
+          <div class="mb-3">
+            <label for="email" class="form-label" [translate]="'REGISTER.FORM.INPUT.MAIL.LABEL'"></label>
+            <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="email" class="form-control p-4" formControlName="mail" required autocomplete="email" />
+          </div>
+
+          <button type="button" class="btn btn-danger float-left" (click)="switch('password')" translate="REGISTER.FORM.BUTTONS.BACK"></button>
+          <button class="btn btn-danger float-right" (click)="onMailSubmit()" translate="REGISTER.FORM.BUTTONS.NEXT"></button>
+        </div>
+
+        <div id="step-look" [@fadeIn]="this.mailStep" [hidden]="this.mailStep == false">
+          <div class="mb-3">
+            <ul>
+              <li>
+                <span data-toggle="popover" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">test</span>
+              </li>
+            </ul>
+          </div>
+
+          <button type="button" class="btn btn-danger float-left" (click)="switch('mail')" translate="REGISTER.FORM.BUTTONS.BACK"></button>
+          <button type="submit" class="btn btn-danger float-right" translate="REGISTER.FORM.BUTTONS.REGISTER"></button>
+        </div>
+      </form>
+    </div>
+
+    <div class="d-inline-flex flex-fill justify-content-center mt-4 mt-xl-0 mt-lg-0 pb-3">
+      <a routerLink="/" [translate]="'REGISTER.ALREADY.TEXT'"></a>
+    </div>
+  </div>
+</div>

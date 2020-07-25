@@ -164,6 +164,10 @@ a {
   }
 }
 
+.ng-dirty.ng-invalid:not(form) {
+  border: 1px solid #b41030 !important;
+}
+
 .btn {
   padding: .8rem;
 }

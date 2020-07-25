@@ -16,8 +16,8 @@ import {environment} from 'src/environments/environment';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {LayoutModule} from './modules/layout/layout.module';
 import {LanguageService} from './services/language.service';
-import {JwtInterceptor} from './handlers/auth/jwt.interceptor';
-import {ErrorInterceptor} from './handlers/auth/error.interceptor';
+import {JwtInterceptor} from './interceptors/jwt.interceptor';
+import {ErrorInterceptor} from './interceptors/error.interceptor';
 
 import { LogoutComponent } from './components/logout/logout.component';
 

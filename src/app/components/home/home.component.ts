@@ -1,11 +1,10 @@
-import {Component, OnInit, OnDestroy} from '@angular/core';
+import {Component, OnInit, OnDestroy, AfterViewInit} from '@angular/core';
 import {TitleService} from 'src/app/services/title.service';
-import {FormGroup, FormControl, FormBuilder, Validators} from '@angular/forms';
+import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {UserService} from 'src/app/services/user.service';
 import {Subscription} from 'rxjs';
 import {Router} from '@angular/router';
 import {AlertService} from '../../services/alert.service';
-import {HttpErrorResponse} from '@angular/common/http';
 import {TranslateService} from '@ngx-translate/core';
 import {environment} from '../../../environments/environment';
 
@@ -14,15 +13,15 @@ import {environment} from '../../../environments/environment';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   hotelName = environment.app.hotelName || 'Ares';
-  registerAnchor = `<a routerLink="/register">${this.translateService.instant('HOME.NO_ACCOUNT.ANCHOR')}</a>`;
 
   authForm: FormGroup;
   submitted = false;
 
   authSubscription: Subscription;
   userSubscription: Subscription;
+  translateSubscription: Subscription;
 
   constructor(private titleService: TitleService,
               private formBuilder: FormBuilder,
@@ -37,8 +36,10 @@ export class HomeComponent implements OnInit, OnDestroy {
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
+  }
 
-    this.titleService.setTitle('Home');
+  ngAfterViewInit() {
+    console.log(this.translateService.instant('HOME.TITLE'));
   }
 
   onSubmit(): void {
@@ -50,13 +51,9 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
 
     this.authSubscription = this.userService.auth(this.f.username.value, this.f.password.value).subscribe({
-      next: (e) => {
-        this.userSubscription = this.userService.getUser(e.token).subscribe({
-          next: () => this.router.navigateByUrl('/dashboard'),
-          error: (e: HttpErrorResponse) => this.alertService.error(e.error.message)
-        });
-      },
-      error: (e: HttpErrorResponse) => this.alertService.error(e.error.message)
+      next: (e) => this.userSubscription = this.userService.getUser(e).subscribe({
+        next: () => this.router.navigateByUrl('/dashboard')
+      })
     });
   }
 
@@ -67,6 +64,10 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     if (this.userSubscription && !this.userSubscription.closed) {
       this.userSubscription.unsubscribe();
+    }
+
+    if (this.translateSubscription && !this.translateSubscription.closed) {
+      this.translateSubscription.unsubscribe();
     }
   }
 

@@ -6,6 +6,7 @@
     "SETTINGS": "settings"
   },
   "HOME": {
+    "TITLE": "Virtual World, Avatar Chat and Pixel Art",
     "ALERT": "Logge dich jetzt ein und werde ein Teil einer tollen Community.",
     "FORM": {
       "INPUT": {
@@ -25,6 +26,28 @@
       "TEXT": "Don't have an account yet? ",
       "ANCHOR": "Join {{ hotelName }}"
     }
+  },
+  "REGISTER": {
+    "TITLE": "Register",
+
+    "STEPS": {
+      "USERNAME": "Username",
+      "PASSWORD": "Password",
+      "MAIL": "E-Mail",
+      "LOOK": "Look"
+    },
+
+    "FORM": {
+      "INPUT": {
+
+      },
+
+      "BUTTONS": {
+
+      }
+    },
+
+    "ALREADY.TEXT": "Already an account? Take me back!"
   },
   "DASHBOARD": {
     "HERO": {

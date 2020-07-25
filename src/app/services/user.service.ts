@@ -4,6 +4,7 @@ import {environment} from 'src/environments/environment';
 import {map} from 'rxjs/operators';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {User} from '../models/user/User';
+import {LanguageService} from './language.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,24 +13,27 @@ export class UserService {
   private userSubject: BehaviorSubject<User>;
   public user$: Observable<User>;
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient,
+    private languageService: LanguageService
+  ) {
     this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('ares-user')));
     this.user$ = this.userSubject.asObservable();
   }
 
   auth(username: string, password: string) {
-    return this.http.post<any>(`${environment.app.endpoint}/login`, {username, password})
+    return this.http.post<any>(`${environment.app.endpoint}/${this.languageService.language}/login`, {username, password})
       .pipe(
-        map(e => this.token = e.token)
+        map(e => this.token = e.data.token)
       );
   }
 
   getUser(token: string = null) {
-    return this.http.get<any>(`${environment.app.endpoint}/user`, {headers: {Authorization: `Bearer ${token}`}})
+    return this.http.get<any>(`${environment.app.endpoint}/${this.languageService.language}/user`, {headers: {Authorization: `Bearer ${token}`}})
       .pipe(
-        map(user => {
-          localStorage.setItem('ares-user', JSON.stringify(user));
-          this.userSubject.next(user);
+        map(response => {
+          localStorage.setItem('ares-user', JSON.stringify(response.data));
+          this.userSubject.next(response.data);
         })
       );
   }

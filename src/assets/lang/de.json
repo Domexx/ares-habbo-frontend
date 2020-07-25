@@ -6,6 +6,7 @@
     "SETTINGS": "einstellungen"
   },
   "HOME": {
+    "TITLE": "Finde Freunde, habe Spass und werde bemerkt!",
     "ALERT": "Logge dich jetzt ein und werde ein Teil einer tollen Community.",
     "FORM": {
       "INPUT": {
@@ -25,6 +26,51 @@
       "TEXT": "Noch kein Account? ",
       "ANCHOR": "Join {{ hotelName }}"
     }
+  },
+  "REGISTER": {
+    "TITLE": "Registration",
+
+    "STEPS": {
+      "USERNAME": "Benutzername",
+      "PASSWORD": "Passwort",
+      "MAIL": "E-Mail",
+      "LOOK": "Aussehen"
+    },
+
+    "FORM": {
+      "INPUT": {
+        "USERNAME": {
+          "LABEL": "Benutzername",
+          "ERRORS": {
+            "EMPTY": "Bitte gebe einen Benutzernamen ein!"
+          }
+        },
+
+        "PASSWORD": {
+          "LABEL": "Passwort",
+          "ERRORS": {
+            "EMPTY": "Bitte gebe ein Passwort ein!",
+            "NOT_SAME": "Die eingegebenen Passwörter haben nicht den selben Wert!"
+          }
+        },
+
+        "MAIL": {
+          "LABEL": "E-Mail",
+          "ERRORS": {
+            "EMPTY": "Bitte gebe eine E-Mail Adresse ein!",
+            "PATTERN": "Bitte gebe eine gültige E-Mail Adresse ein!"
+          }
+        }
+      },
+
+      "BUTTONS": {
+        "BACK": "Zurück",
+        "NEXT": "Weiter",
+        "REGISTER": "Registrieren"
+      }
+    },
+
+    "ALREADY.TEXT": "Bereits ein Account? Bring mich zurück!"
   },
   "DASHBOARD": {
     "HERO": {
