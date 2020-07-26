@@ -38,15 +38,23 @@ export class UserService {
       );
   }
 
-  logout(): void {
+  logout() {
     if (!this.isAuthenticated) {
       return;
     }
+
+    const token = localStorage.getItem('ares-token');
 
     localStorage.removeItem('ares-token');
     localStorage.removeItem('ares-user');
 
     this.userSubject.next(null);
+
+    return this.http.post<{}>(`${environment.app.endpoint}/${this.languageService.language}/logout`, { }, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
   }
 
   get isAuthenticated(): boolean {
