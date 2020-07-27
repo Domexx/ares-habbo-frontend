@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-community',
+  selector: 'ares-community',
   templateUrl: './community.component.html',
   styleUrls: ['./community.component.scss']
 })

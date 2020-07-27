@@ -1,25 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {TitleService} from '../../services/title.service';
 import {TranslateService} from '@ngx-translate/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {animate, style, transition, trigger} from '@angular/animations';
 import {AlertService} from '../../services/alert.service';
-declare var $:any;
+import {RegisterService} from '../../services/register.service';
+import {Subscription} from 'rxjs';
+import {UserService} from '../../services/user.service';
+import {Router} from '@angular/router';
+
+declare var $;
 
 @Component({
-  selector: 'app-register',
+  selector: 'ares-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
+  providers: [RegisterService],
   animations: [
     trigger('fadeIn', [
       transition('void => *', [
-        style({ opacity: 0 }),
+        style({opacity: 0}),
         animate(500, style({opacity: 1, display: 'block'}))
       ]),
     ]),
   ]
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, OnDestroy {
+  userSubscription: Subscription;
+  usernameSubscription: Subscription;
+  mailSubscription: Subscription;
+  registerSubscription: Subscription;
+
   registerForm: FormGroup;
 
   usernameStep = false;
@@ -31,10 +42,20 @@ export class RegisterComponent implements OnInit {
     private titleService: TitleService,
     private translateService: TranslateService,
     private formBuilder: FormBuilder,
-    private alertService: AlertService
-  ) { }
+    private alertService: AlertService,
+    private registerService: RegisterService,
+    private userService: UserService,
+    private router: Router
+  ) {
+  }
 
   ngOnInit(): void {
+    const body = $('body');
+
+    if (!body.hasClass('register--component')) {
+      body.addClass('register--component');
+    }
+
     this.registerForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
@@ -87,14 +108,19 @@ export class RegisterComponent implements OnInit {
   }
 
   onUsernameSubmit() {
-    if (!this.f.username.value) {
+    const username = this.f.username;
+
+    if (!username.value) {
       this.alertService.error(this.translateService.instant('REGISTER.FORM.INPUT.USERNAME.ERRORS.EMPTY'));
       return;
     }
 
-    // Make call to API and check username is free
-    // if username is then switch to password and set username to true
-    this.switch('password');
+    this.usernameSubscription = this.registerService.register('username', username.value).subscribe({
+      next: () => this.switch('password'),
+      error: () => username.setErrors({
+        incorrect: true
+      })
+    });
   }
 
   onPasswordSubmit() {
@@ -103,15 +129,15 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-    const password = this.f.password.value;
-    const confirmPassword = this.f.confirmPassword.value;
+    const password = this.f.password;
+    const confirmPassword = this.f.confirmPassword;
 
-    if (!password || !confirmPassword) {
-      this.f.password.setErrors({
+    if (!password.value || !confirmPassword.value) {
+      password.setErrors({
         incorrect: true
       });
 
-      this.f.confirmPassword.setErrors({
+      confirmPassword.setErrors({
         incorrect: true
       });
 
@@ -119,14 +145,15 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-    if (confirmPassword !== password) {
-      this.f.password.setErrors({
+    if (confirmPassword.value !== password.value) {
+      password.setErrors({
         incorrect: true
       });
 
-      this.f.confirmPassword.setErrors({
+      confirmPassword.setErrors({
         incorrect: true
       });
+
       this.alertService.error(this.translateService.instant('REGISTER.FORM.INPUT.PASSWORD.ERRORS.NOT_SAME'));
       return;
     }
@@ -154,13 +181,51 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-    this.switch('look');
+    this.mailSubscription = this.registerService.register('mail', mail.value).subscribe({
+      next: () => this.switch('look'),
+      error: () => mail.setErrors({
+        incorrect: true
+      })
+    });
   }
 
   onSubmit() {
     if (this.registerForm.invalid) {
       return;
     }
+
+    this.registerSubscription = this.registerService.register('', {
+      username: this.f.username.value,
+      mail: this.f.mail.value,
+      password: this.f.password.value,
+      password_confirmation: this.f.confirmPassword.value
+    }, true).subscribe({
+      next: (e) => {
+        console.log(e);
+        this.userSubscription = this.userService.getUser(e.data.token).subscribe({next: () => this.router.navigateByUrl('/dashboard')});
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.userSubscription && !this.userSubscription.unsubscribe) {
+      this.userSubscription.unsubscribe();
+    }
+
+    if (this.registerSubscription && !this.registerSubscription.unsubscribe) {
+      this.registerSubscription.unsubscribe();
+    }
+
+    if (this.usernameSubscription && !this.usernameSubscription.unsubscribe) {
+      this.usernameSubscription.unsubscribe();
+    }
+
+    if (this.mailSubscription && !this.mailSubscription.unsubscribe) {
+      this.mailSubscription.unsubscribe();
+    }
+
+    const body = $('body');
+    body.removeClass('register---component');
   }
 
 }

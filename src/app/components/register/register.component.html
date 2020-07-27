@@ -63,7 +63,7 @@
           </div>
 
           <button type="button" class="btn btn-danger float-left" (click)="switch('password')" translate="REGISTER.FORM.BUTTONS.BACK"></button>
-          <button class="btn btn-danger float-right" (click)="onMailSubmit()" translate="REGISTER.FORM.BUTTONS.NEXT"></button>
+          <button type="button" class="btn btn-danger float-right" (click)="onMailSubmit()" translate="REGISTER.FORM.BUTTONS.NEXT"></button>
         </div>
 
         <div id="step-look" [@fadeIn]="this.mailStep" [hidden]="this.mailStep == false">

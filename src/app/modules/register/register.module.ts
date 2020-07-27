@@ -5,6 +5,7 @@ import { RegisterRoutingModule } from './register-routing.module';
 import { RegisterComponent } from '../../components/register/register.component';
 import {TranslateModule} from '@ngx-translate/core';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {RegisterService} from '../../services/register.service';
 
 @NgModule({
   declarations: [RegisterComponent],
@@ -14,6 +15,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     TranslateModule.forChild(),
     ReactiveFormsModule,
     FormsModule
-  ]
+  ],
 })
 export class RegisterModule { }

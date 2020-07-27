@@ -14,15 +14,17 @@ export class ErrorInterceptor implements HttpInterceptor {
 
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(request).pipe(
-          catchError((err: HttpErrorResponse) => {
+          catchError((err: HttpErrorResponse | any) => {
             if (err.status === 401 && this.userService.isAuthenticated) {
                 this.userService.logout();
                 location.reload();
             }
 
-            err.error.errors.forEach(key => {
-              this.alertService.error(key.message);
-            });
+            if (err instanceof HttpErrorResponse) {
+              err.error.errors.forEach(key => {
+                this.alertService.error(key.message);
+              });
+            }
 
             return throwError(err);
           })

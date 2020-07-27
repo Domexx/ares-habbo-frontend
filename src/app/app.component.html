@@ -1,11 +1,11 @@
 <ng-container *ngIf="isAuthenticated; else guest">
-    <app-header></app-header>
+    <ares-header></ares-header>
 
     <main>
         <router-outlet></router-outlet>
     </main>
 
-    <app-footer></app-footer>
+    <ares-footer></ares-footer>
 </ng-container>
 
 <ng-template #guest>

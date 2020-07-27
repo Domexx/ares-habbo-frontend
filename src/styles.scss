@@ -220,3 +220,11 @@ a {
 .mt-middle {
   margin-top: calc(100vh - 85vh) !important;
 }
+
+/* register */
+.register--component {
+  background-image: url('./assets/images/register/bg.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom center;
+}

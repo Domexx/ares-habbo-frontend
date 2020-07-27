@@ -2,7 +2,7 @@ import {Component, OnInit, OnDestroy, AfterViewInit, ChangeDetectorRef, AfterVie
 import { UserService } from './services/user.service';
 
 @Component({
-  selector: 'app-root',
+  selector: 'ares-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

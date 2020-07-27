@@ -4,7 +4,7 @@ import {Router} from '@angular/router';
 import {Subscription} from 'rxjs';
 
 @Component({
-  selector: 'app-logout',
+  selector: 'ares-logout',
   template: ''
 })
 export class LogoutComponent implements OnInit, OnDestroy {

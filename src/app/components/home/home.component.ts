@@ -9,7 +9,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {environment} from '../../../environments/environment';
 
 @Component({
-  selector: 'app-home',
+  selector: 'ares-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })

@@ -7,7 +7,7 @@ import { TitleService } from 'src/app/services/title.service';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-dashboard',
+  selector: 'ares-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })

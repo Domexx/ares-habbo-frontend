@@ -32,6 +32,10 @@ export class UserService {
     return this.http.get<any>(`${environment.app.endpoint}/${this.languageService.language}/user`, {headers: {Authorization: `Bearer ${token}`}})
       .pipe(
         map(response => {
+          if (token && !this.token) {
+            this.token = token;
+          }
+
           localStorage.setItem('ares-user', JSON.stringify(response.data));
           this.userSubject.next(response.data);
         })
@@ -39,10 +43,6 @@ export class UserService {
   }
 
   logout() {
-    if (!this.isAuthenticated) {
-      return;
-    }
-
     const token = localStorage.getItem('ares-token');
 
     localStorage.removeItem('ares-token');
@@ -58,7 +58,7 @@ export class UserService {
   }
 
   get isAuthenticated(): boolean {
-    return !!(this.user && this.token);
+    return !!(this.user || this.token);
   }
 
   get user(): User {
