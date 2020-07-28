@@ -9,8 +9,6 @@ import {Subscription} from 'rxjs';
 import {UserService} from '../../services/user.service';
 import {Router} from '@angular/router';
 
-declare var $;
-
 @Component({
   selector: 'ares-register',
   templateUrl: './register.component.html',
@@ -50,11 +48,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    const body = $('body');
-
-    if (!body.hasClass('register--component')) {
-      body.addClass('register--component');
-    }
+    document.body.classList.add('register--component');
 
     this.registerForm = this.formBuilder.group({
       username: ['', Validators.required],
@@ -62,8 +56,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
       confirmPassword: ['', Validators.required],
       mail: ['', Validators.required]
     });
-
-    $('[data-toggle="popover"]').popover();
 
     this.titleService.setTitle(this.translateService.instant('REGISTER.TITLE'));
   }
@@ -208,6 +200,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    document.querySelector('body').classList.remove('register--component');
+
     if (this.userSubscription && !this.userSubscription.unsubscribe) {
       this.userSubscription.unsubscribe();
     }
@@ -223,9 +217,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
     if (this.mailSubscription && !this.mailSubscription.unsubscribe) {
       this.mailSubscription.unsubscribe();
     }
-
-    const body = $('body');
-    body.removeClass('register---component');
   }
 
 }

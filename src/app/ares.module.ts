@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
-import {AppRoutingModule} from './app-routing.module';
+import {AresRoutingModule} from './ares-routing.module';
 
 import {HttpClientModule, HttpClient, HTTP_INTERCEPTORS} from '@angular/common/http';
 import {TranslateModule, TranslateLoader, TranslateService} from '@ngx-translate/core';
@@ -9,7 +9,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 import {HomeModule} from './modules/home/home.module';
 
-import {AppComponent} from './app.component';
+import {AresComponent} from './ares.component';
 
 import {TitleService} from './services/title.service';
 import {environment} from 'src/environments/environment';
@@ -27,12 +27,12 @@ export function HttpLoaderFactory(http: HttpClient) {
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AresComponent,
     LogoutComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
+    AresRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
     TranslateModule.forRoot({
@@ -50,9 +50,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AresComponent]
 })
-export class AppModule {
+export class AresModule {
   constructor(private translate: TranslateService,
               private languageService: LanguageService) {
     translate.addLangs(['en', 'de', 'tr']);
