@@ -6,16 +6,15 @@ import { NavigationComponent } from '../../layout/header/navigation/navigation.c
 import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
 import { FriendsComponent } from '../../layout/dashboard/friends/friends.component';
-
-
+import {LanguageSelectorComponent} from '../../layout/language-selector/language-selector.component';
 
 @NgModule({
-  declarations: [FooterComponent, HeaderComponent, NavigationComponent, FriendsComponent],
+  declarations: [FooterComponent, HeaderComponent, NavigationComponent, FriendsComponent, LanguageSelectorComponent],
   imports: [
     CommonModule,
     RouterModule,
     TranslateModule.forChild()
   ],
-  exports: [FooterComponent, HeaderComponent]
+  exports: [FooterComponent, HeaderComponent, LanguageSelectorComponent]
 })
 export class LayoutModule { }
