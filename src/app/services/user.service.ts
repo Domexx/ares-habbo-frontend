@@ -43,18 +43,15 @@ export class UserService {
   }
 
   logout() {
-    const token = localStorage.getItem('ares-token');
-
     localStorage.removeItem('ares-user');
-
     this.userSubject.next(null);
 
     return this.http.post<{}>(`${environment.app.endpoint}/${this.languageService.language}/logout`, { }, {
       headers: {
-        Authorization: `Bearer ${token}`
+        Authorization: `Bearer ${this.token}`
       }
     }).pipe(
-      map(resp => localStorage.removeItem('ares-token'))
+      map(() => localStorage.removeItem('ares-token'))
     );
   }
 

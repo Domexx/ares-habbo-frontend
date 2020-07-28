@@ -5,7 +5,7 @@
 
     & > .container {
         padding-top: 8rem;
-        
+
         & > span {
             opacity: .7;
         }
@@ -73,7 +73,7 @@
 
     & > .img-wrapper {
         min-height: 32px;
-        
+
         & > img {
             width: fit-content;
         }
@@ -96,7 +96,7 @@
     }
 }
 
-@media (max-width: 768px) {  
+@media (max-width: 768px) {
     .ares--hero {
         #asteroids {
             display: none;
@@ -104,32 +104,6 @@
 
         #room {
             display: none;
-        }
-    }
-}
-
-#ares--lang {
-    padding: 0;
-    width: 100%;
-    display: flex;
-    justify-content: flex-end;
-
-    & > li {
-        list-style-type: none;
-        background-color: var(--main-bg-gray);
-        float: left;
-        padding: .5rem 1rem;
-        cursor: pointer;
-        margin-right: 1rem;
-        border-radius: 4px;
-        transition: all .3s;
-        box-shadow: 1px 2px 1px rgba(0, 0, 0, 0.3803921568627451);
-        height: 3rem;
-        max-height: 3rem;
-    
-        &:hover,
-        &.active {
-            background-color: var(--main-bg-red);
         }
     }
 }

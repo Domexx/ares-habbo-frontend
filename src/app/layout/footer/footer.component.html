@@ -1,9 +1,21 @@
 <div class="container py-4">
-    <div class="d-flex">
-        <strong>{{ hotelName }}</strong> 
+  <div class="row">
+    <div class="col-6">
+      <div class="d-flex">
+        <strong>{{ hotelName }}</strong>
         <p class="m-0" [innerHTML]="'FOOTER.RIGHTS_RESERVED' | translate"></p>
+      </div>
+      <p class="m-0" [innerHTML]="'FOOTER.NOT_SULAKE' | translate"></p>
     </div>
-    <p class="m-0" [innerHTML]="'FOOTER.NOT_SULAKE' | translate"></p>
+
+    <div class="col-6 d-flex justify-content-end">
+      <ul id="ares--lang">
+        <li (click)="switchLanguage(lang)" *ngFor="let lang of languages" [class.active]='lang === languageService.language'>
+          <div [class]="'icon--lang-' + lang"></div>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <div class="py-2 pb-lg-0 text-center bg-dark col-12">
