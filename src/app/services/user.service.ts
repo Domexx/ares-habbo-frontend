@@ -58,7 +58,7 @@ export class UserService {
   }
 
   get isAuthenticated(): boolean {
-    return !!(this.user || this.token);
+    return !!(this.user && this.token);
   }
 
   get user(): User {
