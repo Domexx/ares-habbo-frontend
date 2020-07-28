@@ -45,7 +45,6 @@ export class UserService {
   logout() {
     const token = localStorage.getItem('ares-token');
 
-    localStorage.removeItem('ares-token');
     localStorage.removeItem('ares-user');
 
     this.userSubject.next(null);
@@ -54,7 +53,9 @@ export class UserService {
       headers: {
         Authorization: `Bearer ${token}`
       }
-    });
+    }).pipe(
+      map(resp => localStorage.removeItem('ares-token'))
+    );
   }
 
   get isAuthenticated(): boolean {
