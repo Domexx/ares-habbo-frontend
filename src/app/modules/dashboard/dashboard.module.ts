@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from '../../components/dashboard/dashboard.component';
 import { TranslateModule } from '@ngx-translate/core';
+import {LayoutModule} from '../layout/layout.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { TranslateModule } from '@ngx-translate/core';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    TranslateModule.forChild()
+    TranslateModule.forChild(),
+    LayoutModule
   ]
 })
 export class DashboardModule { }

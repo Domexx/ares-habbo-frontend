@@ -8,15 +8,17 @@ import { RouterModule } from '@angular/router';
 import { FriendsComponent } from '../../layout/dashboard/friends/friends.component';
 import {LanguageSelectorComponent} from '../../layout/language-selector/language-selector.component';
 import {FormsModule} from '@angular/forms';
+import { ArticleSliderComponent } from '../../layout/dashboard/article-slider/article-slider.component';
+import { ArticlesComponent } from '../../layout/dashboard/articles/articles.component';
 
 @NgModule({
-  declarations: [FooterComponent, HeaderComponent, NavigationComponent, FriendsComponent, LanguageSelectorComponent],
+  declarations: [FooterComponent, HeaderComponent, NavigationComponent, FriendsComponent, LanguageSelectorComponent, ArticleSliderComponent, ArticlesComponent],
   imports: [
     CommonModule,
     RouterModule,
     TranslateModule.forChild(),
     FormsModule
   ],
-  exports: [FooterComponent, HeaderComponent, LanguageSelectorComponent]
+  exports: [FooterComponent, HeaderComponent, LanguageSelectorComponent, ArticlesComponent]
 })
 export class LayoutModule { }

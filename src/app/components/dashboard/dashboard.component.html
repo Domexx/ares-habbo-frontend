@@ -1,171 +1,84 @@
 <section class="ares--hero">
-    <div id="asteroids"></div>
-    <div id="room"></div>
+  <div id="asteroids"></div>
+  <div id="room"></div>
 
-    <div class="container" [innerHTML]="'DASHBOARD.HERO.PAGE' | translate: { username: user?.username }"></div>
+  <div class="container" [innerHTML]="'DASHBOARD.HERO.PAGE' | translate: { username: user?.username }"></div>
 </section>
 
 <div class="container">
-    <div class="row mb-4">
-        <div class="col-12">
-            <div class="card card-default">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-sm-4 col-md-4 col-lg-2 col-xl-2 d-flex justify-content-center">
-                            <div class="user--figure" [style.backgroundImage]="'url('+ look + ')'"></div>
-                        </div>
-
-                        <div class="col-sm-8 col-md-8 col-lg-7 col-xl-7 d-flex flex-column">
-                            <h4 class="user-name m-0 pb-2">{{ user?.username }}</h4>
-
-                            <div class="d-inline-flex">
-                                <strong [translate]="'DASHBOARD.YOUR_RANK'"></strong> <i>Beginner</i>
-                            </div>
-
-                            <div class="d-inline-flex pt-3">
-                                <div class="icon--xp pr-4"></div>
-                                <div class="progress experience-bar w-75">
-                                    <div class="progress-bar w-75">4000 / 5000</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3">
-                            <div class="row pt-4">
-                                <div class="col-4">
-                                    <div class="user--info credits">
-                                        <div class="img-wrapper">
-                                            <img src="../../../assets/images/icons/credits.png" />
-                                        </div>
-
-                                        <p>{{ user?.credits }}</p>
-                                    </div>
-                                </div>
-
-                                <div class="col-4">
-                                    <div class="user--info diamonds">
-                                        <div class="img-wrapper">
-                                            <img src="../../../assets/images/icons/diamonds.png" />
-                                        </div>
-                                        <p>{{ user?.points }}</p>
-                                    </div>
-                                </div>
-
-                                <div class="col-4">
-                                    <div class="user--info duckets">
-                                        <div class="img-wrapper">
-                                            <img src="../../../assets/images/icons/duckets.png" />
-                                        </div>
-
-                                        <p>{{ user?.pixels }}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="card card-default">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-4 col-md-4 col-lg-2 col-xl-2 d-flex justify-content-center">
+              <div class="user--figure" [style.backgroundImage]="'url('+ look + ')'"></div>
             </div>
+
+            <div class="col-sm-8 col-md-8 col-lg-7 col-xl-7 d-flex flex-column">
+              <h4 class="user-name m-0 pb-2">{{ user?.username }}</h4>
+
+              <div class="d-inline-flex">
+                <strong [translate]="'DASHBOARD.YOUR_RANK'"></strong> <i>Beginner</i>
+              </div>
+
+              <div class="d-inline-flex pt-3">
+                <div class="icon--xp pr-4"></div>
+                <div class="progress experience-bar w-75">
+                  <div class="progress-bar w-75">4000 / 5000</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3">
+              <div class="row pt-4">
+                <div class="col-4">
+                  <div class="user--info credits">
+                    <div class="img-wrapper">
+                      <img src="../../../assets/images/icons/credits.png"/>
+                    </div>
+
+                    <p>{{ user?.credits }}</p>
+                  </div>
+                </div>
+
+                <div class="col-4">
+                  <div class="user--info diamonds">
+                    <div class="img-wrapper">
+                      <img src="../../../assets/images/icons/diamonds.png"/>
+                    </div>
+                    <p>{{ user?.points }}</p>
+                  </div>
+                </div>
+
+                <div class="col-4">
+                  <div class="user--info duckets">
+                    <div class="img-wrapper">
+                      <img src="../../../assets/images/icons/duckets.png"/>
+                    </div>
+
+                    <p>{{ user?.pixels }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-8">
+      <ares-layout-dashboard-articles></ares-layout-dashboard-articles>
     </div>
 
-    <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-8">
-            <div class="row">
-                <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-2">
-                    <div class="card article">
-                        <div class="card-body">
-                            <div class="article--info d-flex align-items-center">
-                                <div class="article--user">
-                                    <img src="https://www.habbo.com.br/habbo-imaging/avatarimage?&amp;user=OGabrielBraga&amp;action=std&amp;direction=3&amp;head_direction=3&amp;img_format=png&amp;gesture=std&amp;headonly=0&amp;size=s">
-                                </div>
-                                <span>necmi</span>
-
-                                <div class="d-flex align-items-center">
-                                    <span class="article--date">22.06.2020</span>
-                                </div>
-                            </div>
-
-                            <div class="article--thumb mt-2">
-                                <img src="https://api.retrotimes.co/contents/images/topstory/uk_valentines_topstory_05.gif">
-                            </div>
-
-                            <p class="article--title">Room of the Week</p>
-                            <span class="article--description">
-                                Gib dir mühe for the best room and you will win amenakoi so geht das
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-2">
-                    <div class="card article">
-                        <div class="card-body">
-                            <div class="article--info d-flex align-items-center">
-                                <div class="article--user">
-                                    <img src="https://www.habbo.com.br/habbo-imaging/avatarimage?&amp;user=OGabrielBraga&amp;action=std&amp;direction=3&amp;head_direction=3&amp;img_format=png&amp;gesture=std&amp;headonly=0&amp;size=s">
-                                </div>
-
-                                <span>necmi</span>
-
-                                <div class="d-flex align-items-center">
-                                    <span class="article--date">22.06.2020</span>
-                                </div>
-                            </div>
-
-                            <div class="article--thumb mt-2">
-                                <img src="https://api.retrotimes.co/contents/images/topstory/gangnamtopstory.gif">
-                            </div>
-
-                            <p class="article--title">Room of the Week</p>
-                            <span class="article--description">
-                                Gib dir mühe for the best room and you will win amenakoi so geht das
-                            </span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-2">
-                    <div class="card article">
-                        <div class="card-body">
-                            <div class="article--info d-flex align-items-center">
-                                <div class="article--user">
-                                    <img src="https://www.habbo.com.br/habbo-imaging/avatarimage?&amp;user=OGabrielBraga&amp;action=std&amp;direction=3&amp;head_direction=3&amp;img_format=png&amp;gesture=std&amp;headonly=0&amp;size=s">
-                                </div>
-                                <span>necmi</span>
-
-                                <div class="d-flex align-items-center">
-                                    <span class="article--date">22.06.2020</span>
-                                </div>
-                            </div>
-
-                            <div class="article--thumb mt-2">
-                                <img src="https://api.retrotimes.co/contents/images/topstory/detlef_topstory.gif">
-                            </div>
-
-                            <p class="article--title">Room of the Week</p>
-                            <span class="article--description">
-                                Gib dir mühe for the best room and you will win amenakoi so geht das
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 p-0 mt-4">
-                <form>
-                    <div class="form-group">
-                        <textarea class="form-control" placeholder="What's happening?"></textarea>
-                    </div>
-                </form>
-            </div>
+    <div class="col-4">
+      <div class="card">
+        <div class="card-body">
+          <h3>PLACEHOLDER</h3>
         </div>
-
-        <div class="col-4">
-            <div class="card">
-                <div class="card-body">
-                    <h3>PLACEHOLDER</h3>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 </div>
