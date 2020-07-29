@@ -1,35 +1,53 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import {TranslateService} from '@ngx-translate/core';
 import {LanguageService} from '../../services/language.service';
-import {environment} from '../../../environments/environment';
 
 declare var $: any;
 
 @Component({
   selector: 'ares-language-selector',
-  templateUrl: './language-selector.component.html',
-  styleUrls: ['./language-selector.component.scss']
+  templateUrl: './language-selector.component.html'
 })
-export class LanguageSelectorComponent implements OnInit {
+export class LanguageSelectorComponent implements OnInit, AfterViewInit {
+  flags = {
+    en: 'icon--lang-en',
+    de: 'icon--lang-de'
+  };
+
   languages: string[];
-  languageSelection: any;
 
   constructor(
     private translateService: TranslateService,
     private languageService: LanguageService
-  ) { }
+  ) {
+  }
 
   ngOnInit(): void {
     this.languages = this.translateService.getLangs();
-    this.languageSelection = Array.of(this.languages);
+
+    $('.language-selection').on('changed.bs.select', (e: any, clickedIndex: number) => {
+      if (e.currentTarget[clickedIndex]) {
+        const value = e.currentTarget[clickedIndex].id;
+        this.switchLanguage(value);
+      }
+    });
   }
 
-  switchLanguage(): void {
-    this.languageService.language = this.languageSelection;
+  ngAfterViewInit() {
+    $('.language-selection').selectpicker('val', this.language);
+    $('.language-selection').selectpicker('refresh');
+  }
+
+  switchLanguage(lang: string): void {
+    this.languageService.language = lang;
   }
 
   get language() {
     return this.languageService.language;
+  }
+
+  flag(lang: string): string {
+    return `<div class="${this.flags[lang]}"></div>`;
   }
 
 }

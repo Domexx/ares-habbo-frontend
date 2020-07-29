@@ -129,8 +129,8 @@ a {
 .icon--lang-en {
   background-image: url('./assets/images/icons/lang/en.png');
   background-repeat: no-repeat;
-  height: 32px;
-  width: 22px;
+  height: 31px;
+  width: 23px;
 }
 
 .icon--lang-tr {
@@ -175,6 +175,64 @@ a {
 
 .btn {
   padding: .8rem;
+
+  &:focus,
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+.btn-lang {
+  background-color: var(--main-bg-gray);
+  transition: .25s background-color;
+  color: #fff;
+  padding: .5rem 1rem .5rem .5rem;
+
+  &:hover,
+  &:focus {
+    background: #FF1744;
+    color: #fff;
+  }
+}
+
+.bootstrap-select {
+  .dropdown-toggle {
+    outline: none !important;
+
+    &:focus {
+      outline: none !important;
+    }
+  }
+
+  &.language-selection {
+    width: 4.5rem !important;
+  }
+}
+
+.dropdown-menu {
+  background: var(--main-bg-gray);
+
+  .dropdown-item {
+    transition: .25s background-color;
+
+    &.active {
+      &:hover,
+      &:focus {
+        background: #ff1744;
+      }
+    }
+
+    &.active,
+    &:active, {
+      background: #ff1744;
+    }
+
+    &:hover,
+    &:focus {
+      outline: none;
+      background: #373a40;
+    }
+  }
 }
 
 /* alerts */

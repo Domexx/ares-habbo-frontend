@@ -7,12 +7,10 @@ import { TranslateModule } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
 import { FriendsComponent } from '../../layout/dashboard/friends/friends.component';
 import {LanguageSelectorComponent} from '../../layout/language-selector/language-selector.component';
-import { BsSelectComponent } from '../../layout/bs-select/bs-select.component';
 import {FormsModule} from '@angular/forms';
-import {BsSelectDirective} from '../../layout/bs-select/bs-select.directive';
 
 @NgModule({
-  declarations: [FooterComponent, HeaderComponent, NavigationComponent, FriendsComponent, LanguageSelectorComponent, BsSelectComponent, BsSelectDirective],
+  declarations: [FooterComponent, HeaderComponent, NavigationComponent, FriendsComponent, LanguageSelectorComponent],
   imports: [
     CommonModule,
     RouterModule,
