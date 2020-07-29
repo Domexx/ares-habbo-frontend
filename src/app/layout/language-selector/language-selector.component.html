@@ -1,5 +1,2 @@
-<select class="ares-language selectpicker">
-  <option *ngFor="let lang of languages">
-    {{lang}}
-  </option>
-</select>
+<ares-bs-select [options]="languages" [(mySelections)]="languageSelection"
+                (change)="switchLanguage()" [activeValue]="language"></ares-bs-select>

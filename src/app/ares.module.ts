@@ -55,7 +55,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 export class AresModule {
   constructor(private translate: TranslateService,
               private languageService: LanguageService) {
-    translate.addLangs(['en', 'de', 'tr']);
+    translate.addLangs(['en', 'de']);
     translate.setDefaultLang(environment.app.defaultLang);
 
     if (translate.getLangs().indexOf(this.languageService.language) === -1) {

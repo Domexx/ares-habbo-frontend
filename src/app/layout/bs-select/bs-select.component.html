@@ -1,0 +1,3 @@
+<select bsSelect [(ngModel)]="mySelections" [title]="title">
+  <option *ngFor="let option of options" [value]="option" id="{{option}}">{{option}}</option>
+</select>

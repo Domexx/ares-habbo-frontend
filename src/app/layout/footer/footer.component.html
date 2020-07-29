@@ -9,11 +9,6 @@
     </div>
 
     <div class="col-6 d-flex justify-content-end">
-      <ul id="ares--lang">
-        <li (click)="switchLanguage(lang)" *ngFor="let lang of languages" [class.active]='lang === languageService.language'>
-          <div [class]="'icon--lang-' + lang"></div>
-        </li>
-      </ul>
       <ares-language-selector></ares-language-selector>
     </div>
   </div>
