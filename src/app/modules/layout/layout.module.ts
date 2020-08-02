@@ -10,6 +10,12 @@ import {LanguageSelectorComponent} from '../../layout/language-selector/language
 import {FormsModule} from '@angular/forms';
 import { ArticleSliderComponent } from '../../layout/dashboard/article-slider/article-slider.component';
 import { ArticlesComponent } from '../../layout/dashboard/articles/articles.component';
+import {SWIPER_CONFIG, SwiperConfigInterface, SwiperModule} from "ngx-swiper-wrapper";
+
+const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
+  direction: 'horizontal',
+  slidesPerView: 'auto'
+};
 
 @NgModule({
   declarations: [FooterComponent, HeaderComponent, NavigationComponent, FriendsComponent, LanguageSelectorComponent, ArticleSliderComponent, ArticlesComponent],
@@ -17,7 +23,14 @@ import { ArticlesComponent } from '../../layout/dashboard/articles/articles.comp
     CommonModule,
     RouterModule,
     TranslateModule.forChild(),
-    FormsModule
+    FormsModule,
+    SwiperModule
+  ],
+  providers: [
+    {
+      provide: SWIPER_CONFIG,
+      useValue: DEFAULT_SWIPER_CONFIG
+    }
   ],
   exports: [FooterComponent, HeaderComponent, LanguageSelectorComponent, ArticlesComponent]
 })

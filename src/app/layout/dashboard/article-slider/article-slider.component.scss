@@ -1,0 +1,77 @@
+.article--slider .swiper-pagination {
+  right: 1.5rem !important;
+  top: 1rem !important;
+  text-align: right !important;
+}
+
+
+.article {
+  height: 15.7rem;
+
+  & .article--info {
+    .article--user {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      overflow: hidden;
+      text-align: center;
+      margin-right: 12px;
+      border: 1px solid #1e2023;
+
+      & > img {
+        image-rendering: pixelated;
+        margin-top: -4px;
+      }
+    }
+
+    & > span {
+      flex: auto;
+      font-size: 14px;
+      font-weight: 400;
+    }
+
+    & .article--date {
+      font-weight: 400;
+      color: #D7D7D7;
+      font-size: 14px;
+    }
+  }
+
+  & .article--thumb {
+    background-color: #DDE0E4;
+    height: 80px;
+    border-radius: 5px;
+    position: relative;
+
+    & > img {
+      width: 100%;
+      object-fit: cover;
+      height: 80px;
+    }
+  }
+
+  & .article--title {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    color: #FFFFFF;
+    font-weight: 600;
+  }
+
+  & .article--description {
+    color: #D7D7D7;
+    font-size: 14px;
+    font-weight: 300;
+    padding-top: .3rem;
+    line-height: 1.3em;
+    max-height: 3.5em;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+}
+
+.btn-danger {
+  padding: .5rem 1.5rem;
+  font-weight: 600;
+}

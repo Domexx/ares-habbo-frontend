@@ -1,0 +1,30 @@
+:root {
+  --main-bg-color: #202225;
+  --main-bg-red: #B41030;
+  --main-bg-dark: #1C1D20;
+  --main-bg-gray: #292B2F;
+
+  --text-normal: #fff;
+  --text-link: #888888;
+  --text-link-hover: #cecbcb;
+
+  --swiper-theme-color: #ff1744 !important;
+
+  --btn-danger: #FF2F57;
+  --btn-danger-hover: #f9486a;
+}
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 1200px,
+  xl: 1400px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 1200px,
+  xl: 1400px
+) !default;

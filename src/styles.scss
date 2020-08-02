@@ -4,27 +4,24 @@
   * @license GNU General Public License v3.0 <https://gitlab.com/arescms/ares-frontend/-/blob/master/LICENSE>
   */
 
+@import 'variables';
+
 @import "~bootstrap/scss/bootstrap";
 @import "~bootstrap/scss/grid";
-
 @import "~bootstrap-select/dist/css/bootstrap-select.min.css";
+
 @import "~notyf/notyf.min.css";
+@import '~swiper/css/swiper.min.css';
+
 @import 'fonts.scss';
 
-:root {
-  --main-bg-color: #202225;
-  --main-font-color: #fff;
-  --main-bg-red: #B41030;
-  --main-bg-dark: #1C1D20;
-  --main-bg-gray: #292B2F;
-}
 
 html {
   body {
     height: 100vh;
     background-color: var(--main-bg-color);
     font-family: 'Titillium Web', sans-serif;
-    color: var(--main-font-color);
+    color: var(--text-normal);
   }
 }
 
@@ -33,13 +30,13 @@ main {
 }
 
 a {
-  color: #888888;
+  color: var(--text-link);
   text-decoration: none;
   transition: color .25s;
 
   &:hover,
   &:focus {
-    color: #cecbcb;
+    color: var(--text-link-hover);
   }
 }
 
@@ -58,18 +55,6 @@ a {
 
   & > .container {
     height: 100%;
-  }
-}
-
-@media (min-width: 1200px) {
-  .container {
-     max-width: 1200px;
-   }
-}
-
-@media screen and (min-width: 1800px) {
-  .container {
-    max-width: 1300px;
   }
 }
 
@@ -174,7 +159,9 @@ a {
 }
 
 .btn {
+  border: unset;
   padding: .8rem;
+  transition: .25s background-color;
 
   &:focus,
   &:hover {
@@ -184,7 +171,6 @@ a {
 
 .btn-lang {
   background-color: var(--main-bg-gray);
-  transition: .25s background-color;
   color: #fff;
   padding: .5rem 1rem .5rem .5rem;
 
@@ -192,6 +178,15 @@ a {
   &:focus {
     background: #FF1744;
     color: #fff;
+  }
+}
+
+.btn-danger {
+  background-color: var(--btn-danger);
+
+  &:hover,
+  &:focus {
+    background-color: var(--btn-danger-hover);
   }
 }
 
@@ -287,4 +282,14 @@ a {
   background-repeat: no-repeat;
   background-size: contain;
   background-position: bottom center;
+}
+
+/* article--slider */
+.article--slider {
+  .swiper-pagination {
+    left: unset !important;
+    right: 1.5rem;
+    top: 1rem;
+    text-align: right;
+  }
 }

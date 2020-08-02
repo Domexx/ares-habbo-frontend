@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {environment} from 'src/environments/environment';
 import {map} from 'rxjs/operators';
 import {BehaviorSubject, Observable} from 'rxjs';
-import {User} from '../models/user/User';
+import {User} from '../models/user/user';
 import {LanguageService} from './language.service';
 
 @Injectable({

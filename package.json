@@ -26,6 +26,7 @@
     "bootstrap": "^4.5.0",
     "bootstrap-select": "^1.13.18",
     "jquery": "^3.5.1",
+    "ngx-swiper-wrapper": "^9.0.1",
     "notyf": "^3.8.0",
     "rxjs": "~6.6.0",
     "tslib": "^1.10.0",
