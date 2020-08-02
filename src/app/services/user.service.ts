@@ -1,10 +1,9 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {environment} from 'src/environments/environment';
 import {map} from 'rxjs/operators';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {User} from '../models/user/user';
-import {LanguageService} from './language.service';
+import {ApiService} from "./api.service";
+import {API} from "../models/api";
 
 @Injectable({
   providedIn: 'root'
@@ -13,23 +12,20 @@ export class UserService {
   private userSubject: BehaviorSubject<User>;
   public user$: Observable<User>;
 
-  constructor(
-    private http: HttpClient,
-    private languageService: LanguageService
-  ) {
+  constructor(private apiService: ApiService) {
     this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('ares-user')));
     this.user$ = this.userSubject.asObservable();
   }
 
-  auth(username: string, password: string) {
-    return this.http.post<any>(`${environment.app.endpoint}/${this.languageService.language}/login`, {username, password})
+  auth(username: string, password: string): Observable<API> {
+    return this.apiService.post('login', {username, password})
       .pipe(
         map(e => this.token = e.data.token)
       );
   }
 
-  getUser(token: string = null) {
-    return this.http.get<any>(`${environment.app.endpoint}/${this.languageService.language}/user`, {headers: {Authorization: `Bearer ${token}`}})
+  getUser(token: string = null): Observable<any> {
+    return this.apiService.get('user', {headers: {Authorization: `Bearer ${token}`}})
       .pipe(
         map(response => {
           if (token && !this.token) {
@@ -42,11 +38,11 @@ export class UserService {
       );
   }
 
-  logout() {
+  logout(): Observable<any> {
     localStorage.removeItem('ares-user');
     this.userSubject.next(null);
 
-    return this.http.post<{}>(`${environment.app.endpoint}/${this.languageService.language}/logout`, { }, {
+    return this.apiService.post('logout', {}, {
       headers: {
         Authorization: `Bearer ${this.token}`
       }

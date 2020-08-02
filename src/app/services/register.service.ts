@@ -1,27 +1,24 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {environment} from '../../environments/environment';
-import {LanguageService} from './language.service';
+import {ApiService} from "./api.service";
+import {Observable} from "rxjs";
+import {API} from "../models/api";
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegisterService {
 
-  constructor(
-    private http: HttpClient,
-    private languageService: LanguageService
-  ) { }
+  constructor(private apiService: ApiService) { }
 
-  register(type: string, value: string | object, register = false) {
+  register(type: string, value: string | object, register = false): Observable<API> {
     const body = {};
 
     if (typeof value === 'object' && value !== null && register) {
-      return this.http.post<any>(`${environment.app.endpoint}/${this.languageService.language}/register`, value);
+      return this.apiService.post('register', value);
     }
 
     body[type] = value;
 
-    return this.http.post<any>(`${environment.app.endpoint}/${this.languageService.language}/register/check`, body);
+    return this.apiService.post('register/check', body);
   }
 }

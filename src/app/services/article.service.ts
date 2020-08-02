@@ -1,19 +1,16 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {environment} from "../../environments/environment";
-import {LanguageService} from "./language.service";
+import {ApiService} from "./api.service";
+import {Observable} from "rxjs";
+import {API} from "../models/api";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ArticleService {
 
-  constructor(
-    private http: HttpClient,
-    private languageService: LanguageService
-  ) { }
+  constructor(private apiService: ApiService) { }
 
-  slide(count: number) {
-    return this.http.get<any>(`${environment.app.endpoint}/${this.languageService.language}/news/slide/${count}`);
+  slide(count: number): Observable<API> {
+    return this.apiService.get(`news/slide/${count}`);
   }
 }
