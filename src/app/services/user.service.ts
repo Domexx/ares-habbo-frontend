@@ -17,7 +17,7 @@ export class UserService {
     this.user$ = this.userSubject.asObservable();
   }
 
-  auth(username: string, password: string): Observable<API> {
+  auth(username: string, password: string): Observable<string> {
     return this.apiService.post('login', {username, password})
       .pipe(
         map(e => this.token = e.data.token)

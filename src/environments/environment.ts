@@ -1,3 +1,5 @@
+import {SwiperConfigInterface, SwiperPaginationInterface} from "ngx-swiper-wrapper";
+
 export const environment = {
   production: false,
 
@@ -13,5 +15,5 @@ export const environment = {
     // Language
     defaultLang: 'en',
     useLang: 'de'
-  }
+  },
 };
