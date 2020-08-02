@@ -8,6 +8,28 @@
     margin-top: 2rem;
 }
 
+hr {
+  margin-top: 0;
+  margin-bottom: .5rem;
+  border-top: 1px solid rgb(165 26 51);
+  box-shadow: 0 1px 1px 1px #000000a1;
+}
+
+.modal-content p {
+  font-size: 14px;
+}
+
+.ares--hero {
+  background-image: url('../../../assets/images/logo_shadow.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 5rem;
+}
+
+strong {
+  color: var(--main-bg-red);
+}
+
 .bg-dark {
     background-color: #151719 !important;
 }

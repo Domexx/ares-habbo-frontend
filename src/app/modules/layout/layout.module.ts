@@ -11,6 +11,8 @@ import {FormsModule} from '@angular/forms';
 import { ArticleSliderComponent } from '../../layout/dashboard/article-slider/article-slider.component';
 import { ArticlesComponent } from '../../layout/dashboard/articles/articles.component';
 import {SWIPER_CONFIG, SwiperConfigInterface, SwiperModule} from "ngx-swiper-wrapper";
+import { RoomsComponent } from '../../layout/dashboard/rooms/rooms.component';
+import { PreloaderComponent } from '../../layout/preloader/preloader.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -18,7 +20,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 };
 
 @NgModule({
-  declarations: [FooterComponent, HeaderComponent, NavigationComponent, FriendsComponent, LanguageSelectorComponent, ArticleSliderComponent, ArticlesComponent],
+  declarations: [FooterComponent, HeaderComponent, NavigationComponent, FriendsComponent, LanguageSelectorComponent, ArticleSliderComponent, ArticlesComponent, RoomsComponent, PreloaderComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -32,6 +34,6 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
       useValue: DEFAULT_SWIPER_CONFIG
     }
   ],
-  exports: [FooterComponent, HeaderComponent, LanguageSelectorComponent, ArticlesComponent]
+    exports: [FooterComponent, HeaderComponent, LanguageSelectorComponent, ArticlesComponent, FriendsComponent, RoomsComponent, PreloaderComponent]
 })
 export class LayoutModule { }

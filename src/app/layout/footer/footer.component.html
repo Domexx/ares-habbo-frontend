@@ -2,18 +2,39 @@
   <div class="row">
     <div class="col-6 pt-3">
       <div class="d-flex">
-        <strong>{{ hotelName }}</strong>
+        <b>{{ hotelName }}</b>
         <p class="m-0" [innerHTML]="'FOOTER.RIGHTS_RESERVED' | translate"></p>
       </div>
       <p class="m-0" [innerHTML]="'FOOTER.NOT_SULAKE' | translate"></p>
     </div>
 
-    <div class="col-6 d-flex justify-content-end">
+    <div class="col-6 d-flex pt-2 justify-content-xl-end justify-content-lg-end justify-content-around">
       <ares-language-selector></ares-language-selector>
     </div>
   </div>
 </div>
 
 <div class="py-2 pb-lg-0 text-center bg-dark col-12">
-    Made with <span>&#10084;&#65039;</span> from <strong>Ares</strong>
+    Made with <span>&#10084;&#65039;</span> from <strong data-toggle="modal" data-target="#ares">Ares</strong>
+</div>
+
+<div class="modal fade" id="ares" tabindex="-1" role="dialog" aria-labelledby="aresLabel" aria-hidden="true">
+  <div class="modal-dialog h-100 d-flex flex-column justify-content-center my-0" role="document">
+    <div class="modal-content d-flex flex-column pb-3">
+      <div class="d-inline-flex flex-column w-100 ares--hero">
+        <button type="button" class="close align-self-end pr-3" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="container">
+        <h4>{{ hotelName }}</h4>
+        <hr>
+        <p>Ares is using state-of-the-art Technology to make the experience for you and your Users as secure, fast and convenient as possible.</p>
+        <p>We're always updating Ares with new features and try to keep it Bug-Free.</p>
+        <strong class="d-block">Ares is here to stay.</strong>
+        <b>Ares made by necmi, Dome & Madness</b>
+      </div>
+    </div>
+  </div>
 </div>

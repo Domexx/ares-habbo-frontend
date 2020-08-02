@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {SwiperConfigInterface, SwiperPaginationInterface} from "ngx-swiper-wrapper";
 import {ArticleService} from "../../../services/article.service";
 import {Subscription} from "rxjs";
@@ -11,8 +11,7 @@ import {environment} from "../../../../environments/environment";
   styleUrls: ['./article-slider.component.scss'],
   providers: [ArticleService]
 })
-export class ArticleSliderComponent implements OnInit, OnDestroy {
-
+export class ArticleSliderComponent implements OnInit {
   imager = environment.app.imager;
 
   config: SwiperConfigInterface = {
@@ -32,24 +31,16 @@ export class ArticleSliderComponent implements OnInit, OnDestroy {
     hideOnClick: false
   };
 
-  articleSubscription: Subscription;
-  articles: Article[];
+  articles$: Article[];
 
-  constructor(private articleService: ArticleService) { }
-
-  ngOnInit(): void {
-    this.config.pagination = this.pagination;
-
-    this.articleSubscription = this.articleService.slide(3).subscribe({
-      next: (e) => this.articles = e.data as Article[],
-      error: (e) => console.error(e)
-    });
+  @Input('articles')
+  set articles(items: Article[]) {
+    this.articles$ = items;
   }
 
-  ngOnDestroy() {
-    if (this.articleSubscription && !this.articleSubscription.unsubscribe) {
-      this.articleSubscription.unsubscribe();
-    }
+  ngOnInit(): void {
+    this.articles$ = [];
+    this.config.pagination = this.pagination;
   }
 
 }

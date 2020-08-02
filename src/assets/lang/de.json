@@ -76,7 +76,14 @@
     "HERO": {
       "PAGE": "<h5 class='mb-0'>Hallo {{ username }}!</h5> <span>Here are your important tasks, updates and alerts.</span>"
     },
-    "YOUR_RANK": "DEIN RANG:"
+    "YOUR_RANK": "DEIN RANG:",
+
+    "SLIDER": {
+      "ARTICLES": {
+        "TITLE": "Es wurden keine Artikel gefunden!",
+        "DESCRIPTION": "Oh! Ich konnte leider keine Artikel finden. Schaue später nochmal vorbei!"
+      }
+    }
   },
   "FOOTER": {
     "RIGHTS_RESERVED": "&nbsp; &copy; 2020. Alle Rechte an dieser Website vorbehalten.",

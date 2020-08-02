@@ -20,6 +20,7 @@ import {JwtInterceptor} from './interceptors/jwt.interceptor';
 import {ErrorInterceptor} from './interceptors/error.interceptor';
 
 import { LogoutComponent } from './components/logout/logout.component';
+import {PreloaderService} from "./services/preloader.service";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/lang/', '.json');

@@ -1,4 +1,4 @@
-import {SwiperConfigInterface, SwiperPaginationInterface} from "ngx-swiper-wrapper";
+import 'zone.js/dist/zone-error';
 
 export const environment = {
   production: false,

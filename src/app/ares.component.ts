@@ -1,5 +1,7 @@
-import {Component, OnInit, OnDestroy, AfterViewInit, ChangeDetectorRef, AfterViewChecked} from '@angular/core';
+import {Component, OnInit, OnDestroy, ChangeDetectorRef, AfterViewChecked} from '@angular/core';
 import { UserService } from './services/user.service';
+import {PreloaderService} from "./services/preloader.service";
+import {Subscription} from "rxjs";
 
 declare var $;
 
@@ -13,7 +15,7 @@ export class AresComponent implements OnInit, AfterViewChecked {
 
   constructor(
     private userService: UserService,
-    private cdRef: ChangeDetectorRef
+    private cdRef: ChangeDetectorRef,
   ) { }
 
   ngOnInit() {
@@ -24,4 +26,5 @@ export class AresComponent implements OnInit, AfterViewChecked {
     this.isAuthenticated = this.userService.isAuthenticated;
     this.cdRef.detectChanges();
   }
+
 }

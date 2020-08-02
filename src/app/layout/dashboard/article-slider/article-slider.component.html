@@ -1,5 +1,5 @@
-<swiper [config]="config" class="article--slider">
-  <ng-container *ngFor="let article of articles">
+<swiper *ngIf="articles$.length > 0; else noArticles" [config]="config" class="article--slider">
+  <ng-container *ngFor="let article of articles$">
     <div class="card article">
       <div class="card-body d-inline-flex flex-column">
         <div class="article--info d-flex align-items-center">
@@ -14,11 +14,38 @@
           <img [src]="article.image">
         </div>
 
-        <p class="article--title">{{ article.title }}</p>
-        <span class="article--description">{{ article.description }}</span>
+        <div class="d-inline-flex flex-column pb-2">
+          <p class="article--title">{{ article.title }}</p>
+          <span class="article--description w-100">{{ (article.description.length > 90)? (article.description | slice:0:90)+'..' : (article.description) }}</span>
+        </div>
 
-        <a href="#" class="btn btn-danger align-self-end">Weiterlesen</a>
+        <div class="d-inline-flex flex-row w-100">
+          <span class="align-self-start w-100">LIKES UND SO</span>
+          <a href="#" class="btn btn-danger align-self-end">Weiterlesen</a>
+        </div>
       </div>
     </div>
   </ng-container>
 </swiper>
+
+<ng-template #noArticles>
+  <div class="card article">
+    <div class="card-body d-inline-flex flex-column">
+      <div class="article--info d-flex align-items-center">
+        <div class="article--user">
+          <img id="frank" src="assets/images/articles/frank_15.gif">
+        </div>
+        <span>Frank</span>
+      </div>
+
+      <div class="article--thumb mt-2">
+        <img src="assets/images/articles/topstory.gif">
+      </div>
+
+      <div class="d-inline-flex flex-column pb-2">
+        <p class="article--title" [translate]="'DASHBOARD.SLIDER.ARTICLES.TITLE'"></p>
+        <span class="article--description w-100" [translate]="'DASHBOARD.SLIDER.ARTICLES.DESCRIPTION'"></span>
+      </div>
+    </div>
+  </div>
+</ng-template>

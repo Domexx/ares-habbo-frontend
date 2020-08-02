@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'ares-friends',
+  selector: 'ares-layout-dashboard-friends',
   templateUrl: './friends.component.html',
   styleUrls: ['./friends.component.scss']
 })

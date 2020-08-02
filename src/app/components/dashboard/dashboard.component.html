@@ -1,3 +1,5 @@
+<ares-layout-preloader [state]="articles.length > 0"></ares-layout-preloader>
+
 <section class="ares--hero">
   <div id="asteroids"></div>
   <div id="room"></div>
@@ -70,7 +72,17 @@
 
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-8">
-      <ares-layout-dashboard-articles></ares-layout-dashboard-articles>
+      <ares-layout-dashboard-articles [articles]="articles"></ares-layout-dashboard-articles>
+
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-8 col-xl-8 mb-2">
+          <ares-layout-dashboard-friends></ares-layout-dashboard-friends>
+        </div>
+
+        <div class="col-sm-12 col-md-12 col-lg-4 col-xl-4 mb-2">
+          <ares-layout-dashboard-rooms></ares-layout-dashboard-rooms>
+        </div>
+      </div>
     </div>
 
     <div class="col-4">

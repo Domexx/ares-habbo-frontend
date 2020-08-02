@@ -6,7 +6,8 @@
 
 
 .article {
-  height: 15.7rem !important;
+  height: 16.5rem !important;
+  overflow-y: hidden !important;
 
   & .article--info {
     .article--user {
@@ -21,6 +22,13 @@
       & > img {
         image-rendering: pixelated;
         margin-top: -4px;
+      }
+
+      & > #frank {
+        width: 2rem;
+        height: 5rem;
+        object-fit: contain;
+        margin-top: -.9rem;
       }
     }
 
@@ -61,13 +69,9 @@
     color: #D7D7D7;
     font-size: 14px;
     font-weight: 300;
-    padding-top: .3rem;
-    line-height: 1.3em;
-    max-height: 3.5em;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
     overflow: hidden;
+    white-space: nowrap;
   }
 }
 
