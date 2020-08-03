@@ -20,6 +20,8 @@ import {JwtInterceptor} from './interceptors/jwt.interceptor';
 import {ErrorInterceptor} from './interceptors/error.interceptor';
 
 import { LogoutComponent } from './components/logout/logout.component';
+import {HttpLoaderInterceptor} from "./interceptors/http-loader.interceptor";
+import {HttpLoaderService} from "./services/http-loader.service";
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/lang/', '.json');
@@ -46,8 +48,10 @@ export function HttpLoaderFactory(http: HttpClient) {
   ],
   providers: [
     TitleService,
+    HttpLoaderService,
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+    { provide: HTTP_INTERCEPTORS, useClass: HttpLoaderInterceptor, multi: true }
   ],
   bootstrap: [AresComponent]
 })

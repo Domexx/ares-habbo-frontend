@@ -4,26 +4,23 @@ import {Observable, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {UserService} from 'src/app/services/user.service';
 import {AlertService} from '../services/alert.service';
-import {environment} from "../../environments/environment";
+import {Router} from "@angular/router";
+import {TranslateService} from "@ngx-translate/core";
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
   constructor(
     private userService: UserService,
-    private alertService: AlertService
-  ) {
-  }
+    private alertService: AlertService,
+    private translateService: TranslateService,
+    private router: Router
+  ) { }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
       catchError((err: HttpErrorResponse | any) => {
-        if (err.status === 404 && environment.production) {
-          return;
-        }
-
-        if (err.status === 401 && this.userService.isAuthenticated) {
-          this.userService.logout();
-          location.reload();
+        if (err.status === 401 && (this.userService.user || this.userService.token)) {
+          this.userService.logout().then(() => this.router.navigateByUrl('/').then(() => this.alertService.error(this.translateService.instant('LOGOUT.ERROR'))));
         }
 
         if (err instanceof HttpErrorResponse) {

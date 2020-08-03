@@ -1,5 +1,6 @@
-import {Component, Input} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {animate, state, style, transition, trigger} from "@angular/animations";
+import {HttpLoaderService} from "../../services/http-loader.service";
 
 @Component({
   selector: 'ares-layout-preloader',
@@ -15,11 +16,12 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
     ])
   ]
 })
-export class PreloaderComponent {
+export class PreloaderComponent implements OnInit {
   state$ = false;
 
-  @Input('state')
-  set state(value: boolean) {
-    this.state$ = value;
+  constructor(private httpLoaderService: HttpLoaderService) { }
+
+  ngOnInit() {
+    this.httpLoaderService.asObservable().subscribe(v => this.state$ = !v);
   }
 }

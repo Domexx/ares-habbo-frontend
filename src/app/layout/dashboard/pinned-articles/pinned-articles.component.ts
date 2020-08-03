@@ -1,17 +1,14 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {SwiperConfigInterface, SwiperPaginationInterface} from "ngx-swiper-wrapper";
-import {ArticleService} from "../../../services/article.service";
-import {Subscription} from "rxjs";
-import {Article} from "../../../models/article/article";
+import {Component, Input, OnInit} from '@angular/core';
 import {environment} from "../../../../environments/environment";
+import {SwiperConfigInterface, SwiperPaginationInterface} from "ngx-swiper-wrapper";
+import {Article} from "../../../models/article/article";
 
 @Component({
-  selector: 'ares-layout-dashboard-article-slider',
-  templateUrl: './article-slider.component.html',
-  styleUrls: ['./article-slider.component.scss'],
-  providers: [ArticleService]
+  selector: 'ares-layout-dashboard-pinned-articles',
+  templateUrl: './pinned-articles.component.html',
+  styleUrls: ['./pinned-articles.component.scss']
 })
-export class ArticleSliderComponent implements OnInit {
+export class PinnedArticlesComponent implements OnInit {
   imager = environment.app.imager;
 
   config: SwiperConfigInterface = {
@@ -23,8 +20,7 @@ export class ArticleSliderComponent implements OnInit {
     scrollbar: false,
     navigation: false,
     pagination: false,
-    allowTouchMove: false,
-    loop: true
+    allowTouchMove: false
   };
 
   private pagination: SwiperPaginationInterface = {

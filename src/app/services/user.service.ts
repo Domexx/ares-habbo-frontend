@@ -38,7 +38,7 @@ export class UserService {
       );
   }
 
-  logout(): Observable<any> {
+  logout(): Promise<void | API> {
     localStorage.removeItem('ares-user');
     this.userSubject.next(null);
 
@@ -46,9 +46,7 @@ export class UserService {
       headers: {
         Authorization: `Bearer ${this.token}`
       }
-    }).pipe(
-      map(() => localStorage.removeItem('ares-token'))
-    );
+    }).toPromise().then(() => localStorage.removeItem('ares-token'));
   }
 
   get isAuthenticated(): boolean {

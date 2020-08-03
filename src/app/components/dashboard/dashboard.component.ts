@@ -17,7 +17,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
   look: string;
 
   articles: Article[];
+  pinned: Article[];
+
   articleSubscription: Subscription;
+  pinnedSubscription: Subscription;
 
   constructor(
     private userService: UserService,
@@ -30,10 +33,15 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.look = `${environment.app.imager}${this.user.look}&action=std&gesture=sml&direction=2&head_direction=2&size=l`;
 
     this.articles = [];
+    this.pinned = [];
 
     this.articleSubscription = this.articleService.slide(3).subscribe({
       next: (e) => this.articles = e.data as Article[]
     });
+
+    this.pinnedSubscription = this.articleService.pinned().subscribe({
+      next: (e) => this.pinned = e.data as Article[]
+    })
 
     this.titleService.setTitle('Dashboard');
   }
@@ -41,6 +49,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     if (this.articleSubscription && !this.articleSubscription.unsubscribe) {
       this.articleSubscription.unsubscribe();
+    }
+
+    if (this.pinnedSubscription && !this.pinnedSubscription.unsubscribe) {
+      this.pinnedSubscription.unsubscribe();
     }
   }
 

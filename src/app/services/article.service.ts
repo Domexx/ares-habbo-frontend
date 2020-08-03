@@ -13,4 +13,8 @@ export class ArticleService {
   slide(count: number): Observable<API> {
     return this.apiService.get(`articles/slide/${count}`);
   }
+
+  pinned(): Observable<API> {
+    return this.apiService.get('articles/pinned');
+  }
 }

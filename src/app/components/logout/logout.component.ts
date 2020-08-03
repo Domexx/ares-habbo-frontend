@@ -9,8 +9,7 @@ import {TranslateService} from "@ngx-translate/core";
   selector: 'ares-logout',
   template: ''
 })
-export class LogoutComponent implements OnInit, OnDestroy, AfterViewInit {
-  logoutSubscription: Subscription;
+export class LogoutComponent implements OnInit {
 
   constructor(
     private userService: UserService,
@@ -20,17 +19,13 @@ export class LogoutComponent implements OnInit, OnDestroy, AfterViewInit {
   ) { }
 
   ngOnInit(): void {
-    this.logoutSubscription = this.userService.logout().subscribe();
-  }
-
-  ngAfterViewInit() {
-    this.router.navigateByUrl('/').finally(() => this.alertService.success(this.translateService.instant('LOGOUT.SUCCESS')));
-  }
-
-  ngOnDestroy() {
-    if (this.logoutSubscription && !this.logoutSubscription.unsubscribe) {
-      this.logoutSubscription.unsubscribe();
+    if (!this.userService.token || !this.userService.user) {
+      this.router.navigateByUrl('/');
+      return;
     }
+
+    this.userService.logout().then(() => this.router.navigateByUrl('/').then(() => this.alertService.success(this.translateService.instant('LOGOUT.SUCCESS'))));
   }
+
 
 }
