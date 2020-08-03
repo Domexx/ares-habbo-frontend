@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {User} from "../../../models/user/user";
 
 @Component({
   selector: 'ares-layout-dashboard-friends',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./friends.component.scss']
 })
 export class FriendsComponent implements OnInit {
+  friends$: User[];
+
+  @Input('friends')
+  set friends(value: User[]) {
+    this.friends$ = value;
+  }
 
   constructor() { }
 
   ngOnInit(): void {
+    this.friends$ = [];
   }
 
 }

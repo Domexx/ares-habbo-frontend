@@ -11,7 +11,7 @@ export class ArticleService {
   constructor(private apiService: ApiService) { }
 
   slide(count: number): Observable<API> {
-    return this.apiService.get(`articles/slide/${count}`);
+    return this.apiService.get(`articles/list/${count}`);
   }
 
   pinned(): Observable<API> {
