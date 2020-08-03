@@ -3,7 +3,6 @@ import {User} from 'src/app/models/user/user';
 import {UserService} from 'src/app/services/user.service';
 import {TitleService} from 'src/app/services/title.service';
 import {environment} from 'src/environments/environment';
-import {PreloaderService} from "../../services/preloader.service";
 import {Subscription} from "rxjs";
 import {Article} from "../../models/article/article";
 import {ArticleService} from "../../services/article.service";
@@ -11,8 +10,7 @@ import {ArticleService} from "../../services/article.service";
 @Component({
   selector: 'ares-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
-  providers: [PreloaderService]
+  styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit, OnDestroy {
   user: User;
@@ -24,7 +22,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   constructor(
     private userService: UserService,
     private titleService: TitleService,
-    private articleService: ArticleService
+    private articleService: ArticleService,
   ) { }
 
   ngOnInit(): void {

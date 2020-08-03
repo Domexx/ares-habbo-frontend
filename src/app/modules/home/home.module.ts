@@ -9,14 +9,13 @@ import {LayoutModule} from '../layout/layout.module';
 
 @NgModule({
   declarations: [HomeComponent],
-    imports: [
-        CommonModule,
-        HomeRoutingModule,
-        ReactiveFormsModule,
-        TranslateModule.forChild(),
-        LayoutModule
-    ],
-  providers: []
+  imports: [
+    CommonModule,
+    HomeRoutingModule,
+    ReactiveFormsModule,
+    TranslateModule.forChild(),
+    LayoutModule
+  ],
 })
 export class HomeModule {
 }

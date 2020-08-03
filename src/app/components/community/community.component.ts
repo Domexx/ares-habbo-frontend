@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {PreloaderService} from "../../services/preloader.service";
 
 @Component({
   selector: 'ares-community',
   templateUrl: './community.component.html',
-  styleUrls: ['./community.component.scss'],
-  providers: [PreloaderService]
+  styleUrls: ['./community.component.scss']
 })
 export class CommunityComponent implements OnInit {
 
-  constructor(private preloaderService: PreloaderService) { }
+  constructor() { }
 
   ngOnInit(): void {
 

@@ -11,7 +11,7 @@ import {environment} from '../../../environments/environment';
 @Component({
   selector: 'ares-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss'],
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   hotelName = environment.app.hotelName || 'Ares';
@@ -22,6 +22,8 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
   authSubscription: Subscription;
   userSubscription: Subscription;
   translateSubscription: Subscription;
+
+  loaded = false;
 
   constructor(private titleService: TitleService,
               private formBuilder: FormBuilder,
@@ -36,6 +38,8 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
+
+    setTimeout(() => this.loaded = true, 250);
   }
 
   ngAfterViewInit() {

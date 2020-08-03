@@ -1,7 +1,5 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {animate, state, style, transition, trigger} from "@angular/animations";
-import {Subscription} from "rxjs";
-import {PreloaderService} from "../../services/preloader.service";
 
 @Component({
   selector: 'ares-layout-preloader',
@@ -9,37 +7,19 @@ import {PreloaderService} from "../../services/preloader.service";
   styleUrls: ['./preloader.component.scss'],
   animations: [
     trigger('fade', [
-      state('0' , style({ opacity: 1 })),
-      state('1', style({ opacity: 0, display: 'none' })),
+      state('0', style({opacity: 1, display: 'block'})),
+      state('1', style({opacity: 0, display: 'none'})),
 
-      transition('1 => 0', animate('350ms')),
-      transition('0 => 1', animate('350ms'))
+      transition('1 => 0', animate('450ms')),
+      transition('0 => 1', animate('450ms'))
     ])
   ]
 })
-export class PreloaderComponent implements OnInit, OnDestroy {
+export class PreloaderComponent {
   state$ = false;
 
   @Input('state')
   set state(value: boolean) {
     this.state$ = value;
   }
-
-  loaderSubscription: Subscription;
-  loaderState = false;
-
-  constructor(private preloaderService: PreloaderService) { }
-
-  ngOnInit(): void {
-    this.loaderSubscription = this.preloaderService.listen().subscribe({
-      next: (e) => this.loaderState = e
-    });
-  }
-
-  ngOnDestroy() {
-    if (this.loaderSubscription && !this.loaderSubscription.unsubscribe) {
-      this.loaderSubscription.unsubscribe();
-    }
-  }
-
 }

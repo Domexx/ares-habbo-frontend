@@ -44,8 +44,9 @@ export class RegisterComponent implements OnInit, OnDestroy {
     private registerService: RegisterService,
     private userService: UserService,
     private router: Router
-  ) {
-  }
+  ) { }
+
+  loaded = false;
 
   ngOnInit(): void {
     document.body.classList.add('register--component');
@@ -58,6 +59,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
     });
 
     this.titleService.setTitle(this.translateService.instant('REGISTER.TITLE'));
+    setTimeout(() => this.loaded = true, 250);
   }
 
   get f() {
