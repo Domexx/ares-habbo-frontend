@@ -5,10 +5,10 @@
       <input type="text" class="form-control align-self-end w-50" />
     </div>
 
-    <ul class="list-group list-unstyled">
-      <li>
-        test
-      </li>
-    </ul>
+    <div class="row">
+      <div class="col-4" *ngFor="let friend of friends$">
+        {{ friend.username }}
+      </div>
+    </div>
   </div>
 </div>

@@ -6,6 +6,7 @@ import {environment} from 'src/environments/environment';
 import {Subscription} from "rxjs";
 import {Article} from "../../models/article/article";
 import {ArticleService} from "../../services/article.service";
+import {FriendService} from "../../services/friend.service";
 
 @Component({
   selector: 'ares-dashboard',
@@ -18,14 +19,17 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   articles: Article[];
   pinned: Article[];
+  friends: User[] | null;
 
   articleSubscription: Subscription;
   pinnedSubscription: Subscription;
+  friendsSubscription: Subscription;
 
   constructor(
     private userService: UserService,
     private titleService: TitleService,
     private articleService: ArticleService,
+    private friendService: FriendService
   ) { }
 
   ngOnInit(): void {
@@ -34,14 +38,19 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     this.articles = [];
     this.pinned = [];
+    this.friends = [];
 
     this.articleSubscription = this.articleService.slide(3).subscribe({
-      next: (e) => this.articles = e.data as Article[]
+      next: (e) => this.articles = e
     });
 
     this.pinnedSubscription = this.articleService.pinned().subscribe({
-      next: (e) => this.pinned = e.data as Article[]
+      next: (e) => this.pinned = e
     })
+
+    this.friendsSubscription = this.friendService.friends().subscribe({
+      next: (e) => this.friends = e
+    });
 
     this.titleService.setTitle('Dashboard');
   }
@@ -53,6 +62,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     if (this.pinnedSubscription && !this.pinnedSubscription.unsubscribe) {
       this.pinnedSubscription.unsubscribe();
+    }
+
+    if (this.friendsSubscription && !this.friendsSubscription.unsubscribe) {
+      this.friendsSubscription.unsubscribe();
     }
   }
 

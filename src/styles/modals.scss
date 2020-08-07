@@ -1,7 +1,8 @@
 .modal {
   .modal-dialog {
     .modal-content {
-      background: var(--main-bg-dark);
+      background: var(--main-modal-bg);
+      padding: 1.5rem;
     }
   }
 }

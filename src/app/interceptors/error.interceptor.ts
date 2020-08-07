@@ -19,14 +19,16 @@ export class ErrorInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
       catchError((err: HttpErrorResponse | any) => {
-        if (err.status === 401 && (this.userService.user || this.userService.token)) {
-          this.userService.logout().then(() => this.router.navigateByUrl('/').then(() => this.alertService.error(this.translateService.instant('LOGOUT.ERROR'))));
+        if (err.status === 401 && this.userService.user || this.userService.token) {
+          this.userService.logout().finally(() => this.router.navigateByUrl('/').then(() => this.alertService.error(this.translateService.instant('LOGOUT.ERROR'))));
         }
 
-        if (err instanceof HttpErrorResponse) {
+        if (err instanceof HttpErrorResponse && err.error) {
           err.error.errors.forEach(key => {
             this.alertService.error(key.message);
           });
+        } else if(!err.error) {
+          this.alertService.error(this.translateService.instant('UNKNOWN_ERROR'));
         }
 
         return throwError(err);

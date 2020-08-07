@@ -81,16 +81,19 @@
     "SLIDER": {
       "ARTICLES": {
         "TITLE": "Es wurden keine Artikel gefunden!",
-        "DESCRIPTION": "Oh! Ich konnte leider keine Artikel finden. Schaue später nochmal vorbei!"
+        "DESCRIPTION": "Oh! Ich konnte leider keine Artikel finden. Schaue später nochmal vorbei!",
+        "READ_MORE": "Weiterlesen"
       }
     }
   },
   "LOGOUT": {
     "SUCCESS": "Du wurdest erfolgreich abgemeldet!",
-    "ERROR": "Du wurdest aufgrund eines Fehlers abgemeldet!"
+    "ERROR": "Bitte melde dich erneut an!"
   },
   "FOOTER": {
     "RIGHTS_RESERVED": "&nbsp; &copy; 2020. Alle Rechte an dieser Website vorbehalten.",
     "NOT_SULAKE": "Diese Website gehört nicht der Sulake Corporation und wird nicht von Habbo Hotel &reg; betrieben."
-  }
+  },
+
+  "UNKNOWN_ERROR": "Ein unbekannter Fehler ist aufgetreten!"
 }

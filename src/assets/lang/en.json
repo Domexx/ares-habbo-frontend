@@ -58,16 +58,19 @@
     "SLIDER": {
       "ARTICLES": {
         "TITLE": "No Articles were Found!",
-        "DESCRIPTION": "Oh! I couldn't find any article. Check back later!"
+        "DESCRIPTION": "Oh! I couldn't find any article. Check back later!",
+        "READ_MORE": "Read More"
       }
     }
   },
   "LOGOUT": {
     "SUCCESS": "Successfully logged out!",
-    "ERROR": "You were logged out because of an error!"
+    "ERROR": "Sign in again, please!"
   },
   "FOOTER": {
     "RIGHTS_RESERVED": "&nbsp; &copy; 2020. All rights reserved.",
     "NOT_SULAKE": "This website is not owned by Sulake Corporation and is not operated by Habbo Hotel &reg;."
-  }
+  },
+
+  "UNKNOWN_ERROR": "An unknown error has occurred"
 }

@@ -1,11 +1,27 @@
+button {
+  &:focus {
+    outline: unset !important;
+  }
+}
+
 .close {
-  color: #fff;
-  text-shadow: 0px 1px 2px rgb(0 0 0);
-  transition: .25s all;
+  background-image: url('./assets/images/icons/modal/close.png');
+  background-repeat: no-repeat;
+  background-color: var(--modal-close-bg) !important;
+  background-size: 50%;
+  background-position: center;
+  transition: 0.25s all;
+  border-radius: 50rem;
+  opacity: 1;
+  height: 2rem;
+  float: right;
+  width: 2rem;
+  position: absolute;
+  right: .5rem;
+  top: .5rem;
 
   &:hover,
   &:focus {
-    color: #fff;
-    opacity: 1;
+    opacity: .9;
   }
 }
