@@ -23,7 +23,7 @@ export class ArticleSliderComponent implements OnInit {
     scrollbar: false,
     navigation: false,
     pagination: false,
-    allowTouchMove: false,
+    allowTouchMove: true,
     loop: true
   };
 

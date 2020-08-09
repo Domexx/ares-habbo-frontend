@@ -11,8 +11,8 @@ export class ArticleService {
 
   constructor(private apiService: ApiService) { }
 
-  slide(count: number): Observable<Article[]> {
-    return this.apiService.get(`articles/list/${count}`).pipe(
+  slide(page: number = 1, results: number = 3): Observable<Article[]> {
+    return this.apiService.get(`articles/list/${page}/${results}`).pipe(
       map(resp => resp.data)
     );
   }

@@ -19,7 +19,13 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   articles: Article[];
   pinned: Article[];
-  friends: User[] | null;
+  friends: User[];
+
+  friendsPagination: { totalPages: number; nextPage: number; prevPage: number } = {
+    totalPages: 1,
+    nextPage: 1,
+    prevPage: 1
+  };
 
   articleSubscription: Subscription;
   pinnedSubscription: Subscription;
@@ -40,7 +46,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.pinned = [];
     this.friends = [];
 
-    this.articleSubscription = this.articleService.slide(3).subscribe({
+    this.articleSubscription = this.articleService.slide().subscribe({
       next: (e) => this.articles = e
     });
 
@@ -49,7 +55,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
     })
 
     this.friendsSubscription = this.friendService.friends().subscribe({
-      next: (e) => this.friends = e
+      next: (e) => {
+        this.friends = e.friends;
+        this.friendsPagination = e.pagination;
+      }
     });
 
     this.titleService.setTitle('Dashboard');

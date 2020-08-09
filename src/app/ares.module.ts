@@ -16,7 +16,7 @@ import {LanguageService} from './services/language.service';
 import {JwtInterceptor} from './interceptors/jwt.interceptor';
 import {ErrorInterceptor} from './interceptors/error.interceptor';
 
-import { LogoutComponent } from './components/logout/logout.component';
+import {LogoutComponent} from './components/logout/logout.component';
 import {HttpLoaderInterceptor} from "./interceptors/http-loader.interceptor";
 import {HttpLoaderService} from "./services/http-loader.service";
 
@@ -50,7 +50,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpLoaderService,
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
-    { provide: HTTP_INTERCEPTORS, useClass: HttpLoaderInterceptor, multi: true }
+    {provide: HTTP_INTERCEPTORS, useClass: HttpLoaderInterceptor, multi: true}
   ],
   bootstrap: [AresComponent]
 })
@@ -72,17 +72,16 @@ export class AresModule {
   image(url: string) {
     const image = new Image();
 
-    image.onload = function() {
+    image.onload = () => {
       const style = `
         font-size: 1px;
-        line-height: 1rem;
-        padding: 0 0 5rem 10rem;
+        padding: 3.5rem 3.5rem 3.5rem 10rem;
         background-size: contain;
         background: url('${url}');
         background-repeat: no-repeat;
       `;
 
-      console.log('%c ', style);
+      console.log(`%c `, style);
     };
     image.src = url;
   }

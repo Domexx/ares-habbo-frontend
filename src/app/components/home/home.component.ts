@@ -13,7 +13,7 @@ import {environment} from '../../../environments/environment';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
+export class HomeComponent implements OnInit, OnDestroy {
   hotelName = environment.app.hotelName || 'Ares';
 
   authForm: FormGroup;
@@ -40,10 +40,7 @@ export class HomeComponent implements OnInit, OnDestroy, AfterViewInit {
     });
 
     setTimeout(() => this.loaded = true, 250);
-  }
-
-  ngAfterViewInit() {
-    console.log(this.translateService.instant('HOME.TITLE'));
+    this.titleService.setTitle(this.translateService.instant('HOME.TITLE'));
   }
 
   onSubmit(): void {
