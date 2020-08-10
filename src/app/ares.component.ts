@@ -17,6 +17,7 @@ export class AresComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() {
     $('[data-toggle="popover"]').popover();
+    $('[data-toggle="tooltip"]').tooltip();
   }
 
   ngAfterViewChecked(): void {

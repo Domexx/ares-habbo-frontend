@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {TranslateModule} from '@ngx-translate/core';
 import {RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import {SWIPER_CONFIG, SwiperConfigInterface, SwiperModule} from "ngx-swiper-wrapper";
 
 import {HeaderComponent} from '../../layout/header/header.component';
@@ -29,7 +30,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     RouterModule,
     TranslateModule.forChild(),
     FormsModule,
-    SwiperModule
+    SwiperModule,
+    InfiniteScrollModule
   ],
   providers: [
     {

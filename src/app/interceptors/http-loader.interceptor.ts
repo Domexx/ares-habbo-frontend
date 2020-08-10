@@ -8,16 +8,27 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {HttpLoaderService} from "../services/http-loader.service";
+import {ApiService} from "../services/api.service";
 
 @Injectable()
 export class HttpLoaderInterceptor implements HttpInterceptor {
   private requests: HttpRequest<any>[] = [];
+  private blockedRequests: string[] = [
+    this.apiService.url('friends/list')
+  ];
 
-  constructor(private loaderService: HttpLoaderService) { }
+  constructor(
+    private loaderService: HttpLoaderService,
+    private apiService: ApiService
+  ) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     this.requests.push(req);
-    this.loaderService.loading = true;
+
+    const blockedRequest = this.blockedRequests.filter(value => req.url == value);
+    if (!this.blockedRequests) {
+      this.loaderService.loading = true;
+    }
 
     return new Observable(observer => {
       const subscription = next.handle(req)

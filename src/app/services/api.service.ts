@@ -30,4 +30,8 @@ export class ApiService {
     return this.http.delete<API>(`${environment.app.endpoint}/${this.languageService.language}/${url}`, options);
   }
 
+  url(value: string) {
+    return `${environment.app.endpoint}/${this.languageService.language}/${value}`;
+  }
+
 }
