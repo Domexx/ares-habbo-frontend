@@ -5,6 +5,7 @@ import {ApiService} from "./api.service";
 import {map} from "rxjs/operators";
 import {FriendPagination} from "../models/friend/friend";
 import {User} from "../models/user/user";
+import {TranslateService} from "@ngx-translate/core";
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,8 @@ export class FriendService {
 
   constructor(
     private http: HttpClient,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private translateService: TranslateService
   ) { }
 
   friends(page: number = 1, results: number = 9): Observable<FriendPagination> {
@@ -34,8 +36,8 @@ export class FriendService {
     const mannequin = new User();
 
     mannequin.id = 0;
-    mannequin.username = 'No Friend';
-    mannequin.motto = `No friend found`;
+    mannequin.username = this.translateService.instant('DASHBOARD.FRIENDS.MANNEQUIN.NAME');
+    mannequin.motto = this.translateService.instant('DASHBOARD.FRIENDS.MANNEQUIN.MOTTO');
     mannequin.look = 'habbo';
     mannequin.online = 3;
 

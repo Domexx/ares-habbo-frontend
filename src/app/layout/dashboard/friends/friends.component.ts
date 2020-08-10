@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Input, OnDestroy, OnInit} from '@angular/core';
+import { Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {User} from "../../../models/user/user";
 import {environment} from "../../../../environments/environment";
 import {Subscription} from "rxjs";
@@ -25,6 +25,8 @@ export class FriendsComponent implements OnInit, OnDestroy {
 
   friends$: User[];
   pagination$: { totalPages: number; nextPage: number; prevPage: number }
+
+  searchName: string;
 
   @Input('friends')
   set friends(value: User[]) {

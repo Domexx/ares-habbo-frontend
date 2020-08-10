@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {TranslateModule} from '@ngx-translate/core';
 import {RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
-import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import {SWIPER_CONFIG, SwiperConfigInterface, SwiperModule} from "ngx-swiper-wrapper";
 
 import {HeaderComponent} from '../../layout/header/header.component';
@@ -17,6 +17,9 @@ import {FriendsComponent} from '../../layout/dashboard/friends/friends.component
 import {ArticleSliderComponent} from '../../layout/dashboard/article-slider/article-slider.component';
 import {PinnedArticlesComponent} from '../../layout/dashboard/pinned-articles/pinned-articles.component';
 import {RoomsComponent} from '../../layout/dashboard/rooms/rooms.component';
+import {SearchPipe} from "../../pipes/dashboard/friends/search.pipe";
+import {IconModule} from "../icon/icon.module";
+import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -24,14 +27,27 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 };
 
 @NgModule({
-  declarations: [FooterComponent, HeaderComponent, NavigationComponent, FriendsComponent, LanguageSelectorComponent, ArticleSliderComponent, RoomsComponent, PreloaderComponent, PinnedArticlesComponent],
+  declarations: [
+    FooterComponent,
+    HeaderComponent,
+    NavigationComponent,
+    FriendsComponent,
+    LanguageSelectorComponent,
+    ArticleSliderComponent,
+    RoomsComponent,
+    PreloaderComponent,
+    PinnedArticlesComponent,
+    SearchPipe
+  ],
   imports: [
     CommonModule,
     RouterModule,
     TranslateModule.forChild(),
     FormsModule,
     SwiperModule,
-    InfiniteScrollModule
+    InfiniteScrollModule,
+    FontAwesomeModule,
+    IconModule
   ],
   providers: [
     {
@@ -39,7 +55,17 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
       useValue: DEFAULT_SWIPER_CONFIG
     }
   ],
-  exports: [FooterComponent, HeaderComponent, LanguageSelectorComponent, FriendsComponent, RoomsComponent, PreloaderComponent, ArticleSliderComponent, PinnedArticlesComponent]
+  exports: [
+    FooterComponent,
+    HeaderComponent,
+    LanguageSelectorComponent,
+    FriendsComponent,
+    RoomsComponent,
+    PreloaderComponent,
+    ArticleSliderComponent,
+    PinnedArticlesComponent,
+    SearchPipe
+  ]
 })
 export class LayoutModule {
 }

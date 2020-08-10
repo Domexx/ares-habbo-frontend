@@ -27,32 +27,32 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [
-    AresComponent,
-    LogoutComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AresRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: (HttpLoaderFactory),
-        deps: [HttpClient]
-      }
-    }),
-    LayoutModule
-  ],
-  providers: [
-    TitleService,
-    HttpLoaderService,
-    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: HttpLoaderInterceptor, multi: true}
-  ],
-  bootstrap: [AresComponent]
+    declarations: [
+        AresComponent,
+        LogoutComponent,
+    ],
+    imports: [
+        BrowserModule,
+        AresRoutingModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: (HttpLoaderFactory),
+                deps: [HttpClient]
+            }
+        }),
+        LayoutModule
+    ],
+    providers: [
+        TitleService,
+        HttpLoaderService,
+        {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+        {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+        {provide: HTTP_INTERCEPTORS, useClass: HttpLoaderInterceptor, multi: true}
+    ],
+    bootstrap: [AresComponent]
 })
 export class AresModule {
   constructor(private translate: TranslateService,

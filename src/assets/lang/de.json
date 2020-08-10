@@ -84,6 +84,15 @@
         "DESCRIPTION": "Oh! Ich konnte leider keine Artikel finden. Schaue später nochmal vorbei!",
         "READ_MORE": "Weiterlesen"
       }
+    },
+
+    "FRIENDS": {
+      "MANNEQUIN": {
+        "NAME": "Kein Freund gefunden",
+        "MOTTO": "Es wurde kein Freund gefunden"
+      },
+
+      "NOT_FOUND": "{{ username }} wurde nicht gefunden!"
     }
   },
   "LOGOUT": {
