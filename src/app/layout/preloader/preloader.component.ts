@@ -11,8 +11,8 @@ import {HttpLoaderService} from "../../services/http-loader.service";
       state('0', style({opacity: 1, display: 'block'})),
       state('1', style({opacity: 0, display: 'none'})),
 
-      transition('1 => 0', animate('450ms')),
-      transition('0 => 1', animate('450ms'))
+      transition('1 => 0', animate('0s')),
+      transition('0 => 1', animate('550ms'))
     ])
   ]
 })

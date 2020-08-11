@@ -24,7 +24,9 @@ export class ArticleSliderComponent implements OnInit {
     navigation: false,
     pagination: false,
     allowTouchMove: true,
-    loop: true
+    loop: true,
+    autoplay: true,
+    speed: 500
   };
 
   private pagination: SwiperPaginationInterface = {
@@ -43,6 +45,7 @@ export class ArticleSliderComponent implements OnInit {
   ngOnInit(): void {
     this.articles$ = [];
     this.config.pagination = this.pagination;
+    this.config.loopedSlides = this.articles$.length;
   }
 
 }

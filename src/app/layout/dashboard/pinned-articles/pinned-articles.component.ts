@@ -20,7 +20,7 @@ export class PinnedArticlesComponent implements OnInit {
     scrollbar: false,
     navigation: false,
     pagination: false,
-    allowTouchMove: false
+    allowTouchMove: true
   };
 
   private pagination: SwiperPaginationInterface = {
@@ -39,6 +39,7 @@ export class PinnedArticlesComponent implements OnInit {
   ngOnInit(): void {
     this.articles$ = [];
     this.config.pagination = this.pagination;
+    this.config.loopedSlides = this.articles$.length;
   }
 
 }
