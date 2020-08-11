@@ -9,7 +9,7 @@ export class Article {
   image: string;
   author: User;
   created_at: {
-    data: string,
+    date: string,
     timezone_type: number;
     timezone: string;
   }

@@ -12,9 +12,14 @@
 
         <div class="article--thumb mt-2">
           <img [src]="article.image">
+
+          <div class="article--date">
+            <p class="date mb-2"><span>{{ article.created_at.date | date: 'd' }}</span> {{ article.created_at.date | date: 'MMMM' }}</p>
+            <p class="time">{{ article.created_at.date | date: 'hh:mm' }}</p>
+          </div>
         </div>
 
-        <div class="d-inline-flex flex-column pb-2">
+        <div class="d-inline-flex flex-column pb-1">
           <p class="article--title">{{ article.title }}</p>
           <span class="article--description w-100">{{ (article.description.length > 90)? (article.description | slice:0:90)+'..' : (article.description) }}</span>
         </div>

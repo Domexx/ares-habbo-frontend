@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 
 import {AresRoutingModule} from './ares-routing.module';
 
@@ -20,6 +20,14 @@ import {LogoutComponent} from './components/logout/logout.component';
 import {HttpLoaderInterceptor} from "./interceptors/http-loader.interceptor";
 import {HttpLoaderService} from "./services/http-loader.service";
 
+// Locales
+import {registerLocaleData} from "@angular/common";
+import localeDE from '@angular/common/locales/de';
+import localeENUS from '@angular/common/locales/en';
+
+registerLocaleData(localeDE);
+registerLocaleData(localeENUS);
+
 declare var console;
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -27,32 +35,37 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-    declarations: [
-        AresComponent,
-        LogoutComponent,
-    ],
-    imports: [
-        BrowserModule,
-        AresRoutingModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: (HttpLoaderFactory),
-                deps: [HttpClient]
-            }
-        }),
-        LayoutModule
-    ],
-    providers: [
-        TitleService,
-        HttpLoaderService,
-        {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
-        {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
-        {provide: HTTP_INTERCEPTORS, useClass: HttpLoaderInterceptor, multi: true}
-    ],
-    bootstrap: [AresComponent]
+  declarations: [
+    AresComponent,
+    LogoutComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AresRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (HttpLoaderFactory),
+        deps: [HttpClient]
+      }
+    }),
+    LayoutModule
+  ],
+  providers: [
+    TitleService,
+    HttpLoaderService,
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: HttpLoaderInterceptor, multi: true},
+    {
+      provide: LOCALE_ID,
+      deps: [LanguageService],
+      useFactory: (languageService) => languageService.getCurrentCulture()
+    }
+  ],
+  bootstrap: [AresComponent]
 })
 export class AresModule {
   constructor(private translate: TranslateService,

@@ -28,4 +28,15 @@ export class LanguageService {
   get language(): string {
     return this.currentLangSubject.value;
   }
+
+  getCurrentCulture(): string {
+    switch (this.language) {
+      case 'en':
+        return 'en-US'
+        break;
+      case 'de':
+          return 'de-DE'
+      break;
+    };
+  }
 }

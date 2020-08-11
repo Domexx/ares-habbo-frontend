@@ -65,8 +65,8 @@
 
     "FRIENDS": {
       "MANNEQUIN": {
-        "NAME": "Kein Freund gefunden",
-        "MOTTO": "Es wurde kein Freund gefunden"
+        "NAME": "No Friend",
+        "MOTTO": "No friend was found"
       },
 
       "NOT_FOUND": "{{ username }} not found!"
