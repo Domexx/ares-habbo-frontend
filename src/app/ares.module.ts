@@ -61,8 +61,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     {provide: HTTP_INTERCEPTORS, useClass: HttpLoaderInterceptor, multi: true},
     {
       provide: LOCALE_ID,
-      deps: [LanguageService],
-      useFactory: (languageService) => languageService.getCurrentCulture()
+      useFactory: (languageService) => languageService.getCurrentCulture(),
+      deps: [LanguageService]
     }
   ],
   bootstrap: [AresComponent]
