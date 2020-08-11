@@ -64,6 +64,7 @@
     },
 
     "FRIENDS": {
+      "TITLE": "Friends",
       "MANNEQUIN": {
         "NAME": "No Friend",
         "MOTTO": "No friend was found"
@@ -71,6 +72,9 @@
 
       "NOT_FOUND": "{{ username }} not found!"
     }
+  },
+  "LOGIN": {
+    "SUCCESS": "You logged in successfully!"
   },
   "LOGOUT": {
     "SUCCESS": "Successfully logged out!",

@@ -87,6 +87,7 @@
     },
 
     "FRIENDS": {
+      "TITLE": "Freunde",
       "MANNEQUIN": {
         "NAME": "Kein Freund gefunden",
         "MOTTO": "Es wurde kein Freund gefunden"
@@ -94,6 +95,9 @@
 
       "NOT_FOUND": "{{ username }} wurde nicht gefunden!"
     }
+  },
+  "LOGIN": {
+    "SUCCESS": "Du hast dich erfolgreich angemeldet!"
   },
   "LOGOUT": {
     "SUCCESS": "Du wurdest erfolgreich abgemeldet!",
