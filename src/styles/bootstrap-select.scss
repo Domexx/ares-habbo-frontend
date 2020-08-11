@@ -1,0 +1,13 @@
+.bootstrap-select {
+  .dropdown-toggle {
+    outline: none !important;
+
+    &:focus {
+      outline: none !important;
+    }
+  }
+
+  &.language-selection {
+    width: 4.5rem !important;
+  }
+}

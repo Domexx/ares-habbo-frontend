@@ -1,0 +1,79 @@
+.icons--key::before {
+  content: " ";
+  display: block;
+  background-image: url('/assets/images/icons/key.png');
+  background-repeat: no-repeat;
+  background-size: 2.2rem;
+  background-position: center center;
+  width: 1rem;
+  height: 2.5rem;
+  padding-right: 3.5rem;
+  margin-top: -6px;
+}
+
+.icon--gift {
+  background-image: url('/assets/images/icons/gift.png');
+  background-repeat: no-repeat;
+  height: 24px;
+  width: 24px;
+}
+
+.icon--dashboard {
+  background-image: url('/assets/images/icons/dashboard.png');
+  background-repeat: no-repeat;
+}
+
+.icon--articles {
+  background-image: url('/assets/images/icons/articles.png');
+  background-repeat: no-repeat;
+}
+
+.icon--community {
+  background-image: url('/assets/images/icons/community.png');
+  background-repeat: no-repeat;
+}
+
+.icon--employees {
+  background-image: url('/assets/images/icons/employees.png');
+  background-repeat: no-repeat;
+}
+
+.icon--settings {
+  background-image: url('/assets/images/icons/settings.png');
+  background-repeat: no-repeat;
+}
+
+.icon--lang-de {
+  background-image: url('/assets/images/icons/lang/de.png');
+  background-repeat: no-repeat;
+  height: 32px;
+  width: 22px;
+}
+
+.icon--lang-en {
+  background-image: url('/assets/images/icons/lang/en.png');
+  background-repeat: no-repeat;
+  height: 31px;
+  width: 23px;
+}
+
+.icon--lang-tr {
+  background-image: url('/assets/images/icons/lang/tr.png');
+  background-repeat: no-repeat;
+  height: 32px;
+  width: 22px;
+}
+
+.icon--credits {
+  background-image: url('/assets/images/icons/credits.png');
+  background-repeat: no-repeat;
+  height: 32px;
+  width: 22px;
+}
+
+.icon--xp {
+  background-image: url('/assets/images/icons/xp.png');
+  background-repeat: no-repeat;
+  height: 30px;
+  width: 22px;
+}

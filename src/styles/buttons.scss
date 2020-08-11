@@ -25,3 +25,35 @@ button {
     opacity: .9;
   }
 }
+
+.btn {
+  border: unset;
+  padding: .8rem;
+  transition: .25s background-color;
+
+  &:focus,
+  &:hover {
+    box-shadow: none;
+  }
+}
+
+.btn-lang {
+  background-color: var(--main-bg-gray);
+  color: #fff;
+  padding: .5rem 1rem .5rem .5rem;
+
+  &:hover,
+  &:focus {
+    background: #FF1744;
+    color: #fff;
+  }
+}
+
+.btn-danger {
+  background-color: var(--btn-danger);
+
+  &:hover,
+  &:focus {
+    background-color: var(--btn-danger-hover);
+  }
+}

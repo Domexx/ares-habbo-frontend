@@ -1,0 +1,25 @@
+.dropdown-menu {
+  background: var(--main-bg-gray);
+
+  .dropdown-item {
+    transition: .25s background-color;
+
+    &.active {
+      &:hover,
+      &:focus {
+        background: #ff1744;
+      }
+    }
+
+    &.active,
+    &:active, {
+      background: #ff1744;
+    }
+
+    &:hover,
+    &:focus {
+      outline: none;
+      background: #373a40;
+    }
+  }
+}

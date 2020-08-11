@@ -1,0 +1,23 @@
+.bg-red {
+  background-color: var(--main-bg-red) !important;
+}
+
+.bg-dark {
+  background-color: var(--main-bg-dark) !important;
+}
+
+.bg-gray {
+  background-color: var(--main-bg-gray) !important;
+}
+
+.bg-green {
+  background-color: var(--main-bg-green) !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.mt-middle {
+  margin-top: calc(100vh - 85vh) !important;
+}

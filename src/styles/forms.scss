@@ -1,0 +1,17 @@
+.form-control {
+  background-color: #292B2F;
+  border-radius: 2px;
+  border: 1px solid #373a40 !important;
+  transition: .25s background-color;
+  color: #fff;
+
+  &:focus {
+    box-shadow: unset;
+    background-color: #303235;
+    color: #fff;
+  }
+}
+
+.ng-dirty.ng-invalid:not(form) {
+  border: 1px solid #b41030 !important;
+}
