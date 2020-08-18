@@ -19,6 +19,8 @@
   --btn-danger: #FF2F57;
   --btn-danger-hover: #f9486a;
 
+  --dashboard-hero-color: #fc374e;
+
   --gray: #EBEFF0 !important;
 }
 
@@ -35,4 +37,6 @@ $container-max-widths: (
   md: 720px,
   lg: 1200px,
   xl: 1400px
-) !default;
+);
+
+$body-bg: var(--main-bg-color);

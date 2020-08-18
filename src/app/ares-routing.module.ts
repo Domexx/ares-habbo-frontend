@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule, PreloadAllModules} from '@angular/router';
+import {Routes, RouterModule} from '@angular/router';
+import {QuicklinkStrategy} from 'ngx-quicklink';
 
 import {LogoutComponent} from './components/logout/logout.component';
 import {ActiveSessionGuard} from './guards/active-session.guard';
@@ -33,7 +34,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})],
+  imports: [RouterModule.forRoot(routes, {preloadingStrategy: QuicklinkStrategy})],
   exports: [RouterModule]
 })
 export class AresRoutingModule {

@@ -4,22 +4,23 @@ import {TranslateModule} from '@ngx-translate/core';
 import {RouterModule} from '@angular/router';
 import {FormsModule} from '@angular/forms';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
-import {SWIPER_CONFIG, SwiperConfigInterface, SwiperModule} from "ngx-swiper-wrapper";
+import {SWIPER_CONFIG, SwiperConfigInterface, SwiperModule} from 'ngx-swiper-wrapper';
 
 import {HeaderComponent} from '../../layout/header/header.component';
 import {NavigationComponent} from '../../layout/header/navigation/navigation.component';
 import {FooterComponent} from '../../layout/footer/footer.component';
 
 import {LanguageSelectorComponent} from '../../layout/language-selector/language-selector.component';
-import {PreloaderComponent} from '../../layout/preloader/preloader.component';
 
 import {FriendsComponent} from '../../layout/dashboard/friends/friends.component';
 import {ArticleSliderComponent} from '../../layout/dashboard/article-slider/article-slider.component';
 import {PinnedArticlesComponent} from '../../layout/dashboard/pinned-articles/pinned-articles.component';
 import {RoomsComponent} from '../../layout/dashboard/rooms/rooms.component';
-import {SearchPipe} from "../../pipes/dashboard/friends/search.pipe";
-import {IconModule} from "../icon/icon.module";
-import {FontAwesomeModule} from "@fortawesome/angular-fontawesome";
+import {SearchPipe} from '../../pipes/dashboard/friends/search.pipe';
+import {IconModule} from '../icon/icon.module';
+import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
+import { LoaderComponent } from '../../layout/loader/loader.component';
+import { HeroComponent } from '../../layout/dashboard/hero/hero.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -35,9 +36,10 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     LanguageSelectorComponent,
     ArticleSliderComponent,
     RoomsComponent,
-    PreloaderComponent,
     PinnedArticlesComponent,
-    SearchPipe
+    SearchPipe,
+    LoaderComponent,
+    HeroComponent
   ],
   imports: [
     CommonModule,
@@ -61,10 +63,11 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     LanguageSelectorComponent,
     FriendsComponent,
     RoomsComponent,
-    PreloaderComponent,
     ArticleSliderComponent,
     PinnedArticlesComponent,
-    SearchPipe
+    SearchPipe,
+    LoaderComponent,
+    HeroComponent
   ]
 })
 export class LayoutModule {

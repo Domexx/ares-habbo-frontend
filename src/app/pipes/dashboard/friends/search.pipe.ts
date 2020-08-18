@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {User} from "../../../models/user/user";
-import {FriendService} from "../../../services/friend.service";
+import {User} from '../../../models/user/user';
+import {FriendService} from '../../../services/friend.service';
 
 @Pipe({
   name: 'searchFriend'

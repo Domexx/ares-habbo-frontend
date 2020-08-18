@@ -3,3 +3,9 @@
     width: inherit;
     overflow-x: hidden;
 }
+
+.ares--routes {
+  .ngx-overlay {
+    display: none !important;
+  }
+}

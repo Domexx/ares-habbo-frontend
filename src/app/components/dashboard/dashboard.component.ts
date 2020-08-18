@@ -3,10 +3,10 @@ import {User} from 'src/app/models/user/user';
 import {UserService} from 'src/app/services/user.service';
 import {TitleService} from 'src/app/services/title.service';
 import {environment} from 'src/environments/environment';
-import {Subscription} from "rxjs";
-import {Article} from "../../models/article/article";
-import {ArticleService} from "../../services/article.service";
-import {FriendService} from "../../services/friend.service";
+import {Subscription} from 'rxjs';
+import {Article} from '../../models/article/article';
+import {ArticleService} from '../../services/article.service';
+import {FriendService} from '../../services/friend.service';
 
 @Component({
   selector: 'ares-dashboard',
@@ -35,7 +35,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     private userService: UserService,
     private titleService: TitleService,
     private articleService: ArticleService,
-    private friendService: FriendService
+    private friendService: FriendService,
   ) { }
 
   ngOnInit(): void {
@@ -52,7 +52,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     this.pinnedSubscription = this.articleService.pinned().subscribe({
       next: (e) => this.pinned = e
-    })
+    });
 
     this.friendsSubscription = this.friendService.friends().subscribe({
       next: (e) => {

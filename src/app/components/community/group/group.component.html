@@ -1,0 +1,32 @@
+<ng-container *ngIf="group; else notFound">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <div class="card group">
+          <div class="card-body d-flex flex-column">
+            <div class="d-inline-flex flex-row">
+              <img class="group--badge mt-2 mr-3" [src]="badgeParts + group?.badge + '.png'" />
+
+              <div class="d-inline-flex flex-column">
+                <h4>{{ group?.name }}</h4>
+                <p>{{ group?.description }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        sadasd
+      </div>
+
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        asdasd
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #notFound>
+  gruppe nicht gefunden
+</ng-template>

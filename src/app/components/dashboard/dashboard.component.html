@@ -1,73 +1,6 @@
-<section class="ares--hero">
-  <div id="asteroids"></div>
-  <div id="room"></div>
-
-  <div class="container" [innerHTML]="'DASHBOARD.HERO.PAGE' | translate: { username: user?.username }"></div>
-</section>
+<ares-layout-dashboard-hero class="mb-3"></ares-layout-dashboard-hero>
 
 <div class="container">
-  <div class="row mb-4">
-    <div class="col-12">
-      <div class="card card-default">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-sm-4 col-md-4 col-lg-2 col-xl-2 d-flex justify-content-center">
-              <div class="user--figure" [style.backgroundImage]="'url('+ look + ')'"></div>
-            </div>
-
-            <div class="col-sm-8 col-md-8 col-lg-7 col-xl-7 d-flex flex-column">
-              <h4 class="user-name m-0 pb-2">{{ user?.username }}</h4>
-
-              <div class="d-inline-flex">
-                <strong [translate]="'DASHBOARD.YOUR_RANK'"></strong> <i>Beginner</i>
-              </div>
-
-              <div class="d-inline-flex pt-3">
-                <div class="icon--xp pr-4"></div>
-                <div class="progress experience-bar w-75">
-                  <div class="progress-bar w-75">4000 / 5000</div>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-sm-12 col-md-12 col-lg-3 col-xl-3">
-              <div class="row pt-4">
-                <div class="col-4">
-                  <div class="user--info credits">
-                    <div class="img-wrapper">
-                      <img src="../../../assets/images/icons/credits.png"/>
-                    </div>
-
-                    <p>{{ user?.credits }}</p>
-                  </div>
-                </div>
-
-                <div class="col-4">
-                  <div class="user--info diamonds">
-                    <div class="img-wrapper">
-                      <img src="../../../assets/images/icons/diamonds.png"/>
-                    </div>
-                    <p>{{ user?.points }}</p>
-                  </div>
-                </div>
-
-                <div class="col-4">
-                  <div class="user--info duckets">
-                    <div class="img-wrapper">
-                      <img src="../../../assets/images/icons/duckets.png"/>
-                    </div>
-
-                    <p>{{ user?.pixels }}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div class="row">
     <div class="col-sm-12 col-md-12 col-lg-12 col-xl-8">
       <div class="row">
@@ -79,7 +12,6 @@
           <ares-layout-dashboard-article-slider [articles]="articles"></ares-layout-dashboard-article-slider>
         </div>
       </div>
-
 
       <div class="row">
         <div class="col-sm-12 col-md-12 col-lg-8 col-xl-9 mb-2">

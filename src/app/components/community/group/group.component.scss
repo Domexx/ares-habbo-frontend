@@ -1,0 +1,10 @@
+.group {
+  .card-body {
+    .group--badge {
+      object-fit: cover;
+      height: 3.3rem;
+      width: 3.3rem;
+      image-rendering: pixelated;
+    }
+  }
+}

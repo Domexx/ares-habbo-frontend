@@ -23,7 +23,11 @@ export class ErrorInterceptor implements HttpInterceptor {
           this.userService.logout().finally(() => this.router.navigateByUrl('/').then(() => this.alertService.error(this.translateService.instant('LOGOUT.ERROR'))));
         }
 
-        if (err instanceof HttpErrorResponse && err.error) {
+        if (err.status === 404) {
+          return throwError(err);
+        }
+
+        if (err instanceof HttpErrorResponse && err.error.errors) {
           err.error.errors.forEach(key => {
             this.alertService.error(key.message);
           });

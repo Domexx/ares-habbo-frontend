@@ -13,6 +13,7 @@ export const environment = {
     hotelName: 'Ares',
     title: 'Ares ~ ',
     imager: 'https://www.habbo.com/habbo-imaging/avatarimage?figure=',
+    badgeParts: 'https://yourdomain.com/swf/c_images/Badgeparts/generated/',
 
     // Language
     defaultLang: 'en',
