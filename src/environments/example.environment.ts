@@ -1,5 +1,3 @@
-import 'zone.js/dist/zone-error';
-
 // Don't forget to rename `example.environment.ts` to environment.ts
 
 export const environment = {

@@ -1,11 +1,21 @@
+@import '../../../../styles/variables';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
 :host {
   background-image: url('../../../../assets/images/dashboard/tree_left.png'), url('../../../../assets/images/dashboard/tree_right.png'), url('../../../../assets/images/dashboard/hero-bg.png');
   background-repeat: no-repeat;
   background-position: left, right, center;
-  height: 31rem;
+  min-height: 31rem;
   width: 100vw;
   display: flex;
   position: relative;
+
+  @include media-breakpoint-down(md) {
+    background-image: url('../../../../assets/images/dashboard/hero-bg.png');
+    background-position: center;
+  }
 
   & > .bg-overlay {
     background-color: var(--dashboard-hero-color) !important;

@@ -1,8 +1,8 @@
 <div class="bg-overlay"></div>
 
 <div class="container">
-  <div class="row justify-content-center align-items-center h-100">
-    <div class="col-8">
+  <div class="row justify-content-xl-center justify-content-lg-center align-items-center justify-content-md-start h-100">
+    <div class="col-xl-8 col-lg-8 col-md-12">
       <div class="row">
         <div class="col-xl-2 col-lg-2 d-xl-block d-lg-block d-none">
           <div class="user--avatar">
@@ -13,23 +13,29 @@
         <div class="col-xl-10 col-lg-10">
           <div class="d-flex flex-column ml-2 pt-4">
             <h3>Willkommen zurück, <strong>{{ user?.username }}</strong></h3>
-            <p class="m-2">Deine letzte Anmeldung war am 21.08.2020 um 21:22</p>
-            <span>Motto: "{{ user?.motto }}"</span>
+            <p class="mb-1">Deine letzte Anmeldung war am 21.08.2020 um 21:22.</p>
+            <span>Motto: <strong>{{ user?.motto }}</strong></span>
 
-            <div class="d-inline-flex flex-row mt-3 user--info">
-              <div class="d-inline-flex flex-row mr-2">
-                <div class="ares--icon credits mr-2"></div>
-                <strong class="py-3">{{ user?.credits | numberSuffix: 2.0 }}</strong>
+            <div class="row mt-3 user--info">
+              <div class="col-xl-4 col-lg-4 col-md-12">
+                <div class="d-inline-flex flex-row">
+                  <div class="ares--icon credits mr-2"></div>
+                  <strong class="py-3">{{ user?.credits | numberSuffix: 2.0 }}</strong>
+                </div>
               </div>
 
-              <div class="d-inline-flex flex-row mx-2">
-                <div class="ares--icon diamonds mr-2"></div>
-                <strong class="py-3">{{ user?.points | numberSuffix: 2.0 }}</strong>
+              <div class="col-xl-4 col-lg-4 col-md-12">
+                <div class="d-inline-flex flex-row">
+                  <div class="ares--icon diamonds mr-2"></div>
+                  <strong class="py-3">{{ user?.points | numberSuffix: 2.0 }}</strong>
+                </div>
               </div>
 
-              <div class="d-inline-flex flex-row mx-2">
-                <div class="ares--icon duckets my-3 mr-2"></div>
-                <strong class="py-3">{{ user?.pixels | numberSuffix: 2.0 }}</strong>
+              <div class="col-xl-4 col-lg-4 col-md-12">
+                <div class="d-inline-flex flex-row">
+                  <div class="ares--icon duckets my-3 mr-2"></div>
+                  <strong class="py-3">{{ user?.pixels | numberSuffix: 2.0 }}</strong>
+                </div>
               </div>
             </div>
           </div>
