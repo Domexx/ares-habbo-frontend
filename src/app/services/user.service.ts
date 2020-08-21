@@ -46,7 +46,7 @@ export class UserService {
       headers: {
         Authorization: `Bearer ${this.token}`
       }
-    }).toPromise().then(() => localStorage.removeItem('ares-token'));
+    }).toPromise().finally(() => localStorage.removeItem('ares-token'));
   }
 
   get isAuthenticated(): boolean {
