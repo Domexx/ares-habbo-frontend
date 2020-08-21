@@ -24,7 +24,7 @@ export class LogoutComponent implements OnInit {
       return;
     }
 
-    this.userService.logout().then(() => this.router.navigateByUrl('/').then(() => this.alertService.success(this.translateService.instant('LOGOUT.SUCCESS'))));
+    this.userService.logout().finally(() => this.router.navigateByUrl('/').then(() => this.alertService.success(this.translateService.instant('LOGOUT.SUCCESS'))));
   }
 
 

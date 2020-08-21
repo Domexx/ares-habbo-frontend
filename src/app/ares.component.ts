@@ -12,9 +12,9 @@ declare var $;
   animations: [
     trigger('fade', [
       state('0', style({opacity: 1})),
-      state('1', style({opacity: 0, display: 'none'})),
+      state('1', style({opacity: 0})),
 
-      transition('1 => 0', animate('500ms')),
+      transition('1 => 0', animate('300ms')),
       transition('0 => 1', animate('0ms'))
     ])
   ]

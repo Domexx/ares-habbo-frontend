@@ -21,6 +21,7 @@ import {IconModule} from '../icon/icon.module';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { LoaderComponent } from '../../layout/loader/loader.component';
 import { HeroComponent } from '../../layout/dashboard/hero/hero.component';
+import {NumberSuffixPipe} from '../../pipes/dashboard/hero/number-suffix.pipe';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -28,19 +29,20 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 };
 
 @NgModule({
-  declarations: [
-    FooterComponent,
-    HeaderComponent,
-    NavigationComponent,
-    FriendsComponent,
-    LanguageSelectorComponent,
-    ArticleSliderComponent,
-    RoomsComponent,
-    PinnedArticlesComponent,
-    SearchPipe,
-    LoaderComponent,
-    HeroComponent
-  ],
+    declarations: [
+        FooterComponent,
+        HeaderComponent,
+        NavigationComponent,
+        FriendsComponent,
+        LanguageSelectorComponent,
+        ArticleSliderComponent,
+        RoomsComponent,
+        PinnedArticlesComponent,
+        SearchPipe,
+        LoaderComponent,
+        HeroComponent,
+        NumberSuffixPipe
+    ],
   imports: [
     CommonModule,
     RouterModule,

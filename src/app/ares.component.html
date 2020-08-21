@@ -3,7 +3,7 @@
 <ng-container *ngIf="isAuthenticated; else guest">
   <ares-header></ares-header>
 
-  <main>
+  <main [@fade]="state">
     <router-outlet></router-outlet>
   </main>
 
