@@ -27,6 +27,7 @@ import localeENUS from '@angular/common/locales/en';
 import {HttpLoaderInterceptor} from './interceptors/http-loader.interceptor';
 import {HttpLoaderService} from './services/http-loader.service';
 import { NumberSuffixPipe } from './pipes/dashboard/hero/number-suffix.pipe';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 registerLocaleData(localeDE);
 registerLocaleData(localeENUS);
@@ -40,7 +41,8 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AresComponent,
-    LogoutComponent
+    LogoutComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

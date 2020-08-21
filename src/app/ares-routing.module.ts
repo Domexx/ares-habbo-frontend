@@ -5,6 +5,7 @@ import {QuicklinkStrategy} from 'ngx-quicklink';
 import {LogoutComponent} from './components/logout/logout.component';
 import {ActiveSessionGuard} from './guards/active-session.guard';
 import {AuthGuard} from './guards/auth.guard';
+import {NotFoundComponent} from './components/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -27,9 +28,18 @@ const routes: Routes = [
     canActivateChild: [ActiveSessionGuard]
   },
   {
+    path: 'client',
+    loadChildren: () => import('./modules/client/client.module').then(m => m.ClientModule),
+    canActivateChild: [ActiveSessionGuard]
+  },
+  {
     path: 'logout',
     component: LogoutComponent,
     canActivate: [AuthGuard]
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
   }
 ];
 
