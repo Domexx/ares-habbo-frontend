@@ -2,6 +2,7 @@ import {Component, OnInit, ChangeDetectorRef, AfterViewChecked} from '@angular/c
 import { UserService } from './services/user.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {HttpLoaderService} from './services/http-loader.service';
+import {Router} from '@angular/router';
 
 declare var $;
 
@@ -11,22 +12,30 @@ declare var $;
   styleUrls: ['./ares.component.scss'],
   animations: [
     trigger('fade', [
-      state('0', style({opacity: 1})),
-      state('1', style({opacity: 0})),
+      state('0', style({opacity: 0, 'z-index': '-9999'})),
+      state('1', style({opacity: 1})),
 
-      transition('1 => 0', animate('300ms')),
+      transition('1 => 0', animate('50ms')),
+      transition('0 => 1', animate('0ms'))
+    ]),
+    trigger('loader', [
+      state('0', style({opacity: 0, 'z-index': '-9999'})),
+      state('1', style({opacity: 1})),
+
+      transition('1 => 0', animate('600ms')),
       transition('0 => 1', animate('0ms'))
     ])
   ]
 })
 export class AresComponent implements OnInit, AfterViewChecked {
   isAuthenticated = false;
-  state: boolean;
+  state = false;
 
   constructor(
     private userService: UserService,
     private cdRef: ChangeDetectorRef,
-    private httpLoaderService: HttpLoaderService
+    private httpLoaderService: HttpLoaderService,
+    public router: Router
   ) { }
 
   ngOnInit() {

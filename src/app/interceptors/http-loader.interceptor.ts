@@ -28,7 +28,7 @@ export class HttpLoaderInterceptor implements HttpInterceptor {
       return next.handle(req);
     }
 
-    this.httpLoaderService.loading = true;
+    this.httpLoaderService.loading = false;
 
     return new Observable(observer => {
       const subscription = next.handle(req)
@@ -45,7 +45,7 @@ export class HttpLoaderInterceptor implements HttpInterceptor {
             observer.complete();
           });
       return () => {
-        this.httpLoaderService.loading = false;
+        this.httpLoaderService.loading = true;
         subscription.unsubscribe();
       };
     });

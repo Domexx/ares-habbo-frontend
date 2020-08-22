@@ -1,6 +1,11 @@
-<ares-layout-loader [state]="state"></ares-layout-loader>
+<ares-layout-loader [@loader]="!state"></ares-layout-loader>
 
 <ng-container *ngIf="isAuthenticated; else guest">
+  <ng-container *ngIf="router.url === '/client';">
+  </ng-container>
+
+  <ares-client></ares-client>
+
   <ares-header></ares-header>
 
   <main [@fade]="state">

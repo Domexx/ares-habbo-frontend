@@ -1,11 +1,12 @@
 :host {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100vw;
-    height: 9.5rem;
-    background-color: #1B1D20;
-    font-size: 15px;
-    margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  height: 9.5rem;
+  background-color: #1B1D20;
+  font-size: 15px;
+  margin-top: 2rem;
+  z-index: 3;
 }
 
 hr {
@@ -31,7 +32,7 @@ strong {
 }
 
 .bg-dark {
-    background-color: #151719 !important;
+  background-color: #151719 !important;
 }
 
 #ares--lang {
