@@ -2,7 +2,6 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {TitleService} from '../../services/title.service';
 import {TranslateService} from '@ngx-translate/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {animate, style, transition, trigger} from '@angular/animations';
 import {AlertService} from '../../services/alert.service';
 import {RegisterService} from '../../services/register.service';
 import {Subscription} from 'rxjs';
@@ -14,15 +13,7 @@ import {environment} from '../../../environments/environment';
   selector: 'ares-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
-  providers: [RegisterService],
-  animations: [
-    trigger('fadeIn', [
-      transition('void => *', [
-        style({opacity: 0}),
-        animate(500, style({opacity: 1, display: 'block'}))
-      ]),
-    ]),
-  ]
+  providers: [RegisterService]
 })
 export class RegisterComponent implements OnInit, OnDestroy {
   userSubscription: Subscription;

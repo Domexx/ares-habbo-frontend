@@ -20,16 +20,19 @@ const routes: Routes = [
   {
     path: 'dashboard',
     loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule),
+    canActivate: [AuthGuard],
     canActivateChild: [ActiveSessionGuard]
   },
   {
     path: 'community',
     loadChildren: () => import('./modules/community/community.module').then(m => m.CommunityModule),
+    canActivate: [AuthGuard],
     canActivateChild: [ActiveSessionGuard]
   },
   {
     path: 'client',
     loadChildren: () => import('./modules/client/client.module').then(m => m.ClientModule),
+    canActivate: [AuthGuard],
     canActivateChild: [ActiveSessionGuard]
   },
   {
