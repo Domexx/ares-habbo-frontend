@@ -12,29 +12,29 @@
 
         <div class="col-xl-10 col-lg-10">
           <div class="d-flex flex-column ml-2 pt-4">
-            <h3>Willkommen zurück, <strong>{{ user?.username }}</strong></h3>
-            <p class="mb-1">Deine letzte Anmeldung war am 21.08.2020 um 21:22.</p>
-            <span>Motto: <strong>{{ user?.motto }}</strong></span>
+            <h4 [innerHTML]="'DASHBOARD.HERO.WELCOME' | translate: { username: user?.username }"></h4>
+            <p class="mb-0" [innerHTML]="'DASHBOARD.HERO.LOGIN' | translate: { date: '23.08.2020', time: '13:37' }"></p>
+            <span [innerHTML]="'DASHBOARD.HERO.MOTTO' | translate: { motto: user?.motto }"></span>
 
             <div class="row mt-3 user--info">
               <div class="col-xl-4 col-lg-4 col-md-12">
                 <div class="d-inline-flex flex-row">
                   <div class="ares--sprite credits mr-2"></div>
-                  <strong class="py-3">{{ user?.credits | numberSuffix: 2.0 }}</strong>
+                  <strong class="py-3 pl-3">{{ user?.credits | numberSuffix: 2.0 }}</strong>
                 </div>
               </div>
 
               <div class="col-xl-4 col-lg-4 col-md-12">
                 <div class="d-inline-flex flex-row">
                   <div class="ares--sprite diamonds mr-2"></div>
-                  <strong class="py-3">{{ user?.points | numberSuffix: 2.0 }}</strong>
+                  <strong class="py-3 pl-3">{{ user?.points | numberSuffix: 2.0 }}</strong>
                 </div>
               </div>
 
               <div class="col-xl-4 col-lg-4 col-md-12">
                 <div class="d-inline-flex flex-row">
                   <div class="ares--sprite duckets my-3 mr-2"></div>
-                  <strong class="py-3">{{ user?.pixels | numberSuffix: 2.0 }}</strong>
+                  <strong class="py-3 pl-3">{{ user?.pixels | numberSuffix: 2.0 }}</strong>
                 </div>
               </div>
             </div>
@@ -43,10 +43,10 @@
       </div>
     </div>
 
-    <div class="col-4">
-      <div class="d-flex flex-column">
-        <h5 class="align-self-end" [innerHTML]="'DASHBOARD.HERO.COUNTER' | translate: { online: this.counter, name: this.name }"></h5>
-        <a routerLink="/client" class="btn btn-client" [translate]="'DASHBOARD.HERO.ENTER'"></a>
+    <div class="col-xl-4 col-lg-4 col-md-12 h-50 pt-4">
+      <div class="d-flex flex-column align-items-end">
+        <h5 [innerHTML]="'DASHBOARD.HERO.COUNTER' | translate: { online: this.counter, name: this.name }"></h5>
+        <a routerLink="/client" class="btn btn-client w-75" [translate]="'DASHBOARD.HERO.ENTER'"></a>
       </div>
     </div>
   </div>

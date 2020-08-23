@@ -1,4 +1,6 @@
-import {Component, ElementRef, Input} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, Output} from '@angular/core';
+import {AlertService} from '../../../services/alert.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'ares-client-disconnected',
@@ -11,8 +13,21 @@ export class DisconnectedComponent {
   set disconnected(value: boolean) {
     if (value) {
       this.elRef.nativeElement.style.display = 'block';
+    } else {
+      this.elRef.nativeElement.style.display = 'none';
     }
   }
 
-  constructor(private elRef: ElementRef) { }
+  @Output('reload')
+  reload: EventEmitter<boolean> = new EventEmitter<boolean>();
+
+  constructor(
+    private elRef: ElementRef,
+    private alertService: AlertService,
+    private router: Router
+  ) { }
+
+  reloadClient() {
+    this.reload.emit(true);
+  }
 }

@@ -33,14 +33,18 @@ export class UserService {
           }
 
           localStorage.setItem('ares-user', JSON.stringify(response.data));
-          this.userSubject.next(response.data);
+          this.change(response.data);
         })
       );
   }
 
+  change(user: User): void {
+    this.userSubject.next(user);
+  }
+
   logout(): Promise<void | API> {
     localStorage.removeItem('ares-user');
-    this.userSubject.next(null);
+    this.change(null);
 
     return this.apiService.post('logout', {}, {
       headers: {

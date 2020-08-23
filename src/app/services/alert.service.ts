@@ -11,7 +11,13 @@ export class AlertService {
     this.notyf = new Notyf({
       duration: 2500,
       ripple: true,
-      dismissible: true
+      dismissible: true,
+      types: [
+        {
+          type: 'warning',
+          background: 'orange'
+        },
+      ]
     });
   }
 

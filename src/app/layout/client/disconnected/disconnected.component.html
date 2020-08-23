@@ -3,5 +3,5 @@
 
   <p class="title mt-3 mb-1" [translate]="'CLIENT.DISCONNECTED.TITLE'"></p>
   <p class="description" [translate]="'CLIENT.DISCONNECTED.DESCRIPTION'"></p>
-  <a routerLink='/dashboard' class="btn btn-client" [translate]="'CLIENT.DISCONNECTED.BUTTON'"></a>
+  <button (click)="reloadClient()" class="btn btn-client" [translate]="'CLIENT.DISCONNECTED.BUTTON'"></button>
 </div>

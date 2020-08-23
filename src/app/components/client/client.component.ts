@@ -1,7 +1,7 @@
 import {Component, ElementRef, NgZone, OnDestroy, OnInit} from '@angular/core';
 import * as swfObject from 'es-swfobject';
 import {client, environment} from '../../../environments/environment';
-import {NavigationStart, Router} from '@angular/router';
+import {NavigationEnd, NavigationStart, Router} from '@angular/router';
 import {TitleService} from '../../services/title.service';
 import {Subscription} from 'rxjs';
 import {UserService} from '../../services/user.service';
@@ -27,6 +27,8 @@ export class ClientComponent implements OnInit, OnDestroy {
   hotelName: string = environment.app.hotelName || 'Ares';
   isDisconnected = false;
 
+  previousUrl: string;
+
   constructor(
     private router: Router,
     private titleService: TitleService,
@@ -41,46 +43,83 @@ export class ClientComponent implements OnInit, OnDestroy {
     this.routerSubscription = this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         if (event.url === '/client') {
+          if (this.isDisconnected) {
+            this.reload();
+          }
+
           this.elementRef.nativeElement.style.zIndex = 9999;
           this.elementRef.nativeElement.style.opacity = 1;
 
           this.titleService.setTitle('Hotel');
-          return;
+        } else {
+          this.elementRef.nativeElement.style.zIndex = -1;
+          this.elementRef.nativeElement.style.opacity = 0;
         }
+      }
 
-        this.elementRef.nativeElement.style.zIndex = -1;
-        this.elementRef.nativeElement.style.opacity = 0;
+      if (event instanceof NavigationEnd) {
+        if (event.urlAfterRedirects !== '/client') {
+          this.previousUrl = event.urlAfterRedirects;
+        }
       }
     });
 
     if (this.userService.user.online === 0) {
-      this.ticketSubscription = this.clientService.ticket().subscribe({
-        next: (ticket: string) => {
-          client.vars['sso.ticket'] = ticket;
+      if (this.isDisconnected) {
+        this.isDisconnected = false;
+      }
 
-          swfObject.embedSWF(client.swf,
-            document.getElementById('game'),
-            '100%',
-            '100%',
-            11,
-            '',
-            client.vars,
-            client.params);
-
-          window.FlashExternalInterface = {};
-          window.FlashExternalGameInterface = {};
-
-          window.FlashExternalInterface.logLoginStep = (e: any) => {
-            window.FlashExternalInterface.disconnect = () => this.zone.run(() => this.isDisconnected = true);
-          };
-        },
-        error: () => this.isDisconnected = true
-      });
+      this.loadClient();
     }
   }
 
+  loadClient(): void {
+    this.ticketSubscription = this.clientService.ticket().subscribe({
+      next: (ticket: string) => {
+        client.vars['sso.ticket'] = ticket;
+
+        swfObject.embedSWF(client.swf,
+          document.getElementById('game'),
+          '100%',
+          '100%',
+          11,
+          '',
+          client.vars,
+          client.params);
+
+        window.FlashExternalInterface = {};
+        window.FlashExternalGameInterface = {};
+
+        window.FlashExternalInterface.logLoginStep = (e: any) => {
+          window.FlashExternalInterface.disconnect = () => this.zone.run(() => this.isDisconnected = true);
+        };
+      },
+      error: () => this.isDisconnected = true
+    });
+  }
+
+  resetClient(): void {
+    this.elementRef.nativeElement.removeChild(document.getElementById('game'));
+
+    const game = document.createElement('div');
+    game.setAttribute('id', 'game');
+
+    this.elementRef.nativeElement.appendChild(game);
+  }
+
+  reload(): void {
+    this.isDisconnected = false;
+
+    this.resetClient();
+    this.loadClient();
+  }
+
   back() {
-    this.location.back();
+    if (this.previousUrl) {
+      this.location.back();
+    }
+
+    this.router.navigateByUrl('/dashboard');
   }
 
   ngOnDestroy(): void {
