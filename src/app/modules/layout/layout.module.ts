@@ -24,6 +24,8 @@ import { HeroComponent } from '../../layout/dashboard/hero/hero.component';
 import {NumberSuffixPipe} from '../../pipes/dashboard/hero/number-suffix.pipe';
 import {DisconnectedComponent} from '../../layout/client/disconnected/disconnected.component';
 import { ButtonsComponent } from '../../layout/client/buttons/buttons.component';
+import { FlashDetectComponent } from '../../layout/client/flash-detect/flash-detect.component';
+import { ActiveSessionComponent } from '../../layout/client/active-session/active-session.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -45,7 +47,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
         HeroComponent,
         NumberSuffixPipe,
       DisconnectedComponent,
-      ButtonsComponent
+      ButtonsComponent,
+      FlashDetectComponent,
+      ActiveSessionComponent
     ],
   imports: [
     CommonModule,
@@ -63,20 +67,22 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
       useValue: DEFAULT_SWIPER_CONFIG
     }
   ],
-    exports: [
-        FooterComponent,
-        HeaderComponent,
-        LanguageSelectorComponent,
-        FriendsComponent,
-        RoomsComponent,
-        ArticleSliderComponent,
-        PinnedArticlesComponent,
-        SearchPipe,
-        LoaderComponent,
-        HeroComponent,
-        DisconnectedComponent,
-        ButtonsComponent
-    ]
+  exports: [
+    FooterComponent,
+    HeaderComponent,
+    LanguageSelectorComponent,
+    FriendsComponent,
+    RoomsComponent,
+    ArticleSliderComponent,
+    PinnedArticlesComponent,
+    SearchPipe,
+    LoaderComponent,
+    HeroComponent,
+    DisconnectedComponent,
+    ButtonsComponent,
+    FlashDetectComponent,
+    ActiveSessionComponent
+  ]
 })
 export class LayoutModule {
 }

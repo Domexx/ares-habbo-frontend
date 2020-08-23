@@ -7,6 +7,7 @@ import {Subscription} from 'rxjs';
 import {UserService} from '../../services/user.service';
 import { Location } from '@angular/common';
 import {ClientService} from '../../services/client.service';
+import * as FlashDetect from 'flash-detect';
 
 declare global {
   interface Window {
@@ -24,6 +25,8 @@ export class ClientComponent implements OnInit, OnDestroy {
   routerSubscription: Subscription;
   ticketSubscription: Subscription;
 
+  isFlashActivated = false;
+  isSessionActive = false;
   isDisconnected = false;
 
   previousUrl: string;
@@ -39,6 +42,8 @@ export class ClientComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    const flashDetected = new FlashDetect();
+
     this.routerSubscription = this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         if (event.url === '/client') {
@@ -63,11 +68,10 @@ export class ClientComponent implements OnInit, OnDestroy {
       }
     });
 
-    if (this.userService.user.online === 0) {
-      if (this.isDisconnected) {
-        this.isDisconnected = false;
-      }
+    this.isFlashActivated = flashDetected.installed;
+    this.isSessionActive = this.userService.user.online === 1;
 
+    if (this.userService.user.online === 0) {
       this.loadClient();
     }
   }
@@ -110,6 +114,11 @@ export class ClientComponent implements OnInit, OnDestroy {
     this.isDisconnected = false;
 
     this.resetClient();
+    this.loadClient();
+  }
+
+  overrideSession() {
+    this.isSessionActive = false;
     this.loadClient();
   }
 

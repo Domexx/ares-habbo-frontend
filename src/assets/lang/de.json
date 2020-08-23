@@ -105,6 +105,16 @@
       "TITLE": "Oh, Bobba!",
       "DESCRIPTION": "Du hast die Verbindung zum Hotel verloren",
       "BUTTON": "Neuladen"
+    },
+
+    "FLASH": {
+      "TITLE": "Oh Bobba!",
+      "DESCRIPTION": "Klick <a href=\"https://get.adobe.com/de/flashplayer\" target=\"_blank\">hier</a> und dann auf \"Flash aktivieren\", sobald du dazu aufgefordert bist. Wir sehen uns im Hotel!"
+    },
+
+    "ACTIVE": {
+      "DESCRIPTION": "Es existiert bereits eine aktive Sitzung.",
+      "BUTTON": "Lass mich rein!"
     }
   },
   "LOGIN": {
