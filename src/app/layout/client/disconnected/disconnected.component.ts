@@ -3,7 +3,7 @@ import {AlertService} from '../../../services/alert.service';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'ares-client-disconnected',
+  selector: 'ares-layout-client-disconnected',
   templateUrl: './disconnected.component.html',
   styleUrls: ['./disconnected.component.scss']
 })

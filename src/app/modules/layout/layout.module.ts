@@ -23,6 +23,7 @@ import { LoaderComponent } from '../../layout/loader/loader.component';
 import { HeroComponent } from '../../layout/dashboard/hero/hero.component';
 import {NumberSuffixPipe} from '../../pipes/dashboard/hero/number-suffix.pipe';
 import {DisconnectedComponent} from '../../layout/client/disconnected/disconnected.component';
+import { ButtonsComponent } from '../../layout/client/buttons/buttons.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -43,7 +44,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
         LoaderComponent,
         HeroComponent,
         NumberSuffixPipe,
-      DisconnectedComponent
+      DisconnectedComponent,
+      ButtonsComponent
     ],
   imports: [
     CommonModule,
@@ -61,19 +63,20 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
       useValue: DEFAULT_SWIPER_CONFIG
     }
   ],
-  exports: [
-    FooterComponent,
-    HeaderComponent,
-    LanguageSelectorComponent,
-    FriendsComponent,
-    RoomsComponent,
-    ArticleSliderComponent,
-    PinnedArticlesComponent,
-    SearchPipe,
-    LoaderComponent,
-    HeroComponent,
-    DisconnectedComponent
-  ]
+    exports: [
+        FooterComponent,
+        HeaderComponent,
+        LanguageSelectorComponent,
+        FriendsComponent,
+        RoomsComponent,
+        ArticleSliderComponent,
+        PinnedArticlesComponent,
+        SearchPipe,
+        LoaderComponent,
+        HeroComponent,
+        DisconnectedComponent,
+        ButtonsComponent
+    ]
 })
 export class LayoutModule {
 }

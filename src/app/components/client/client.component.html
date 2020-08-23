@@ -1,9 +1,5 @@
-<ul class="client--buttons d-flex flex-row">
-  <li class="d-flex flex-row" (click)="back()">
-    <span>{{ hotelName }}</span>
-  </li>
-</ul>
+<ares-layout-client-buttons [url]="previousUrl"></ares-layout-client-buttons>
 
 <div id="game"></div>
 
-<ares-client-disconnected [disconnected]="isDisconnected" (reload)="reload()"></ares-client-disconnected>
+<ares-layout-client-disconnected [disconnected]="isDisconnected" (reload)="reload()"></ares-layout-client-disconnected>

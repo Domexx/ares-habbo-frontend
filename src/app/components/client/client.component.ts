@@ -24,7 +24,6 @@ export class ClientComponent implements OnInit, OnDestroy {
   routerSubscription: Subscription;
   ticketSubscription: Subscription;
 
-  hotelName: string = environment.app.hotelName || 'Ares';
   isDisconnected = false;
 
   previousUrl: string;
@@ -112,14 +111,6 @@ export class ClientComponent implements OnInit, OnDestroy {
 
     this.resetClient();
     this.loadClient();
-  }
-
-  back() {
-    if (this.previousUrl) {
-      this.location.back();
-    }
-
-    this.router.navigateByUrl('/dashboard');
   }
 
   ngOnDestroy(): void {
