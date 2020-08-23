@@ -104,7 +104,7 @@
     "DISCONNECTED": {
       "TITLE": "Oh, Bobba!",
       "DESCRIPTION": "Du hast die Verbindung zum Hotel verloren",
-      "BUTTON": "Neuladen!"
+      "BUTTON": "Neuladen"
     }
   },
   "LOGIN": {
@@ -117,6 +117,11 @@
   "FOOTER": {
     "RIGHTS_RESERVED": "&nbsp; &copy; 2020. Alle Rechte an dieser Website vorbehalten.",
     "NOT_SULAKE": "Diese Website gehört nicht der Sulake Corporation und wird nicht von Habbo Hotel &reg; betrieben."
+  },
+
+  "404": {
+    "DESCRIPTION": "Seite wurde nicht gefunden!",
+    "BUTTON": "Zurück"
   },
 
   "UNKNOWN_ERROR": "Ein unbekannter Fehler ist aufgetreten!"

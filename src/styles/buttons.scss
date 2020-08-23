@@ -27,13 +27,16 @@ button {
 }
 
 .btn {
-  border: unset;
-  padding: .8rem;
-  transition: .25s background-color;
+  color: #fff;
+  transition: all .2s ease-in-out;
 
   &:focus,
   &:hover {
-    box-shadow: none;
+    box-shadow: 0px 1px 3px 0px rgba(0, 6, 33, 0.5), 0 0 0 3px rgba(0, 0, 0, 0.2);
+  }
+
+  &:active:focus {
+    box-shadow: 0px 1px 3px 0px rgba(0, 6, 33, 0.5), 0 0 0 3px rgba(0, 0, 0, 0.2) !important;
   }
 
   &.btn-lang {
@@ -48,23 +51,24 @@ button {
   }
 
   &.btn-danger {
-    background-color: var(--btn-danger);
+    padding: .8rem;
 
-    &:hover,
-    &:focus {
-      background-color: var(--btn-danger-hover);
+    background-color: unset;
+    background: linear-gradient(to top, var(--btn-danger-primary) 50%, var(--btn-danger-secondary) 50%);
+    border-color: var(--btn-danger-primary);
+    border-width: 4px;
+    border-style: solid;
+
+    &:active {
+      background-color: transparent !important;
+      border-color: var(--btn-danger-primary) !important;
     }
   }
 
   &.btn-client {
     background: linear-gradient(to top, #51c452 50%, #66cd67 50%);
     border: 4px solid #51c452;
-    color: #fff;
-    transition: all .2s ease-in-out;
-
-    &:hover {
-      box-shadow: 0px 1px 3px 0px rgba(0, 6, 33, 0.5), 0 0 0 3px rgba(0, 0, 0, 0.2);
-    }
+    color: #fff !important;
 
     &:focus {
       animation: btnEffect 1s;
