@@ -8,6 +8,7 @@ import {RegisterService} from '../../services/register.service';
 import {Subscription} from 'rxjs';
 import {UserService} from '../../services/user.service';
 import {Router} from '@angular/router';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'ares-register',
@@ -25,16 +26,17 @@ import {Router} from '@angular/router';
 })
 export class RegisterComponent implements OnInit, OnDestroy {
   userSubscription: Subscription;
-  usernameSubscription: Subscription;
-  mailSubscription: Subscription;
-  registerSubscription: Subscription;
+  looksSubscription: Subscription;
 
+  registerSubscription: Subscription;
   registerForm: FormGroup;
 
-  usernameStep = false;
-  passwordStep = false;
-  mailStep = false;
-  lookStep = false;
+  boys: [];
+  girls: [];
+
+  selectedLook: string;
+  selectedLookIndex: number;
+  selectedLookGender: string;
 
   constructor(
     private titleService: TitleService,
@@ -46,10 +48,18 @@ export class RegisterComponent implements OnInit, OnDestroy {
     private router: Router
   ) { }
 
-  loaded = false;
-
   ngOnInit(): void {
-    document.body.classList.add('register--component');
+    this.boys = [];
+    this.girls = [];
+
+    this.looksSubscription = this.registerService.looks().subscribe({
+      next: (resp) => {
+        this.boys = resp.data.looks.boys;
+        this.girls = resp.data.looks.girls;
+
+        this.selectedLook = this.boys.find(value => true);
+      }
+    });
 
     this.registerForm = this.formBuilder.group({
       username: ['', Validators.required],
@@ -59,165 +69,128 @@ export class RegisterComponent implements OnInit, OnDestroy {
     });
 
     this.titleService.setTitle(this.translateService.instant('REGISTER.TITLE'));
-    setTimeout(() => this.loaded = true, 250);
   }
 
   get f() {
     return this.registerForm.controls;
   }
 
-  switch(key: string) {
-    switch (key) {
-      case 'username': {
-        this.usernameStep = false;
-        this.passwordStep = false;
-        this.mailStep = false;
-        this.lookStep = false;
-        break;
-      }
-
-      case 'password': {
-        this.usernameStep = true;
-        this.passwordStep = false;
-        this.mailStep = false;
-        this.lookStep = false;
-        break;
-      }
-
-      case 'mail': {
-        this.usernameStep = true;
-        this.passwordStep = true;
-        this.mailStep = false;
-        this.lookStep = false;
-        break;
-      }
-
-      case 'look': {
-        this.usernameStep = true;
-        this.passwordStep = true;
-        this.mailStep = true;
-        this.lookStep = false;
-      }
-    }
-  }
-
-  onUsernameSubmit() {
+  validateUsername(): boolean {
     const username = this.f.username;
 
     if (!username.value) {
+      username.markAsTouched();
+
       this.alertService.error(this.translateService.instant('REGISTER.FORM.INPUT.USERNAME.ERRORS.EMPTY'));
-      return;
+
+      return false;
     }
 
-    this.usernameSubscription = this.registerService.register('username', username.value).subscribe({
-      next: () => this.switch('password'),
-      error: () => username.setErrors({
-        incorrect: true
-      })
-    });
+    return true;
   }
 
-  onPasswordSubmit() {
-    if (!this.usernameStep) {
-      this.switch('username');
-      return;
-    }
-
+  validatePassword(): boolean {
     const password = this.f.password;
-    const confirmPassword = this.f.confirmPassword;
+    const passwordConfirmation = this.f.confirmPassword;
 
-    if (!password.value || !confirmPassword.value) {
-      password.setErrors({
-        incorrect: true
-      });
-
-      confirmPassword.setErrors({
-        incorrect: true
-      });
+    if (!password.value || !passwordConfirmation.value) {
+      password.markAsTouched();
+      passwordConfirmation.markAsTouched();
 
       this.alertService.error(this.translateService.instant('REGISTER.FORM.INPUT.PASSWORD.ERRORS.EMPTY'));
-      return;
+
+      return false;
     }
 
-    if (confirmPassword.value !== password.value) {
-      password.setErrors({
-        incorrect: true
-      });
-
-      confirmPassword.setErrors({
-        incorrect: true
-      });
+    if (passwordConfirmation.value !== password.value) {
+      password.markAsTouched();
+      passwordConfirmation.markAsTouched();
 
       this.alertService.error(this.translateService.instant('REGISTER.FORM.INPUT.PASSWORD.ERRORS.NOT_SAME'));
-      return;
+
+      return false;
     }
 
-    this.switch('mail');
+    return true;
   }
 
-  onMailSubmit() {
+  validateMail(): boolean {
     const mail = this.f.mail;
 
     if (!mail.value) {
+      mail.markAsTouched();
+
       this.alertService.error(this.translateService.instant('REGISTER.FORM.INPUT.MAIL.ERRORS.EMPTY'));
-      return;
+      return false;
     }
 
     if (mail.errors?.pattern) {
+      mail.markAsTouched();
+
       this.alertService.error(this.translateService.instant('REGISTER.FORM.INPUT.MAIL.ERRORS.PATTERN'));
-      return;
+      return false;
     }
 
     if (mail.invalid) {
-      mail.setErrors({
-        incorrect: true
-      });
-      return;
+      mail.markAsTouched();
+      return false;
     }
 
-    this.mailSubscription = this.registerService.register('mail', mail.value).subscribe({
-      next: () => this.switch('look'),
-      error: () => mail.setErrors({
-        incorrect: true
-      })
-    });
+    return true;
+  }
+
+  selectLook(look: string): void {
+    const boys = this.boys.findIndex(value => value === look);
+    const girls = this.girls.findIndex(value => value === look);
+
+    if (boys !== -1) {
+      this.selectedLook = look;
+      this.selectedLookIndex = boys;
+      this.selectedLookGender = 'M';
+    } else if (girls !== -1) {
+      this.selectedLook = look;
+      this.selectedLookIndex = boys;
+      this.selectedLookGender = 'F';
+    }
+  }
+
+  figure(look: string, head: boolean = false, large: boolean = false): string {
+    return `${environment.app.imager}${look}${(head) ? '&headonly=1' : ''}${(large) ? '&size=l' : ''}`;
   }
 
   onSubmit() {
+    if (!this.validateUsername() || !this.validatePassword() || !this.validateMail()) {
+      return;
+    }
+
     if (this.registerForm.invalid) {
       return;
     }
 
-    this.registerSubscription = this.registerService.register('', {
+    this.registerSubscription = this.registerService.register({
       username: this.f.username.value,
       mail: this.f.mail.value,
       password: this.f.password.value,
-      password_confirmation: this.f.confirmPassword.value
-    }, true).subscribe({
-      next: (e) => {
-        console.log(e);
-        this.userSubscription = this.userService.getUser(e.data.token).subscribe({next: () => this.router.navigateByUrl('/dashboard')});
-      }
+      password_confirmation: this.f.confirmPassword.value,
+      look: this.selectedLookIndex + 1,
+      gender: this.selectedLookGender
+    }).subscribe({
+      next: (e) => this.userSubscription = this.userService.getUser(e.data.token)
+        .subscribe({
+          next: () => this.router.navigateByUrl('/dashboard')
+            .then(() => this.alertService.success(this.translateService.instant('REGISTER.SUCCESS'))),
+          error: () => this.alertService.error(this.translateService.instant('REGISTER.ERROR'))
+        })
     });
   }
 
   ngOnDestroy() {
-    document.querySelector('body').classList.remove('register--component');
-
     if (this.userSubscription && !this.userSubscription.unsubscribe) {
       this.userSubscription.unsubscribe();
     }
 
     if (this.registerSubscription && !this.registerSubscription.unsubscribe) {
       this.registerSubscription.unsubscribe();
-    }
-
-    if (this.usernameSubscription && !this.usernameSubscription.unsubscribe) {
-      this.usernameSubscription.unsubscribe();
-    }
-
-    if (this.mailSubscription && !this.mailSubscription.unsubscribe) {
-      this.mailSubscription.unsubscribe();
     }
   }
 

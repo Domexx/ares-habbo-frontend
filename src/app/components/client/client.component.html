@@ -1,10 +1,11 @@
 <ares-layout-client-buttons [url]="previousUrl"></ares-layout-client-buttons>
-<ares-layout-client-disconnected [disconnected]="isDisconnected" (reload)="reload()"></ares-layout-client-disconnected>
 
-<div id="game"></div>
-
-<ng-container *ngIf="!isFlashActivated">
+<ng-container *ngIf="!isFlashActivated; else game">
   <ares-layout-client-flash-detect></ares-layout-client-flash-detect>
 </ng-container>
 
-<ares-layout-client-active-session [active]="isSessionActive" (load)="overrideSession()"></ares-layout-client-active-session>
+<ng-template #game>
+  <ares-layout-client-disconnected [disconnected]="isDisconnected" (reload)="reload()"></ares-layout-client-disconnected>
+  <ares-layout-client-active-session [active]="isSessionActive" (load)="overrideSession()"></ares-layout-client-active-session>
+  <div id="game"></div>
+</ng-template>

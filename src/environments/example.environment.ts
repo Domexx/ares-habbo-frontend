@@ -20,7 +20,17 @@ export const environment = {
 
     // Language
     defaultLang: 'en',
-    useLang: 'de'
+    useLang: 'de',
+
+    // Components
+    components: {
+      dashboard: {
+        hero: {
+          date: 'dd.MM.yyyy',
+          time: 'HH:mm'
+        }
+      }
+    }
   }
 };
 

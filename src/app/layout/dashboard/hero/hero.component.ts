@@ -4,6 +4,7 @@ import {UserService} from '../../../services/user.service';
 import {environment} from '../../../../environments/environment';
 import {ClientService} from '../../../services/client.service';
 import {Subscription} from 'rxjs';
+import {LanguageService} from '../../../services/language.service';
 
 @Component({
   selector: 'ares-layout-dashboard-hero',
@@ -11,20 +12,25 @@ import {Subscription} from 'rxjs';
   styleUrls: ['./hero.component.scss']
 })
 export class HeroComponent implements OnInit, OnDestroy {
+  counterSubscription: Subscription;
+  counter = 0;
+
   user: User;
 
-  counter = 0;
   name = environment.app.hotelName;
-
-  counterSubscription: Subscription;
+  date = environment.app.components.dashboard.hero.date;
+  time = environment.app.components.dashboard.hero.time;
+  lastLogin: number;
 
   constructor(
     private userService: UserService,
-    private clientService: ClientService
+    private clientService: ClientService,
+    private languageService: LanguageService
   ) { }
 
   ngOnInit(): void {
     this.user = this.userService.user;
+    this.lastLogin = this.user.last_login * 1000;
 
     this.counterSubscription = this.clientService.counter().subscribe({
       next: value => {
@@ -45,6 +51,10 @@ export class HeroComponent implements OnInit, OnDestroy {
     if (this.counterSubscription && !this.counterSubscription.unsubscribe) {
       this.counterSubscription.unsubscribe();
     }
+  }
+
+  get locale(): string {
+    return this.languageService.getCurrentCulture();
   }
 
 }

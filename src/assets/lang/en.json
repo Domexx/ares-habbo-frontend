@@ -28,7 +28,8 @@
     }
   },
   "REGISTER": {
-    "TITLE": "Register",
+    "TITLE": "Sign Up",
+    "DESCRIPTION": "Join a game full of people from around the world.",
 
     "STEPS": {
       "USERNAME": "Username",

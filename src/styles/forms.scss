@@ -1,7 +1,7 @@
 .form-control {
   background-color: #292B2F;
   border-radius: 2px;
-  border: 1px solid #373a40 !important;
+  border: none;
   transition: .25s background-color;
   color: #fff;
 
@@ -10,8 +10,14 @@
     background-color: #303235;
     color: #fff;
   }
+
+  &.ng-touched {
+    &.ng-invalid {
+      border: 1px solid #b41030;
+    }
+  }
 }
 
 .ng-dirty.ng-invalid:not(form) {
-  border: 1px solid #b41030 !important;
+  border: 1px solid #b41030;
 }

@@ -1,6 +1,10 @@
-a {
-  opacity: 1;
-  color: #fff;
+@import '../../../styles/variables';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins/_breakpoints";
+
+#logo {
+  object-fit: contain;
 }
 
 #form--progress {
@@ -57,5 +61,39 @@ a {
     .progress--icon {
       background-color: var(--bs-green);
     }
+  }
+}
+
+.look {
+  margin-top: 1rem;
+  border-radius: 50%;
+  background-color: var(--main-bg-dark);
+  padding: .5rem;
+  opacity: .6;
+  transition: 250ms opacity;
+
+  &.selected {
+    opacity: 1;
+  }
+
+  &:hover,
+  &:focus {
+    opacity: 1;
+  }
+}
+
+
+.selected-look {
+  background-image: url('../../../assets/images/register/shine.png');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#register--back {
+  font-weight: 600;
+  color: #fff;
+
+  & > span {
+    color: #000 !important;
   }
 }

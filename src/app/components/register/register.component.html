@@ -1,88 +1,83 @@
-<div class="d-flex flex-column flex-fill justify-content-center align-items-center h-100">
-  <div class="container h-100 w-75 d-flex flex-column">
-    <div class="d-flex h-100 flex-column justify-content-center align-items-center">
-      <img src="logo.png" class="mb-5 mx-auto mt-5 mt-xl-0 mt-lg-0" alt="Logo" />
+<div class="container h-100">
+  <div class="d-flex h-100 flex-column justify-content-center align-items-center">
+    <div class="d-inline-flex flex-row mb-3 mt-5 w-50">
+      <img id="logo" src="assets/images/icons/ares64x64.png" alt="Logo" />
 
-      <ul id="form--progress">
-        <li [class]="usernameStep ? 'success' : ''">
-          <img class="progress--icon" src="assets/images/icons/articles.png" />
-          <strong [translate]="'REGISTER.STEPS.USERNAME'"></strong>
-        </li>
-        <li [class]="passwordStep ? 'success' : ''">
-          <img class="progress--icon" src="assets/images/icons/settings.png" />
-          <strong [translate]="'REGISTER.STEPS.PASSWORD'">Passwort</strong>
-        </li>
-        <li [class]="mailStep ? 'success' : ''">
-          <img class="progress--icon" src="assets/images/icons/articles.png" />
-          <strong [translate]="'REGISTER.STEPS.MAIL'"></strong>
-        </li>
-        <li [class]="lookStep ? 'success' : ''">
-          <img class="progress--icon" src="assets/images/icons/articles.png" />
-          <strong [translate]="'REGISTER.STEPS.LOOK'"></strong>
-        </li>
-      </ul>
-
-      <form class="w-50" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-        <div id="step-username" [hidden]="this.usernameStep" [@fadeIn]>
-          <div class="mb-3">
-            <label for="username" class="form-label" [translate]="'REGISTER.FORM.INPUT.USERNAME.LABEL'"></label>
-
-            <input type="text" id="username" class="form-control p-4" formControlName="username" required
-                   autocomplete="username" aria-describedby="usernameHelp" />
-
-            <div id="usernameHelp" class="form-text" [translate]="'HOME.FORM.INPUT.USERNAME.HELP'"></div>
-          </div>
-
-          <button type="button" class="btn btn-danger float-right" (click)="onUsernameSubmit()" translate="REGISTER.FORM.BUTTONS.NEXT"></button>
-        </div>
-
-        <div id="step-password" [hidden]="!this.usernameStep || this.passwordStep" [@fadeIn]>
-          <div class="mb-3">
-            <label for="password" class="form-label" [translate]="'HOME.FORM.INPUT.PASSWORD.LABEL'"></label>
-            <input type="password" id="password" class="form-control p-4" formControlName="password" required
-                   autocomplete="current-password" aria-describedby="passwordHelp" />
-
-            <div id="passwordHelp" class="form-text" [translate]="'HOME.FORM.INPUT.USERNAME.HELP'"></div>
-          </div>
-
-          <div class="mb-3">
-            <label for="confirm-password" class="form-label" [translate]="'HOME.FORM.INPUT.PASSWORD.LABEL'"></label>
-            <input type="password" id="confirm-password" class="form-control p-4" formControlName="confirmPassword" required
-                   autocomplete="current-password" aria-describedby="confirmPasswordHelp" />
-            <div id="confirmPasswordHelp" class="form-text" [translate]="'HOME.FORM.INPUT.USERNAME.HELP'"></div>
-          </div>
-
-          <button type="button" class="btn btn-danger float-left" (click)="switch('username')" translate="REGISTER.FORM.BUTTONS.BACK"></button>
-          <button class="btn btn-danger float-right" (click)="onPasswordSubmit()" translate="REGISTER.FORM.BUTTONS.NEXT"></button>
-        </div>
-
-        <div id="step-mail" [hidden]="!this.passwordStep || this.mailStep" [@fadeIn]>
-          <div class="mb-3">
-            <label for="email" class="form-label" [translate]="'REGISTER.FORM.INPUT.MAIL.LABEL'"></label>
-            <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="email" class="form-control p-4" formControlName="mail" required autocomplete="email" />
-          </div>
-
-          <button type="button" class="btn btn-danger float-left" (click)="switch('password')" translate="REGISTER.FORM.BUTTONS.BACK"></button>
-          <button type="button" class="btn btn-danger float-right" (click)="onMailSubmit()" translate="REGISTER.FORM.BUTTONS.NEXT"></button>
-        </div>
-
-        <div id="step-look" [@fadeIn]="this.mailStep" [hidden]="this.mailStep == false">
-          <div class="mb-3">
-            <ul>
-              <li>
-                <span data-toggle="popover" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">test</span>
-              </li>
-            </ul>
-          </div>
-
-          <button type="button" class="btn btn-danger float-left" (click)="switch('mail')" translate="REGISTER.FORM.BUTTONS.BACK"></button>
-          <button type="submit" class="btn btn-danger float-right" translate="REGISTER.FORM.BUTTONS.REGISTER"></button>
-        </div>
-      </form>
+      <div class="d-inline-flex flex-column">
+        <h5 class="mb-0 mt-2" [translate]="'REGISTER.TITLE'"></h5>
+        <p [translate]="'REGISTER.DESCRIPTION'"></p>
+      </div>
     </div>
 
-    <div class="d-inline-flex flex-fill justify-content-center mt-4 mt-xl-0 mt-lg-0 pb-3">
-      <a routerLink="/" [translate]="'REGISTER.ALREADY.TEXT'"></a>
-    </div>
+    <form class="w-50" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="username" class="form-label" [translate]="'REGISTER.FORM.INPUT.USERNAME.LABEL'"></label>
+
+        <input type="text" id="username" class="form-control p-4" formControlName="username" required
+               autocomplete="username" aria-describedby="usernameHelp" />
+
+        <div id="usernameHelp" class="form-text" [translate]="'HOME.FORM.INPUT.USERNAME.HELP'"></div>
+      </div>
+
+      <div class="form-group">
+        <div class="mb-3">
+          <label for="password" class="form-label" [translate]="'HOME.FORM.INPUT.PASSWORD.LABEL'"></label>
+          <input type="password" id="password" class="form-control p-4" formControlName="password" required
+                 autocomplete="current-password" aria-describedby="passwordHelp" />
+
+          <div id="passwordHelp" class="form-text" [translate]="'HOME.FORM.INPUT.USERNAME.HELP'"></div>
+        </div>
+
+        <div class="mb-3">
+          <label for="confirm-password" class="form-label" [translate]="'HOME.FORM.INPUT.PASSWORD.LABEL'"></label>
+          <input type="password" id="confirm-password" class="form-control p-4" formControlName="confirmPassword" required
+                 autocomplete="current-password" aria-describedby="confirmPasswordHelp" />
+          <div id="confirmPasswordHelp" class="form-text" [translate]="'HOME.FORM.INPUT.USERNAME.HELP'"></div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email" class="form-label" [translate]="'REGISTER.FORM.INPUT.MAIL.LABEL'"></label>
+        <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="email" class="form-control p-4" formControlName="mail" required autocomplete="email" />
+      </div>
+
+      <div class="form-group">
+        <label for="boys" class="form-label" [translate]="'REGISTER.FORM.INPUT.LOOKS.BOYS.LABEL'"></label>
+
+        <div class="row" id="boys">
+          <div *ngFor="let boy of boys" class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+            <div class="d-flex justify-content-center w-100">
+              <img (click)="selectLook(boy)" [class]="selectedLook === boy ? 'selected' : ''" class="look cursor-pointer" [src]="figure(boy, true)" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="girls" class="form-label" [translate]="'REGISTER.FORM.INPUT.LOOKS.GIRLS.LABEL'"></label>
+
+        <div class="row" id="girls">
+          <div *ngFor="let girl of girls" class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+            <div class="d-flex justify-content-center w-100">
+              <img (click)="selectLook(girl)" [class]="selectedLook === girl ? 'selected' : ''" class="look cursor-pointer" [src]="figure(girl, true)" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="selected-look d-flex justify-content-center">
+          <img [src]="figure(selectedLook, false, true)" />
+        </div>
+      </div>
+
+      <div class="d-inline-flex justify-content-center w-100 mt-2">
+        <button type="submit" class="btn btn-danger w-75 p-3" translate="REGISTER.FORM.BUTTONS.REGISTER"></button>
+      </div>
+    </form>
+  </div>
+
+  <div class="d-flex justify-content-center mt-4 mt-xl-0 mt-lg-0 pb-3">
+    <a id="register--back" routerLink="/" [innerHTML]="'REGISTER.ALREADY' | translate"></a>
   </div>
 </div>

@@ -22,20 +22,11 @@
       "BUTTON": "Anmelden"
     },
 
-    "NO_ACCOUNT": {
-      "TEXT": "Noch kein Account? ",
-      "ANCHOR": "Join {{ hotelName }}"
-    }
+    "REGISTER": "Noch keinen Account? <span class=\"text--red\">Join {{ hotelName }}</span>"
   },
   "REGISTER": {
     "TITLE": "Registration",
-
-    "STEPS": {
-      "USERNAME": "Benutzername",
-      "PASSWORD": "Passwort",
-      "MAIL": "E-Mail",
-      "LOOK": "Aussehen"
-    },
+    "DESCRIPTION": "Join a game full of people from around the world.",
 
     "FORM": {
       "INPUT": {
@@ -64,13 +55,13 @@
       },
 
       "BUTTONS": {
-        "BACK": "Zurück",
-        "NEXT": "Weiter",
         "REGISTER": "Registrieren"
       }
     },
 
-    "ALREADY.TEXT": "Bereits ein Account? Bring mich zurück!"
+    "SUCCESS": "Du hast dich erfolgreich registriert!",
+    "ERROR": "Dein Account konnte nicht registriert werden.",
+    "ALREADY": "Bereits ein Account? <span class=\"text--red\">Bring mich zurück!</span>"
   },
   "DASHBOARD": {
     "HERO": {

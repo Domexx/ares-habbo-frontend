@@ -25,9 +25,8 @@
         </form>
       </div>
 
-      <div class="d-inline-flex flex-fill justify-content-center mt-4 mt-xl-0 mt-lg-0 pb-3">
-        <span class="pr-1" [translate]="'HOME.NO_ACCOUNT.TEXT'"></span>
-        <a routerLink="/register" [innerHTML]="'HOME.NO_ACCOUNT.ANCHOR' | translate: { hotelName: hotelName }"></a>
+      <div class="d-inline-flex justify-content-center mt-4 mt-xl-0 mt-lg-0 pb-3">
+        <a id="register-anchor" routerLink="/register" [innerHTML]="'HOME.REGISTER' | translate: { hotelName: hotelName }"></a>
       </div>
     </div>
   </div>

@@ -13,7 +13,7 @@
         <div class="col-xl-10 col-lg-10 col-md-12">
           <div class="d-flex flex-column ml-2 pt-4">
             <h4 class="w-100" [innerHTML]="'DASHBOARD.HERO.WELCOME' | translate: { username: user?.username }"></h4>
-            <p class="mb-0 w-100" [innerHTML]="'DASHBOARD.HERO.LOGIN' | translate: { date: '23.08.2020', time: '13:37' }"></p>
+            <p class="mb-0 w-100" [innerHTML]="'DASHBOARD.HERO.LOGIN' | translate: { date: lastLogin | date: date : undefined : locale, time: lastLogin | date: time, undefined : locale }"></p>
             <span class="w-100" [innerHTML]="'DASHBOARD.HERO.MOTTO' | translate: { motto: user?.motto }"></span>
 
             <div class="row mt-3 user--info d-xl-flex d-lg-flex d-none">
