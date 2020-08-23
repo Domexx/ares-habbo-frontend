@@ -72,13 +72,8 @@ export class ClientComponent implements OnInit, OnDestroy {
           window.FlashExternalGameInterface = {};
 
           window.FlashExternalInterface.logLoginStep = (e: any) => {
-            if (e === 'client.init.localization.loaded') {
-              this.clientService.active = true;
-            }
-
             window.FlashExternalInterface.disconnect = () => {
               $('#disconnected').css('display', 'block');
-              this.clientService.active = false;
             };
           };
         },

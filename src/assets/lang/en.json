@@ -51,7 +51,9 @@
   },
   "DASHBOARD": {
     "HERO": {
-      "PAGE": "<h5 class='mb-0'>Hello {{ username }}!</h5> <span>Here are your important tasks, updates and alerts.</span>"
+      "PAGE": "<h5 class='mb-0'>Hello {{ username }}!</h5> <span>Here are your important tasks, updates and alerts.</span>",
+      "COUNTER": "<strong>{{ online }}</strong> {{ name }} online",
+      "ENTER": "Check in"
     },
     "YOUR_RANK": "YOUR RANK:",
 

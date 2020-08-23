@@ -12,17 +12,13 @@ export class ClientService {
 
   ticket(): Observable<string> {
     return this.apiService.post('user/ticket', {}, {}, false).pipe(
-      map(response => {
-        return response.data.ticket;
-      })
+      map(response => response.data.ticket)
     );
   }
 
-  set active(value: boolean) {
-    localStorage.setItem('ares-client', `${value}`);
-  }
-
-  get active(): boolean {
-    return localStorage.getItem('ares-client') === 'true';
+  counter(): Observable<number> {
+    return this.apiService.get('user/online').pipe(
+      map(response => response.data.count)
+    );
   }
 }

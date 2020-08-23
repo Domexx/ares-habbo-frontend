@@ -44,7 +44,10 @@
     </div>
 
     <div class="col-4">
-      <a routerLink="/client">Client</a>
+      <div class="d-flex flex-column">
+        <h5 class="align-self-end" [innerHTML]="'DASHBOARD.HERO.COUNTER' | translate: { online: this.counter, name: this.name }"></h5>
+        <a routerLink="/client" class="btn btn-client" [translate]="'DASHBOARD.HERO.ENTER'"></a>
+      </div>
     </div>
   </div>
 </div>
