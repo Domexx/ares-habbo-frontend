@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {Component, ElementRef, NgZone, OnDestroy, OnInit} from '@angular/core';
 import * as swfObject from 'es-swfobject';
 import {client, environment} from '../../../environments/environment';
 import {NavigationStart, Router} from '@angular/router';
@@ -7,8 +7,6 @@ import {Subscription} from 'rxjs';
 import {UserService} from '../../services/user.service';
 import { Location } from '@angular/common';
 import {ClientService} from '../../services/client.service';
-
-declare var $;
 
 declare global {
   interface Window {
@@ -23,34 +21,35 @@ declare global {
   styleUrls: ['./client.component.scss']
 })
 export class ClientComponent implements OnInit, OnDestroy {
+  routerSubscription: Subscription;
   ticketSubscription: Subscription;
+
   hotelName: string = environment.app.hotelName || 'Ares';
+  isDisconnected = false;
 
   constructor(
     private router: Router,
     private titleService: TitleService,
     private clientService: ClientService,
     private userService: UserService,
-    private location: Location
+    private location: Location,
+    private zone: NgZone,
+    private elementRef: ElementRef
   ) { }
 
   ngOnInit(): void {
-    this.router.events.subscribe((event) => {
+    this.routerSubscription = this.router.events.subscribe(event => {
       if (event instanceof NavigationStart) {
         if (event.url === '/client') {
-          $('ares-client').css({
-            'z-index': 9999,
-            opacity: 1
-          });
+          this.elementRef.nativeElement.style.zIndex = 9999;
+          this.elementRef.nativeElement.style.opacity = 1;
 
           this.titleService.setTitle('Hotel');
           return;
         }
 
-        $('ares-client').css({
-          'z-index': -1,
-          opacity: 0
-        });
+        this.elementRef.nativeElement.style.zIndex = -1;
+        this.elementRef.nativeElement.style.opacity = 0;
       }
     });
 
@@ -72,12 +71,10 @@ export class ClientComponent implements OnInit, OnDestroy {
           window.FlashExternalGameInterface = {};
 
           window.FlashExternalInterface.logLoginStep = (e: any) => {
-            window.FlashExternalInterface.disconnect = () => {
-              $('#disconnected').css('display', 'block');
-            };
+            window.FlashExternalInterface.disconnect = () => this.zone.run(() => this.isDisconnected = true);
           };
         },
-        error: () => $('#disconnected').css('display', 'block')
+        error: () => this.isDisconnected = true
       });
     }
   }
@@ -87,6 +84,10 @@ export class ClientComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
+    if (this.routerSubscription && !this.routerSubscription.unsubscribe) {
+      this.routerSubscription.unsubscribe();
+    }
+
     if (this.ticketSubscription && !this.ticketSubscription.unsubscribe) {
       this.ticketSubscription.unsubscribe();
     }

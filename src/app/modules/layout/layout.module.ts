@@ -22,6 +22,7 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { LoaderComponent } from '../../layout/loader/loader.component';
 import { HeroComponent } from '../../layout/dashboard/hero/hero.component';
 import {NumberSuffixPipe} from '../../pipes/dashboard/hero/number-suffix.pipe';
+import {DisconnectedComponent} from '../../layout/client/disconnected/disconnected.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -41,7 +42,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
         SearchPipe,
         LoaderComponent,
         HeroComponent,
-        NumberSuffixPipe
+        NumberSuffixPipe,
+      DisconnectedComponent
     ],
   imports: [
     CommonModule,
@@ -69,7 +71,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     PinnedArticlesComponent,
     SearchPipe,
     LoaderComponent,
-    HeroComponent
+    HeroComponent,
+    DisconnectedComponent
   ]
 })
 export class LayoutModule {

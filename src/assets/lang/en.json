@@ -75,6 +75,13 @@
       "NOT_FOUND": "{{ username }} not found!"
     }
   },
+  "CLIENT": {
+    "DISCONNECTED": {
+      "TITLE": "Oh, Bobba!",
+      "DESCRIPTION": "You lost the connection",
+      "BUTTON": "Take me back!"
+    }
+  },
   "LOGIN": {
     "SUCCESS": "You logged in successfully!"
   },

@@ -98,6 +98,13 @@
       "NOT_FOUND": "{{ username }} wurde nicht gefunden!"
     }
   },
+  "CLIENT": {
+    "DISCONNECTED": {
+      "TITLE": "Oh, Bobba!",
+      "DESCRIPTION": "Du hast die Verbindung zum Hotel verloren",
+      "BUTTON": "Bring mich zurück!"
+    }
+  },
   "LOGIN": {
     "SUCCESS": "Du hast dich erfolgreich angemeldet!"
   },
