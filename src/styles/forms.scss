@@ -1,11 +1,12 @@
 .form-control {
   background-color: #292B2F;
   border-radius: 2px;
-  border: none;
-  transition: .25s background-color;
+  border: 1px solid #292B2F;
+  transition: .25s all;
   color: #fff;
 
   &:focus {
+    border-color: transparent;
     box-shadow: unset;
     background-color: #303235;
     color: #fff;

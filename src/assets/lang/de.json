@@ -1,10 +1,4 @@
 {
-  "NAVIGATOR": {
-    "NEWS": "neuigkeiten",
-    "COMMUNITY": "community",
-    "EMPLOYEES": "mitarbeiter",
-    "SETTINGS": "einstellungen"
-  },
   "HOME": {
     "TITLE": "Finde Freunde, habe Spass und werde bemerkt!",
     "ALERT": "Logge dich jetzt ein und werde ein Teil einer tollen Community.",
@@ -24,6 +18,7 @@
 
     "REGISTER": "Noch keinen Account? <span class=\"text--red\">Join {{ hotelName }}</span>"
   },
+
   "REGISTER": {
     "TITLE": "Registration",
     "DESCRIPTION": "Join a game full of people from around the world.",
@@ -63,13 +58,18 @@
     "ERROR": "Dein Account konnte nicht registriert werden.",
     "ALREADY": "Bereits ein Account? <span class=\"text--red\">Bring mich zurück!</span>"
   },
+
   "DASHBOARD": {
     "HERO": {
       "WELCOME": "Willkommen zurück, <strong>{{ username }}</strong>!",
       "LOGIN": "Deine letzte Anmeldung war am {{ date }} um {{ time }}.",
       "MOTTO": "Motto: <strong>\"{{ motto }}\"</strong>",
       "COUNTER": "<strong>{{ online }}</strong> {{ name }} online",
-      "ENTER": "Ins Hotel einchecken"
+      "ENTER": "Ins Hotel einchecken",
+
+      "CREDITS": "Taler",
+      "POINTS": "Diamanten",
+      "PIXELS": "Duckets"
     },
     "YOUR_RANK": "DEIN RANG:",
 
@@ -91,6 +91,7 @@
       "NOT_FOUND": "{{ username }} wurde nicht gefunden!"
     }
   },
+
   "CLIENT": {
     "DISCONNECTED": {
       "TITLE": "Oh, Bobba!",
@@ -108,13 +109,23 @@
       "BUTTON": "Lass mich rein!"
     }
   },
+
   "LOGIN": {
     "SUCCESS": "Du hast dich erfolgreich angemeldet!"
   },
+
   "LOGOUT": {
     "SUCCESS": "Du wurdest erfolgreich abgemeldet!",
     "ERROR": "Bitte melde dich erneut an!"
   },
+
+  "NAVIGATOR": {
+    "NEWS": "neuigkeiten",
+    "COMMUNITY": "community",
+    "EMPLOYEES": "mitarbeiter",
+    "SETTINGS": "einstellungen"
+  },
+
   "FOOTER": {
     "RIGHTS_RESERVED": "&nbsp; &copy; 2020. Alle Rechte an dieser Website vorbehalten.",
     "NOT_SULAKE": "Diese Website gehört nicht der Sulake Corporation und wird nicht von Habbo Hotel &reg; betrieben."
