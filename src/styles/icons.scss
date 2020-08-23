@@ -1,4 +1,4 @@
-.ares--icon {
+.ares--sprite {
   background-image: url('/assets/images/sprites.png');
 
   &.credits {
@@ -18,6 +18,13 @@
     height: 3rem;
     width: 2.5rem;
   }
+}
+
+.ares--icon {
+  background-image: url('/assets/images/icons/ares.png');
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
 }
 
 .icons--key::before {

@@ -28,6 +28,7 @@ import {HttpLoaderInterceptor} from './interceptors/http-loader.interceptor';
 import {HttpLoaderService} from './services/http-loader.service';
 import { NumberSuffixPipe } from './pipes/dashboard/hero/number-suffix.pipe';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import {ClientModule} from './modules/client/client.module';
 
 registerLocaleData(localeDE);
 registerLocaleData(localeENUS);
@@ -44,21 +45,22 @@ export function HttpLoaderFactory(http: HttpClient) {
     LogoutComponent,
     NotFoundComponent
   ],
-  imports: [
-    BrowserModule,
-    AresRoutingModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: (HttpLoaderFactory),
-        deps: [HttpClient]
-      }
-    }),
-    LayoutModule,
-    QuicklinkModule
-  ],
+    imports: [
+        BrowserModule,
+        AresRoutingModule,
+        HttpClientModule,
+        BrowserAnimationsModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: (HttpLoaderFactory),
+                deps: [HttpClient]
+            }
+        }),
+        LayoutModule,
+        QuicklinkModule,
+        ClientModule
+    ],
   providers: [
     TitleService,
     HttpLoaderService,

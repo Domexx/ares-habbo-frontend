@@ -6,10 +6,13 @@ import { ClientComponent } from '../../components/client/client.component';
 
 
 @NgModule({
-  declarations: [ClientComponent],
-  imports: [
-    CommonModule,
-    ClientRoutingModule
-  ]
+    declarations: [ClientComponent],
+    exports: [
+        ClientComponent
+    ],
+    imports: [
+        CommonModule,
+        ClientRoutingModule
+    ]
 })
 export class ClientModule { }

@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import * as swfobject from 'es-swfobject';
 import {client, environment} from '../../../environments/environment';
 import {NavigationStart, Router} from '@angular/router';
@@ -6,6 +6,7 @@ import {TitleService} from '../../services/title.service';
 import {Subscription} from 'rxjs';
 import {UserService} from '../../services/user.service';
 import { Location } from '@angular/common';
+import {ClientService} from '../../services/client.service';
 
 declare var $;
 
@@ -23,15 +24,17 @@ declare global {
 })
 export class ClientComponent implements OnInit, OnDestroy {
   ticketSubscription: Subscription;
-
-  isActive = false;
+  hotelName: string = environment.app.hotelName || 'Ares';
 
   constructor(
     private router: Router,
     private titleService: TitleService,
+    private clientService: ClientService,
     private userService: UserService,
     private location: Location
-  ) {
+  ) { }
+
+  ngOnInit(): void {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
         if (event.url === '/client') {
@@ -41,53 +44,47 @@ export class ClientComponent implements OnInit, OnDestroy {
           });
 
           this.titleService.setTitle('Hotel');
-        } else {
-          $('ares-client').css({
-            'z-index': -1,
-            opacity: 0
-          });
+          return;
         }
+
+        $('ares-client').css({
+          'z-index': -1,
+          opacity: 0
+        });
       }
     });
-  }
 
-  ngOnInit(): void {
-    if (this.isActive) {
-      return;
-    }
+    if (this.userService.user.online === 0) {
+      this.ticketSubscription = this.clientService.ticket().subscribe({
+        next: (ticket: string) => {
+          client.vars['sso.ticket'] = ticket;
 
-    this.ticketSubscription = this.userService.ticket().subscribe({
-      next: (ticket: string) => {
-        const el = document.getElementById('client');
+          swfobject.embedSWF(client.swf,
+            document.getElementById('game'),
+            '100%',
+            '100%',
+            11,
+            client.express,
+            client.vars,
+            client.params);
 
-        client.vars['sso.ticket'] = ticket;
+          window.FlashExternalInterface = {};
+          window.FlashExternalGameInterface = {};
 
-        swfobject.embedSWF(client.swf,
-          el,
-          '100%',
-          '100%',
-          11,
-          client.express,
-          client.vars,
-          client.params);
-
-        window.FlashExternalInterface = {};
-        window.FlashExternalGameInterface = {};
-
-        window.FlashExternalInterface.logLoginStep = (e: any) => {
-          if (e === 'client.init.localization.loaded') {
-            if (!this.isActive) {
-              this.isActive = true;
+          window.FlashExternalInterface.logLoginStep = (e: any) => {
+            if (e === 'client.init.localization.loaded') {
+              this.clientService.active = true;
             }
-          }
 
-          window.FlashExternalInterface.disconnect = () => {
-            $('#disconnected').css('display', 'block');
+            window.FlashExternalInterface.disconnect = () => {
+              $('#disconnected').css('display', 'block');
+              this.clientService.active = false;
+            };
           };
-        };
-      },
-      error: () => $('#disconnected').css('display', 'block')
-    });
+        },
+        error: () => $('#disconnected').css('display', 'block')
+      });
+    }
   }
 
   back() {
@@ -95,7 +92,9 @@ export class ClientComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-
+    if (this.ticketSubscription && !this.ticketSubscription.unsubscribe) {
+      this.ticketSubscription.unsubscribe();
+    }
   }
 
 }

@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.authSubscription = this.userService.auth(this.f.username.value, this.f.password.value).subscribe({
       next: (e) => this.userSubscription = this.userService.getUser(e).subscribe({
         next: () => this.router.navigateByUrl('/dashboard')
-                    .then(() => this.alertService.success(this.translateService.instant('LOGIN.SUCCESS')))
+                        .then(() => this.alertService.success(this.translateService.instant('LOGIN.SUCCESS')))
       })
     });
   }

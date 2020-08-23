@@ -2,14 +2,14 @@ import {Injectable} from '@angular/core';
 import {map} from 'rxjs/operators';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {User} from '../models/user/user';
-import {ApiService} from "./api.service";
-import {API} from "../models/api";
+import {ApiService} from './api.service';
+import {API} from '../models/api';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  private userSubject: BehaviorSubject<User>;
+  private readonly userSubject: BehaviorSubject<User>;
   public user$: Observable<User>;
 
   constructor(private apiService: ApiService) {

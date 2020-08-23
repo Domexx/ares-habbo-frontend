@@ -9,4 +9,5 @@ export class User {
     points: number;
     look: string;
     online: number;
+    inClient: boolean;
 }
