@@ -1,5 +1,5 @@
 import {Component, Input, OnDestroy, OnInit} from '@angular/core';
-import * as swfobject from 'es-swfobject';
+import * as swfObject from 'es-swfobject';
 import {client, environment} from '../../../environments/environment';
 import {NavigationStart, Router} from '@angular/router';
 import {TitleService} from '../../services/title.service';
@@ -59,12 +59,12 @@ export class ClientComponent implements OnInit, OnDestroy {
         next: (ticket: string) => {
           client.vars['sso.ticket'] = ticket;
 
-          swfobject.embedSWF(client.swf,
+          swfObject.embedSWF(client.swf,
             document.getElementById('game'),
             '100%',
             '100%',
             11,
-            client.express,
+            '',
             client.vars,
             client.params);
 
