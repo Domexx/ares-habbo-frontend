@@ -14,7 +14,7 @@
       </div>
     </div>
 
-    <ng-container *ngIf="friends$.length > 0; else noFriends">
+    <ng-container *ngIf="friends$ && friends$.length > 0; else noFriends">
       <div id="friends" class="row" infiniteScroll
            [infiniteScrollDistance]="2"
            [infiniteScrollThrottle]="50"

@@ -82,25 +82,11 @@
   }
 }
 
-
 .selected-look {
   background-image: url('../../../assets/images/register/shine.png');
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
-
-  &::before {
-    background-image: url('https://global.ax/assets/images/web/pages/registration/clouds.png');
-    background-repeat: no-repeat;
-    position: absolute;
-    width: 18rem;
-    height: 13rem;
-    top: 0;
-    z-index: 2;
-    display: block;
-    content: '';
-    animation: clouds .2s;
-  }
 }
 
 #register--back {

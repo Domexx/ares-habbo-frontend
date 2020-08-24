@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, ElementRef, OnDestroy, OnInit} from '@angular/core';
 import {TitleService} from '../../services/title.service';
 import {TranslateService} from '@ngx-translate/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -36,7 +36,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
     private alertService: AlertService,
     private registerService: RegisterService,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private elRef: ElementRef
   ) { }
 
   ngOnInit(): void {
@@ -155,6 +156,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
     }
 
     if (this.registerForm.invalid) {
+      this.elRef.nativeElement.scrollTop = 0;
       return;
     }
 

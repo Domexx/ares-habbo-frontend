@@ -1,9 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {SwiperConfigInterface, SwiperPaginationInterface} from "ngx-swiper-wrapper";
-import {ArticleService} from "../../../services/article.service";
-import {Article} from "../../../models/article/article";
-import {environment} from "../../../../environments/environment";
-import {LanguageService} from "../../../services/language.service";
+import {SwiperConfigInterface, SwiperPaginationInterface} from 'ngx-swiper-wrapper';
+import {ArticleService} from '../../../services/article.service';
+import {Article} from '../../../models/article/article';
+import {environment} from '../../../../environments/environment';
+import {LanguageService} from '../../../services/language.service';
 
 @Component({
   selector: 'ares-layout-dashboard-article-slider',
@@ -42,11 +42,12 @@ export class ArticleSliderComponent implements OnInit {
     this.articles$ = items;
   }
 
-  constructor(private languageService: LanguageService) {
+  constructor(
+    private languageService: LanguageService
+  ) {
   }
 
   ngOnInit(): void {
-    this.articles$ = [];
     this.config.pagination = this.pagination;
     this.config.loopedSlides = this.articles$.length;
   }

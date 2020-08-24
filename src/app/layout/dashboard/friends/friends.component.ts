@@ -41,10 +41,10 @@ export class FriendsComponent implements OnInit, OnDestroy {
   constructor(private friendService: FriendService) { }
 
   ngOnInit(): void {
-    this.friends$ = [];
-
-    for (let i = 0; i < 9; i++) {
-      this.friends$.push(this.friendService.mannequin());
+    if (this.friends$ && this.friends$.length === 0) {
+      for (let i = 0; i < 9; i++) {
+        this.friends$.push(this.friendService.mannequin());
+      }
     }
   }
 
@@ -66,6 +66,7 @@ export class FriendsComponent implements OnInit, OnDestroy {
     this.friendSubscription = this.friendService.friends(this.pagination$.nextPage).subscribe({
       next: (e) => {
         e.friends.forEach((user) => this.friends$.push(user));
+
         this.pagination$ = e.pagination;
       },
       complete: () => this.state = true

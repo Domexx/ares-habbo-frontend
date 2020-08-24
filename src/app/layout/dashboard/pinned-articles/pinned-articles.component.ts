@@ -37,7 +37,6 @@ export class PinnedArticlesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.articles$ = [];
     this.config.pagination = this.pagination;
     this.config.loopedSlides = this.articles$.length;
   }
