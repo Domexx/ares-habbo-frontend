@@ -21,11 +21,10 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   registerForm: FormGroup;
 
-  boys: [];
-  girls: [];
+  males: [];
+  females: [];
 
   selectedLook: string;
-  selectedLookIndex: number;
   selectedLookGender: string;
 
   constructor(
@@ -41,11 +40,11 @@ export class RegisterComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.boys = this.route.snapshot.data.looks.boys;
-    this.girls = this.route.snapshot.data.looks.girls;
+    this.males = this.route.snapshot.data.looks.boys;
+    this.females = this.route.snapshot.data.looks.girls;
 
-    if (this.boys) {
-      this.selectedLook = this.boys.find(value => true);
+    if (this.males) {
+      this.selectedLook = this.males.find(value => true);
     }
 
     this.registerForm = this.formBuilder.group({
@@ -126,19 +125,29 @@ export class RegisterComponent implements OnInit, OnDestroy {
     return true;
   }
 
-  selectLook(look: string): void {
-    const boys = this.boys.findIndex(value => value === look);
-    const girls = this.girls.findIndex(value => value === look);
+  selectLook(look: string, male: boolean = false): void {
+    console.log(this.males);
+    if (male) {
+      const maleLookExists = this.males.findIndex(value => value === look);
 
-    if (boys !== -1) {
+      if (maleLookExists === -1) {
+        this.selectLook(this.males.find(value => true), true);
+      }
+
       this.selectedLook = look;
-      this.selectedLookIndex = boys;
       this.selectedLookGender = 'M';
-    } else if (girls !== -1) {
-      this.selectedLook = look;
-      this.selectedLookIndex = boys;
-      this.selectedLookGender = 'F';
+
+      return;
     }
+
+    const femaleLookExists = this.females.findIndex(value => value === look);
+
+    if (femaleLookExists === -1) {
+      this.selectLook(this.females.find(value => true));
+    }
+
+    this.selectedLook = look;
+    this.selectedLookGender = 'F';
   }
 
   figure(look: string, head: boolean = false, large: boolean = false): string {
@@ -160,7 +169,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
       mail: this.f.mail.value,
       password: this.f.password.value,
       password_confirmation: this.f.confirmPassword.value,
-      look: this.selectedLookIndex + 1,
       gender: this.selectedLookGender
     }).subscribe({
       next: (e) => this.userSubscription = this.userService.getUser(e.data.token)

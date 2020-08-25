@@ -45,9 +45,9 @@
         <label for="boys" class="form-label" [translate]="'REGISTER.FORM.INPUT.LOOKS.BOYS.LABEL'"></label>
 
         <div class="row" id="boys">
-          <div *ngFor="let boy of boys" class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+          <div *ngFor="let male of males" class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
             <div class="d-flex justify-content-center w-100">
-              <img (click)="selectLook(boy)" [class]="selectedLook === boy ? 'selected' : ''" class="look cursor-pointer" [src]="figure(boy, true)" />
+              <img (click)="selectLook(male, true)" [class]="selectedLook === male ? 'selected' : ''" class="look cursor-pointer" [src]="figure(male, true)" />
             </div>
           </div>
         </div>
@@ -57,9 +57,9 @@
         <label for="girls" class="form-label" [translate]="'REGISTER.FORM.INPUT.LOOKS.GIRLS.LABEL'"></label>
 
         <div class="row" id="girls">
-          <div *ngFor="let girl of girls" class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+          <div *ngFor="let female of females" class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
             <div class="d-flex justify-content-center w-100">
-              <img (click)="selectLook(girl)" [class]="selectedLook === girl ? 'selected' : ''" class="look cursor-pointer" [src]="figure(girl, true)" />
+              <img (click)="selectLook(female)" [class]="selectedLook === female ? 'selected' : ''" class="look cursor-pointer" [src]="figure(female, true)" />
             </div>
           </div>
         </div>
