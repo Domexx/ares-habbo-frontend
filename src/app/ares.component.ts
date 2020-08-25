@@ -19,10 +19,10 @@ declare var $;
       transition('0 => 1', animate('0ms'))
     ]),
     trigger('loader', [
-      state('0', style({opacity: 0, 'z-index': '-9999'})),
+      state('0', style({opacity: 0, 'z-index': '-1'})),
       state('1', style({opacity: 1})),
 
-      transition('1 => 0', animate('600ms')),
+      transition('1 => 0', animate('250ms')),
       transition('0 => 1', animate('0ms'))
     ])
   ]
