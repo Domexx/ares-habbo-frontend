@@ -7,20 +7,12 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {ApiService} from '../services/api.service';
 import {HttpLoaderService} from '../services/http-loader.service';
 
 @Injectable()
 export class HttpLoaderInterceptor implements HttpInterceptor {
-  private requests: HttpRequest<any>[] = [];
-
-  private blockedRequests: string[] = [
-    this.apiService.url('friends/list/')
-  ];
-
   constructor(
-    private httpLoaderService: HttpLoaderService,
-    private apiService: ApiService
+    private httpLoaderService: HttpLoaderService
   ) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {

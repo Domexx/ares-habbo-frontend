@@ -1,13 +1,13 @@
 import {Component, ElementRef, NgZone, OnDestroy, OnInit} from '@angular/core';
-import * as swfObject from 'es-swfobject';
-import {client, environment} from '../../../environments/environment';
+import {client} from '../../../environments/environment';
 import {NavigationEnd, NavigationStart, Router} from '@angular/router';
 import {TitleService} from '../../services/title.service';
 import {Subscription} from 'rxjs';
 import {UserService} from '../../services/user.service';
-import { Location } from '@angular/common';
+import {Location} from '@angular/common';
 import {ClientService} from '../../services/client.service';
 import * as FlashDetect from 'flash-detect';
+import * as swfObject from 'es-swfobject';
 
 declare global {
   interface Window {

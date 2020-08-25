@@ -6,7 +6,7 @@ import {AlertService} from '../../services/alert.service';
 import {RegisterService} from '../../services/register.service';
 import {Subscription} from 'rxjs';
 import {UserService} from '../../services/user.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {environment} from '../../../environments/environment';
 
 @Component({
@@ -17,9 +17,8 @@ import {environment} from '../../../environments/environment';
 })
 export class RegisterComponent implements OnInit, OnDestroy {
   userSubscription: Subscription;
-  looksSubscription: Subscription;
-
   registerSubscription: Subscription;
+
   registerForm: FormGroup;
 
   boys: [];
@@ -37,21 +36,17 @@ export class RegisterComponent implements OnInit, OnDestroy {
     private registerService: RegisterService,
     private userService: UserService,
     private router: Router,
-    private elRef: ElementRef
+    private elRef: ElementRef,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.boys = [];
-    this.girls = [];
+    this.boys = this.route.snapshot.data.looks.boys;
+    this.girls = this.route.snapshot.data.looks.girls;
 
-    this.looksSubscription = this.registerService.looks().subscribe({
-      next: (resp) => {
-        this.boys = resp.data.looks.boys;
-        this.girls = resp.data.looks.girls;
-
-        this.selectedLook = this.boys.find(value => true);
-      }
-    });
+    if (this.boys) {
+      this.selectedLook = this.boys.find(value => true);
+    }
 
     this.registerForm = this.formBuilder.group({
       username: ['', Validators.required],
