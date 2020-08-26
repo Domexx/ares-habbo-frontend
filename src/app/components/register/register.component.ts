@@ -43,9 +43,10 @@ export class RegisterComponent implements OnInit, OnDestroy {
     this.males = this.route.snapshot.data.looks.boys;
     this.females = this.route.snapshot.data.looks.girls;
 
-    if (this.males) {
-      this.selectedLook = this.males.find(value => true);
+    if (this.males || this.females) {
+      this.selectLook('', true ?? false);
     }
+
 
     this.registerForm = this.formBuilder.group({
       username: ['', Validators.required],
@@ -126,12 +127,12 @@ export class RegisterComponent implements OnInit, OnDestroy {
   }
 
   selectLook(look: string, male: boolean = false): void {
-    console.log(this.males);
     if (male) {
       const maleLookExists = this.males.findIndex(value => value === look);
 
       if (maleLookExists === -1) {
         this.selectLook(this.males.find(value => true), true);
+        return;
       }
 
       this.selectedLook = look;
@@ -144,6 +145,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
     if (femaleLookExists === -1) {
       this.selectLook(this.females.find(value => true));
+      return;
     }
 
     this.selectedLook = look;
@@ -169,7 +171,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
       mail: this.f.mail.value,
       password: this.f.password.value,
       password_confirmation: this.f.confirmPassword.value,
-      gender: this.selectedLookGender
+      gender: this.selectedLookGender,
+      look: this.selectedLook
     }).subscribe({
       next: (e) => this.userSubscription = this.userService.getUser(e.data.token)
         .subscribe({

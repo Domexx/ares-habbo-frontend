@@ -97,3 +97,9 @@
     color: #000 !important;
   }
 }
+
+.w-50 {
+  @include media-breakpoint-down(md) {
+    width: 100% !important;
+  }
+}

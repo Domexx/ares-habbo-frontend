@@ -14,9 +14,7 @@ export class DashboardFriendResolver implements Resolve<FriendPagination> {
     state: RouterStateSnapshot
   ): Observable<FriendPagination> {
     return this.friendService.friends().pipe(
-      catchError((err) => {
-        return [];
-      })
+      catchError(err => [])
     );
   }
 }

@@ -1,5 +1,5 @@
 <div class="container h-100">
-  <div class="d-flex h-100 flex-column justify-content-center align-items-center">
+  <div class="d-flex h-100 flex-column justify-content-center align-items-md-center align-items-sm-start">
     <div class="d-inline-flex flex-row mb-3 mt-5 w-50">
       <img id="logo" src="assets/images/icons/ares64x64.png" alt="Logo" />
 
@@ -45,7 +45,7 @@
         <label for="boys" class="form-label" [translate]="'REGISTER.FORM.INPUT.LOOKS.BOYS.LABEL'"></label>
 
         <div class="row" id="boys">
-          <div *ngFor="let male of males" class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+          <div *ngFor="let male of males" class="col-3">
             <div class="d-flex justify-content-center w-100">
               <img (click)="selectLook(male, true)" [class]="selectedLook === male ? 'selected' : ''" class="look cursor-pointer" [src]="figure(male, true)" />
             </div>
@@ -57,7 +57,7 @@
         <label for="girls" class="form-label" [translate]="'REGISTER.FORM.INPUT.LOOKS.GIRLS.LABEL'"></label>
 
         <div class="row" id="girls">
-          <div *ngFor="let female of females" class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
+          <div *ngFor="let female of females" class="col-3">
             <div class="d-flex justify-content-center w-100">
               <img (click)="selectLook(female)" [class]="selectedLook === female ? 'selected' : ''" class="look cursor-pointer" [src]="figure(female, true)" />
             </div>
