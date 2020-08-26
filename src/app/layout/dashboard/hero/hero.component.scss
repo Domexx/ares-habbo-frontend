@@ -37,6 +37,12 @@
 
   .user--avatar {
     position: relative;
+
+    & > img {
+      position: relative;
+      left: -1.5rem;
+      top: -1.5rem;
+    }
   }
 
   .user--avatar::after {
