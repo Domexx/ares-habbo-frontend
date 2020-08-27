@@ -7,7 +7,7 @@ export const environment = {
     url: 'http://yourdomain.com',
 
     // API
-    endpoint: 'https://api.ares.to/api',
+    endpoint: 'https://api.ares.to',
 
     // Website
     hotelName: 'Ares',

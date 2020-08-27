@@ -12,24 +12,24 @@ declare var $;
   styleUrls: ['./ares.component.scss'],
   animations: [
     trigger('fade', [
-      state('0', style({opacity: 0, 'z-index': '-9999'})),
-      state('1', style({opacity: 1})),
+      state('1', style({opacity: 0, 'z-index': '-9999'})),
+      state('0', style({opacity: 1})),
 
-      transition('1 => 0', animate('50ms')),
-      transition('0 => 1', animate('0ms'))
+      transition('0 => 1', animate('50ms')),
+      transition('1 => 0', animate('0ms'))
     ]),
     trigger('loader', [
-      state('0', style({opacity: 0, 'z-index': '-1'})),
-      state('1', style({opacity: 1})),
+      state('1', style({opacity: 0, 'z-index': '-1'})),
+      state('0', style({opacity: 1})),
 
-      transition('1 => 0', animate('250ms')),
-      transition('0 => 1', animate('0ms'))
+      transition('0 => 1', animate('250ms')),
+      transition('1 => 0', animate('0ms'))
     ])
   ]
 })
 export class AresComponent implements OnInit, AfterViewChecked {
   isAuthenticated = false;
-  state = false;
+  state = true;
 
   constructor(
     private userService: UserService,

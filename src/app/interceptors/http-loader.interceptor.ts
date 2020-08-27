@@ -6,11 +6,15 @@ import {
   HttpEvent,
   HttpInterceptor
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {forkJoin, Observable} from 'rxjs';
 import {HttpLoaderService} from '../services/http-loader.service';
+import {NavigationStart} from '@angular/router';
+import {finalize, map} from 'rxjs/operators';
 
 @Injectable()
 export class HttpLoaderInterceptor implements HttpInterceptor {
+  private requests = [];
+
   constructor(
     private httpLoaderService: HttpLoaderService
   ) { }
@@ -20,14 +24,17 @@ export class HttpLoaderInterceptor implements HttpInterceptor {
       return next.handle(req);
     }
 
-    this.httpLoaderService.loading = false;
-
     return new Observable(observer => {
       const subscription = next.handle(req)
         .subscribe(
-          event => {
-            if (event instanceof HttpResponse) {
-              observer.next(event);
+          e => {
+            if (e instanceof NavigationStart) {
+              // FULL PAGE RELOAD
+            }
+
+            if (e instanceof HttpResponse) {
+              this.httpLoaderService.loading = true;
+              observer.next(e);
             }
           },
           err => {
@@ -37,7 +44,7 @@ export class HttpLoaderInterceptor implements HttpInterceptor {
             observer.complete();
           });
       return () => {
-        this.httpLoaderService.loading = true;
+        this.httpLoaderService.loading = false;
         subscription.unsubscribe();
       };
     });

@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
-import {BehaviorSubject, Observable} from "rxjs";
+import {BehaviorSubject, Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpLoaderService {
-  loadingSubject: BehaviorSubject<boolean>;
-  blockedRequests: string[];
+  private loadingSubject: BehaviorSubject<boolean>;
+  private blockedRequests: string[];
 
   constructor() {
     this.blockedRequests = [];
-    this.loadingSubject = new BehaviorSubject<boolean>(false);
+    this.loadingSubject  = new BehaviorSubject<boolean>(true);
   }
 
   push(url: string): void {
@@ -18,15 +18,11 @@ export class HttpLoaderService {
   }
 
   remove(url: string): void {
-    const i = this.blockedRequests.indexOf(url);
-
-    if (i >= 0) {
-      this.blockedRequests.splice(i, 1);
-    }
+    this.blockedRequests = this.blockedRequests.filter(value => value !== url);
   }
 
   containsUrl(url: string): boolean {
-    return this.blockedRequests.filter(entry => url.includes(entry)).length > 0;
+    return this.blockedRequests.filter(entry => entry === url).length > 0;
   }
 
   asObservable(): Observable<boolean> {
