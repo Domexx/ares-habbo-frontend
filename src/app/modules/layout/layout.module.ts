@@ -26,6 +26,8 @@ import {DisconnectedComponent} from '../../layout/client/disconnected/disconnect
 import { ButtonsComponent } from '../../layout/client/buttons/buttons.component';
 import { FlashDetectComponent } from '../../layout/client/flash-detect/flash-detect.component';
 import { ActiveSessionComponent } from '../../layout/client/active-session/active-session.component';
+import { ArticlesComponent } from '../../layout/community/article/articles/articles.component';
+import { CommentsComponent } from '../../layout/community/article/comments/comments.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -49,7 +51,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
       DisconnectedComponent,
       ButtonsComponent,
       FlashDetectComponent,
-      ActiveSessionComponent
+      ActiveSessionComponent,
+      ArticlesComponent,
+      CommentsComponent
     ],
   imports: [
     CommonModule,
@@ -67,22 +71,24 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
       useValue: DEFAULT_SWIPER_CONFIG
     }
   ],
-  exports: [
-    FooterComponent,
-    HeaderComponent,
-    LanguageSelectorComponent,
-    FriendsComponent,
-    RoomsComponent,
-    ArticleSliderComponent,
-    PinnedArticlesComponent,
-    SearchPipe,
-    LoaderComponent,
-    HeroComponent,
-    DisconnectedComponent,
-    ButtonsComponent,
-    FlashDetectComponent,
-    ActiveSessionComponent
-  ]
+    exports: [
+        FooterComponent,
+        HeaderComponent,
+        LanguageSelectorComponent,
+        FriendsComponent,
+        RoomsComponent,
+        ArticleSliderComponent,
+        PinnedArticlesComponent,
+        SearchPipe,
+        LoaderComponent,
+        HeroComponent,
+        DisconnectedComponent,
+        ButtonsComponent,
+        FlashDetectComponent,
+        ActiveSessionComponent,
+        ArticlesComponent,
+        CommentsComponent
+    ]
 })
 export class LayoutModule {
 }

@@ -1,0 +1,43 @@
+:host {
+  .comments {
+    overflow-y: scroll;
+
+    .comment {
+      &:not(:last-child) {
+        border-bottom: 1px solid var(--main-bg-gray);
+      }
+
+      &:nth-child(odd) {
+        background-color: var(--main-bg-dark);
+      }
+
+      line-height: 1rem;
+
+      &:hover,
+      &:focus {
+        .offline {
+          opacity: 1;
+        }
+      }
+
+      img {
+        object-fit: cover;
+        width: 4rem;
+        position: relative;
+        left: 0;
+        top: 1rem;
+        clip-path: inset(0 0 20% 0);
+        transition: 0.35s all;
+        height: 5rem;
+
+        &.offline {
+          opacity: .5;
+        }
+      }
+
+      .comment--content {
+        width: 2rem;
+      }
+    }
+  }
+}

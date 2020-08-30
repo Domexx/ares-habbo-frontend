@@ -1,0 +1,34 @@
+<section class="ares--hero bg-red" [ngStyle]="{'background-image': 'url('+ article.image +')'}">
+  <div class="container d-flex flex-column justify-content-center align-items-center">
+    <h2 class="article--title mb-0">{{ article.title }}</h2>
+    <h4 class="article--description pb-2">{{ article.description }}</h4>
+  </div>
+</section>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xl-8 col-lg-8 col-sm-12">
+      <div class="card article--card px-4 py-2">
+        <div class="card-header py-3 px-0 mb-2 d-flex flex-row">
+          <div class="author--look mr-2">
+            <img [src]="imager + article.author.look + '&amp;action=std&amp;direction=2&amp;head_direction=2&amp;img_format=png&amp;gesture=std&amp;headonly=0&amp;size=s'" [alt]="article.author.username">
+          </div>
+
+          <span class="mr-2 flex-fill">{{ article.author.username }}</span>
+
+          <span class="mr-2">{{ article.created_at.date | date: date }} - {{ article.created_at.date | date: time }}</span>
+          <span>{{ article.comments.length }}</span>
+        </div>
+
+        <div class="card-body px-0 py-1">
+          <div class="article--content" [innerHTML]="article.content | sanitizer"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xl-4 col-lg-4 col-sm-12">
+      <ares-layout-community-article-articles></ares-layout-community-article-articles>
+      <ares-layout-community-article-comments [comments]="article.comments"></ares-layout-community-article-comments>
+    </div>
+  </div>
+</div>

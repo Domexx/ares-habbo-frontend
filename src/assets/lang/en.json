@@ -1,106 +1,149 @@
 {
-  "NAVIGATOR": {
-    "NEWS": "news",
-    "COMMUNITY": "community",
-    "EMPLOYEES": "employees",
-    "SETTINGS": "settings"
-  },
   "HOME": {
-    "TITLE": "Virtual World, Avatar Chat and Pixel Art",
-    "ALERT": "Logge dich jetzt ein und werde ein Teil einer tollen Community.",
+    "TITLE": "The new era of virtual worlds!",
+    "ALERT": "Login now to join the fun!",
     "FORM": {
       "INPUT": {
         "USERNAME": {
           "LABEL": "Username",
-          "HELP": "You can also sign in with your E-Mail address"
+          "HELP": "Type your username in the box above!"
         },
         "PASSWORD": {
           "LABEL": "Password"
         },
-        "EMPTY": "Please provide a username and password."
+        "EMPTY": "Please fill out all fields!"
       },
-      "BUTTON": "Sign In"
+      "BUTTON": "Login!"
     },
 
-    "NO_ACCOUNT": {
-      "TEXT": "Don't have an account yet? ",
-      "ANCHOR": "Join {{ hotelName }}"
-    }
+    "REGISTER": "New Around Here? <span class=\"text--red\">Join {{ hotelName }}</span>"
   },
-  "REGISTER": {
-    "TITLE": "Sign Up",
-    "DESCRIPTION": "Join a game full of people from around the world.",
 
-    "STEPS": {
-      "USERNAME": "Username",
-      "PASSWORD": "Password",
-      "MAIL": "E-Mail",
-      "LOOK": "Look"
-    },
+  "REGISTER": {
+    "TITLE": "Registration",
+    "DESCRIPTION": "Join the fun by registering today!",
 
     "FORM": {
       "INPUT": {
+        "USERNAME": {
+          "LABEL": "Username",
+          "ERRORS": {
+            "EMPTY": "Please enter a username!"
+          }
+        },
 
+        "PASSWORD": {
+          "LABEL": "Password",
+          "ERRORS": {
+            "EMPTY": "Please enter a password",
+            "NOT_SAME": "The two passwords do not match!"
+          }
+        },
+
+        "MAIL": {
+          "LABEL": "E-Mail",
+          "ERRORS": {
+            "EMPTY": "Please enter your email address",
+            "PATTERN": "That is not a valid email!"
+          }
+        },
+        "LOOKS": {
+          "BOYS": {
+            "LABEL": "Male Looks"
+          },
+          "GIRLS": {
+            "LABEL": "Female Looks"
+          }
+        }
       },
 
       "BUTTONS": {
-
+        "REGISTER": "Let's Go!"
       }
     },
 
-    "ALREADY.TEXT": "Already an account? Take me back!"
+    "SUCCESS": "Your account has been created!",
+    "ERROR": "Your account could not be created!",
+    "ALREADY": "Already got an account? <span class=\"text--red\">Back to Login!</span>"
   },
+
   "DASHBOARD": {
     "HERO": {
       "WELCOME": "Welcome back, <strong>{{ username }}</strong>!",
-      "LOGIN": "Your login was on {{ date }} at {{ time }}.",
+      "LOGIN": "Your last visit was on {{ date }} at {{ time }}.",
       "MOTTO": "Motto: <strong>\"{{ motto }}\"</strong>",
-      "COUNTER": "<strong>{{ online }}</strong> {{ name }} online",
-      "ENTER": "Check in"
+      "COUNTER": "Join <strong>{{ online }}</strong> other player(s)",
+      "ENTER": "Check in",
+
+      "CREDITS": "Credits",
+      "POINTS": "Diamonds",
+      "PIXELS": "Meteors"
     },
-    "YOUR_RANK": "YOUR RANK:",
+    "YOUR_RANK": "Your Rank:",
 
     "SLIDER": {
       "ARTICLES": {
-        "TITLE": "No Articles were Found!",
-        "DESCRIPTION": "Oh! I couldn't find any article. Check back later!",
-        "READ_MORE": "Read More"
+        "TITLE": "No Results Found!",
+        "DESCRIPTION": "Oops! We couldn't find any articles!",
+        "READ_MORE": "Read More..."
       }
     },
 
     "FRIENDS": {
       "TITLE": "Friends",
       "MANNEQUIN": {
-        "NAME": "No Friend",
-        "MOTTO": "No friend was found"
+        "NAME": "No Friends(s) Found",
+        "MOTTO": "No Friend(s) were Found"
       },
 
-      "NOT_FOUND": "{{ username }} not found!"
+      "NOT_FOUND": "{{ username }} could not be found!"
     }
   },
+
   "CLIENT": {
     "DISCONNECTED": {
-      "TITLE": "Oh, Bobba!",
-      "DESCRIPTION": "You lost the connection",
-      "BUTTON": "Reload"
+      "TITLE": "Oh, Bollocks!",
+      "DESCRIPTION": "You've disconnected!",
+      "BUTTON": "Reconnect"
+    },
+
+    "FLASH": {
+      "TITLE": "Oh Bollocks!",
+      "DESCRIPTION": "Click <a href=\"https://get.adobe.com/en/flashplayer\" target=\"_blank\">here</a> and then on \"Activate Flash\" as soon as you are prompted to do so . See you soon!"
+    },
+
+    "ACTIVE": {
+      "DESCRIPTION": "You're already checked in!",
+      "BUTTON": "Force login"
     }
   },
+
   "LOGIN": {
-    "SUCCESS": "You logged in successfully!"
+    "SUCCESS": "Welcome back, {{ username }}"
   },
+
   "LOGOUT": {
-    "SUCCESS": "Successfully logged out!",
-    "ERROR": "Sign in again, please!"
+    "SUCCESS": "See you again soon!",
+    "ERROR": "An error occured."
   },
+
+  "NAVIGATOR": {
+    "NEWS": "News",
+    "COMMUNITY": "Community",
+    "EMPLOYEES": "Staff",
+    "SETTINGS": "Preferences"
+  },
+
   "FOOTER": {
-    "RIGHTS_RESERVED": "&nbsp; &copy; 2020. All rights reserved.",
-    "NOT_SULAKE": "This website is not owned by Sulake Corporation and is not operated by Habbo Hotel &reg;."
+    "RIGHTS_RESERVED": "&nbsp; &copy; 2020. All Rights Reserved",
+    "NOT_SULAKE": "This website is not owned by Sulake nor operated by Habbo Hotel Representatives"
   },
 
   "404": {
-    "DESCRIPTION": "Page wasn't found!",
-    "BUTTON": "Back"
+    "DESCRIPTION": "Page not Found!",
+    "BUTTON": "Go Back"
   },
 
-  "UNKNOWN_ERROR": "An unknown error has occurred"
+  "UNKNOWN_ERROR": "An unknown error has occured!",
+  "SESSION": "You must login to view this page!"
 }

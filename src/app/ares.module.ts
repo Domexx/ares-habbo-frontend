@@ -39,40 +39,40 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-    declarations: [
-        AresComponent,
-        LogoutComponent,
-        NotFoundComponent,
-    ],
-    imports: [
-        BrowserModule,
-        AresRoutingModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
-        TranslateModule.forRoot({
-            loader: {
-                provide: TranslateLoader,
-                useFactory: (HttpLoaderFactory),
-                deps: [HttpClient]
-            }
-        }),
-        LayoutModule,
-        QuicklinkModule,
-        ClientModule
-    ],
-    providers: [
-        TitleService,
-        HttpLoaderService,
-        {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
-        {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
-        {provide: HTTP_INTERCEPTORS, useClass: HttpLoaderInterceptor, multi: true},
-        {
-            provide: LOCALE_ID,
-            useFactory: (languageService) => languageService.getCurrentCulture(),
-            deps: [LanguageService]
-        }
-    ],
-    bootstrap: [AresComponent]
+  declarations: [
+    AresComponent,
+    LogoutComponent,
+    NotFoundComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AresRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (HttpLoaderFactory),
+        deps: [HttpClient]
+      }
+    }),
+    LayoutModule,
+    QuicklinkModule,
+    ClientModule
+  ],
+  providers: [
+    TitleService,
+    HttpLoaderService,
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: HttpLoaderInterceptor, multi: true},
+    {
+      provide: LOCALE_ID,
+      useFactory: (languageService) => languageService.getCurrentCulture(),
+      deps: [LanguageService]
+    }
+  ],
+  bootstrap: [AresComponent]
 })
 export class AresModule {
   constructor(private translate: TranslateService,

@@ -1,0 +1,19 @@
+<div class="card card-comments">
+  <h4 class="py-3 px-4">Kommentare</h4>
+
+  <div class="comments row mx-0">
+    <div *ngFor="let comment of comments$" class="col-12 comment">
+      <img [src]="look(comment.author.look)" [class.offline]="comment.author.online == 0" />
+
+      <div class="d-inline-flex flex-column">
+        <div class="d-inline-flex flex-row">
+          <strong>{{ comment.author.username }}</strong>
+        </div>
+
+        <div class="comment--content">
+          {{ comment.content }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

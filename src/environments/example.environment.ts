@@ -29,6 +29,11 @@ export const environment = {
           date: 'dd.MM.yyyy',
           time: 'HH:mm'
         }
+      },
+
+      article: {
+        date: 'dd.MM.yyyy',
+        time: 'HH:mm'
       }
     }
   }
