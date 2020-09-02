@@ -71,7 +71,7 @@ export class ClientComponent implements OnInit, OnDestroy {
     this.isFlashActivated = flashDetected.installed;
     this.isSessionActive = this.userService.user.online === 1;
 
-    if (this.userService.user.online === 0) {
+    if (!this.isSessionActive) {
       this.loadClient();
     }
   }
