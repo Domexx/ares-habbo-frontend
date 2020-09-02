@@ -39,8 +39,10 @@
       <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
 
       <div class="container d-inline-flex flex-column mt-4">
-        <textarea class="form-control" placeholder="Kommentar"></textarea>
-        <button class="btn btn-danger mt-2 h-50">Kommentieren</button>
+        <form [formGroup]="commentForm" (submit)="onSubmit()">
+          <textarea class="form-control" formControlName="comment" placeholder="Kommentar"></textarea>
+          <button type="submit" class="btn btn-danger mt-2 h-50">Kommentieren</button>
+        </form>
       </div>
     </div>
   </div>

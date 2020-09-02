@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {TranslateModule} from '@ngx-translate/core';
 import {RouterModule} from '@angular/router';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {InfiniteScrollModule} from 'ngx-infinite-scroll';
 import {SWIPER_CONFIG, SwiperConfigInterface, SwiperModule} from 'ngx-swiper-wrapper';
 
@@ -56,17 +56,18 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
       ArticlesComponent,
       CommentsComponent
     ],
-    imports: [
-      CommonModule,
-      RouterModule,
-      TranslateModule.forChild(),
-      FormsModule,
-      SwiperModule,
-      InfiniteScrollModule,
-      FontAwesomeModule,
-      IconModule,
-      TooltipModule.forRoot()
-    ],
+  imports: [
+    CommonModule,
+    RouterModule,
+    TranslateModule.forChild(),
+    FormsModule,
+    SwiperModule,
+    InfiniteScrollModule,
+    FontAwesomeModule,
+    IconModule,
+    TooltipModule.forRoot(),
+    ReactiveFormsModule
+  ],
   providers: [
     {
       provide: SWIPER_CONFIG,

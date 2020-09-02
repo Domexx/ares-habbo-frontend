@@ -73,7 +73,6 @@ export class HomeComponent implements OnInit, OnDestroy {
     }
   }
 
-
   get f() {
     return this.authForm.controls;
   }

@@ -33,7 +33,7 @@
               <img [src]="look(friend?.look)" [class.offline]="friend?.online == 0" />
 
               <div class="user-info d-inline-flex flex-column">
-                <span class="username mb-0" data-toggle="tooltip" data-placement="top" [title]="friend?.username" [class.offline]="friend?.online == 0" [class.online]="friend?.online == 1">{{ friend?.username }}</span>
+                <span class="username mb-0" [class.offline]="friend?.online == 0" [class.online]="friend?.online == 1">{{ friend?.username }}</span>
                 <span class="motto">{{ (!friend?.motto) ? 'Kein Motto' : friend?.motto }}</span>
               </div>
             </div>

@@ -1,4 +1,4 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewChecked, ChangeDetectorRef, Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Comment} from '../../../../models/article/comment';
 import {environment} from '../../../../../environments/environment';
 import {Pagination} from '../../../../models/pagination';
@@ -6,6 +6,8 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 import {Subscription} from 'rxjs';
 import {ArticleService} from '../../../../services/article.service';
 import {ActivatedRoute} from '@angular/router';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AlertService} from '../../../../services/alert.service';
 
 @Component({
   selector: 'ares-layout-community-article-comments',
@@ -21,13 +23,16 @@ import {ActivatedRoute} from '@angular/router';
     ])
   ]
 })
-export class CommentsComponent implements OnInit, OnDestroy {
+export class CommentsComponent implements OnInit, OnDestroy, AfterViewChecked {
   comments$: Comment[] = [];
   pagination$: Pagination;
 
   state = true;
 
   commentSubscription: Subscription;
+  writeSubscription: Subscription;
+
+  commentForm: FormGroup;
 
   @Input('comments')
   set comments(value: Comment[]) {
@@ -41,10 +46,20 @@ export class CommentsComponent implements OnInit, OnDestroy {
 
   constructor(
     private articleService: ArticleService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private formBuilder: FormBuilder,
+    private alertService: AlertService,
+    private cdRef: ChangeDetectorRef
   ) { }
 
   ngOnInit(): void {
+    this.commentForm = this.formBuilder.group({
+      comment: ['', Validators.required],
+    });
+  }
+
+  ngAfterViewChecked(): void {
+    this.cdRef.detectChanges();
   }
 
   onScroll() {
@@ -63,6 +78,22 @@ export class CommentsComponent implements OnInit, OnDestroy {
     });
   }
 
+  onSubmit(): void {
+    const comment = this.f.comment;
+
+    if (!comment.value) {
+      this.alertService.error('Bitte gebe eine Nachricht ein!');
+      return;
+    }
+
+    this.writeSubscription = this.articleService.createComment(this.route.snapshot.params.id, comment.value).subscribe({
+      next: (value) => {
+        this.comments$.push(value);
+        this.alertService.success('Dein Kommentar wurde erfolgreich erstellt!');
+      }
+    });
+  }
+
   look(look: string): string {
     return `${environment.app.imager}${look}&action=std&gesture=sml&direction=2&head_direction=2&size=l`;
   }
@@ -71,6 +102,14 @@ export class CommentsComponent implements OnInit, OnDestroy {
     if (this.commentSubscription && this.commentSubscription.unsubscribe) {
       this.commentSubscription.unsubscribe();
     }
+
+    if (this.writeSubscription && this.writeSubscription.unsubscribe) {
+      this.writeSubscription.unsubscribe();
+    }
+  }
+
+  get f() {
+    return this.commentForm.controls;
   }
 
 }

@@ -3,7 +3,8 @@ import {ApiService} from './api.service';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {Article} from '../models/article/article';
-import {CommentPagination} from '../models/article/comment';
+import {Comment, CommentPagination} from '../models/article/comment';
+import {API} from '../models/api';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,15 @@ export class ArticleService {
   getComments(id: number, page: number = 1, results: number = 8): Observable<CommentPagination> {
     return this.apiService.get(`comments/list/${id}/${page}/${results}`).pipe(
       map(resp => resp.data)
+    );
+  }
+
+  createComment(id: number, content: string): Observable<Comment> {
+    return this.apiService.post('comments/create', {
+      article_id: id,
+      content
+    }).pipe(
+      map(value => value.data)
     );
   }
 }
