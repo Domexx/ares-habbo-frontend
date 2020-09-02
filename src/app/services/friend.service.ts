@@ -21,12 +21,6 @@ export class FriendService {
   friends(page: number = 1, results: number = 9): Observable<FriendPagination> {
     return this.apiService.get(`friends/list/${page}/${results}`, {}, false).pipe(
       map(resp => {
-        if (resp.data.friends.length < 9) {
-          for (let i = resp.data.friends.length; i < 9; i++) {
-            resp.data.friends.push(this.mannequin());
-          }
-        }
-
         return resp.data;
       })
     );

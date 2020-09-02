@@ -50,6 +50,15 @@
           margin-top: -.5rem;
         }
       }
+
+      .article--date {
+        position: relative;
+
+        .date {
+          position: relative;
+          top: .45rem;
+        }
+      }
     }
 
     .article--content {

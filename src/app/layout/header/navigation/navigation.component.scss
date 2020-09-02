@@ -44,7 +44,7 @@
             text-transform: uppercase;
             font-weight: 600;
             position: relative;
-            transition: color .3s;
+            transition: all .3s;
 
             &.active {
               color: #fff;
@@ -65,6 +65,15 @@
             &:focus,
             &.active {
               color: #fff;
+            }
+          }
+
+          .icon {
+            filter: grayscale(80%);
+
+            &:hover,
+            &:focus {
+              filter: grayscale(0%);
             }
           }
 

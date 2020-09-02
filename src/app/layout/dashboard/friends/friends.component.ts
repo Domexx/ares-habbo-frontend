@@ -65,7 +65,7 @@ export class FriendsComponent implements OnInit, OnDestroy {
 
     this.friendSubscription = this.friendService.friends(this.pagination$.nextPage).subscribe({
       next: (e) => {
-        e.friends.forEach((user) => this.friends$.push(user));
+        e.friends.forEach(value => this.friends$.push(value.friend));
 
         this.pagination$ = e.pagination;
       },

@@ -1,5 +1,5 @@
 import {User} from "../user/user";
-import {Room} from "../room/room";
+import {Room} from '../room/room';
 
 export class Guild {
   id: number;
@@ -7,6 +7,7 @@ export class Guild {
   name: string;
   description: string;
   badge: string;
+  // tslint:disable-next-line:variable-name
   date_created: number;
   room: Room;
 }
