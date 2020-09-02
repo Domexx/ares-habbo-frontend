@@ -10,14 +10,16 @@ export class Article {
   image: string;
   author: User;
   comments: Comment[];
+  // tslint:disable-next-line:variable-name
   created_at: {
     date: string,
     timezone_type: number;
     timezone: string;
-  }
+  };
+  // tslint:disable-next-line:variable-name
   updated_at: {
     data: string,
     timezone_type: number;
     timezone: string;
-  }
+  };
 }

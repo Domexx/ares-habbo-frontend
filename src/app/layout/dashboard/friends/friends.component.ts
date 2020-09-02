@@ -1,9 +1,10 @@
 import { Component, Input, OnDestroy, OnInit} from '@angular/core';
-import {User} from "../../../models/user/user";
-import {environment} from "../../../../environments/environment";
-import {Subscription} from "rxjs";
-import {FriendService} from "../../../services/friend.service";
-import {animate, state, style, transition, trigger} from "@angular/animations";
+import {User} from '../../../models/user/user';
+import {environment} from '../../../../environments/environment';
+import {Subscription} from 'rxjs';
+import {FriendService} from '../../../services/friend.service';
+import {animate, state, style, transition, trigger} from '@angular/animations';
+import {Pagination} from '../../../models/pagination';
 
 @Component({
   selector: 'ares-layout-dashboard-friends',
@@ -24,7 +25,7 @@ export class FriendsComponent implements OnInit, OnDestroy {
   friendSubscription: Subscription;
 
   friends$: User[];
-  pagination$: { totalPages: number; nextPage: number; prevPage: number }
+  pagination$: { totalPages: number; nextPage: number; prevPage: number };
 
   searchName: string;
 
@@ -34,7 +35,7 @@ export class FriendsComponent implements OnInit, OnDestroy {
   }
 
   @Input('pagination')
-  set pagination(value: { totalPages: number; nextPage: number; prevPage: number }) {
+  set pagination(value: Pagination) {
     this.pagination$ = value;
   }
 

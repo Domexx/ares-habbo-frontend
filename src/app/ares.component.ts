@@ -4,8 +4,6 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 import {HttpLoaderService} from './services/http-loader.service';
 import {Router} from '@angular/router';
 
-declare var $;
-
 @Component({
   selector: 'ares-root',
   templateUrl: './ares.component.html',
@@ -40,11 +38,9 @@ export class AresComponent implements OnInit, AfterViewChecked {
 
   ngOnInit() {
     this.httpLoaderService.asObservable().subscribe((e) => this.state = e);
-    $('[data-toggle="popover"]').popover();
   }
 
   ngAfterViewChecked(): void {
-    $('[data-toggle="tooltip"]').tooltip();
     this.isAuthenticated = this.userService.isAuthenticated;
     this.cdRef.detectChanges();
   }

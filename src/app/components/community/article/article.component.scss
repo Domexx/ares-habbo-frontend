@@ -15,7 +15,7 @@
 
       .article--title {
         height: 2rem;
-        overflow: hidden;
+        overflow: inherit;
         text-overflow: ellipsis;
         white-space: nowrap;
         width: calc(100vw - 50vw);
@@ -25,6 +25,7 @@
       .article--description {
         height: 2rem;
         overflow: hidden;
+        margin-top: 0.7em;
         text-overflow: ellipsis;
         white-space: nowrap;
         width: calc(100vw - 50vw);
@@ -54,7 +55,7 @@
       .article--date {
         position: relative;
 
-        .date {
+        .sprite--date {
           position: relative;
           top: .45rem;
         }
@@ -63,6 +64,7 @@
 
     .article--content {
       font-size: 14px;
+      overflow: hidden;
     }
   }
 }

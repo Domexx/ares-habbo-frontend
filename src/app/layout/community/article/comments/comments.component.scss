@@ -1,17 +1,20 @@
 :host {
+  .btn {
+    animation: unset !important;
+    
+  }
   .comments {
-    overflow-y: scroll;
+    overflow-y: auto;
+    height: 20rem;
 
     .comment {
-      &:not(:last-child) {
-        border-bottom: 1px solid var(--main-bg-gray);
-      }
-
-      &:nth-child(odd) {
-        background-color: var(--main-bg-dark);
-      }
-
+      background-color: var(--main-bg-dark);
       line-height: 1rem;
+      overflow: hidden;
+
+      &:not(:last-child) {
+        border-bottom: 1px dotted var(--main-bg-gray);
+      }
 
       &:hover,
       &:focus {
@@ -29,6 +32,7 @@
         clip-path: inset(0 0 20% 0);
         transition: 0.35s all;
         height: 5rem;
+        image-rendering: pixelated;
 
         &.offline {
           opacity: .5;
@@ -36,7 +40,8 @@
       }
 
       .comment--content {
-        width: 2rem;
+        width: 100%;
+        line-height: 2rem;
       }
     }
   }

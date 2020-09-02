@@ -36,6 +36,7 @@
     "es-swfobject": "^3.0.0",
     "flash-detect": "^1.1.1",
     "jquery": "^3.5.1",
+    "ngx-bootstrap": "^6.1.0",
     "ngx-infinite-scroll": "^9.0.0",
     "ngx-quicklink": "^0.2.3",
     "ngx-swiper-wrapper": "^9.0.1",

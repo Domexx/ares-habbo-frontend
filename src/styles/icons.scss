@@ -1,28 +1,58 @@
-.ares--sprite {
+.sprite {
   background-image: url('/assets/images/sprites.png');
 
-  &.credits {
+  &.sprite--credits {
     background-position: 5rem 0;
     height: 4rem;
     width: 5rem;
   }
 
-  &.diamonds {
+  &.sprite--diamonds {
     background-position: 10.6rem 0;
     height: 5rem;
     width: 5.5rem;
   }
 
-  &.duckets {
+  &.sprite--duckets {
     background-position: 13.2rem 0;
     height: 3rem;
     width: 2.5rem;
   }
 
-  &.date {
+  &.sprite--date {
     background-position: 1.2rem -6.35rem;
     height: 20px;
     width: 20px;
+  }
+
+  &.sprite--dashboard {
+    background-position: 1.2rem 0;
+    height: 50px;
+    width: 50px;
+  }
+
+  &.sprite--news {
+    background-position: -1.8rem 0;
+    height: 2rem;
+    width: 2.4rem;
+  }
+
+  &.sprite--community {
+    background-position: -7.5rem 0;
+    height: 3rem;
+    width: 2.4rem;
+  }
+
+  &.sprite--employees {
+    background-position: -3.9rem 0;
+    height: 2.5rem;
+    width: 2rem;
+  }
+
+  &.sprite--settings {
+    background-position: -5.8rem 0;
+    height: 2rem;
+    width: 1.5rem;
   }
 }
 

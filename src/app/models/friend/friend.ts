@@ -1,12 +1,8 @@
 import {User} from '../user/user';
+import {Pagination} from '../pagination';
 
 export class FriendPagination {
-  pagination: {
-    totalPages: number;
-    nextPage: number;
-    prevPage: number;
-  };
-
+  pagination: Pagination;
   friends: Friend[];
 }
 

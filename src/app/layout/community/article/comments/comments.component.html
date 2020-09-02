@@ -1,11 +1,22 @@
 <div class="card card-comments">
-  <h4 class="py-3 px-4">Kommentare</h4>
+  <div class="d-flex flex-row">
+    <i class="sprite sprite--comments"></i>
 
-  <div class="comments row mx-0">
+    <div class="d-inline-flex flex-column">
+      <h4 class="py-3 px-4">Kommentare</h4>
+      sadasd
+    </div>
+  </div>
+
+  <div class="comments row mx-0" infiniteScroll
+       [infiniteScrollDistance]="2"
+       [infiniteScrollThrottle]="50"
+       (scrolled)="onScroll()"
+       [scrollWindow]="false">
     <div *ngFor="let comment of comments$" class="col-12 comment">
       <img [src]="look(comment.author.look)" [class.offline]="comment.author.online == 0" />
 
-      <div class="d-inline-flex flex-column">
+      <div class="d-inline-flex flex-column w-75">
         <div class="d-inline-flex flex-row">
           <strong>{{ comment.author.username }}</strong>
         </div>
@@ -13,6 +24,23 @@
         <div class="comment--content">
           {{ comment.content }}
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center align-items-center py-4">
+    <button class="btn btn-danger w-75 h-25" data-toggle="modal" data-target="#comment">comment</button>
+  </div>
+</div>
+
+<div class="modal fade" id="comment" tabindex="-1" role="dialog" aria-labelledby="commentLabel" aria-hidden="true">
+  <div class="modal-dialog h-100 d-flex flex-column justify-content-center my-0" role="document">
+    <div class="modal-content d-flex flex-column">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+
+      <div class="container d-inline-flex flex-column mt-4">
+        <textarea class="form-control" placeholder="Kommentar"></textarea>
+        <button class="btn btn-danger mt-2 h-50">Kommentieren</button>
       </div>
     </div>
   </div>

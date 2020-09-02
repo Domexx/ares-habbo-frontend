@@ -3,7 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import {CommunityComponent} from '../../components/community/community.component';
 import {GroupComponent} from '../../components/community/group/group.component';
 import {ArticleComponent} from '../../components/community/article/article.component';
-import {CommunityArticleResolver} from '../../resolver/community/article.resolver';
+import {CommunityArticleResolver} from '../../resolver/community/article/article.resolver';
+import {CommunityArticleCommentsResolver} from '../../resolver/community/article/article-comments.resolver';
 
 const routes: Routes = [
   {
@@ -18,7 +19,8 @@ const routes: Routes = [
     path: 'article/:id',
     component: ArticleComponent,
     resolve: {
-      article: CommunityArticleResolver
+      article: CommunityArticleResolver,
+      comments: CommunityArticleCommentsResolver
     }
   }
 ];

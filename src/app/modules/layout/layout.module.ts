@@ -28,6 +28,7 @@ import { FlashDetectComponent } from '../../layout/client/flash-detect/flash-det
 import { ActiveSessionComponent } from '../../layout/client/active-session/active-session.component';
 import { ArticlesComponent } from '../../layout/community/article/articles/articles.component';
 import { CommentsComponent } from '../../layout/community/article/comments/comments.component';
+import {TooltipModule} from 'ngx-bootstrap/tooltip';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -36,18 +37,18 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 
 @NgModule({
     declarations: [
-        FooterComponent,
-        HeaderComponent,
-        NavigationComponent,
-        FriendsComponent,
-        LanguageSelectorComponent,
-        ArticleSliderComponent,
-        RoomsComponent,
-        PinnedArticlesComponent,
-        SearchPipe,
-        LoaderComponent,
-        HeroComponent,
-        NumberSuffixPipe,
+      FooterComponent,
+      HeaderComponent,
+      NavigationComponent,
+      FriendsComponent,
+      LanguageSelectorComponent,
+      ArticleSliderComponent,
+      RoomsComponent,
+      PinnedArticlesComponent,
+      SearchPipe,
+      LoaderComponent,
+      HeroComponent,
+      NumberSuffixPipe,
       DisconnectedComponent,
       ButtonsComponent,
       FlashDetectComponent,
@@ -55,16 +56,17 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
       ArticlesComponent,
       CommentsComponent
     ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    TranslateModule.forChild(),
-    FormsModule,
-    SwiperModule,
-    InfiniteScrollModule,
-    FontAwesomeModule,
-    IconModule
-  ],
+    imports: [
+      CommonModule,
+      RouterModule,
+      TranslateModule.forChild(),
+      FormsModule,
+      SwiperModule,
+      InfiniteScrollModule,
+      FontAwesomeModule,
+      IconModule,
+      TooltipModule.forRoot()
+    ],
   providers: [
     {
       provide: SWIPER_CONFIG,
@@ -72,22 +74,22 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     }
   ],
     exports: [
-        FooterComponent,
-        HeaderComponent,
-        LanguageSelectorComponent,
-        FriendsComponent,
-        RoomsComponent,
-        ArticleSliderComponent,
-        PinnedArticlesComponent,
-        SearchPipe,
-        LoaderComponent,
-        HeroComponent,
-        DisconnectedComponent,
-        ButtonsComponent,
-        FlashDetectComponent,
-        ActiveSessionComponent,
-        ArticlesComponent,
-        CommentsComponent
+      FooterComponent,
+      HeaderComponent,
+      LanguageSelectorComponent,
+      FriendsComponent,
+      RoomsComponent,
+      ArticleSliderComponent,
+      PinnedArticlesComponent,
+      SearchPipe,
+      LoaderComponent,
+      HeroComponent,
+      DisconnectedComponent,
+      ButtonsComponent,
+      FlashDetectComponent,
+      ActiveSessionComponent,
+      ArticlesComponent,
+      CommentsComponent
     ]
 })
 export class LayoutModule {

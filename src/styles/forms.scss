@@ -19,6 +19,13 @@
   }
 }
 
+textarea {
+  &.form-control {
+    background-color: var(--main-bg-color);
+    border-radius: 2px;
+  }
+}
+
 .ng-dirty.ng-invalid:not(form) {
   border: 1px solid #b41030;
 }
