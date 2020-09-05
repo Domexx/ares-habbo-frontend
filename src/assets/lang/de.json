@@ -100,7 +100,9 @@
       },
       "COMMENT": {
         "TITLE": "Kommentieren",
-        "DESCRIPTION": "Verfasse einen Kommentar"
+        "DESCRIPTION": "Verfasse einen Kommentar",
+        "EMPTY": "Bitte gebe eine Nachricht ein",
+        "SUCCESS": "Dein Kommentar wurde erfolgreich hinzugefügt!"
       }
     }
   },

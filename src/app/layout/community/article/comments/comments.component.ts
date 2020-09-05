@@ -9,6 +9,7 @@ import {ActivatedRoute} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AlertService} from '../../../../services/alert.service';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'ares-layout-community-article-comments',
@@ -53,7 +54,8 @@ export class CommentsComponent implements OnInit, OnDestroy, AfterViewChecked {
     private formBuilder: FormBuilder,
     private alertService: AlertService,
     private cdRef: ChangeDetectorRef,
-    private modalService: BsModalService
+    private modalService: BsModalService,
+    private translateService: TranslateService
   ) { }
 
   ngOnInit(): void {
@@ -86,15 +88,16 @@ export class CommentsComponent implements OnInit, OnDestroy, AfterViewChecked {
     const comment = this.f.comment;
 
     if (!comment.value) {
-      this.alertService.error('Bitte gebe eine Nachricht ein!');
+      this.alertService.error(this.translateService.instant('COMMUNITY.ARTICLE.COMMENT.EMPTY'));
       return;
     }
 
     this.writeSubscription = this.articleService.createComment(this.route.snapshot.params.id, comment.value).subscribe({
       next: (value) => {
-        this.comments$.push(value);
-        this.alertService.success('Dein Kommentar wurde erfolgreich erstellt!');
-      }
+        this.comments$.splice(0, 0, value);
+        this.alertService.success(this.translateService.instant('COMMUNITY.ARTICLE.COMMENT.SUCCESS'));
+      },
+      complete: () => this.modalRef.hide()
     });
   }
 

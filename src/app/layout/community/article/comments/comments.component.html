@@ -35,21 +35,22 @@
 
 <ng-template class="h-100 justify-content-center" #template>
   <div class="modal-body d-flex flex-column justify-content-center">
-    <div class="d-inline-flex flex-row">
-      <i class="ml-4 mr-3 mt-3 sprite sprite--comments"></i>
+    <div class="d-inline-flex flex-row mb-3">
+      <i class="mx-4 mt-3 sprite sprite--comments"></i>
       <div class="d-inline-flex flex-column">
-        <h4 class="mt-3 mb-0" [translate]="'COMMUNITY.ARTICLE.COMMENT.TITLE'"></h4>
-        <span [translate]="'COMMUNITY.ARTICLE.COMMENT.DESCRIPTION'"></span>
+        <h4 class="mt-3 mb-0 modal--title" [translate]="'COMMUNITY.ARTICLE.COMMENT.TITLE'"></h4>
+        <span class="modal--description" [translate]="'COMMUNITY.ARTICLE.COMMENT.DESCRIPTION'"></span>
       </div>
       <button type="button" class="close" (click)="modalRef.hide()"></button>
     </div>
 
     <div class="container d-inline-flex flex-column mt-4">
-      <form [formGroup]="commentForm" (submit)="onSubmit()">
+      <form [formGroup]="commentForm" (submit)="onSubmit()" id="comment--form">
         <div class="form-group" id="comment--textarea">
           <textarea class="form-control" formControlName="comment" placeholder="Kommentar"></textarea>
         </div>
-        <button type="submit" class="btn btn-danger mt-3 h-50" [translate]="'COMMUNITY.ARTICLE.COMMENT.TITLE'"></button>
+
+        <button type="submit" class="btn btn-danger mt-3 h-50 w-100" [translate]="'COMMUNITY.ARTICLE.COMMENT.TITLE'"></button>
       </form>
     </div>
   </div>
