@@ -24,6 +24,12 @@ const routes: Routes = [
     canActivateChild: [ActiveSessionGuard]
   },
   {
+    path: 'articles',
+    loadChildren: () => import('./modules/article/article.module').then(m => m.ArticleModule),
+    canActivate: [AuthGuard],
+    canActivateChild: [ActiveSessionGuard]
+  },
+  {
     path: 'community',
     loadChildren: () => import('./modules/community/community.module').then(m => m.CommunityModule),
     canActivate: [AuthGuard],

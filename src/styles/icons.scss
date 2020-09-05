@@ -60,6 +60,13 @@
     height: 3rem;
     width: 2.5rem;
   }
+
+  &.sprite--articles {
+    background-image: url('../assets/images/sprites.png');
+    background-position: 0rem -22.5rem;
+    height: 2.5rem;
+    width: 2.6rem;
+  }
 }
 
 .ares--icon {

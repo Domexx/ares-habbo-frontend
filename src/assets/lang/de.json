@@ -91,8 +91,7 @@
       "NOT_FOUND": "{{ username }} wurde nicht gefunden!"
     }
   },
-
-  "COMMUNITY": {
+  "ARTICLES": {
     "ARTICLE": {
       "COMMENTS": {
         "TITLE": "Kommentare",
@@ -103,8 +102,15 @@
         "DESCRIPTION": "Verfasse einen Kommentar",
         "EMPTY": "Bitte gebe eine Nachricht ein",
         "SUCCESS": "Dein Kommentar wurde erfolgreich hinzugefügt!"
+      },
+      "ARTICLES": {
+        "TITLE": "Neuigkeiten",
+        "DESCRIPTION": "Hier findest du eine Auflistung aktueller Neuigkeiten"
       }
     }
+  },
+
+  "COMMUNITY": {
   },
 
   "CLIENT": {

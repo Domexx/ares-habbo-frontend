@@ -5,7 +5,7 @@ import {ArticleService} from '../../../services/article.service';
 import {CommentPagination} from '../../../models/article/comment';
 
 @Injectable({ providedIn: 'root' })
-export class CommunityArticleCommentsResolver implements Resolve<CommentPagination> {
+export class ArticleCommentsResolver implements Resolve<CommentPagination> {
   constructor(
     private articleService: ArticleService
   ) {}

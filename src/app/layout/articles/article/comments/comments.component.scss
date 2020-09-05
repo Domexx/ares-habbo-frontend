@@ -2,11 +2,19 @@
   .comments {
     overflow-y: auto;
     max-height: 20rem;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     .comment {
       background-color: var(--main-bg-dark);
       line-height: 1rem;
       overflow: hidden;
+      margin-bottom: 1.5rem;
+      border-radius: 4px;
 
       &:not(:last-child) {
         border-bottom: 1px dotted var(--main-bg-gray);
@@ -25,9 +33,8 @@
         position: relative;
         left: 0;
         top: 1rem;
-        clip-path: inset(0 0 20% 0);
         transition: 0.35s all;
-        height: 5rem;
+        height: 4rem;
         image-rendering: pixelated;
 
         &.offline {

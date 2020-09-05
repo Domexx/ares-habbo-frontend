@@ -12,7 +12,7 @@ import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 import {TranslateService} from '@ngx-translate/core';
 
 @Component({
-  selector: 'ares-layout-community-article-comments',
+  selector: 'ares-layout-article-comments',
   templateUrl: './comments.component.html',
   styleUrls: ['./comments.component.scss'],
   animations: [

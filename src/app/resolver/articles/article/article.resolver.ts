@@ -6,7 +6,7 @@ import {ArticleService} from '../../../services/article.service';
 import {catchError, map} from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
-export class CommunityArticleResolver implements Resolve<Article | boolean> {
+export class ArticleResolver implements Resolve<Article | boolean> {
   constructor(
     private articleService: ArticleService,
     private router: Router

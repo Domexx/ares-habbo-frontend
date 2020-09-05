@@ -1,0 +1,37 @@
+:host {
+  a {
+    color: #fff;
+    font-weight: 500;
+  }
+
+  .sprite {
+    display: inline-flex;
+  }
+
+  #sprite--container {
+    background-color: var(--main-bg-red);
+    border-radius: 50em;
+    height: 4rem;
+    width: 4rem;
+    padding: .6rem 0rem 0rem 1rem;
+    box-shadow: inset 0 0 3px 1px black;
+    position: relative;
+    left: -.2rem;
+  }
+
+  img {
+    object-fit: cover;
+    height: 3.5rem;
+    width: 3.5rem;
+    float: right;
+    border-radius: 4px;
+  }
+
+  .article--title {
+    font-size: 18px;
+  }
+
+  .article--description {
+    font-size: 14px;
+  }
+}

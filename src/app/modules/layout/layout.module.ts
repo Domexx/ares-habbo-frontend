@@ -26,8 +26,8 @@ import {DisconnectedComponent} from '../../layout/client/disconnected/disconnect
 import { ButtonsComponent } from '../../layout/client/buttons/buttons.component';
 import { FlashDetectComponent } from '../../layout/client/flash-detect/flash-detect.component';
 import { ActiveSessionComponent } from '../../layout/client/active-session/active-session.component';
-import { ArticlesComponent } from '../../layout/community/article/articles/articles.component';
-import { CommentsComponent } from '../../layout/community/article/comments/comments.component';
+import { ArticlesComponent } from '../../layout/articles/article/articles/articles.component';
+import { CommentsComponent } from '../../layout/articles/article/comments/comments.component';
 import {TooltipModule} from 'ngx-bootstrap/tooltip';
 import {ModalModule} from 'ngx-bootstrap/modal';
 
