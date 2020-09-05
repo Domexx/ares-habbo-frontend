@@ -50,7 +50,7 @@ export class FriendsComponent implements OnInit, OnDestroy {
   }
 
   look(look: string): string {
-    if (look === 'habbo') {
+    if (look === null) {
       return 'assets/images/habbo.gif';
     }
 
@@ -69,12 +69,6 @@ export class FriendsComponent implements OnInit, OnDestroy {
         e.friends.forEach(value => {
           this.friends$.push(value.friend);
         });
-
-        if (e.friends.length < 9) {
-          for (let i = e.friends.length; i < 9; i++) {
-            this.friends$.push(this.friendService.mannequin());
-          }
-        }
 
         this.pagination$ = e.pagination;
       },

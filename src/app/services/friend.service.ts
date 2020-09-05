@@ -15,12 +15,22 @@ export class FriendService {
   constructor(
     private http: HttpClient,
     private apiService: ApiService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
   ) { }
 
   friends(page: number = 1, results: number = 9): Observable<FriendPagination> {
     return this.apiService.get(`friends/list/${page}/${results}`, {}, false).pipe(
       map(resp => {
+        if (resp.data.friends.length < 9) {
+          for (let i = resp.data.friends.length; i < 9; i++) {
+            resp.data.friends.push({
+              friend: this.mannequin()
+            });
+          }
+
+          console.log(resp.data.friends);
+        }
+
         return resp.data;
       })
     );
@@ -32,8 +42,8 @@ export class FriendService {
     mannequin.id = 0;
     mannequin.username = this.translateService.instant('DASHBOARD.FRIENDS.MANNEQUIN.NAME');
     mannequin.motto = this.translateService.instant('DASHBOARD.FRIENDS.MANNEQUIN.MOTTO');
-    mannequin.look = 'habbo';
-    mannequin.online = 3;
+    mannequin.look = null;
+    mannequin.online = -1;
 
     return mannequin;
   }
