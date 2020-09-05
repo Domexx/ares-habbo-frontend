@@ -22,7 +22,28 @@
 textarea {
   &.form-control {
     background-color: var(--main-bg-color);
-    border-radius: 2px;
+    border-radius: 4px;
+    padding: 2rem;
+    resize: none;
+    font-weight: 600;
+    color: #fff;
+
+    &:focus {
+      background-color: var(--main-bg-color);
+    }
+  }
+}
+
+#comment--textarea {
+  position: relative;
+
+  &::after {
+    background-position: 0rem -22.5rem;
+    height: 2.5rem;
+    width: 2.6rem;
+    position: absolute;
+    right: 1rem;
+    top: -1rem;
   }
 }
 

@@ -29,6 +29,7 @@ import { ActiveSessionComponent } from '../../layout/client/active-session/activ
 import { ArticlesComponent } from '../../layout/community/article/articles/articles.component';
 import { CommentsComponent } from '../../layout/community/article/comments/comments.component';
 import {TooltipModule} from 'ngx-bootstrap/tooltip';
+import {ModalModule} from 'ngx-bootstrap/modal';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -66,7 +67,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     FontAwesomeModule,
     IconModule,
     TooltipModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ModalModule.forRoot()
   ],
   providers: [
     {

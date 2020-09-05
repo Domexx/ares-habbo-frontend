@@ -1,4 +1,4 @@
-import {AfterViewChecked, ChangeDetectorRef, Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {AfterViewChecked, ChangeDetectorRef, Component, Input, OnDestroy, OnInit, TemplateRef} from '@angular/core';
 import {Comment} from '../../../../models/article/comment';
 import {environment} from '../../../../../environments/environment';
 import {Pagination} from '../../../../models/pagination';
@@ -8,6 +8,7 @@ import {ArticleService} from '../../../../services/article.service';
 import {ActivatedRoute} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AlertService} from '../../../../services/alert.service';
+import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'ares-layout-community-article-comments',
@@ -34,6 +35,8 @@ export class CommentsComponent implements OnInit, OnDestroy, AfterViewChecked {
 
   commentForm: FormGroup;
 
+  modalRef: BsModalRef;
+
   @Input('comments')
   set comments(value: Comment[]) {
     this.comments$ = value;
@@ -49,7 +52,8 @@ export class CommentsComponent implements OnInit, OnDestroy, AfterViewChecked {
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private alertService: AlertService,
-    private cdRef: ChangeDetectorRef
+    private cdRef: ChangeDetectorRef,
+    private modalService: BsModalService
   ) { }
 
   ngOnInit(): void {
@@ -96,6 +100,10 @@ export class CommentsComponent implements OnInit, OnDestroy, AfterViewChecked {
 
   look(look: string): string {
     return `${environment.app.imager}${look}&action=std&gesture=sml&direction=2&head_direction=2&size=l`;
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
   }
 
   ngOnDestroy() {

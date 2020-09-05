@@ -92,6 +92,19 @@
     }
   },
 
+  "COMMUNITY": {
+    "ARTICLE": {
+      "COMMENTS": {
+        "TITLE": "Kommentare",
+        "DESCRIPTION": "Hier findest du alle Kommentare zum Artikel"
+      },
+      "COMMENT": {
+        "TITLE": "Kommentieren",
+        "DESCRIPTION": "Verfasse einen Kommentar"
+      }
+    }
+  },
+
   "CLIENT": {
     "DISCONNECTED": {
       "TITLE": "Oh, Bobba!",

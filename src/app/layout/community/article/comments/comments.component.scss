@@ -1,11 +1,11 @@
 :host {
   .btn {
     animation: unset !important;
-    
+
   }
   .comments {
     overflow-y: auto;
-    height: 20rem;
+    max-height: 20rem;
 
     .comment {
       background-color: var(--main-bg-dark);
