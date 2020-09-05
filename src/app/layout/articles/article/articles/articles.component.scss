@@ -1,4 +1,13 @@
 :host {
+  .card--article {
+    transition: 250ms all;
+
+    &:hover,
+    &:focus {
+      transform: scale(1.04);
+    }
+  }
+
   a {
     color: #fff;
     font-weight: 500;
