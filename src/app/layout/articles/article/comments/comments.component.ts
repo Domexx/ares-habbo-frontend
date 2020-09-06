@@ -2,7 +2,6 @@ import {AfterViewChecked, ChangeDetectorRef, Component, Input, OnDestroy, OnInit
 import {Comment} from '../../../../models/article/comment';
 import {environment} from '../../../../../environments/environment';
 import {Pagination} from '../../../../models/pagination';
-import {animate, state, style, transition, trigger} from '@angular/animations';
 import {Subscription} from 'rxjs';
 import {ArticleService} from '../../../../services/article.service';
 import {ActivatedRoute} from '@angular/router';
@@ -14,22 +13,11 @@ import {TranslateService} from '@ngx-translate/core';
 @Component({
   selector: 'ares-layout-article-comments',
   templateUrl: './comments.component.html',
-  styleUrls: ['./comments.component.scss'],
-  animations: [
-    trigger('fade', [
-      state('0', style({opacity: 1, display: 'block'})),
-      state('1', style({opacity: 0, display: 'none'})),
-
-      transition('1 => 0', animate('450ms')),
-      transition('0 => 1', animate('450ms'))
-    ])
-  ]
+  styleUrls: ['./comments.component.scss']
 })
 export class CommentsComponent implements OnInit, OnDestroy, AfterViewChecked {
   comments$: Comment[] = [];
   pagination$: Pagination;
-
-  state = true;
 
   commentSubscription: Subscription;
   writeSubscription: Subscription;
@@ -73,14 +61,11 @@ export class CommentsComponent implements OnInit, OnDestroy, AfterViewChecked {
       return;
     }
 
-    this.state = false;
-
     this.commentSubscription = this.articleService.getComments(this.route.snapshot.params.id, this.pagination$.nextPage).subscribe({
       next: (e) => {
         e.comments.forEach(value => this.comments$.push(value));
         this.pagination$ = e.pagination;
-      },
-      complete: () => this.state = true
+      }
     });
   }
 
