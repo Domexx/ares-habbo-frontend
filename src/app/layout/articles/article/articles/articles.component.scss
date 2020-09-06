@@ -38,9 +38,17 @@
 
   .article--title {
     font-size: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 20rem;
+    white-space: nowrap;
   }
 
   .article--description {
     font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 20rem;
+    white-space: nowrap;
   }
 }
