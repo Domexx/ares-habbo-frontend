@@ -1,0 +1,11 @@
+<div class="d-flex flex-row p-4">
+  <i class="sprite sprite--discord mr-3"></i>
+
+  <div class="flex-fill d-inline-flex flex-column text-ellipsis justify-content-center">
+    <a [href]="invite$" target="_blank">
+      <span id="title" class="mb-0 text-ellipsis pr-1" [innerHTML]="'DASHBOARD.DISCORD.TITLE' | translate: { hotelName: hotelName }"></span>
+    </a>
+
+    <span id="description" class="text-ellipsis pr-1" [translate]="'DASHBOARD.DISCORD.DESCRIPTION'"></span>
+  </div>
+</div>

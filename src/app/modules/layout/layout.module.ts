@@ -15,21 +15,23 @@ import {LanguageSelectorComponent} from '../../layout/language-selector/language
 import {FriendsComponent} from '../../layout/dashboard/friends/friends.component';
 import {ArticleSliderComponent} from '../../layout/dashboard/article-slider/article-slider.component';
 import {PinnedArticlesComponent} from '../../layout/dashboard/pinned-articles/pinned-articles.component';
-import {RoomsComponent} from '../../layout/dashboard/rooms/rooms.component';
 import {SearchPipe} from '../../pipes/dashboard/friends/search.pipe';
 import {IconModule} from '../icon/icon.module';
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import { LoaderComponent } from '../../layout/loader/loader.component';
-import { HeroComponent } from '../../layout/dashboard/hero/hero.component';
+import {LoaderComponent} from '../../layout/loader/loader.component';
+import {HeroComponent} from '../../layout/dashboard/hero/hero.component';
 import {NumberSuffixPipe} from '../../pipes/dashboard/hero/number-suffix.pipe';
 import {DisconnectedComponent} from '../../layout/client/disconnected/disconnected.component';
-import { ButtonsComponent } from '../../layout/client/buttons/buttons.component';
-import { FlashDetectComponent } from '../../layout/client/flash-detect/flash-detect.component';
-import { ActiveSessionComponent } from '../../layout/client/active-session/active-session.component';
-import { ArticlesComponent } from '../../layout/articles/article/articles/articles.component';
-import { CommentsComponent } from '../../layout/articles/article/comments/comments.component';
+import {ButtonsComponent} from '../../layout/client/buttons/buttons.component';
+import {FlashDetectComponent} from '../../layout/client/flash-detect/flash-detect.component';
+import {ActiveSessionComponent} from '../../layout/client/active-session/active-session.component';
+import {ArticlesComponent} from '../../layout/articles/article/articles/articles.component';
+import {CommentsComponent} from '../../layout/articles/article/comments/comments.component';
 import {TooltipModule} from 'ngx-bootstrap/tooltip';
 import {ModalModule} from 'ngx-bootstrap/modal';
+import {GuildComponent} from '../../layout/dashboard/guild/guild.component';
+import {RoomComponent} from '../../layout/dashboard/room/room.component';
+import { DiscordComponent } from '../../layout/dashboard/discord/discord.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -37,26 +39,28 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 };
 
 @NgModule({
-    declarations: [
-      FooterComponent,
-      HeaderComponent,
-      NavigationComponent,
-      FriendsComponent,
-      LanguageSelectorComponent,
-      ArticleSliderComponent,
-      RoomsComponent,
-      PinnedArticlesComponent,
-      SearchPipe,
-      LoaderComponent,
-      HeroComponent,
-      NumberSuffixPipe,
-      DisconnectedComponent,
-      ButtonsComponent,
-      FlashDetectComponent,
-      ActiveSessionComponent,
-      ArticlesComponent,
-      CommentsComponent
-    ],
+  declarations: [
+    FooterComponent,
+    HeaderComponent,
+    NavigationComponent,
+    FriendsComponent,
+    LanguageSelectorComponent,
+    ArticleSliderComponent,
+    PinnedArticlesComponent,
+    SearchPipe,
+    LoaderComponent,
+    HeroComponent,
+    NumberSuffixPipe,
+    DisconnectedComponent,
+    ButtonsComponent,
+    FlashDetectComponent,
+    ActiveSessionComponent,
+    ArticlesComponent,
+    CommentsComponent,
+    GuildComponent,
+    RoomComponent,
+    DiscordComponent
+  ],
   imports: [
     CommonModule,
     RouterModule,
@@ -76,24 +80,26 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
       useValue: DEFAULT_SWIPER_CONFIG
     }
   ],
-    exports: [
-      FooterComponent,
-      HeaderComponent,
-      LanguageSelectorComponent,
-      FriendsComponent,
-      RoomsComponent,
-      ArticleSliderComponent,
-      PinnedArticlesComponent,
-      SearchPipe,
-      LoaderComponent,
-      HeroComponent,
-      DisconnectedComponent,
-      ButtonsComponent,
-      FlashDetectComponent,
-      ActiveSessionComponent,
-      ArticlesComponent,
-      CommentsComponent
-    ]
+  exports: [
+    FooterComponent,
+    HeaderComponent,
+    LanguageSelectorComponent,
+    FriendsComponent,
+    ArticleSliderComponent,
+    PinnedArticlesComponent,
+    SearchPipe,
+    LoaderComponent,
+    HeroComponent,
+    DisconnectedComponent,
+    ButtonsComponent,
+    FlashDetectComponent,
+    ActiveSessionComponent,
+    ArticlesComponent,
+    CommentsComponent,
+    GuildComponent,
+    RoomComponent,
+    DiscordComponent
+  ]
 })
 export class LayoutModule {
 }

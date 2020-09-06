@@ -4,6 +4,9 @@ import { DashboardComponent } from 'src/app/components/dashboard/dashboard.compo
 import {ArticleSliderResolver} from '../../resolver/dashboard/articles/article-slider.resolver';
 import {PinnedArticlesResolver} from '../../resolver/dashboard/articles/pinned.resolver';
 import {DashboardFriendResolver} from '../../resolver/dashboard/friends.resolver';
+import {DashboardGuildResolver} from '../../resolver/dashboard/guild.resolver';
+import {DashboardRoomResolver} from '../../resolver/dashboard/room.resolver';
+import {DashboardDiscordResolver} from '../../resolver/dashboard/discord.resolver';
 
 const routes: Routes = [
   {
@@ -12,7 +15,10 @@ const routes: Routes = [
     resolve: {
       slider: ArticleSliderResolver,
       pinned: PinnedArticlesResolver,
-      friends: DashboardFriendResolver
+      friends: DashboardFriendResolver,
+      guild: DashboardGuildResolver,
+      room: DashboardRoomResolver,
+      discord: DashboardDiscordResolver
     }
   }
 ];

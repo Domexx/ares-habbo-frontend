@@ -25,3 +25,9 @@
 .text--red {
   color: var(--text-link) !important;
 }
+
+.text-ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}

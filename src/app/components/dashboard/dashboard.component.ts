@@ -6,6 +6,9 @@ import {environment} from 'src/environments/environment';
 import {Article} from '../../models/article/article';
 import {ActivatedRoute} from '@angular/router';
 import {Friend} from '../../models/friend/friend';
+import {Guild} from '../../models/guild/guild';
+import {Room} from '../../models/room/room';
+import {Setting} from '../../models/setting';
 
 @Component({
   selector: 'ares-dashboard',
@@ -19,6 +22,9 @@ export class DashboardComponent implements OnInit {
   articles: Article[];
   pinned: Article[];
   friends: Friend[];
+  guild: Guild;
+  room: Room;
+  discord: Setting;
 
   friendsPagination: { totalPages: number; nextPage: number; prevPage: number } = {
     totalPages: 1,
@@ -48,6 +54,10 @@ export class DashboardComponent implements OnInit {
 
     this.friends = friendsArray;
     this.friendsPagination = this.route.snapshot.data.friends?.pagination ?? 0;
+
+    this.guild = this.route.snapshot.data.guild;
+    this.room = this.route.snapshot.data.room;
+    this.discord = this.route.snapshot.data.discord;
 
     this.titleService.setTitle('Dashboard');
   }

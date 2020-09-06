@@ -89,6 +89,10 @@
       },
 
       "NOT_FOUND": "{{ username }} wurde nicht gefunden!"
+    },
+    "DISCORD": {
+      "TITLE": "Trete dem {{ hotelName }} Discord bei",
+      "DESCRIPTION": "Hier wirst du nichts verpassen!"
     }
   },
   "ARTICLES": {

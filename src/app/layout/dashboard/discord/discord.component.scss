@@ -1,0 +1,16 @@
+:host {
+  img {
+    object-fit: contain;
+    image-rendering: pixelated;
+    height: 50px;
+  }
+
+  #title {
+    font-size: 17px;
+    color: #fff;
+  }
+
+  #description {
+    font-size: 15px;
+  }
+}

@@ -68,10 +68,21 @@
   }
 
   &.sprite--articles {
-    background-image: url('../assets/images/sprites.png');
     background-position: 0rem -22.5rem;
     height: 2.5rem;
     width: 2.6rem;
+  }
+
+  &.sprite--members {
+    background-position: 1.2rem -5rem;
+    height: 20px;
+    width: 20px;
+  }
+
+  &.sprite--discord {
+    background-position: -4.8rem -4rem;
+    height: 50px;
+    width: 50px;
   }
 }
 

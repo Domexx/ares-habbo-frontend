@@ -4,7 +4,6 @@ import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {Article} from '../models/article/article';
 import {Comment, CommentPagination} from '../models/article/comment';
-import {API} from '../models/api';
 
 @Injectable({
   providedIn: 'root'

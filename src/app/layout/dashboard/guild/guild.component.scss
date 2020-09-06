@@ -1,0 +1,19 @@
+:host {
+  img {
+    object-fit: contain;
+    image-rendering: pixelated;
+    height: 50px;
+  }
+
+  #group--name {
+    font-size: 17px;
+  }
+
+  #group--description {
+    font-size: 15px;
+  }
+
+  #group--members {
+    font-size: 15px;
+  }
+}
