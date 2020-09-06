@@ -13,7 +13,7 @@
        [infiniteScrollThrottle]="50"
        (scrolled)="onScroll()"
        [scrollWindow]="false">
-    <div *ngFor="let comment of comments$" class="col-12 comment">
+    <div *ngFor="let comment of comments$" [@fade]="state" class="col-12 comment">
       <img [src]="look(comment.author.look)" [class.offline]="comment.author.online == 0" />
 
       <div class="d-inline-flex flex-column w-75">
@@ -50,7 +50,7 @@
           <textarea class="form-control" formControlName="comment" placeholder="...."></textarea>
         </div>
 
-        <button type="submit" class="btn btn-danger mt-3 h-50 w-100" [translate]="'ARTICLES.ARTICLE.COMMENT.TITLE'"></button>
+        <button type="submit" class="btn btn-danger mt-3 w-100" [translate]="'ARTICLES.ARTICLE.COMMENT.TITLE'"></button>
       </form>
     </div>
   </div>

@@ -88,14 +88,14 @@ export class CommentsComponent implements OnInit, OnDestroy, AfterViewChecked {
     const comment = this.f.comment;
 
     if (!comment.value) {
-      this.alertService.error(this.translateService.instant('COMMUNITY.ARTICLE.COMMENT.EMPTY'));
+      this.alertService.error(this.translateService.instant('ARTICLES.ARTICLE.COMMENT.EMPTY'));
       return;
     }
 
     this.writeSubscription = this.articleService.createComment(this.route.snapshot.params.id, comment.value).subscribe({
       next: (value) => {
         this.comments$.splice(0, 0, value);
-        this.alertService.success(this.translateService.instant('COMMUNITY.ARTICLE.COMMENT.SUCCESS'));
+        this.alertService.success(this.translateService.instant('ARTICLES.ARTICLE.COMMENT.SUCCESS'));
       },
       complete: () => this.modalRef.hide()
     });
