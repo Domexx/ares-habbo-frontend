@@ -15,23 +15,21 @@
 </div>
 
 <div class="py-2 pb-lg-0 text-center bg-dark col-12">
-    Made with <span>&#10084;&#65039;</span> from <strong data-toggle="modal" data-target="#ares">Ares</strong>
+    Made with <span>&#10084;&#65039;</span> from <strong class="cursor-pointer" (click)="openModal(modal)">Ares</strong>
 </div>
 
-<div class="modal fade" id="ares" tabindex="-1" role="dialog" aria-labelledby="aresLabel" aria-hidden="true">
-  <div class="modal-dialog h-100 d-flex flex-column justify-content-center my-0" role="document">
-    <div class="modal-content d-flex flex-column">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+<ng-template #modal>
+  <div class="modal-body d-flex flex-column justify-content-center">
+    <button type="button" class="close" (click)="modalRef.hide()"></button>
 
-      <div class="container d-inline-flex flex-column">
-        <img src="assets/images/logo_shadow.png" class="align-self-center" />
+    <div class="container d-inline-flex flex-column mt-4">
+      <img src="assets/images/logo_shadow.png" class="align-self-center" />
 
-        <p>Ares is using state-of-the-art Technology to make the experience for you and your Users as secure, fast and convenient as possible.</p>
-        <p>We're always updating Ares with new features and try to keep it Bug-Free.</p>
-        <p>Ares is here to stay.</p>
+      <p>Ares is using state-of-the-art Technology to make the experience for you and your Users as secure, fast and convenient as possible.</p>
+      <p>We're always updating Ares with new features and try to keep it Bug-Free.</p>
+      <p>Ares is here to stay.</p>
 
-        <b>Ares made by necmi, Dome & Madness</b>
-      </div>
+      <b>Ares made by necmi, Dome & Madness</b>
     </div>
   </div>
-</div>
+</ng-template>

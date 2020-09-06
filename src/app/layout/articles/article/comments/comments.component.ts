@@ -106,7 +106,10 @@ export class CommentsComponent implements OnInit, OnDestroy, AfterViewChecked {
   }
 
   openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
+    this.modalRef = this.modalService.show(
+      template,
+      Object.assign({}, { class: 'h-100 d-flex flex-column justify-content-center my-0' })
+    );
   }
 
   ngOnDestroy() {
