@@ -8,17 +8,16 @@
     box-shadow: inset -3rem 10rem 6rem -5rem rgb(0 0 0 / 65%), inset -3rem -10rem 6rem -5rem rgb(0 0 0 / 65%);
     font-weight: 600;
 
-    .container {
-      * {
-        z-index: 2;
-      }
+    #article {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
 
       .article--title {
         height: 2rem;
-        overflow: inherit;
+        overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        width: calc(100vw - 50vw);
         text-align: center;
       }
 
@@ -28,7 +27,6 @@
         margin-top: 0.7em;
         text-overflow: ellipsis;
         white-space: nowrap;
-        width: calc(100vw - 50vw);
         text-align: center;
       }
     }

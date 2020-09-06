@@ -22,7 +22,7 @@
     border-radius: 50em;
     height: 4rem;
     width: 4rem;
-    padding: .6rem 0rem 0rem 1rem;
+    padding: .7rem 0rem 0rem .7rem;
     box-shadow: inset 0 0 3px 1px black;
     position: relative;
     left: -.2rem;
@@ -36,19 +36,23 @@
     border-radius: 4px;
   }
 
-  .article--title {
-    font-size: 18px;
+  .article--info {
     overflow: hidden;
     text-overflow: ellipsis;
-    width: 20rem;
     white-space: nowrap;
-  }
 
-  .article--description {
-    font-size: 14px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 20rem;
-    white-space: nowrap;
+    .article--title {
+      font-size: 18px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .article--description {
+      font-size: 14px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
 }

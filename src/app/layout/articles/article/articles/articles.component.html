@@ -6,9 +6,9 @@
           <i class="sprite sprite--articles"></i>
         </div>
 
-        <div class="d-inline-flex flex-column">
-          <span class="article--title mb-1" [translate]="'ARTICLES.ARTICLE.ARTICLES.TITLE'"></span>
-          <span class="article--description" [translate]="'ARTICLES.ARTICLE.ARTICLES.DESCRIPTION'"></span>
+        <div class="d-inline-flex flex-column article--info">
+          <span class="article--title flex-fill mb-1" [translate]="'ARTICLES.ARTICLE.ARTICLES.TITLE'"></span>
+          <span class="article--description flex-fill" [translate]="'ARTICLES.ARTICLE.ARTICLES.DESCRIPTION'"></span>
         </div>
       </div>
     </div>
@@ -20,9 +20,9 @@
         <div class="d-flex flex-row p-4">
           <img class="mr-3" [src]="article.image" [alt]="article.title" [title]="article.title" />
 
-          <div class="d-inline-flex flex-column">
-            <span class="article--title mb-1">{{ article.title }}</span>
-            <span class="article--description">{{ article.description }}</span>
+          <div class="d-inline-flex flex-column article--info">
+            <span class="article--title mb-1 flex-fill">{{ article.title }}</span>
+            <span class="article--description flex-fill">{{ article.description }}</span>
           </div>
         </div>
       </div>
