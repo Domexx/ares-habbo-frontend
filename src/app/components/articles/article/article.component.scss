@@ -52,12 +52,16 @@
         }
       }
 
-      .article--date {
+      .article--info {
         position: relative;
 
-        .sprite--date {
+        .sprite {
           position: relative;
           top: .45rem;
+        }
+
+        .sprite--comments-length {
+          top: .75rem;
         }
       }
     }

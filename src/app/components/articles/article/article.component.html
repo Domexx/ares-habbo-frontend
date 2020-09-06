@@ -16,8 +16,13 @@
 
           <span class="mr-2 flex-fill">{{ article.author.username }}</span>
 
-          <span class="d-inline-flex flex-row mr-2 article--date"><i class="sprite sprite--date mr-2"></i> {{ article.created_at.date | date: date }} - {{ article.created_at.date | date: time }}</span>
-          <span>{{ comments.length }}</span>
+          <span class="d-inline-flex flex-row mr-2 article--info">
+            <i class="sprite sprite--date mr-2"></i> {{ article.created_at.date | date: date }} - {{ article.created_at.date | date: time }}
+          </span>
+
+          <span class="d-inline-flex flex-row mr-2 article--info">
+            <i class="sprite sprite--comments-length mr-2"></i> {{ comments.length }}
+          </span>
         </div>
 
         <div class="card-body px-0 py-1">

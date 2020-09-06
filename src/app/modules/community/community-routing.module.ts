@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {CommunityComponent} from '../../components/community/community.component';
 import {GroupComponent} from '../../components/community/group/group.component';
-import {ArticleComponent} from '../../components/article/article.component';
+import {ArticleComponent} from '../../components/articles/article/article.component';
 import {ArticleResolver} from '../../resolver/articles/article/article.resolver';
 import {ArticleCommentsResolver} from '../../resolver/articles/article/article-comments.resolver';
 import {ArticleArticlesResolver} from '../../resolver/articles/article/articles.resolver';

@@ -61,6 +61,12 @@
     width: 2.5rem;
   }
 
+  &.sprite--comments-length {
+    background-position: 1.2rem -17rem;
+    height: 13px;
+    width: 19px;
+  }
+
   &.sprite--articles {
     background-image: url('../assets/images/sprites.png');
     background-position: 0rem -22.5rem;

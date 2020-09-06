@@ -1,9 +1,9 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {Article} from '../../models/article/article';
-import {environment} from '../../../environments/environment';
-import {TitleService} from '../../services/title.service';
-import {Comment, CommentPagination} from '../../models/article/comment';
+import {Article} from '../../../models/article/article';
+import {environment} from '../../../../environments/environment';
+import {TitleService} from '../../../services/title.service';
+import {Comment, CommentPagination} from '../../../models/article/comment';
 import {Subscription} from 'rxjs';
 
 @Component({
