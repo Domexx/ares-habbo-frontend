@@ -1,4 +1,5 @@
 import {Timestamp} from '../timestamp';
+import {Currency} from './currency';
 
 export class User {
     id: number;
@@ -8,8 +9,7 @@ export class User {
     auth_ticket: string;
     motto: string;
     credits: number;
-    pixels: number;
-    points: number;
+    currencies: Currency[];
     look: string;
     online: number;
   // tslint:disable-next-line:variable-name

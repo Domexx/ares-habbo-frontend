@@ -20,7 +20,10 @@ export class HeroComponent implements OnInit, OnDestroy {
   name = environment.app.hotelName;
   date = environment.app.components.dashboard.hero.date;
   time = environment.app.components.dashboard.hero.time;
+
   lastLogin: number;
+  diamonds = 0;
+  duckets = 0;
 
   constructor(
     private userService: UserService,
@@ -31,6 +34,8 @@ export class HeroComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.user = this.userService.user;
     this.lastLogin = this.user.last_login * 1000;
+    this.diamonds = this.userService.user.currencies.filter(value => value.type === 5).shift().amount;
+    this.duckets = this.userService.user.currencies.filter(value => value.type === 0).shift().amount;
 
     this.counterSubscription = this.clientService.counter().subscribe({
       next: value => {

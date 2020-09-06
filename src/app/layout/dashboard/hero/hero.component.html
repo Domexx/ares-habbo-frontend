@@ -27,14 +27,14 @@
               <div class="col-xl-4 col-lg-4 col-md-12">
                 <div class="d-inline-flex flex-row w-100">
                   <div class="sprite sprite--diamonds mr-2"></div>
-                  <strong class="py-3" data-toggle="tooltip" data-placement="bottom" [attr.title]="'DASHBOARD.HERO.POINTS' | translate">{{ user?.points | numberSuffix: 2.0 }}</strong>
+                  <strong class="py-3" data-toggle="tooltip" data-placement="bottom" [attr.title]="'DASHBOARD.HERO.POINTS' | translate">{{ diamonds | numberSuffix: 2.0 }}</strong>
                 </div>
               </div>
 
               <div class="col-xl-4 col-lg-4 col-md-12">
                 <div class="d-inline-flex flex-row w-100">
                   <div class="sprite sprite--duckets my-3 mr-2"></div>
-                  <strong class="py-3" data-toggle="tooltip" data-placement="bottom" [attr.title]="'DASHBOARD.HERO.PIXELS' | translate">{{ user?.pixels | numberSuffix: 2.0 }}</strong>
+                  <strong class="py-3" data-toggle="tooltip" data-placement="bottom" [attr.title]="'DASHBOARD.HERO.PIXELS' | translate">{{ duckets | numberSuffix: 2.0 }}</strong>
                 </div>
               </div>
             </div>

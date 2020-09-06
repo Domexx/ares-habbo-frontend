@@ -7,7 +7,7 @@ import {ArticleArticlesResolver} from '../../resolver/articles/article/articles.
 
 const routes: Routes = [
   {
-    path: ':id',
+    path: ':slug',
     component: ArticleComponent,
     resolve: {
       article: ArticleResolver,
@@ -18,7 +18,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes, )],
+  imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
 export class ArticleRoutingModule { }

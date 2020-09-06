@@ -18,6 +18,7 @@ import {TranslateService} from '@ngx-translate/core';
 export class CommentsComponent implements OnInit, OnDestroy, AfterViewChecked {
   comments$: Comment[] = [];
   pagination$: Pagination;
+  id$: number;
 
   commentSubscription: Subscription;
   writeSubscription: Subscription;
@@ -34,6 +35,11 @@ export class CommentsComponent implements OnInit, OnDestroy, AfterViewChecked {
   @Input('pagination')
   set pagination(value: Pagination) {
     this.pagination$ = value;
+  }
+
+  @Input('id')
+  set id(value: number) {
+    this.id$ = value;
   }
 
   constructor(
@@ -61,7 +67,7 @@ export class CommentsComponent implements OnInit, OnDestroy, AfterViewChecked {
       return;
     }
 
-    this.commentSubscription = this.articleService.getComments(this.route.snapshot.params.id, this.pagination$.nextPage).subscribe({
+    this.commentSubscription = this.articleService.getComments(this.id$, this.pagination$.nextPage).subscribe({
       next: (e) => {
         e.comments.forEach(value => this.comments$.push(value));
         this.pagination$ = e.pagination;
@@ -77,7 +83,7 @@ export class CommentsComponent implements OnInit, OnDestroy, AfterViewChecked {
       return;
     }
 
-    this.writeSubscription = this.articleService.createComment(this.route.snapshot.params.id, comment.value).subscribe({
+    this.writeSubscription = this.articleService.createComment(this.id$, comment.value).subscribe({
       next: (value) => {
         this.comments$.splice(0, 0, value);
         this.alertService.success(this.translateService.instant('ARTICLES.ARTICLE.COMMENT.SUCCESS'));

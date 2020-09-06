@@ -7,7 +7,6 @@ import {LayoutModule} from '../layout/layout.module';
 import {SanitizerPipe} from '../../pipes/sanitizer.pipe';
 import {RouterModule} from '@angular/router';
 
-
 @NgModule({
   declarations: [
     ArticleComponent,

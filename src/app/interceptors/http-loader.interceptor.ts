@@ -6,15 +6,12 @@ import {
   HttpEvent,
   HttpInterceptor
 } from '@angular/common/http';
-import {forkJoin, Observable} from 'rxjs';
+import {Observable} from 'rxjs';
 import {HttpLoaderService} from '../services/http-loader.service';
 import {NavigationStart} from '@angular/router';
-import {finalize, map} from 'rxjs/operators';
 
 @Injectable()
 export class HttpLoaderInterceptor implements HttpInterceptor {
-  private requests = [];
-
   constructor(
     private httpLoaderService: HttpLoaderService
   ) { }

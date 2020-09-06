@@ -16,7 +16,10 @@ export class ArticleResolver implements Resolve<Article | boolean> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<Article | boolean> {
-    return this.articleService.get(route.params.id).pipe(
+    const slug = route.params.slug.split('-');
+    slug.shift();
+
+    return this.articleService.get(slug).pipe(
       catchError(err => this.router.navigateByUrl('/404'))
     );
   }

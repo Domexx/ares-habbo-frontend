@@ -32,7 +32,7 @@ export class ArticleService {
   }
 
   getComments(id: number, page: number = 1, results: number = 8): Observable<CommentPagination> {
-    return this.apiService.get(`comments/list/${id}/${page}/${results}`).pipe(
+    return this.apiService.get(`comments/${id}/list/${page}/${results}`).pipe(
       map(resp => resp.data)
     );
   }
