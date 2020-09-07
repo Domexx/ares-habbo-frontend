@@ -15,8 +15,14 @@ export const environment = {
 
     swf: 'https://swf.ares.to',
 
+    // Images
     imager: 'https://www.habbo.com/habbo-imaging/avatarimage?figure=',
     badgeParts: 'https://yourdomain.com/swf/c_images/Badgeparts/generated/',
+
+    camera: {
+      images: '',
+      thumbnails: 'https:/yourdomain.com/swf/gamedata/camera/thumbnails/thumbnail_'
+    },
 
     // Language
     defaultLang: 'en',
@@ -34,6 +40,12 @@ export const environment = {
       article: {
         date: 'dd.MM.yyyy',
         time: 'HH:mm'
+      },
+
+      community: {
+        guild: {
+          date: 'dd.MM.yyyy'
+        }
       }
     }
   }

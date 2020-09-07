@@ -117,6 +117,9 @@
   "COMMUNITY": {
     "GUILD": {
       "MEMBERS": {
+        "TITLE": "Mitglieder",
+        "DESCRIPTION": "Hier siehst du alle Mitglieder der Gruppe",
+
         "MANNEQUIN": {
           "NAME": "Kein Mitglied",
           "MOTTO": "Es wurde kein Mitglied gefunden"
