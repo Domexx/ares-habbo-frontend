@@ -1,9 +1,13 @@
 :host {
   img {
     object-fit: contain;
-    image-rendering: pixelated;
     height: 50px;
     border-radius: 4px;
+  }
+
+  .room--thumbnail {
+    border-radius: 50em;
+    object-fit: none;
   }
 
   #room--name {

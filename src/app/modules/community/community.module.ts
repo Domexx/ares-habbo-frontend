@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CommunityRoutingModule } from './community-routing.module';
 import {CommunityComponent} from '../../components/community/community.component';
 import { GroupsComponent } from '../../components/community/groups/groups.component';
-import { GroupComponent } from '../../components/community/group/group.component';
+import { GuildComponent } from '../../components/community/guild/guild.component';
 import {LayoutModule} from '../layout/layout.module';
 
 
@@ -12,7 +12,7 @@ import {LayoutModule} from '../layout/layout.module';
   declarations: [
     CommunityComponent,
     GroupsComponent,
-    GroupComponent
+    GuildComponent
   ],
   imports: [
       CommonModule,

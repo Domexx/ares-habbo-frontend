@@ -1,0 +1,52 @@
+:host {
+  .icon {
+    height: 3.2rem;
+    width: 2.41rem;
+  }
+
+  #members {
+    overflow-y: auto;
+    height: 13.5rem;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .member {
+      background-color: var(--main-bg-color);
+      border: unset;
+      height: 4rem;
+      border-radius: 4px;
+      transition: .25s opacity;
+
+      &:hover,
+      &:focus {
+        .offline {
+          opacity: 1;
+        }
+      }
+
+      img {
+        object-fit: cover;
+        width: 4rem;
+        position: relative;
+        clip-path: inset(0 0 20% 0);
+        transition: 0.35s all;
+        height: 6rem;
+
+        &.offline {
+          opacity: .5;
+        }
+      }
+
+      .member--username {
+        font-size: 15px;
+      }
+
+      .member--motto {
+        font-size: 14px;
+        font-weight: 300;
+      }
+    }
+  }
+}

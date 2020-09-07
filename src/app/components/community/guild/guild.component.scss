@@ -1,0 +1,42 @@
+:host {
+  .ares--hero {
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100%;
+
+    & > #overlay {
+      background-color: var(--hero-background-color) !important;
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      box-shadow: inset 0px 15rem 10rem 1rem rgb(0 0 0 / 75%);
+    }
+  }
+
+  .guild {
+    .card-body {
+      .guild--badge {
+        object-fit: cover;
+        height: 3.3rem;
+        width: 3.3rem;
+        image-rendering: pixelated;
+      }
+
+      .guild--name {
+        font-weight: 300;
+      }
+
+      .guild--description {
+        font-weight: 300;
+      }
+
+      .guild--info {
+        font-size: 14px;
+      }
+    }
+  }
+}

@@ -32,6 +32,7 @@ import {ModalModule} from 'ngx-bootstrap/modal';
 import {GuildComponent} from '../../layout/dashboard/guild/guild.component';
 import {RoomComponent} from '../../layout/dashboard/room/room.component';
 import { DiscordComponent } from '../../layout/dashboard/discord/discord.component';
+import { GuildMembersComponent } from '../../layout/community/guild/guild-members/guild-members.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -59,7 +60,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     CommentsComponent,
     GuildComponent,
     RoomComponent,
-    DiscordComponent
+    DiscordComponent,
+    GuildMembersComponent
   ],
   imports: [
     CommonModule,
@@ -80,26 +82,27 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
       useValue: DEFAULT_SWIPER_CONFIG
     }
   ],
-  exports: [
-    FooterComponent,
-    HeaderComponent,
-    LanguageSelectorComponent,
-    FriendsComponent,
-    ArticleSliderComponent,
-    PinnedArticlesComponent,
-    SearchPipe,
-    LoaderComponent,
-    HeroComponent,
-    DisconnectedComponent,
-    ButtonsComponent,
-    FlashDetectComponent,
-    ActiveSessionComponent,
-    ArticlesComponent,
-    CommentsComponent,
-    GuildComponent,
-    RoomComponent,
-    DiscordComponent
-  ]
+    exports: [
+        FooterComponent,
+        HeaderComponent,
+        LanguageSelectorComponent,
+        FriendsComponent,
+        ArticleSliderComponent,
+        PinnedArticlesComponent,
+        SearchPipe,
+        LoaderComponent,
+        HeroComponent,
+        DisconnectedComponent,
+        ButtonsComponent,
+        FlashDetectComponent,
+        ActiveSessionComponent,
+        ArticlesComponent,
+        CommentsComponent,
+        GuildComponent,
+        RoomComponent,
+        DiscordComponent,
+        GuildMembersComponent
+    ]
 })
 export class LayoutModule {
 }

@@ -5,6 +5,7 @@ import {Subscription} from 'rxjs';
 import {FriendService} from '../../../services/friend.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {Pagination} from '../../../models/pagination';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'ares-layout-dashboard-friends',
@@ -25,9 +26,11 @@ export class FriendsComponent implements OnInit, OnDestroy {
   friendSubscription: Subscription;
 
   friends$: User[];
-  pagination$: { totalPages: number; nextPage: number; prevPage: number };
+  pagination$: Pagination;
 
   searchName: string;
+
+  motto = this.translateService.instant('USER.EMPTY.MOTTO');
 
   @Input('friends')
   set friends(value: User[]) {
@@ -39,7 +42,10 @@ export class FriendsComponent implements OnInit, OnDestroy {
     this.pagination$ = value;
   }
 
-  constructor(private friendService: FriendService) { }
+  constructor(
+    private friendService: FriendService,
+    private translateService: TranslateService
+  ) { }
 
   ngOnInit(): void {
     if (this.friends$ && this.friends$.length === 0) {

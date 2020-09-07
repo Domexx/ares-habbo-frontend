@@ -1,0 +1,32 @@
+<div class="d-flex flex-column p-4">
+  <div class="d-inline-flex flex-row align-items-center mb-4">
+    <i class="icon icon--community mr-3"></i>
+
+    <div class="d-inline-flex flex-column">
+      <h4 class="mb-0">Mitglieder</h4>
+      <span>xddd</span>
+    </div>
+  </div>
+
+  <div id="members" class="row" infiniteScroll
+       [infiniteScrollDistance]="2"
+       [infiniteScrollThrottle]="50"
+       (scrolled)="onScroll()"
+       [scrollWindow]="false">
+    <div class="col-6 mb-2" *ngFor="let value of members$">
+      <div class="member d-flex flex-row align-items-center">
+        <img [class.offline]="value.member.online === 0" [src]="look(value.member.look)" [alt]="value.member.username" />
+
+        <div class="d-inline-flex flex-column text-ellipsis">
+          <div class="d-inline-flex flex-row align-items-center text-ellipsis">
+            <strong class="text-ellipsis member--username mb-0 mr-1">{{ value.member.username }}</strong>
+            <ng-container *ngIf="value.level_id === 0">
+              <i class="sprite sprite--creator" [tooltip]="'COMMUNITY.GUILD.MEMBERS.OWNER' | translate" placement="bottom"></i>
+            </ng-container>
+          </div>
+          <span class="text-ellipsis member--motto mr-2">{{ (value.member.motto) ? value.member.motto : motto }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

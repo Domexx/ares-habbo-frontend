@@ -14,53 +14,32 @@
       </div>
     </div>
 
-    <ng-container *ngIf="friends$ && friends$.length > 0; else noFriends">
-      <div id="friends" class="row" infiniteScroll
-           [infiniteScrollDistance]="2"
-           [infiniteScrollThrottle]="50"
-           (scrolled)="onScroll()"
-           [scrollWindow]="false">
-        <ng-container *ngIf="(friends$ | searchFriend: searchName).length === 0;">
-          <div class="d-inline-flex flex-column h-100 w-100 justify-content-center">
-            <h3 class="align-self-center"><fa-icon icon="unlink"></fa-icon></h3>
-            <h4 class="align-self-center" [innerHTML]="'DASHBOARD.FRIENDS.NOT_FOUND' | translate: { username: searchName }"></h4>
-          </div>
-        </ng-container>
-
-        <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12" *ngFor="let friend of friends$ | searchFriend: searchName as result">
-          <div class="card friend mb-2">
-            <div class="card-body pl-0 d-flex flex-row">
-              <img [src]="look(friend?.look)" [class.offline]="friend?.online == 0" />
-
-              <div class="user-info d-inline-flex flex-column">
-                <span class="username mb-0" [class.offline]="friend?.online == 0" [class.online]="friend?.online == 1">{{ friend?.username }}</span>
-                <span class="motto">{{ (!friend?.motto) ? 'Kein Motto' : friend?.motto }}</span>
-              </div>
-            </div>
-          </div>
+    <div id="friends" class="row" infiniteScroll
+         [infiniteScrollDistance]="2"
+         [infiniteScrollThrottle]="50"
+         (scrolled)="onScroll()"
+         [scrollWindow]="false">
+      <ng-container *ngIf="(friends$ | searchFriend: searchName).length === 0;">
+        <div class="d-inline-flex flex-column h-100 w-100 justify-content-center">
+          <h3 class="align-self-center"><fa-icon icon="unlink"></fa-icon></h3>
+          <h4 class="align-self-center" [innerHTML]="'DASHBOARD.FRIENDS.NOT_FOUND' | translate: { username: searchName }"></h4>
         </div>
+      </ng-container>
 
-        <div class="col-12 d-flex justify-content-center" [@fade]="state">
-          <img src="assets/images/loading.gif" />
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12" *ngFor="let friend of friends$ | searchFriend: searchName as result">
+        <div class="card friend mb-2 d-flex flex-row align-items-center">
+          <img [src]="look(friend?.look)" [class.offline]="friend?.online == 0" [alt]="friend.username" />
+
+          <div class="user-info d-inline-flex flex-column text-ellipsis">
+            <span class="username text-ellipsis mb-0" [class.offline]="friend?.online == 0" [class.online]="friend?.online == 1">{{ friend?.username }}</span>
+            <span class="motto text-ellipsis">{{ (!friend?.motto) ? motto : friend?.motto }}</span>
+          </div>
         </div>
       </div>
-    </ng-container>
-  </div>
-</div>
 
-<ng-template #noFriends>
-  <div id="friends" class="row">
-    <div class="col-4">
-      <div class="card friend mb-2">
-        <div class="card-body pl-0 d-flex flex-row">
-          <img src="assets/images/habbo.gif" />
-
-          <div class="d-inline-flex flex-column">
-            <p class="username w-100 mb-0">No Friend</p>
-            <p class="motto">Go online and meet new people</p>
-          </div>
-        </div>
+      <div class="col-12 d-flex justify-content-center" [@fade]="state">
+        <img src="assets/images/loading.gif" />
       </div>
     </div>
   </div>
-</ng-template>
+</div>

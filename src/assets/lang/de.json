@@ -115,6 +115,15 @@
   },
 
   "COMMUNITY": {
+    "GUILD": {
+      "MEMBERS": {
+        "MANNEQUIN": {
+          "NAME": "Kein Mitglied",
+          "MOTTO": "Es wurde kein Mitglied gefunden"
+        },
+        "OWNER": "Besitzer"
+      }
+    }
   },
 
   "CLIENT": {
@@ -159,6 +168,11 @@
   "404": {
     "DESCRIPTION": "Seite wurde nicht gefunden!",
     "BUTTON": "Zurück"
+  },
+  "USER": {
+    "EMPTY": {
+      "MOTTO": "Kein Motto"
+    }
   },
 
   "UNKNOWN_ERROR": "Ein unbekannter Fehler ist aufgetreten!",

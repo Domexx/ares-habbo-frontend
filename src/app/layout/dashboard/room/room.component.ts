@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Room} from '../../../models/room/room';
+import {environment} from '../../../../environments/environment';
 
 @Component({
   selector: 'ares-layout-dashboard-room',
@@ -9,6 +10,9 @@ import {Room} from '../../../models/room/room';
 export class RoomComponent implements OnInit {
   room$: Room;
 
+  thumbnails = environment.app.camera.thumbnails;
+  hasThumbnail = true;
+
   @Input('room')
   set room(value: Room) {
     this.room$ = value;
@@ -17,6 +21,11 @@ export class RoomComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  error(e: any): void {
+    this.hasThumbnail = false;
+    e.target.src = '/assets/images/dashboard/room.png';
   }
 
 }
