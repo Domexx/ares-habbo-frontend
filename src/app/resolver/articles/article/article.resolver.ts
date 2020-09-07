@@ -19,7 +19,7 @@ export class ArticleResolver implements Resolve<Article | boolean> {
     const slug = route.params.slug.split('-');
     slug.shift();
 
-    return this.articleService.get(slug).pipe(
+    return this.articleService.get(slug.join('-')).pipe(
       catchError(err => this.router.navigateByUrl('/404'))
     );
   }
