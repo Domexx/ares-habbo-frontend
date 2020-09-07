@@ -8,21 +8,23 @@
 <div class="container">
   <div class="row">
     <div class="col-xl-8 col-lg-8 col-sm-12">
-      <div class="card article--card px-4 py-2 mb-4">
-        <div class="card-header py-3 px-0 mb-2 d-flex flex-row">
+      <div class="card article--card d-flex px-4 py-2 mb-4">
+        <div class="card-header d-inline-flex align-items-center flex-row px-0">
           <div class="author--look mr-2">
             <img [src]="imager + article.author.look + '&amp;action=std&amp;direction=2&amp;head_direction=2&amp;img_format=png&amp;gesture=std&amp;headonly=0&amp;size=s'" [alt]="article.author.username">
           </div>
 
           <span class="mr-2 flex-fill">{{ article.author.username }}</span>
 
-          <span class="d-inline-flex flex-row mr-2 article--info">
-            <i class="sprite sprite--date mr-2"></i> {{ article.created_at.date | date: date }} - {{ article.created_at.date | date: time }}
-          </span>
+          <div class="d-inline-flex flex-row align-items-center mr-2">
+            <i class="sprite sprite--date mr-2"></i>
+            <span>{{ article.created_at.date | date: date }} - {{ article.created_at.date | date: time }}</span>
+          </div>
 
-          <span class="d-inline-flex flex-row mr-2 article--info">
-            <i class="sprite sprite--comments-length mr-2"></i> {{ comments.length }}
-          </span>
+          <div class="d-inline-flex flex-row align-items-center mr-2">
+            <i class="sprite sprite--comments-length mt-1 mr-2"></i>
+            <span>{{ comments.length }}</span>
+          </div>
         </div>
 
         <div class="card-body px-0 py-1">

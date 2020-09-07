@@ -30,9 +30,6 @@
       img {
         object-fit: cover;
         width: 4rem;
-        position: relative;
-        left: 0;
-        top: 1rem;
         transition: 0.35s all;
         height: 4rem;
         image-rendering: pixelated;
@@ -44,7 +41,6 @@
 
       .comment--content {
         width: 100%;
-        line-height: 2rem;
       }
     }
   }

@@ -14,15 +14,17 @@
        (scrolled)="onScroll()"
        [scrollWindow]="false">
     <div *ngFor="let comment of comments$" class="col-12 comment">
-      <img [src]="look(comment.author.look)" [class.offline]="comment.author.online == 0" />
+      <div class="d-flex flex-row align-items-center">
+        <img class="align-self-start" [src]="look(comment.author.look)" [class.offline]="comment.author.online == 0" />
 
-      <div class="d-inline-flex flex-column w-75">
-        <div class="d-inline-flex flex-row">
-          <strong>{{ comment.author.username }}</strong>
-        </div>
+        <div class="d-inline-flex flex-column align-items-center">
+          <div class="flex-fill d-inline-flex flex-row align-self-start">
+            <strong class="pb-1 pt-2">{{ comment.author.username }}</strong>
+          </div>
 
-        <div class="comment--content pb-3">
-          {{ comment.content }}
+          <div class="comment--content pb-3">
+            {{ comment.content }}
+          </div>
         </div>
       </div>
     </div>
