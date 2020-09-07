@@ -22,7 +22,7 @@ export class DashboardComponent implements OnInit {
   articles: Article[];
   pinned: Article[];
   friends: Friend[];
-  guild: Guild;
+  guild: { guild: Guild, member_count: number };
   room: Room;
   discord: Setting;
 

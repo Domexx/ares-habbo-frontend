@@ -19,7 +19,9 @@
         </div>
 
         <div class="col-xl-5 col-lg-4 col-md-12 col-sm-12 mb-2">
-          <ares-layout-dashboard-guild [guild]="guild" class="card mb-3"></ares-layout-dashboard-guild>
+          <a [routerLink]="['/community/guild', guild.guild.id]">
+            <ares-layout-dashboard-guild [guild]="guild" class="card mb-3"></ares-layout-dashboard-guild>
+          </a>
           <ares-layout-dashboard-room [room]="room" class="card mb-3"></ares-layout-dashboard-room>
           <ares-layout-dashboard-discord [invite]="discord.value" class="card mb-3"></ares-layout-dashboard-discord>
         </div>
