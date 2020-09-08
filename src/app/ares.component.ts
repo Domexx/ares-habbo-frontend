@@ -9,13 +9,6 @@ import {Router} from '@angular/router';
   templateUrl: './ares.component.html',
   styleUrls: ['./ares.component.scss'],
   animations: [
-    trigger('fade', [
-      state('1', style({opacity: 0, 'z-index': '-9999'})),
-      state('0', style({opacity: 1})),
-
-      transition('0 => 1', animate('50ms')),
-      transition('1 => 0', animate('0ms'))
-    ]),
     trigger('loader', [
       state('1', style({opacity: 0, 'z-index': '-1'})),
       state('0', style({opacity: 1})),

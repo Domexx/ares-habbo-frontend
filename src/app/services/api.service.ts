@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {LanguageService} from "./language.service";
-import {API} from "../models/api";
-import {environment} from "../../environments/environment";
-import {Observable} from "rxjs";
+import {HttpClient} from '@angular/common/http';
+import {LanguageService} from './language.service';
+import {API} from '../models/api';
+import {environment} from '../../environments/environment';
+import {Observable} from 'rxjs';
 import {HttpLoaderService} from './http-loader.service';
 
 @Injectable({
@@ -42,11 +42,9 @@ export class ApiService {
   }
 
   isLoadable(url: string, loader: boolean): void {
-    if (loader) {
-      return;
+    if (!loader) {
+      this.httpLoaderService.push(this.url(url));
     }
-
-    this.httpLoaderService.push(url);
   }
 
 }

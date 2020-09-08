@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {
-  HttpResponse,
   HttpRequest,
   HttpHandler,
   HttpEvent,
@@ -8,42 +7,37 @@ import {
 } from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {HttpLoaderService} from '../services/http-loader.service';
-import {NavigationStart} from '@angular/router';
+import {finalize} from 'rxjs/operators';
 
 @Injectable()
 export class HttpLoaderInterceptor implements HttpInterceptor {
+  private totalRequests = 0;
+
   constructor(
     private httpLoaderService: HttpLoaderService
   ) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    console.log(this.httpLoaderService.containsUrl(req.url));
+
     if (this.httpLoaderService.containsUrl(req.url)) {
       return next.handle(req);
     }
 
-    return new Observable(observer => {
-      const subscription = next.handle(req)
-        .subscribe(
-          e => {
-            if (e instanceof NavigationStart) {
-              // FULL PAGE RELOAD
-            }
+    this.totalRequests++;
 
-            if (e instanceof HttpResponse) {
-              this.httpLoaderService.loading = true;
-              observer.next(e);
-            }
-          },
-          err => {
-            observer.error(err);
-          },
-          () => {
-            observer.complete();
-          });
-      return () => {
-        this.httpLoaderService.loading = false;
-        subscription.unsubscribe();
-      };
-    });
+    if (!this.httpLoaderService.loading) {
+      this.httpLoaderService.loading = true;
+    }
+
+    return next.handle(req).pipe(
+      finalize(() => {
+        this.totalRequests--;
+
+        if (this.totalRequests === 0) {
+          this.httpLoaderService.loading = false;
+        }
+      })
+    );
   }
 }

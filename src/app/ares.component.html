@@ -5,7 +5,7 @@
 
   <ares-header></ares-header>
 
-  <main [@fade]="state">
+  <main>
     <ng-container *ngIf="router.url !== '/client';">
       <router-outlet></router-outlet>
     </ng-container>
@@ -15,7 +15,7 @@
 </ng-container>
 
 <ng-template #guest>
-  <main [@fade]="state">
+  <main>
     <router-outlet></router-outlet>
   </main>
 </ng-template>

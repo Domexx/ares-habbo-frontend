@@ -23,6 +23,8 @@ export class ErrorInterceptor implements HttpInterceptor {
         if (err.status === 401 && (this.userService.user || this.userService.token)) {
           this.userService.logout().finally(() => this.router.navigateByUrl('/')
             .then(() => this.alertService.error(this.translateService.instant('LOGOUT.ERROR'))));
+
+          return;
         }
 
         if (err.status === 404) {
