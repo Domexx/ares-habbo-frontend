@@ -31,7 +31,7 @@ export class ArticleService {
   }
 
   getComments(id: number, page: number = 1, results: number = 8): Observable<CommentPagination> {
-    return this.apiService.get(`comments/${id}/list/${page}/${results}`).pipe(
+    return this.apiService.get(`comments/${id}/list/${page}/${results}`, {}, false).pipe(
       map(resp => resp.data)
     );
   }
@@ -40,7 +40,7 @@ export class ArticleService {
     return this.apiService.post('comments/create', {
       article_id: id,
       content
-    }).pipe(
+    }, false).pipe(
       map(value => value.data)
     );
   }
