@@ -7,6 +7,7 @@ import {Router} from '@angular/router';
 import {AlertService} from '../../services/alert.service';
 import {TranslateService} from '@ngx-translate/core';
 import {environment} from '../../../environments/environment';
+import {VoteService} from '../../services/vote.service';
 
 @Component({
   selector: 'ares-home',
@@ -22,15 +23,19 @@ export class HomeComponent implements OnInit, OnDestroy {
   authSubscription: Subscription;
   userSubscription: Subscription;
   translateSubscription: Subscription;
+  voteSubscription: Subscription;
 
   loaded = false;
 
-  constructor(private titleService: TitleService,
-              private formBuilder: FormBuilder,
-              private userService: UserService,
-              private router: Router,
-              private alertService: AlertService,
-              private translateService: TranslateService) {
+  constructor(
+    private titleService: TitleService,
+    private formBuilder: FormBuilder,
+    private userService: UserService,
+    private router: Router,
+    private alertService: AlertService,
+    private translateService: TranslateService,
+    private voteService: VoteService
+  ) {
   }
 
   ngOnInit(): void {
@@ -54,20 +59,20 @@ export class HomeComponent implements OnInit, OnDestroy {
     this.authSubscription = this.userService.auth(this.f.username.value, this.f.password.value).subscribe({
       next: (e) => this.userSubscription = this.userService.getUser(e).subscribe({
         next: () => this.router.navigateByUrl('/dashboard')
-                        .then(() => this.alertService.success(this.translateService.instant('LOGIN.SUCCESS')))
-      })
+          .then(() => {
+            this.voteSubscription = this.voteService.total().subscribe({
+              complete: () => this.voteSubscription.unsubscribe()
+            });
+
+            this.alertService.success(this.translateService.instant('LOGIN.SUCCESS'));
+          }),
+        complete: () => this.userSubscription.unsubscribe()
+      }),
+      complete: () => this.authSubscription.unsubscribe()
     });
   }
 
   ngOnDestroy(): void {
-    if (this.authSubscription && !this.authSubscription.closed) {
-      this.authSubscription.unsubscribe();
-    }
-
-    if (this.userSubscription && !this.userSubscription.closed) {
-      this.userSubscription.unsubscribe();
-    }
-
     if (this.translateSubscription && !this.translateSubscription.closed) {
       this.translateSubscription.unsubscribe();
     }

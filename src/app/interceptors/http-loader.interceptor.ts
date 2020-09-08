@@ -18,8 +18,6 @@ export class HttpLoaderInterceptor implements HttpInterceptor {
   ) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log(this.httpLoaderService.containsUrl(req.url));
-
     if (this.httpLoaderService.containsUrl(req.url)) {
       return next.handle(req);
     }

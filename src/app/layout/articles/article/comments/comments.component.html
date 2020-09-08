@@ -14,16 +14,26 @@
        (scrolled)="onScroll()"
        [scrollWindow]="false">
     <div *ngFor="let comment of comments$" class="col-12 comment">
-      <div class="d-flex flex-row align-items-center">
+      <div class="d-flex justify-content-start">
         <img class="align-self-start" [src]="look(comment.author.look)" [class.offline]="comment.author.online == 0" />
 
-        <div class="d-inline-flex flex-column align-items-center">
-          <div class="flex-fill d-inline-flex flex-row align-self-start">
+        <div class="flex-grow-1 d-inline-flex flex-column">
+          <div class="d-inline-flex flex-row">
             <strong class="pb-1 pt-2">{{ comment.author.username }}</strong>
           </div>
 
-          <div class="comment--content pb-3">
-            {{ comment.content }}
+          <span class="pb-3 mr-2">{{ comment.content }}</span>
+        </div>
+
+        <div class="align-self-end d-inline-flex flex-row pb-2">
+          <div (click)="upVote(comment)" class="d-inline-flex flex-row align-items-center cursor-pointer mr-2">
+            <i class="sprite sprite--like d-inline-flex mr-2"></i>
+            {{ comment.likes }}
+          </div>
+
+          <div (click)="downVote(comment)" class="d-inline-flex flex-row cursor-pointer align-items-center mr-2">
+            <i class="sprite sprite--dislike d-inline-flex mr-2"></i>
+            {{ comment.dislikes }}
           </div>
         </div>
       </div>
