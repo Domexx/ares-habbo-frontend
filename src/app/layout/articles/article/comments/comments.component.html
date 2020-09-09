@@ -26,12 +26,12 @@
         </div>
 
         <div class="align-self-end d-inline-flex flex-row pb-2">
-          <div (click)="upVote(comment)" class="d-inline-flex flex-row align-items-center cursor-pointer mr-2">
+          <div [class.vote--active]="upVoteExists(comment.id)" (click)="upVote(comment)" class="comment--vote d-inline-flex flex-row align-items-center cursor-pointer mr-2">
             <i class="sprite sprite--like d-inline-flex mr-2"></i>
             {{ comment.likes }}
           </div>
 
-          <div (click)="downVote(comment)" class="d-inline-flex flex-row cursor-pointer align-items-center mr-2">
+          <div [class.vote--active]="downVoteExists(comment.id)" (click)="downVote(comment)" [class.vote--active]="" class="comment--vote d-inline-flex flex-row cursor-pointer align-items-center mr-2">
             <i class="sprite sprite--dislike d-inline-flex mr-2"></i>
             {{ comment.dislikes }}
           </div>

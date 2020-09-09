@@ -1,5 +1,4 @@
 import {User} from '../user/user';
-import {Comment} from './comment';
 
 export class Article {
   id: number;
@@ -9,7 +8,6 @@ export class Article {
   content: string;
   image: string;
   author: User;
-  comments: Comment[];
   // tslint:disable-next-line:variable-name
   created_at: {
     date: string,

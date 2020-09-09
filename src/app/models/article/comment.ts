@@ -19,4 +19,5 @@ export class Comment {
 export class CommentPagination {
   pagination: Pagination;
   comments: Comment[];
+  totalComments: number;
 }

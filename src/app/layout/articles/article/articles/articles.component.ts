@@ -1,6 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Article} from '../../../../models/article/article';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'ares-layout-article-articles',

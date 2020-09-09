@@ -15,6 +15,7 @@ export class ArticleComponent implements OnInit, OnDestroy {
   article: Article;
   comments: Comment[];
   articles: Article[];
+  totalComments: number;
 
   commentsPagination: CommentPagination;
 
@@ -37,9 +38,14 @@ export class ArticleComponent implements OnInit, OnDestroy {
       const comments = data.comments;
       this.comments = comments.comments;
       this.commentsPagination = comments.pagination;
+      this.totalComments = comments.totalComments;
 
       this.titleService.setTitle(this.article.title);
-    })
+    });
+  }
+
+  onComment(): void {
+    this.totalComments++;
   }
 
   ngOnDestroy() {

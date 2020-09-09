@@ -1,4 +1,4 @@
-import {AfterViewChecked, ChangeDetectorRef, Component, Input, OnInit, TemplateRef} from '@angular/core';
+import {AfterViewChecked, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output, TemplateRef} from '@angular/core';
 import {Comment} from '../../../../models/article/comment';
 import {environment} from '../../../../../environments/environment';
 import {Pagination} from '../../../../models/pagination';
@@ -10,7 +10,7 @@ import {AlertService} from '../../../../services/alert.service';
 import {BsModalRef, BsModalService} from 'ngx-bootstrap/modal';
 import {TranslateService} from '@ngx-translate/core';
 import {VoteService} from '../../../../services/vote.service';
-import {EntityType, Vote, VoteType} from '../../../../models/vote';
+import {EntityType, VoteType} from '../../../../models/vote';
 
 @Component({
   selector: 'ares-layout-article-comments',
@@ -45,6 +45,8 @@ export class CommentsComponent implements OnInit, AfterViewChecked {
     this.id$ = value;
   }
 
+  @Output() hasCommented = new EventEmitter<boolean>();
+
   constructor(
     private articleService: ArticleService,
     private route: ActivatedRoute,
@@ -68,13 +70,7 @@ export class CommentsComponent implements OnInit, AfterViewChecked {
   }
 
   upVote(comment: Comment): void {
-    const vote = this.voteService.votes.filter(
-      value => value.entity_id === comment.id
-        && value.vote_entity === EntityType.ARTICLE_COMMENT_VOTE_ENTITY
-        && value.vote_type === VoteType.LIKE
-    );
-
-    if (vote.length !== 0) {
+    if (this.voteService.exists(comment.id, EntityType.ARTICLE_COMMENT_VOTE_ENTITY, VoteType.LIKE)) {
       this.voteSubscription = this.voteService.delete(
         comment.id,
         EntityType.ARTICLE_COMMENT_VOTE_ENTITY,
@@ -104,13 +100,7 @@ export class CommentsComponent implements OnInit, AfterViewChecked {
   }
 
   downVote(comment: Comment): void {
-    const vote = this.voteService.votes.filter(
-      value => value.entity_id === comment.id
-        && value.vote_entity === EntityType.ARTICLE_COMMENT_VOTE_ENTITY
-        && value.vote_type === VoteType.DISLIKE
-    );
-
-    if (vote.length !== 0) {
+    if (this.voteService.exists(comment.id, EntityType.ARTICLE_COMMENT_VOTE_ENTITY, VoteType.DISLIKE)) {
       this.voteSubscription = this.voteService.delete(
         comment.id,
         EntityType.ARTICLE_COMMENT_VOTE_ENTITY,
@@ -137,6 +127,14 @@ export class CommentsComponent implements OnInit, AfterViewChecked {
       next: () => comment.dislikes++,
       complete: () => this.voteSubscription.unsubscribe()
     });
+  }
+
+  upVoteExists(entity: number): boolean {
+    return this.voteService.exists(entity, EntityType.ARTICLE_COMMENT_VOTE_ENTITY, VoteType.LIKE);
+  }
+
+  downVoteExists(entity: number): boolean {
+    return this.voteService.exists(entity, EntityType.ARTICLE_COMMENT_VOTE_ENTITY, VoteType.DISLIKE);
   }
 
   onScroll() {
@@ -167,6 +165,9 @@ export class CommentsComponent implements OnInit, AfterViewChecked {
         this.alertService.success(this.translateService.instant('ARTICLES.ARTICLE.COMMENT.SUCCESS'));
       },
       complete: () => {
+        this.hasCommented.emit(true);
+
+        comment.reset();
         this.modalRef.hide();
         this.writeSubscription.unsubscribe();
       }

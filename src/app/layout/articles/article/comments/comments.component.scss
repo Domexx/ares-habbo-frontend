@@ -38,6 +38,20 @@
           opacity: .5;
         }
       }
+
+      .comment--vote {
+        opacity: .8;
+        transition: 250ms opacity;
+
+        &:hover,
+        &:focus {
+          opacity: 1;
+        }
+
+        &.vote--active {
+          opacity: 1;
+        }
+      }
     }
   }
 }

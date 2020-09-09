@@ -77,6 +77,14 @@ export class VoteService {
     );
   }
 
+  exists(entity: number, voteEntity: EntityType, voteType: VoteType): boolean {
+    return this.votes.filter(
+      value => value.entity_id === entity
+        && value.vote_entity === voteEntity
+        && value.vote_type === voteType
+    ).length !== 0;
+  }
+
   set votes(value: Vote[]) {
     localStorage.setItem('ares-votes', JSON.stringify(value));
     this.votesSubject.next(value);
