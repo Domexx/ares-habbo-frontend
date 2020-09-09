@@ -1,0 +1,46 @@
+<swiper *ngIf="articles$.length > 0; else noArticles" [config]="config" class="article--slider">
+  <ng-container *ngFor="let article of articles$">
+    <div class="card article">
+      <div class="card-body d-inline-flex flex-column">
+        <div class="article--info d-flex align-items-center">
+          <div class="article--user">
+            <img
+              [src]="imager + article.author.look + '&amp;action=std&amp;direction=3&amp;head_direction=3&amp;img_format=png&amp;gesture=std&amp;headonly=0&amp;size=s'">
+          </div>
+          <span>{{ article.author.username }}</span>
+        </div>
+
+        <div class="article--thumb mt-2">
+          <img [src]="article.image">
+        </div>
+
+        <div class="d-inline-flex flex-column pb-2">
+          <p class="article--title">{{ article.title }}</p>
+          <span class="article--description w-100">{{ (article.description.length > 70)? (article.description | slice:0:70)+'..' : (article.description) }}</span>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</swiper>
+
+<ng-template #noArticles>
+  <div class="card article">
+    <div class="card-body d-inline-flex flex-column">
+      <div class="article--info d-flex align-items-center">
+        <div class="article--user">
+          <img id="frank" src="../../../../../assets/images/articles/frank_15.gif">
+        </div>
+        <span>Frank</span>
+      </div>
+
+      <div class="article--thumb mt-2">
+        <img src="../../../../../assets/images/articles/topstory.gif">
+      </div>
+
+      <div class="d-inline-flex flex-column pb-2">
+        <p class="article--title" [translate]="'DASHBOARD.SLIDER.ARTICLES.TITLE'"></p>
+        <span class="article--description w-100" [translate]="'DASHBOARD.SLIDER.ARTICLES.DESCRIPTION'"></span>
+      </div>
+    </div>
+  </div>
+</ng-template>

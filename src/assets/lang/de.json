@@ -177,6 +177,10 @@
       "MOTTO": "Kein Motto"
     }
   },
+  "VOTE": {
+    "LIKE": "Gefällt mir",
+    "DISLIKE": "Gefällt mir nicht"
+  },
 
   "UNKNOWN_ERROR": "Ein unbekannter Fehler ist aufgetreten!",
   "SESSION": "Du musst angemeldet sein, um diese Seite aufrufen zu können!"

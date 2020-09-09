@@ -2,53 +2,51 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 import {QuicklinkStrategy} from 'ngx-quicklink';
 
-import {LogoutComponent} from './components/logout/logout.component';
-import {ActiveSessionGuard} from './guards/active-session.guard';
-import {AuthGuard} from './guards/auth.guard';
-import {NotFoundComponent} from './components/not-found/not-found.component';
+import {ActiveSessionGuard} from './_guard/active-session.guard';
+import {AuthGuard} from './_guard/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
+    loadChildren: () => import('./home/home.module').then(m => m.HomeModule),
     pathMatch: 'full'
   },
   {
     path: 'register',
-    loadChildren: () => import('./modules/register/register.module').then(m => m.RegisterModule)
+    loadChildren: () => import('./register/register.module').then(m => m.RegisterModule)
   },
   {
     path: 'dashboard',
-    loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule),
+    loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule),
     canActivate: [AuthGuard],
     canActivateChild: [ActiveSessionGuard]
   },
   {
     path: 'articles',
-    loadChildren: () => import('./modules/article/article.module').then(m => m.ArticleModule),
+    loadChildren: () => import('./article/article.module').then(m => m.ArticleModule),
     canActivate: [AuthGuard],
     canActivateChild: [ActiveSessionGuard]
   },
   {
     path: 'community',
-    loadChildren: () => import('./modules/community/community.module').then(m => m.CommunityModule),
+    loadChildren: () => import('./community/community.module').then(m => m.CommunityModule),
     canActivate: [AuthGuard],
     canActivateChild: [ActiveSessionGuard]
   },
   {
     path: 'client',
-    loadChildren: () => import('./modules/client/client.module').then(m => m.ClientModule),
+    loadChildren: () => import('./client/client.module').then(m => m.ClientModule),
     canActivate: [AuthGuard],
     canActivateChild: [ActiveSessionGuard]
   },
   {
     path: 'logout',
-    component: LogoutComponent,
+    loadChildren: () => import('./logout/logout.module').then(m => m.LogoutModule),
     canActivate: [AuthGuard]
   },
   {
     path: '404',
-    component: NotFoundComponent
+    loadChildren: () => import('./not-found/not-found.module').then(m => m.NotFoundModule)
   },
   {
     path: '**',

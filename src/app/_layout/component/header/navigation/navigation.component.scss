@@ -1,0 +1,140 @@
+@import '../../../../../styles/variables';
+@import "../../../../../../node_modules/bootstrap/scss/functions";
+@import "../../../../../../node_modules/bootstrap/scss/variables";
+@import "../../../../../../node_modules/bootstrap/scss/mixins/breakpoints";
+
+.navbar {
+  min-height: 6.5rem;
+
+  & > .container {
+    @include media-breakpoint-down(md) {
+      max-width: 100vw;
+    }
+
+    & > .navbar-brand {
+      margin-right: 2rem;
+
+      & > img {
+        height: 3rem;
+      }
+
+      @include media-breakpoint-down(md) {
+        margin-left: 2rem;
+      }
+    }
+
+    & > .navbar-toggler {
+      @include media-breakpoint-down(md) {
+        margin-right: 2rem;
+      }
+    }
+
+    & > .navbar-collapse {
+      @include media-breakpoint-down(md) {
+        background-color: var(--main-bg-dark);
+        padding: .5rem 1rem;
+        text-align: center;
+      }
+    }
+
+    & > #navbar {
+      .navbar-nav {
+        .nav-item {
+          .nav-link {
+            text-transform: uppercase;
+            font-weight: 600;
+            position: relative;
+            transition: all .3s;
+
+            &.active {
+              color: #fff;
+            }
+
+            &::before {
+              content: '';
+              display: inline-flex;
+              position: absolute;
+              left: 0;
+              top: -2.5rem;
+              height: 6.5rem;
+              width: 2px;
+              border-left: 2px solid var(--main-bg-color);
+            }
+
+            &:hover,
+            &:focus,
+            &.active {
+              color: #fff;
+            }
+          }
+
+          .icon {
+            filter: grayscale(80%);
+
+            &:hover,
+            &:focus {
+              filter: grayscale(0%);
+            }
+          }
+
+          .icon--dashboard {
+            background-position: center center;
+          }
+
+          .icon--articles {
+            background-position: center center;
+          }
+
+          .icon--employees {
+            background-position: center center;
+          }
+
+          .icon--settings {
+            background-position: center center;
+          }
+
+          .icon--community {
+            background-position: center center;
+          }
+
+          &:last-child > .nav-link::after {
+            content: '';
+            display: inline-flex;
+            position: absolute;
+            right: 0;
+            top: -2.5rem;
+            height: 6.5rem;
+            width: 2px;
+            border-left: 2px solid var(--main-bg-color);
+          }
+
+          @include media-breakpoint-down(md) {
+            padding: 1rem;
+
+            .nav-link {
+              &::before {
+                border-left: unset !important;
+              }
+            }
+
+            &:last-child > .nav-link::after {
+              border-left: unset !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    padding: 0;
+  }
+}
+
+.navbar-expand-lg {
+  .navbar-nav .nav-link {
+    @include media-breakpoint-up(md) {
+      padding: 0 1.5rem 0 1.5rem;
+    }
+  }
+}

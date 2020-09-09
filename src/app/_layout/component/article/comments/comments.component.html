@@ -1,0 +1,71 @@
+<div class="card card-comments mb-4">
+  <div class="d-flex flex-row mb-3">
+    <i class="ml-5 mr-3 my-4 sprite sprite--comments"></i>
+
+    <div class="d-inline-flex flex-column">
+      <h4 class="mt-4 mb-0" [translate]="'ARTICLES.ARTICLE.COMMENTS.TITLE'"></h4>
+      <span [translate]="'ARTICLES.ARTICLE.COMMENTS.DESCRIPTION'"></span>
+    </div>
+  </div>
+
+  <div class="comments row mx-4" infiniteScroll
+       [infiniteScrollDistance]="2"
+       [infiniteScrollThrottle]="50"
+       (scrolled)="onScroll()"
+       [scrollWindow]="false">
+    <div *ngFor="let comment of comments$" class="col-12 comment">
+      <div class="d-flex justify-content-start">
+        <img class="align-self-start" [src]="look(comment.author.look)" [class.offline]="comment.author.online == 0" />
+
+        <div class="flex-grow-1 d-inline-flex flex-column">
+          <div class="d-inline-flex flex-row">
+            <strong class="pb-1 pt-2">{{ comment.author.username }}</strong>
+          </div>
+
+          <span class="pb-3 mr-2">{{ comment.content }}</span>
+        </div>
+
+        <div class="align-self-end d-inline-flex flex-row pb-2">
+          <div [class.vote--active]="upVoteExists(comment.id)" (click)="upVote(comment)"
+               class="comment--vote d-inline-flex flex-row align-items-center cursor-pointer mr-2">
+            <i class="sprite sprite--like d-inline-flex mr-2"></i>
+            {{ comment.likes }}
+          </div>
+
+          <div [class.vote--active]="downVoteExists(comment.id)" (click)="downVote(comment)"
+               class="comment--vote d-inline-flex flex-row cursor-pointer align-items-center mr-2">
+            <i class="sprite sprite--dislike d-inline-flex mr-2"></i>
+            {{ comment.dislikes }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center align-items-center px-4" [class.py-5]="comments$.length > 0" [class.py-3]="comments$.length === 0">
+    <button class="btn btn-danger w-100 h-25" (click)="openModal(template)" [translate]="'ARTICLES.ARTICLE.COMMENT.TITLE'"></button>
+  </div>
+</div>
+
+<ng-template class="h-100 justify-content-center" #template>
+  <div class="modal-body d-flex flex-column justify-content-center">
+    <div class="d-inline-flex flex-row mb-3">
+      <i class="mx-4 mt-3 sprite sprite--comments"></i>
+      <div class="d-inline-flex flex-column">
+        <h4 class="mt-3 mb-0 modal--title" [translate]="'ARTICLES.ARTICLE.COMMENT.TITLE'"></h4>
+        <span class="modal--description" [translate]="'ARTICLES.ARTICLE.COMMENT.DESCRIPTION'"></span>
+      </div>
+      <button type="button" class="close" (click)="modalRef.hide()"></button>
+    </div>
+
+    <div class="container d-inline-flex flex-column mt-4">
+      <form [formGroup]="commentForm" (submit)="onSubmit()" id="comment--form">
+        <div class="form-group" id="comment--textarea">
+          <textarea class="form-control" formControlName="comment" placeholder="...."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-danger mt-3 w-100" [translate]="'ARTICLES.ARTICLE.COMMENT.TITLE'"></button>
+      </form>
+    </div>
+  </div>
+</ng-template>

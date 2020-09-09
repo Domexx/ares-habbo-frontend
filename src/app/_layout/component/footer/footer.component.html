@@ -1,0 +1,35 @@
+<div class="container py-4">
+  <div class="row">
+    <div class="col-6 pt-3">
+      <div class="d-flex">
+        <b>{{ hotelName }}</b>
+        <p class="m-0" [innerHTML]="'FOOTER.RIGHTS_RESERVED' | translate"></p>
+      </div>
+      <p class="m-0" [innerHTML]="'FOOTER.NOT_SULAKE' | translate"></p>
+    </div>
+
+    <div class="col-6 d-flex pt-2 justify-content-xl-end justify-content-lg-end justify-content-around">
+      <ares-language-selector></ares-language-selector>
+    </div>
+  </div>
+</div>
+
+<div class="py-2 pb-lg-0 text-center bg-dark col-12">
+  Made with <span>&#10084;&#65039;</span> from <b class="cursor-pointer" (click)="openModal(modal)">Ares</b>
+</div>
+
+<ng-template #modal>
+  <div class="modal-body d-flex flex-column justify-content-center">
+    <button type="button" class="close" (click)="modalRef.hide()"></button>
+
+    <div class="container d-inline-flex flex-column mt-4">
+      <img src="../../../../assets/images/logo_shadow.png" class="align-self-center" alt="Ares Logo" />
+
+      <p>Ares is using state-of-the-art Technology to make the experience for you and your Users as secure, fast and convenient as possible.</p>
+      <p>We're always updating Ares with new features and try to keep it Bug-Free.</p>
+      <p>Ares is here to stay.</p>
+
+      <b>Ares made by necmi, Dome & Madness</b>
+    </div>
+  </div>
+</ng-template>

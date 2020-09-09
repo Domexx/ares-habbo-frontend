@@ -2,32 +2,34 @@ import {BrowserModule} from '@angular/platform-browser';
 import {LOCALE_ID, NgModule} from '@angular/core';
 
 import {AresRoutingModule} from './ares-routing.module';
+import {environment} from '../environments/environment';
 
 import {HttpClientModule, HttpClient, HTTP_INTERCEPTORS} from '@angular/common/http';
+
 import {TranslateModule, TranslateLoader, TranslateService} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
-import {AresComponent} from './ares.component';
-import {TitleService} from './services/title.service';
-import {environment} from 'src/environments/environment';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {LayoutModule} from './modules/layout/layout.module';
-import {LanguageService} from './services/language.service';
-import {JwtInterceptor} from './interceptors/jwt.interceptor';
-import {ErrorInterceptor} from './interceptors/error.interceptor';
+import {LayoutModule} from './_layout/layout.module';
 
-import { NotFoundComponent } from './components/not-found/not-found.component';
-import {LogoutComponent} from './components/logout/logout.component';
+import {ClientModule} from './client/client.module';
+import {SharedModule} from './_shared/shared.module';
+
+import {AresComponent} from './ares.component';
+
+import {LanguageService} from './_shared/service/language.service';
+
+import {JwtInterceptor} from './_interceptor/jwt.interceptor';
+import {ErrorInterceptor} from './_interceptor/error.interceptor';
+import {HttpLoaderInterceptor} from './_interceptor/http-loader.interceptor';
 
 import {QuicklinkModule} from 'ngx-quicklink';
 
-// Locales
 import {registerLocaleData} from '@angular/common';
+
 import localeDE from '@angular/common/locales/de';
 import localeENUS from '@angular/common/locales/en';
-import {HttpLoaderInterceptor} from './interceptors/http-loader.interceptor';
-import {HttpLoaderService} from './services/http-loader.service';
-import {ClientModule} from './modules/client/client.module';
+import {HttpLoaderService} from './_service/http-loader.service';
 
 registerLocaleData(localeDE);
 registerLocaleData(localeENUS);
@@ -41,8 +43,6 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
   declarations: [
     AresComponent,
-    LogoutComponent,
-    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
@@ -56,12 +56,12 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    LayoutModule,
     QuicklinkModule,
+    SharedModule,
+    LayoutModule,
     ClientModule
   ],
   providers: [
-    TitleService,
     HttpLoaderService,
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
     {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
