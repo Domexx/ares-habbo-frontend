@@ -28,22 +28,22 @@
 
             <div class="d-inline-flex flex-row flex-fill align-items-center mb-1 text-ellipsis">
               <i class="d-inline-flex sprite sprite--date mr-2"></i>
-              <span class="guild-info text-ellipsis">{{ guild.date_created * 1000 | date: date }}</span>
+              <span class="guild--info text-ellipsis">{{ guild.date_created * 1000 | date: date }}</span>
             </div>
 
             <div class="d-inline-flex flex-row flex-fill align-items-center mb-1 text-ellipsis">
               <i class="d-inline-flex sprite sprite--account mr-2"></i>
-              <span class="guild-info text-ellipsis">{{ guild.creator.username }}</span>
+              <span class="guild--info text-ellipsis pl-1">{{ guild.creator.username }}</span>
             </div>
           </div>
         </div>
       </div>
 
-      <ares-layout-community-guild-members class="card" [id]="guild.id" [members]="members" [pagination]="memberPagination"></ares-layout-community-guild-members>
+      <ares-layout-community-guild-members class="card mb-3" [id]="guild.id" [members]="members" [pagination]="memberPagination"></ares-layout-community-guild-members>
     </div>
 
     <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
-      sadasd
+      <ares-layout-community-guild-guestbook class="card" [entries]="guestbook.entries" [pagination]="guestbook.pagination" [id]="guild.id"></ares-layout-community-guild-guestbook>
     </div>
 
     <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">

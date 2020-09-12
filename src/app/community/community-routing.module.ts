@@ -4,6 +4,7 @@ import {CommunityComponent} from './component/community.component';
 import {GuildComponent} from './component/guild/guild.component';
 import {CommunityGuildResolver} from './resolver/guild/guild.resolver';
 import {CommunityGuildMembersResolver} from './resolver/guild/members.resolver';
+import {CommunityGuildGuestbookResolver} from './resolver/guild/guestbook.resolver';
 
 const routes: Routes = [
   {
@@ -15,7 +16,8 @@ const routes: Routes = [
     component: GuildComponent,
     resolve: {
       guild: CommunityGuildResolver,
-      members: CommunityGuildMembersResolver
+      members: CommunityGuildMembersResolver,
+      guestbook: CommunityGuildGuestbookResolver
     }
   }
 ];

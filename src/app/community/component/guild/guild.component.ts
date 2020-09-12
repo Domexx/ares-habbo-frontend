@@ -5,6 +5,7 @@ import {environment} from '../../../../environments/environment';
 import {TitleService} from '../../../_shared/service/title.service';
 import {Pagination} from '../../../_shared/model/pagination';
 import {Member} from '../../model/guild/member';
+import {GuestbookPagination} from '../../../_shared/model/guestbook';
 
 @Component({
   selector: 'ares-guild',
@@ -16,6 +17,8 @@ export class GuildComponent implements OnInit {
 
   memberPagination: Pagination;
   members: Member[];
+
+  guestbook: GuestbookPagination;
 
   membersLength = 0;
 
@@ -38,6 +41,8 @@ export class GuildComponent implements OnInit {
 
     this.memberPagination = membersData.pagination;
     this.members = membersData.members;
+
+    this.guestbook = this.route.snapshot.data.guestbook;
 
     this.titleService.setTitle(this.guild.name);
   }

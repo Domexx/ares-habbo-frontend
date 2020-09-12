@@ -16,10 +16,6 @@
       margin-bottom: 1.5rem;
       border-radius: 4px;
 
-      &:not(:last-child) {
-        border-bottom: 1px dotted var(--main-bg-gray);
-      }
-
       &:hover,
       &:focus {
         .offline {

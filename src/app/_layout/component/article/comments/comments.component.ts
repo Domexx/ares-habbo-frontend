@@ -1,4 +1,11 @@
-import {AfterViewChecked, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output, TemplateRef} from '@angular/core';
+/*
+ * Ares (https://ares.to)
+ *
+ * @license https://gitlab.com/arescms/ares-frontend/LICENSE (MIT License)
+ *
+ */
+
+import {Component, EventEmitter, Input, OnInit, Output, TemplateRef} from '@angular/core';
 import {Comment} from '../../../../article/model/comment';
 import {environment} from '../../../../../environments/environment';
 import {Pagination} from '../../../../_shared/model/pagination';
@@ -17,7 +24,7 @@ import {EntityType, VoteType} from '../../../../_shared/model/vote';
   templateUrl: './comments.component.html',
   styleUrls: ['./comments.component.scss']
 })
-export class CommentsComponent implements OnInit, AfterViewChecked {
+export class CommentsComponent implements OnInit {
   comments$: Comment[] = [];
   pagination$: Pagination;
   id$: number;
@@ -52,7 +59,6 @@ export class CommentsComponent implements OnInit, AfterViewChecked {
     private route: ActivatedRoute,
     private formBuilder: FormBuilder,
     private alertService: AlertService,
-    private cdRef: ChangeDetectorRef,
     private modalService: BsModalService,
     private translateService: TranslateService,
     private voteService: VoteService
@@ -63,10 +69,6 @@ export class CommentsComponent implements OnInit, AfterViewChecked {
     this.commentForm = this.formBuilder.group({
       comment: ['', Validators.required],
     });
-  }
-
-  ngAfterViewChecked(): void {
-    this.cdRef.detectChanges();
   }
 
   upVote(comment: Comment): void {

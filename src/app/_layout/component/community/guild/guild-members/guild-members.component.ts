@@ -11,7 +11,7 @@ import {TranslateService} from '@ngx-translate/core';
   templateUrl: './guild-members.component.html',
   styleUrls: ['./guild-members.component.scss']
 })
-export class GuildMembersComponent implements OnDestroy {
+export class GuildMembersComponent {
   id$: number;
   pagination$: Pagination;
   members$: Member[] = [];
@@ -41,7 +41,6 @@ export class GuildMembersComponent implements OnDestroy {
 
 
   onScroll() {
-    console.log(this.pagination$);
     if (!this.pagination$.nextPage) {
       return;
     }
@@ -53,10 +52,9 @@ export class GuildMembersComponent implements OnDestroy {
         });
 
         this.pagination$ = e.pagination;
-      }
+      },
+      complete: () => this.membersSubscription.unsubscribe()
     });
-
-    console.log(this.pagination$);
   }
 
   look(look: string): string {
@@ -65,12 +63,6 @@ export class GuildMembersComponent implements OnDestroy {
     }
 
     return `${environment.app.imager}${look}&action=std&gesture=sml&direction=2&head_direction=2&size=l`;
-  }
-
-  ngOnDestroy() {
-    if (this.membersSubscription && !this.membersSubscription.unsubscribe) {
-      this.membersSubscription.unsubscribe();
-    }
   }
 
 }

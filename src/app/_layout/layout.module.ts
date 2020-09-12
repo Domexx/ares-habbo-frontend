@@ -41,6 +41,7 @@ import {FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome
 import {faSearch} from '@fortawesome/free-solid-svg-icons/faSearch';
 import {faUnlink} from '@fortawesome/free-solid-svg-icons/faUnlink';
 import {SharedModule} from '../_shared/shared.module';
+import { GuestbookComponent } from './component/community/guild/guestbook/guestbook.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -68,7 +69,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     RoomComponent,
     DiscordComponent,
     GuildMembersComponent,
-    SearchPipe
+    SearchPipe,
+    GuestbookComponent
   ],
   imports: [
     CommonModule,
@@ -90,27 +92,28 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     },
     FriendService
   ],
-  exports: [
-    FooterComponent,
-    HeaderComponent,
-    LanguageSelectorComponent,
-    FriendsComponent,
-    ArticleSliderComponent,
-    PinnedArticlesComponent,
-    LoaderComponent,
-    HeroComponent,
-    DisconnectedComponent,
-    ButtonsComponent,
-    FlashDetectComponent,
-    ActiveSessionComponent,
-    ArticlesComponent,
-    CommentsComponent,
-    GuildComponent,
-    RoomComponent,
-    DiscordComponent,
-    GuildMembersComponent,
-    SearchPipe
-  ]
+    exports: [
+        FooterComponent,
+        HeaderComponent,
+        LanguageSelectorComponent,
+        FriendsComponent,
+        ArticleSliderComponent,
+        PinnedArticlesComponent,
+        LoaderComponent,
+        HeroComponent,
+        DisconnectedComponent,
+        ButtonsComponent,
+        FlashDetectComponent,
+        ActiveSessionComponent,
+        ArticlesComponent,
+        CommentsComponent,
+        GuildComponent,
+        RoomComponent,
+        DiscordComponent,
+        GuildMembersComponent,
+        SearchPipe,
+        GuestbookComponent
+    ]
 })
 export class LayoutModule {
   constructor(library: FaIconLibrary) {

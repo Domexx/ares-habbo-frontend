@@ -8,7 +8,7 @@ import {GuildService} from '../../service/guild.service';
 @Injectable({ providedIn: 'root' })
 export class CommunityGuildResolver implements Resolve<Guild | boolean> {
   constructor(
-    private groupService: GuildService,
+    private guildService: GuildService,
     private router: Router
   ) {}
 
@@ -16,7 +16,7 @@ export class CommunityGuildResolver implements Resolve<Guild | boolean> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<Guild | boolean> {
-    return this.groupService.get(route.params.id).pipe(
+    return this.guildService.get(route.params.id).pipe(
       catchError(err => this.router.navigateByUrl('/404'))
     );
   }

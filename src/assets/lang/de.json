@@ -15,14 +15,11 @@
       },
       "BUTTON": "Anmelden"
     },
-
     "REGISTER": "Noch keinen Account? <span class=\"text--red\">Join {{ hotelName }}</span>"
   },
-
   "REGISTER": {
     "TITLE": "Registration",
     "DESCRIPTION": "Join a game full of people from around the world.",
-
     "FORM": {
       "INPUT": {
         "USERNAME": {
@@ -31,7 +28,6 @@
             "EMPTY": "Bitte gebe einen Benutzernamen ein!"
           }
         },
-
         "PASSWORD": {
           "LABEL": "Passwort",
           "ERRORS": {
@@ -39,7 +35,6 @@
             "NOT_SAME": "Die eingegebenen Passwörter haben nicht den selben Wert!"
           }
         },
-
         "MAIL": {
           "LABEL": "E-Mail",
           "ERRORS": {
@@ -48,17 +43,14 @@
           }
         }
       },
-
       "BUTTONS": {
         "REGISTER": "Registrieren"
       }
     },
-
     "SUCCESS": "Du hast dich erfolgreich registriert!",
     "ERROR": "Dein Account konnte nicht registriert werden.",
     "ALREADY": "Bereits ein Account? <span class=\"text--red\">Bring mich zurück!</span>"
   },
-
   "DASHBOARD": {
     "HERO": {
       "WELCOME": "Willkommen zurück, <strong>{{ username }}</strong>!",
@@ -66,13 +58,11 @@
       "MOTTO": "Motto: <strong>\"{{ motto }}\"</strong>",
       "COUNTER": "<strong>{{ online }}</strong> {{ name }} online",
       "ENTER": "Ins Hotel einchecken",
-
       "CREDITS": "Taler",
       "POINTS": "Diamanten",
       "PIXELS": "Duckets"
     },
     "YOUR_RANK": "DEIN RANG:",
-
     "SLIDER": {
       "ARTICLES": {
         "TITLE": "Es wurden keine Artikel gefunden!",
@@ -80,14 +70,12 @@
         "READ_MORE": "Weiterlesen"
       }
     },
-
     "FRIENDS": {
       "TITLE": "Freunde",
       "MANNEQUIN": {
         "NAME": "Kein Freund gefunden",
         "MOTTO": "Es wurde kein Freund gefunden"
       },
-
       "NOT_FOUND": "{{ username }} wurde nicht gefunden!"
     },
     "DISCORD": {
@@ -113,61 +101,65 @@
       }
     }
   },
-
   "COMMUNITY": {
     "GUILD": {
       "MEMBERS": {
         "TITLE": "Mitglieder",
         "DESCRIPTION": "Hier siehst du alle Mitglieder der Gruppe",
-
         "MANNEQUIN": {
           "NAME": "Kein Mitglied",
           "MOTTO": "Es wurde kein Mitglied gefunden"
         },
         "OWNER": "Besitzer"
+      },
+      "GUESTBOOK": {
+        "TITLE": "Gästebuch",
+        "DESCRIPTION": "Hier siehst du alle Gästebucheinträge",
+        "BUTTON": "Neuen Eintrag verfassen",
+        "MODAL": {
+          "TITLE": "Gästebuch",
+          "DESCRIPTION": "Verfasse einen neuen Eintrag",
+          "BUTTON": "Verfassen",
+          "FORM": {
+            "EMPTY": "Bitte gebe eine Nachricht ein",
+            "SUCCESS": "Eintrag wurde hinzugefügt"
+          }
+        }
       }
     }
   },
-
   "CLIENT": {
     "DISCONNECTED": {
       "TITLE": "Oh, Bobba!",
       "DESCRIPTION": "Du hast die Verbindung zum Hotel verloren",
       "BUTTON": "Neuladen"
     },
-
     "FLASH": {
       "TITLE": "Oh Bobba!",
       "DESCRIPTION": "Klick <a href=\"https://get.adobe.com/de/flashplayer\" target=\"_blank\">hier</a> und dann auf \"Flash aktivieren\", sobald du dazu aufgefordert bist. Wir sehen uns im Hotel!"
     },
-
     "ACTIVE": {
       "DESCRIPTION": "Es existiert bereits eine aktive Sitzung.",
       "BUTTON": "Lass mich rein!"
     }
   },
-
   "LOGIN": {
     "SUCCESS": "Du hast dich erfolgreich angemeldet!"
   },
-
   "LOGOUT": {
     "SUCCESS": "Du wurdest erfolgreich abgemeldet!",
     "ERROR": "Bitte melde dich erneut an!"
   },
-
   "NAVIGATOR": {
     "NEWS": "neuigkeiten",
     "COMMUNITY": "community",
     "EMPLOYEES": "mitarbeiter",
     "SETTINGS": "einstellungen"
   },
-
   "FOOTER": {
     "RIGHTS_RESERVED": "&nbsp; &copy; 2020. Alle Rechte an dieser Website vorbehalten.",
     "NOT_SULAKE": "Diese Website gehört nicht der Sulake Corporation und wird nicht von Habbo Hotel &reg; betrieben."
   },
-
   "404": {
     "DESCRIPTION": "Seite wurde nicht gefunden!",
     "BUTTON": "Zurück"
@@ -181,7 +173,6 @@
     "LIKE": "Gefällt mir",
     "DISLIKE": "Gefällt mir nicht"
   },
-
   "UNKNOWN_ERROR": "Ein unbekannter Fehler ist aufgetreten!",
   "SESSION": "Du musst angemeldet sein, um diese Seite aufrufen zu können!"
 }
