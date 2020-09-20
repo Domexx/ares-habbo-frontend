@@ -31,6 +31,10 @@ export class ErrorInterceptor implements HttpInterceptor {
             }));
         }
 
+        if (err.status === 404) {
+          return throwError(err);
+        }
+
         if (!this.isLoggingOut && err instanceof HttpErrorResponse && err.error.errors) {
           err.error.errors.forEach(key => {
             this.alertService.error(key.message);
