@@ -78,6 +78,14 @@
       },
       "NOT_FOUND": "{{ username }} wurde nicht gefunden!"
     },
+    "GUILD": {
+      "TITLE": "Keine Gruppe gefunden",
+      "DESCRIPTION": "Es wurde keine Gruppe gefunden"
+    },
+    "ROOM": {
+      "TITLE": "Kein Raum gefunden",
+      "DESCRIPTION": "Es wurde kein Raum gefunden"
+    },
     "DISCORD": {
       "TITLE": "Trete dem {{ hotelName }} Discord bei",
       "DESCRIPTION": "Hier wirst du nichts verpassen!"

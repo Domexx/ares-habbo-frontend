@@ -1,5 +1,5 @@
 <div class="d-flex flex-row p-4">
-  <img class="mr-3" [src]="badge(guild$?.guild.badge)" [alt]="guild$?.guild.name" [title]="guild$?.guild.name" />
+  <img class="mr-3" [src]="badge(guild$?.guild.badge)" (error)="error($event)" [alt]="guild$?.guild.name" [title]="guild$?.guild.name" />
 
   <div class="flex-fill d-inline-flex flex-column text-ellipsis justify-content-center">
     <strong id="group--name" class="mb-0 text-ellipsis pr-2">{{ guild$?.guild.name }}</strong>
@@ -7,7 +7,7 @@
   </div>
 
   <div class="d-inline-flex justify-content-center align-items-center">
-    <strong id="group--members" class="pr-1">{{ guild$.member_count }}</strong>
+    <strong id="group--members" class="pr-1">{{ guild$?.member_count }}</strong>
     <i class="sprite sprite--members"></i>
   </div>
 </div>

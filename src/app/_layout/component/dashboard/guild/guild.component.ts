@@ -21,6 +21,10 @@ export class GuildComponent implements OnInit {
 
   }
 
+  error(e: any): void {
+    e.target.src = '/assets/images/icons/ares64x64.png';
+  }
+
   badge(key: string) {
     return `${environment.app.badgeParts}${key}.png`;
   }

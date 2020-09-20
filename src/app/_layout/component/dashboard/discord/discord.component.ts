@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {environment} from '../../../../../environments/environment';
 
 @Component({
@@ -6,18 +6,6 @@ import {environment} from '../../../../../environments/environment';
   templateUrl: './discord.component.html',
   styleUrls: ['./discord.component.scss']
 })
-export class DiscordComponent implements OnInit {
-  invite$: string;
+export class DiscordComponent {
   hotelName = environment.app.hotelName;
-
-  @Input('invite')
-  set invite(value: string) {
-    this.invite$ = value;
-  }
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }

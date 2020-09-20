@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ApiService} from '../../_shared/service/api.service';
-import {map} from 'rxjs/operators';
+import {catchError, map} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import {Guild} from '../model/guild/guild';
 import {User} from '../../_shared/model/user/user';
@@ -45,6 +45,19 @@ export class GuildService {
         return resp.data;
       })
     );
+  }
+
+  fakeGuild(): { guild: Guild, member_count: number } {
+    const guild = new Guild();
+
+    guild.badge = null;
+    guild.creator = null;
+    guild.date_created = null;
+    guild.id = 0;
+    guild.name = this.translateService.instant('DASHBOARD.GUILD.TITLE');
+    guild.description = this.translateService.instant('DASHBOARD.GUILD.DESCRIPTION');
+
+    return { guild, member_count: 0 };
   }
 
   mannequin(): User {

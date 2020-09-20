@@ -7,6 +7,7 @@ export class Article {
   description: string;
   content: string;
   image: string;
+  comments: number;
   author: User;
   // tslint:disable-next-line:variable-name
   created_at: {

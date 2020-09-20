@@ -1,4 +1,4 @@
-import {User} from "../../../_shared/model/user/user";
+import {User} from '../../../_shared/model/user/user';
 import {Room} from '../room';
 
 export class Guild {

@@ -6,11 +6,13 @@ import {LayoutModule} from '../_layout/layout.module';
 
 import {CommunityComponent} from './component/community.component';
 import {GuildComponent} from './component/guild/guild.component';
+import { StaffComponent } from './staff/staff.component';
 
 @NgModule({
   declarations: [
     CommunityComponent,
-    GuildComponent
+    GuildComponent,
+    StaffComponent
   ],
   imports: [
     CommonModule,

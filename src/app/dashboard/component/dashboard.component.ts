@@ -9,6 +9,8 @@ import {Friend} from '../model/friend';
 import {Guild} from '../../community/model/guild/guild';
 import {Room} from '../../community/model/room';
 import {Setting} from '../../_shared/model/setting';
+import {GuildService} from '../../community/service/guild.service';
+import {RoomService} from '../../community/service/room.service';
 
 @Component({
   selector: 'ares-dashboard',
@@ -35,7 +37,9 @@ export class DashboardComponent implements OnInit {
   constructor(
     private userService: UserService,
     private titleService: TitleService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private guildService: GuildService,
+    private roomService: RoomService
   ) { }
 
   ngOnInit(): void {
@@ -55,8 +59,8 @@ export class DashboardComponent implements OnInit {
     this.friends = friendsArray;
     this.friendsPagination = this.route.snapshot.data.friends?.pagination ?? 0;
 
-    this.guild = this.route.snapshot.data.guild;
-    this.room = this.route.snapshot.data.room;
+    this.guild = (!this.route.snapshot.data.guild) ? this.guildService.fakeGuild() : this.route.snapshot.data.guild;
+    this.room = (!this.route.snapshot.data.room) ? this.roomService.fakeRoom() : this.route.snapshot.data.room;
     this.discord = this.route.snapshot.data.discord;
 
     this.titleService.setTitle('Dashboard');
