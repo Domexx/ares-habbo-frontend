@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnDestroy, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit} from '@angular/core';
 import {TitleService} from '../../_shared/service/title.service';
 import {TranslateService} from '@ngx-translate/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
@@ -16,10 +16,7 @@ import {VoteService} from '../../_shared/service/vote.service';
   styleUrls: ['./register.component.scss'],
   providers: [RegisterService]
 })
-export class RegisterComponent implements OnInit, OnDestroy {
-  userSubscription: Subscription;
-  registerSubscription: Subscription;
-
+export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
 
   males: [];
@@ -41,6 +38,9 @@ export class RegisterComponent implements OnInit, OnDestroy {
     private voteService: VoteService
   ) { }
 
+  /**
+   * Initialize the Register Component
+   */
   ngOnInit(): void {
     this.males = this.route.snapshot.data.looks.boys;
     this.females = this.route.snapshot.data.looks.girls;
@@ -60,10 +60,16 @@ export class RegisterComponent implements OnInit, OnDestroy {
     this.titleService.setTitle(this.translateService.instant('REGISTER.TITLE'));
   }
 
+  /**
+   * Returns the register form controls
+   */
   get f() {
     return this.registerForm.controls;
   }
 
+  /**
+   * Validates the username input
+   */
   validateUsername(): boolean {
     const username = this.f.username;
 
@@ -78,6 +84,9 @@ export class RegisterComponent implements OnInit, OnDestroy {
     return true;
   }
 
+  /**
+   * Validates password inputs
+   */
   validatePassword(): boolean {
     const password = this.f.password;
     const passwordConfirmation = this.f.confirmPassword;
@@ -103,6 +112,9 @@ export class RegisterComponent implements OnInit, OnDestroy {
     return true;
   }
 
+  /**
+   * Validates the mail input
+   */
   validateMail(): boolean {
     const mail = this.f.mail;
 
@@ -128,6 +140,11 @@ export class RegisterComponent implements OnInit, OnDestroy {
     return true;
   }
 
+  /**
+   * Selects and validate the look by the given parameter
+   * @param look
+   * @param male
+   */
   selectLook(look: string, male: boolean = false): void {
     if (male) {
       const maleLookExists = this.males.findIndex(value => value === look);
@@ -154,10 +171,19 @@ export class RegisterComponent implements OnInit, OnDestroy {
     this.selectedLookGender = 'F';
   }
 
+  /**
+   * Returns the URL to the configured imager with provided data
+   * @param look
+   * @param head
+   * @param large
+   */
   figure(look: string, head: boolean = false, large: boolean = false): string {
     return `${environment.app.imager}${look}${(head) ? '&headonly=1' : ''}${(large) ? '&size=l' : ''}`;
   }
 
+  /**
+   * Submits the input data
+   */
   onSubmit() {
     if (!this.validateUsername() || !this.validatePassword() || !this.validateMail()) {
       return;
@@ -168,7 +194,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
       return;
     }
 
-    this.registerSubscription = this.registerService.register({
+    const registerSubscription: Subscription = this.registerService.register({
       username: this.f.username.value,
       mail: this.f.mail.value,
       password: this.f.password.value,
@@ -176,28 +202,22 @@ export class RegisterComponent implements OnInit, OnDestroy {
       gender: this.selectedLookGender,
       look: this.selectedLook
     }).subscribe({
-      next: (e) => this.userSubscription = this.userService.getUser(e.data.token)
-        .subscribe({
-          next: () => this.router.navigateByUrl('/dashboard')
-            .then(() => {
-              this.alertService.success(this.translateService.instant('REGISTER.SUCCESS'));
-              const voteSubscription: Subscription = this.voteService.total().subscribe({
-                complete: () => voteSubscription.unsubscribe()
-              });
-            }),
-          error: () => this.alertService.error(this.translateService.instant('REGISTER.ERROR'))
-        })
+      next: (e) => {
+        const userSubscription: Subscription = this.userService.getUser(e.data.token)
+          .subscribe({
+            next: () => this.router.navigateByUrl('/dashboard')
+              .then(() => {
+                this.alertService.success(this.translateService.instant('REGISTER.SUCCESS'));
+                const voteSubscription: Subscription = this.voteService.total().subscribe({
+                  complete: () => voteSubscription.unsubscribe()
+                });
+              }),
+            error: () => this.alertService.error(this.translateService.instant('REGISTER.ERROR')),
+            complete: () => userSubscription.unsubscribe()
+          });
+      },
+      complete: () => registerSubscription.unsubscribe()
     });
-  }
-
-  ngOnDestroy() {
-    if (this.userSubscription && !this.userSubscription.unsubscribe) {
-      this.userSubscription.unsubscribe();
-    }
-
-    if (this.registerSubscription && !this.registerSubscription.unsubscribe) {
-      this.registerSubscription.unsubscribe();
-    }
   }
 
 }
