@@ -8,6 +8,12 @@ import {Article} from '../../../article/model/article';
 export class PinnedArticlesResolver implements Resolve<Article[]> {
   constructor(private articleService: ArticleService) {}
 
+  /**
+   * Gets the pinned articles and pass the data to the component
+   * @param route
+   * @param state
+   * @return Observable<Article[]>
+   */
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot

@@ -9,6 +9,12 @@ import {Guild} from '../../community/model/guild/guild';
 export class DashboardGuildResolver implements Resolve<Guild | boolean> {
   constructor(private guildService: GuildService) {}
 
+  /**
+   * Gets a guild with the most members and pass the data to the component
+   * @param route
+   * @param state
+   * @return Observable<Guild | boolean>
+   */
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot

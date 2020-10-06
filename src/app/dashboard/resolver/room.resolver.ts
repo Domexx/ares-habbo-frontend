@@ -9,6 +9,12 @@ import {catchError} from 'rxjs/operators';
 export class DashboardRoomResolver implements Resolve<Room | boolean> {
   constructor(private roomService: RoomService) {}
 
+  /**
+   * Gets the most visited room and pass the data to the component
+   * @param route
+   * @param state
+   * @return Observable<Room | boolean>
+   */
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot

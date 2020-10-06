@@ -40,8 +40,12 @@ export class DashboardComponent implements OnInit {
     private route: ActivatedRoute,
     private guildService: GuildService,
     private roomService: RoomService
-  ) { }
+  ) {
+  }
 
+  /**
+   * Initialize the Dashboard component
+   */
   ngOnInit(): void {
     this.user = this.userService.user;
     this.look = `${environment.app.imager}${this.user.look}&action=std&gesture=sml&direction=2&head_direction=2&size=l`;

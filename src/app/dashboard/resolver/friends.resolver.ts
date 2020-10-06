@@ -9,6 +9,12 @@ import {catchError} from 'rxjs/operators';
 export class DashboardFriendResolver implements Resolve<FriendPagination> {
   constructor(private friendService: FriendService) {}
 
+  /**
+   * Gets the friends and pass the data to the component
+   * @param route
+   * @param state
+   * @return Observable<FriendPagination>
+   */
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
