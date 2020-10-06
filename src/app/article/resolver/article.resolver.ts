@@ -3,15 +3,22 @@ import {ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot} from '@ang
 import {Observable} from 'rxjs';
 import {Article} from '../model/article';
 import {ArticleService} from '../service/article.service';
-import {catchError, map} from 'rxjs/operators';
+import {catchError} from 'rxjs/operators';
 
-@Injectable({ providedIn: 'root' })
+@Injectable({providedIn: 'root'})
 export class ArticleResolver implements Resolve<Article | boolean> {
   constructor(
     private articleService: ArticleService,
     private router: Router
-  ) {}
+  ) {
+  }
 
+  /**
+   * Gets article by slug and pass the data to the component
+   * @param route
+   * @param state
+   * @return Observable<Article | boolean>
+   */
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot

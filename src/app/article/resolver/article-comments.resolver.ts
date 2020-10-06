@@ -10,6 +10,12 @@ export class ArticleCommentsResolver implements Resolve<CommentPagination> {
     private articleService: ArticleService
   ) {}
 
+  /**
+   * Gets comment for article and pass the data to the component
+   * @param route
+   * @param state
+   * @return Observable<CommentPagination>
+   */
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot

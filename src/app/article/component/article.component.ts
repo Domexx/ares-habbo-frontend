@@ -27,8 +27,12 @@ export class ArticleComponent implements OnInit, OnDestroy {
   constructor(
     private route: ActivatedRoute,
     private titleService: TitleService
-  ) { }
+  ) {
+  }
 
+  /**
+   * Iniitialize Article component
+   */
   ngOnInit(): void {
     this.routerSubscription = this.route.data.subscribe((data) => {
       this.article = data.article;
@@ -42,10 +46,16 @@ export class ArticleComponent implements OnInit, OnDestroy {
     });
   }
 
+  /**
+   * Add up the comments length
+   */
   onComment(): void {
     this.article.comments++;
   }
 
+  /**
+   * Unsubscribes from subscriptions
+   */
   ngOnDestroy() {
     if (this.routerSubscription && !this.routerSubscription.unsubscribe) {
       this.routerSubscription.unsubscribe();
