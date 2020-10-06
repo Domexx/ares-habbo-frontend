@@ -23,7 +23,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   authSubscription: Subscription;
   userSubscription: Subscription;
   translateSubscription: Subscription;
-  voteSubscription: Subscription;
 
   loaded = false;
 
@@ -60,8 +59,8 @@ export class HomeComponent implements OnInit, OnDestroy {
       next: (e) => this.userSubscription = this.userService.getUser(e).subscribe({
         next: () => this.router.navigateByUrl('/dashboard')
           .then(() => {
-            this.voteSubscription = this.voteService.total().subscribe({
-              complete: () => this.voteSubscription.unsubscribe()
+            const voteSubscription: Subscription = this.voteService.total().subscribe({
+              complete: () => voteSubscription.unsubscribe()
             });
 
             this.alertService.success(this.translateService.instant('LOGIN.SUCCESS'));

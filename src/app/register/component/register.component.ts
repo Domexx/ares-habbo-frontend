@@ -8,6 +8,7 @@ import {Subscription} from 'rxjs';
 import {UserService} from '../../_shared/service/user.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {environment} from '../../../environments/environment';
+import {VoteService} from '../../_shared/service/vote.service';
 
 @Component({
   selector: 'ares-register',
@@ -36,7 +37,8 @@ export class RegisterComponent implements OnInit, OnDestroy {
     private userService: UserService,
     private router: Router,
     private elRef: ElementRef,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private voteService: VoteService
   ) { }
 
   ngOnInit(): void {
@@ -177,7 +179,12 @@ export class RegisterComponent implements OnInit, OnDestroy {
       next: (e) => this.userSubscription = this.userService.getUser(e.data.token)
         .subscribe({
           next: () => this.router.navigateByUrl('/dashboard')
-            .then(() => this.alertService.success(this.translateService.instant('REGISTER.SUCCESS'))),
+            .then(() => {
+              this.alertService.success(this.translateService.instant('REGISTER.SUCCESS'));
+              const voteSubscription: Subscription = this.voteService.total().subscribe({
+                complete: () => voteSubscription.unsubscribe()
+              });
+            }),
           error: () => this.alertService.error(this.translateService.instant('REGISTER.ERROR'))
         })
     });

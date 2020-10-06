@@ -24,7 +24,7 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link icon icon--community" routerLink="community" [routerLinkActive]="route !== '/community/staff' ? 'active' : ''"
+          <a class="nav-link icon icon--community" routerLink="community" [routerLinkActive]="route?.includes('/community') && route !== '/community/staff' ? 'active' : ''"
              [translate]="'NAVIGATOR.COMMUNITY'"></a>
         </li>
 
