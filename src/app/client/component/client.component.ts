@@ -23,7 +23,6 @@ declare global {
 })
 export class ClientComponent implements OnInit, OnDestroy {
   routerSubscription: Subscription;
-  ticketSubscription: Subscription;
 
   isFlashActivated = false;
   isSessionActive = false;
@@ -41,6 +40,9 @@ export class ClientComponent implements OnInit, OnDestroy {
     private elementRef: ElementRef
   ) { }
 
+  /**
+   * Initialize the Client component
+   */
   ngOnInit(): void {
     const flashDetected = new FlashDetect();
 
@@ -76,8 +78,11 @@ export class ClientComponent implements OnInit, OnDestroy {
     }
   }
 
+  /**
+   * Loads the client if the SSO ticket request were successfully
+   */
   loadClient(): void {
-    this.ticketSubscription = this.clientService.ticket().subscribe({
+    const ticketSubscription: Subscription = this.clientService.ticket().subscribe({
       next: (ticket: string) => {
         client.vars['sso.ticket'] = ticket;
 
@@ -97,10 +102,14 @@ export class ClientComponent implements OnInit, OnDestroy {
           window.FlashExternalInterface.disconnect = () => this.zone.run(() => this.isDisconnected = true);
         };
       },
-      error: () => this.isDisconnected = true
+      error: () => this.isDisconnected = true,
+      complete: () => ticketSubscription.unsubscribe()
     });
   }
 
+  /**
+   * Removes the client object element and "replaces" it with a div
+   */
   resetClient(): void {
     this.elementRef.nativeElement.removeChild(document.getElementById('game'));
 
@@ -110,6 +119,9 @@ export class ClientComponent implements OnInit, OnDestroy {
     this.elementRef.nativeElement.appendChild(game);
   }
 
+  /**
+   * Resets the client and reload the client
+   */
   reload(): void {
     this.isDisconnected = false;
 
@@ -117,18 +129,20 @@ export class ClientComponent implements OnInit, OnDestroy {
     this.loadClient();
   }
 
+  /**
+   * Overrides a existing client session
+   */
   overrideSession() {
     this.isSessionActive = false;
     this.loadClient();
   }
 
+  /**
+   * Destroys the Client component
+   */
   ngOnDestroy(): void {
     if (this.routerSubscription && !this.routerSubscription.unsubscribe) {
       this.routerSubscription.unsubscribe();
-    }
-
-    if (this.ticketSubscription && !this.ticketSubscription.unsubscribe) {
-      this.ticketSubscription.unsubscribe();
     }
   }
 
