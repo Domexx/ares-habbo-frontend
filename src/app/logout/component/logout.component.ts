@@ -18,13 +18,18 @@ export class LogoutComponent implements OnInit {
   ) {
   }
 
+  /**
+   * Redirects the user to the home component, if there is no token or any user data provided
+   * or sends a post requests to blacklist the JWT token
+   */
   ngOnInit(): void {
     if (!this.userService.token || !this.userService.user) {
       this.router.navigateByUrl('/');
       return;
     }
 
-    this.userService.logout().finally(() => this.router.navigateByUrl('/').then(() => this.alertService.success(this.translateService.instant('LOGOUT.SUCCESS'))));
+    this.userService.logout().finally(() => this.router.navigateByUrl('/')
+      .then(() => this.alertService.success(this.translateService.instant('LOGOUT.SUCCESS'))));
   }
 
 
