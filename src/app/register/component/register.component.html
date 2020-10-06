@@ -1,7 +1,7 @@
 <div class="container h-100">
   <div class="d-flex h-100 flex-column justify-content-center align-items-md-center align-items-sm-start">
     <div class="d-inline-flex flex-row mb-3 mt-5 w-50">
-      <img id="logo" src="../../../assets/images/icons/ares64x64.png" alt="Logo" />
+      <img id="logo" src="../../../assets/images/icons/ares64x64.png" alt="Logo"/>
 
       <div class="d-inline-flex flex-column flex-fill">
         <h5 class="mb-0 mt-2" [translate]="'REGISTER.TITLE'"></h5>
@@ -16,7 +16,7 @@
         <label for="username" class="form-label" [translate]="'REGISTER.FORM.INPUT.USERNAME.LABEL'"></label>
 
         <input type="text" id="username" class="form-control p-4" formControlName="username" required
-               autocomplete="username" aria-describedby="usernameHelp" />
+               autocomplete="username" aria-describedby="usernameHelp"/>
 
         <div id="usernameHelp" class="form-text" [translate]="'HOME.FORM.INPUT.USERNAME.HELP'"></div>
       </div>
@@ -25,22 +25,24 @@
         <div class="mb-3">
           <label for="password" class="form-label" [translate]="'HOME.FORM.INPUT.PASSWORD.LABEL'"></label>
           <input type="password" id="password" class="form-control p-4" formControlName="password" required
-                 autocomplete="current-password" aria-describedby="passwordHelp" />
+                 autocomplete="current-password" aria-describedby="passwordHelp"/>
 
           <div id="passwordHelp" class="form-text" [translate]="'HOME.FORM.INPUT.USERNAME.HELP'"></div>
         </div>
 
         <div class="mb-3">
           <label for="confirm-password" class="form-label" [translate]="'HOME.FORM.INPUT.PASSWORD.LABEL'"></label>
-          <input type="password" id="confirm-password" class="form-control p-4" formControlName="confirmPassword" required
-                 autocomplete="current-password" aria-describedby="confirmPasswordHelp" />
+          <input type="password" id="confirm-password" class="form-control p-4" formControlName="confirmPassword"
+                 required
+                 autocomplete="current-password" aria-describedby="confirmPasswordHelp"/>
           <div id="confirmPasswordHelp" class="form-text" [translate]="'HOME.FORM.INPUT.USERNAME.HELP'"></div>
         </div>
       </div>
 
       <div class="form-group">
         <label for="email" class="form-label" [translate]="'REGISTER.FORM.INPUT.MAIL.LABEL'"></label>
-        <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="email" class="form-control p-4" formControlName="mail" required autocomplete="email" />
+        <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="email" class="form-control p-4"
+               formControlName="mail" required autocomplete="email"/>
       </div>
 
       <div class="form-group">
@@ -49,7 +51,8 @@
         <div class="row" id="boys">
           <div *ngFor="let male of males" class="col-3">
             <div class="d-flex justify-content-center w-100">
-              <img (click)="selectLook(male, true)" [class]="selectedLook === male ? 'selected' : ''" class="look cursor-pointer" [src]="figure(male, true)" />
+              <img (click)="selectLook(male, true)" [class]="selectedLook === male ? 'selected' : ''"
+                   class="look cursor-pointer" [src]="figure(male, true)"/>
             </div>
           </div>
         </div>
@@ -61,7 +64,8 @@
         <div class="row" id="girls">
           <div *ngFor="let female of females" class="col-3">
             <div class="d-flex justify-content-center w-100">
-              <img (click)="selectLook(female)" [class]="selectedLook === female ? 'selected' : ''" class="look cursor-pointer" [src]="figure(female, true)" />
+              <img (click)="selectLook(female)" [class]="selectedLook === female ? 'selected' : ''"
+                   class="look cursor-pointer" [src]="figure(female, true)"/>
             </div>
           </div>
         </div>
@@ -69,7 +73,7 @@
 
       <div class="form-group">
         <div class="selected-look d-flex justify-content-center">
-          <img [src]="figure(selectedLook, false, true)" />
+          <img [src]="figure(selectedLook, false, true)"/>
         </div>
       </div>
 

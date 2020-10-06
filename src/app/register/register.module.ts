@@ -1,22 +1,22 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-import { RegisterRoutingModule } from './register-routing.module';
-import { RegisterComponent } from './component/register.component';
-import {TranslateModule} from '@ngx-translate/core';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RegisterRoutingModule} from './register-routing.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {RegisterService} from './service/register.service';
-import {LayoutModule} from "../_layout/layout.module";
+import {TranslateModule} from '@ngx-translate/core';
+import {LayoutModule} from '../_layout/layout.module';
+
+import {RegisterComponent} from './component/register.component';
 
 @NgModule({
   declarations: [RegisterComponent],
-    imports: [
-        CommonModule,
-        RegisterRoutingModule,
-        TranslateModule.forChild(),
-        ReactiveFormsModule,
-        FormsModule,
-        LayoutModule
-    ],
+  imports: [
+    CommonModule,
+    RegisterRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    TranslateModule.forChild(),
+    LayoutModule
+  ],
 })
-export class RegisterModule { }
+export class RegisterModule {
+}

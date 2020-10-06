@@ -36,7 +36,8 @@ export class RegisterComponent implements OnInit {
     private elRef: ElementRef,
     private route: ActivatedRoute,
     private voteService: VoteService
-  ) { }
+  ) {
+  }
 
   /**
    * Initialize the Register Component
@@ -62,6 +63,7 @@ export class RegisterComponent implements OnInit {
 
   /**
    * Returns the register form controls
+   * @return {[p: string]: AbstractControl}
    */
   get f() {
     return this.registerForm.controls;
@@ -69,6 +71,7 @@ export class RegisterComponent implements OnInit {
 
   /**
    * Validates the username input
+   * @return boolean
    */
   validateUsername(): boolean {
     const username = this.f.username;
@@ -86,6 +89,7 @@ export class RegisterComponent implements OnInit {
 
   /**
    * Validates password inputs
+   * @return boolean
    */
   validatePassword(): boolean {
     const password = this.f.password;
@@ -114,6 +118,7 @@ export class RegisterComponent implements OnInit {
 
   /**
    * Validates the mail input
+   * @return boolean
    */
   validateMail(): boolean {
     const mail = this.f.mail;
@@ -176,6 +181,7 @@ export class RegisterComponent implements OnInit {
    * @param look
    * @param head
    * @param large
+   * @return string
    */
   figure(look: string, head: boolean = false, large: boolean = false): string {
     return `${environment.app.imager}${look}${(head) ? '&headonly=1' : ''}${(large) ? '&size=l' : ''}`;
@@ -184,7 +190,7 @@ export class RegisterComponent implements OnInit {
   /**
    * Submits the input data
    */
-  onSubmit() {
+  onSubmit(): void {
     if (!this.validateUsername() || !this.validatePassword() || !this.validateMail()) {
       return;
     }
