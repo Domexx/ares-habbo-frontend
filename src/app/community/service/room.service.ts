@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {ApiService} from '../../_shared/service/api.service';
 import {Observable} from 'rxjs';
 import {Room} from '../model/room';
@@ -13,14 +13,23 @@ export class RoomService {
   constructor(
     private apiService: ApiService,
     private translateService: TranslateService
-  ) { }
+  ) {
+  }
 
+  /**
+   * Gets the most visited room
+   * @return Observable<Room>
+   */
   mostVisited(): Observable<Room> {
     return this.apiService.get('rooms/most/visited').pipe(
       map(value => value.data)
     );
   }
 
+  /**
+   * Creates a temporary room
+   * @return Room
+   */
   fakeRoom(): Room {
     const room = new Room();
 

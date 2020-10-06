@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {ApiService} from '../../_shared/service/api.service';
-import {catchError, map} from 'rxjs/operators';
 import {Observable} from 'rxjs';
 import {Guild} from '../model/guild/guild';
 import {User} from '../../_shared/model/user/user';
 import {TranslateService} from '@ngx-translate/core';
 import {MemberPagination} from '../model/guild/member';
+import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -17,20 +17,37 @@ export class GuildService {
     private http: HttpClient,
     private apiService: ApiService,
     private translateService: TranslateService
-  ) { }
+  ) {
+  }
 
+  /**
+   * Get guild by id
+   * @param id
+   * @return Observable<Guild>
+   */
   get(id: number): Observable<Guild> {
     return this.apiService.get(`guilds/${id}`).pipe(
       map(resp => resp.data)
     );
   }
 
+  /**
+   * Gets the guild which has the most members
+   * @return Observable<Guild>
+   */
   mostMembers(): Observable<Guild> {
     return this.apiService.get('guilds/most/members').pipe(
       map(resp => resp.data)
     );
   }
 
+  /**
+   * Gets members of a guild
+   * @param id
+   * @param page
+   * @param results
+   * @return Observable<MemberPagination>
+   */
   members(id: number, page: number = 1, results: number = 6): Observable<MemberPagination> {
     return this.apiService.get(`guilds/members/${id}/list/${page}/${results}`, {}, false).pipe(
       map(resp => {
@@ -47,6 +64,10 @@ export class GuildService {
     );
   }
 
+  /**
+   * Creates a temporary guild
+   * @return { guild: Guild, member_count: number }
+   */
   fakeGuild(): { guild: Guild, member_count: number } {
     const guild = new Guild();
 
@@ -57,9 +78,13 @@ export class GuildService {
     guild.name = this.translateService.instant('DASHBOARD.GUILD.TITLE');
     guild.description = this.translateService.instant('DASHBOARD.GUILD.DESCRIPTION');
 
-    return { guild, member_count: 0 };
+    return {guild, member_count: 0};
   }
 
+  /**
+   * Creates a mannequin user
+   * @return User
+   */
   mannequin(): User {
     const mannequin = new User();
 

@@ -23,14 +23,17 @@ export class GuildComponent implements OnInit {
   membersLength = 0;
 
   date = environment.app.components.community.guild.date;
-
   badgeParts = environment.app.badgeParts;
 
   constructor(
     private route: ActivatedRoute,
     private titleService: TitleService
-  ) { }
+  ) {
+  }
 
+  /**
+   * Initialize the Guild component
+   */
   ngOnInit(): void {
     const guildData = this.route.snapshot.data.guild;
 
