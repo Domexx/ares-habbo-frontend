@@ -1,4 +1,4 @@
-import {Component, OnInit, OnDestroy, AfterViewInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {TitleService} from 'src/app/_shared/service/title.service';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
 import {UserService} from 'src/app/_shared/service/user.service';
@@ -14,7 +14,7 @@ import {VoteService} from '../../_shared/service/vote.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit {
   hotelName = environment.app.hotelName || 'Ares';
 
   authForm: FormGroup;
@@ -22,9 +22,6 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   authSubscription: Subscription;
   userSubscription: Subscription;
-  translateSubscription: Subscription;
-
-  loaded = false;
 
   constructor(
     private titleService: TitleService,
@@ -37,16 +34,21 @@ export class HomeComponent implements OnInit, OnDestroy {
   ) {
   }
 
+  /**
+   * Initialize the home component
+   */
   ngOnInit(): void {
     this.authForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
 
-    setTimeout(() => this.loaded = true, 250);
     this.titleService.setTitle(this.translateService.instant('HOME.TITLE'));
   }
 
+  /**
+   * Handles the login button click event
+   */
   onSubmit(): void {
     this.submitted = true;
 
@@ -71,12 +73,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     });
   }
 
-  ngOnDestroy(): void {
-    if (this.translateSubscription && !this.translateSubscription.closed) {
-      this.translateSubscription.unsubscribe();
-    }
-  }
-
+  /**
+   * Returns the auth form controls
+   * @return {[p: string]: AbstractControl}
+   */
   get f() {
     return this.authForm.controls;
   }
