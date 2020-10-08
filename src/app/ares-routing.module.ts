@@ -34,6 +34,12 @@ const routes: Routes = [
     canActivateChild: [ActiveSessionGuard]
   },
   {
+    path: 'employees',
+    loadChildren: () => import('./employees/employees.module').then(m => m.EmployeesModule),
+    canActivate: [AuthGuard],
+    canActivateChild: [ActiveSessionGuard]
+  },
+  {
     path: 'client',
     loadChildren: () => import('./client/client.module').then(m => m.ClientModule),
     canActivate: [AuthGuard],
