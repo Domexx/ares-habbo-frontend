@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 
 import { EmployeesRoutingModule } from './employees-routing.module';
 import { EmployeesComponent } from './component/employees/employees.component';
+import {LayoutModule} from '../_layout/layout.module';
 
 @NgModule({
   declarations: [EmployeesComponent],
   imports: [
     CommonModule,
-    EmployeesRoutingModule
+    EmployeesRoutingModule,
+    LayoutModule
   ]
 })
 export class EmployeesModule { }

@@ -1,1 +1,12 @@
-<p>employees works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12 mb-3" *ngFor="let rank of ranks">
+      <h4>{{ rank.rank_name }}</h4>
+      <div class="row mt-4">
+          <ares-layout-employees-item class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-4" [class.offline]="employee.online === 0"  [employee]="employee" [color]="rank.prefix_color"
+                                      [badge]="rank.badge" *ngFor="let employee of rank.users">
+          </ares-layout-employees-item>
+      </div>
+    </div>
+  </div>
+</div>

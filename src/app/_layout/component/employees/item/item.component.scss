@@ -1,0 +1,32 @@
+:host {
+  &.offline {
+    .card {
+      background-color: var(--main-bg-gray) !important;
+
+      .employee-figure {
+        opacity: .6;
+      }
+
+      &:hover,
+      &:focus {
+        .employee-figure {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .card {
+    height: 6rem;
+    object-fit: cover;
+
+    .employee-figure {
+      position: relative;
+      top: -3.5rem;
+      image-rendering: pixelated;
+      height: 13rem;
+      clip-path: inset(0 0 27% 0);
+      transition: 250ms opacity;
+    }
+  }
+}
