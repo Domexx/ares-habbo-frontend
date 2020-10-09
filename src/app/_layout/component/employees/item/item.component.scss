@@ -19,6 +19,7 @@
   .card {
     height: 6rem;
     object-fit: cover;
+    background-color: var(--main-bg-red-alt);
 
     .employee-figure {
       position: relative;
@@ -27,6 +28,10 @@
       height: 13rem;
       clip-path: inset(0 0 27% 0);
       transition: 250ms opacity;
+    }
+
+    .employee-username {
+      font-size: 1.2rem;
     }
   }
 }

@@ -136,6 +136,9 @@
       }
     }
   },
+  "EMPLOYEES": {
+    "TITLE": "Mitarbeiter"
+  },
   "CLIENT": {
     "DISCONNECTED": {
       "TITLE": "Oh, Bobba!",

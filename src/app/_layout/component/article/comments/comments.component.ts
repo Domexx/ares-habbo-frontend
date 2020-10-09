@@ -29,10 +29,6 @@ export class CommentsComponent implements OnInit {
   pagination$: Pagination;
   id$: number;
 
-  commentSubscription: Subscription;
-  writeSubscription: Subscription;
-  voteSubscription: Subscription;
-
   commentForm: FormGroup;
 
   modalRef: BsModalRef;
@@ -73,7 +69,7 @@ export class CommentsComponent implements OnInit {
 
   upVote(comment: Comment): void {
     if (this.voteService.exists(comment.id, EntityType.ARTICLE_COMMENT_VOTE_ENTITY, VoteType.LIKE)) {
-      this.voteSubscription = this.voteService.delete(
+      const voteSubscription = this.voteService.delete(
         comment.id,
         EntityType.ARTICLE_COMMENT_VOTE_ENTITY,
         VoteType.LIKE
@@ -85,25 +81,25 @@ export class CommentsComponent implements OnInit {
 
           comment.likes--;
         },
-        complete: () => this.voteSubscription.unsubscribe()
+        complete: () => voteSubscription.unsubscribe()
       });
 
       return;
     }
 
-    this.voteSubscription = this.voteService.create(
+    const subscription = this.voteService.create(
       comment.id,
       EntityType.ARTICLE_COMMENT_VOTE_ENTITY,
       VoteType.LIKE
     ).subscribe({
       next: () => comment.likes++,
-      complete: () => this.voteSubscription.unsubscribe()
+      complete: () => subscription.unsubscribe()
     });
   }
 
   downVote(comment: Comment): void {
     if (this.voteService.exists(comment.id, EntityType.ARTICLE_COMMENT_VOTE_ENTITY, VoteType.DISLIKE)) {
-      this.voteSubscription = this.voteService.delete(
+      const voteSubscription: Subscription = this.voteService.delete(
         comment.id,
         EntityType.ARTICLE_COMMENT_VOTE_ENTITY,
         VoteType.DISLIKE
@@ -115,19 +111,19 @@ export class CommentsComponent implements OnInit {
 
           comment.dislikes--;
         },
-        complete: () => this.voteSubscription.unsubscribe()
+        complete: () => voteSubscription.unsubscribe()
       });
 
       return;
     }
 
-    this.voteSubscription = this.voteService.create(
+    const subscription = this.voteService.create(
       comment.id,
       EntityType.ARTICLE_COMMENT_VOTE_ENTITY,
       VoteType.DISLIKE
     ).subscribe({
       next: () => comment.dislikes++,
-      complete: () => this.voteSubscription.unsubscribe()
+      complete: () => subscription.unsubscribe()
     });
   }
 
@@ -144,12 +140,12 @@ export class CommentsComponent implements OnInit {
       return;
     }
 
-    this.commentSubscription = this.articleService.getComments(this.id$, this.pagination$.nextPage).subscribe({
+    const subscription = this.articleService.getComments(this.id$, this.pagination$.nextPage).subscribe({
       next: (e) => {
         e.comments.forEach(value => this.comments$.push(value));
         this.pagination$ = e.pagination;
       },
-      complete: () => this.commentSubscription.unsubscribe()
+      complete: () => subscription.unsubscribe()
     });
   }
 
@@ -161,7 +157,7 @@ export class CommentsComponent implements OnInit {
       return;
     }
 
-    this.writeSubscription = this.articleService.createComment(this.id$, comment.value).subscribe({
+    const subscription = this.articleService.createComment(this.id$, comment.value).subscribe({
       next: (value) => {
         this.comments$.splice(0, 0, value);
         this.alertService.success(this.translateService.instant('ARTICLES.ARTICLE.COMMENT.SUCCESS'));
@@ -171,7 +167,7 @@ export class CommentsComponent implements OnInit {
 
         comment.reset();
         this.modalRef.hide();
-        this.writeSubscription.unsubscribe();
+        subscription.unsubscribe();
       }
     });
   }

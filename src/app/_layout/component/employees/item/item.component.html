@@ -1,3 +1,11 @@
-<div class="card d-flex flex-row" [style.background-color]="color$">
+<div class="card d-flex flex-row">
   <img class="employee-figure" [src]="figure(employee$.look)" [alt]="employee$.username" />
+
+  <div class="d-inline-flex flex-column justify-content-center flex-fill">
+    <span class="employee-username">{{ employee$.username }}</span>
+    <i>{{ employee$.motto }}</i>
+  </div>
+
+  <i class="sprite sprite--date"></i>
+  {{ employee$.last_login }}
 </div>
