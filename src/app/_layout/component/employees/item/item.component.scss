@@ -1,3 +1,7 @@
+@import "~bootstrap/scss/functions";
+@import "src/styles/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
 :host {
   &.offline {
     .card {
@@ -20,6 +24,12 @@
     height: 6rem;
     object-fit: cover;
     background-color: var(--main-bg-red-alt);
+    transition: 250ms all;
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 2px 8px 1px rgb(0 0 0 / 20%);
+    }
 
     .employee-figure {
       position: relative;
@@ -32,6 +42,33 @@
 
     .employee-username {
       font-size: 1.2rem;
+
+      @media (max-width: map-get($grid-breakpoints, "xl")) {
+        max-width: 5rem;
+      }
+
+      @media (min-width: map-get($grid-breakpoints, "xl")) {
+        max-width: 10rem;
+      }
+
+      @include media-breakpoint-down(md) {
+        max-width: 100%;
+      }
+
+      @include media-breakpoint-down(sm) {
+        max-width: 100%;
+      }
+    }
+
+    .employee-motto {
+      max-width: 10rem;
+    }
+
+    .rank-badge {
+      object-fit: contain;
+      position: absolute;
+      right: -.5rem;
+      top: -.5rem;
     }
   }
 }

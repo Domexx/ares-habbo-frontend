@@ -4,7 +4,6 @@
   text-align: right !important;
 }
 
-
 .article {
   height: 16.5rem !important;
   overflow-y: hidden !important;
@@ -93,6 +92,29 @@
     }
   }
 
+  .article--comments-icon {
+    background-color: #542733;
+    height: 32px;
+    width: 32px;
+    border-radius: 50rem;
+
+    & > i {
+      display: inline-flex;
+    }
+  }
+
+  .article--likes-icon {
+    background-color: #214032;
+    height: 32px;
+    width: 32px;
+    border-radius: 50rem;
+    padding-left: .2rem;
+
+    & > i {
+      display: inline-flex;
+    }
+  }
+
   & .article--title {
     margin-top: 1rem;
     margin-bottom: 0;
@@ -107,10 +129,6 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
-  }
-
-  .article--info-small {
-    line-height: 2.2rem;
   }
 }
 

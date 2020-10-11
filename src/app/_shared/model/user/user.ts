@@ -13,6 +13,8 @@ export class User {
     look: string;
     online: number;
   // tslint:disable-next-line:variable-name
+    last_online: number;
+  // tslint:disable-next-line:variable-name
     last_login: number;
   // tslint:disable-next-line:variable-name
     created_at: Timestamp;

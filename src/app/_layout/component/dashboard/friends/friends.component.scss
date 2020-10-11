@@ -16,7 +16,24 @@
 }
 
 .friend {
-  background-color: var(--main-bg-color);
+  &.offline {
+    background-color: var(--main-bg-color);
+
+    &:hover,
+    &:focus {
+      opacity: 1;
+
+      img {
+        opacity: 1;
+      }
+    }
+
+    img {
+      opacity: .5;
+    }
+  }
+
+  background-color: var(--main-bg-red-alt);
   border: unset;
   height: 3.5rem;
   border-radius: 4px;
@@ -24,13 +41,6 @@
 
   &:first-child {
     margin-top: 1rem;
-  }
-
-  &:hover,
-  &:focus {
-    .offline {
-      opacity: 1;
-    }
   }
 
   .card-body {
@@ -44,10 +54,6 @@
     clip-path: inset(0 0 20% 0);
     transition: 0.35s all;
     height: 6rem;
-
-    &.offline {
-      opacity: .5;
-    }
   }
 
   .user-info {
@@ -63,32 +69,6 @@
 
       @include media-breakpoint-between(sm, lg) {
         width: 100%;
-      }
-
-      &.online {
-        &::after {
-          content: ' ';
-          background-color: var(--main-bg-green);
-          height: .3rem;
-          position: absolute;
-          width: .3rem;
-          border-radius: 50rem;
-          top: 1.2rem;
-          margin-left: .3rem;
-        }
-      }
-
-      &.offline {
-        &::after {
-          content: ' ';
-          background-color: var(--btn-danger);
-          height: .3rem;
-          position: absolute;
-          width: .3rem;
-          border-radius: 50rem;
-          top: 1.2rem;
-          margin-left: .3rem;
-        }
       }
     }
 

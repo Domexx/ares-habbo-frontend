@@ -25,13 +25,17 @@
         </div>
 
         <div class="d-inline-flex flex-row w-100">
-          <span class="align-self-start flex-fill d-inline-flex flex-row article--info-small">
-            <i class="sprite sprite--thumb pr-2"></i>
+          <div class="align-items-center flex-fill d-inline-flex flex-row">
+            <div class="article--likes-icon mr-2">
+              <i class="sprite sprite--thumb"></i>
+            </div>
             {{ article.likes }}
 
-            <i class="ml-4 sprite sprite--article-slider-comment"></i>
-            {{ article.comments }}
-          </span>
+            <span class="ml-5 mr-2">{{ article.comments }}</span>
+            <div class="article--comments-icon">
+              <i class="sprite sprite--article-slider-comments"></i>
+            </div>
+          </div>
           <a [routerLink]="['/articles', article.slug]" class="btn btn-danger align-self-end w-25" [translate]="'DASHBOARD.SLIDER.ARTICLES.READ_MORE'"></a>
         </div>
       </div>

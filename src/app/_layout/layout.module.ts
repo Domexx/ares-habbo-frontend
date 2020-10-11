@@ -43,6 +43,7 @@ import {faUnlink} from '@fortawesome/free-solid-svg-icons/faUnlink';
 import {SharedModule} from '../_shared/shared.module';
 import { GuestbookComponent } from './component/community/guild/guestbook/guestbook.component';
 import { ItemComponent } from './component/employees/item/item.component';
+import {MomentModule} from 'ngx-moment';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -74,19 +75,20 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     GuestbookComponent,
     ItemComponent
   ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    TranslateModule.forChild(),
-    FormsModule,
-    SwiperModule,
-    InfiniteScrollModule,
-    TooltipModule.forRoot(),
-    ReactiveFormsModule,
-    ModalModule.forRoot(),
-    FontAwesomeModule,
-    SharedModule
-  ],
+    imports: [
+        CommonModule,
+        RouterModule,
+        TranslateModule.forChild(),
+        FormsModule,
+        SwiperModule,
+        InfiniteScrollModule,
+        TooltipModule.forRoot(),
+        ReactiveFormsModule,
+        ModalModule.forRoot(),
+        FontAwesomeModule,
+        SharedModule,
+        MomentModule
+    ],
   providers: [
     {
       provide: SWIPER_CONFIG,

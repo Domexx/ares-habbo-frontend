@@ -18,6 +18,7 @@ export const environment = {
     // Images
     imager: 'https://www.habbo.com/habbo-imaging/avatarimage?figure=',
     badgeParts: 'https://yourdomain.com/swf/c_images/Badgeparts/generated/',
+    album1584: 'https://swf.ares.to/c_images/album1584/',
 
     camera: {
       images: '',
@@ -46,6 +47,10 @@ export const environment = {
         guild: {
           date: 'dd.MM.yyyy'
         }
+      },
+
+      employees: {
+        date: 'dd.MM.yyyy'
       }
     }
   }

@@ -20,9 +20,9 @@ export class LanguageService {
   }
 
   set language(lang: string) {
-    localStorage.setItem('ares-lang', lang);
     this.currentLangSubject.next(lang);
     this.translateService.use(lang);
+    localStorage.setItem('ares-lang', lang);
   }
 
   get language(): string {
@@ -32,11 +32,9 @@ export class LanguageService {
   getCurrentCulture(): string {
     switch (this.language) {
       case 'en':
-        return 'en-US'
-        break;
+        return 'en-US';
       case 'de':
-          return 'de-DE'
-      break;
-    };
+          return 'de-DE';
+    }
   }
 }

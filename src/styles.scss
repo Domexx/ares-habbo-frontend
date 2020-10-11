@@ -4,6 +4,9 @@
   * @license GNU General Public License v3.0 <https://gitlab.com/arescms/ares-frontend/-/blob/master/LICENSE>
   */
 
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+
 @import 'styles/variables';
 
 @import "~bootstrap/scss/bootstrap";
@@ -27,7 +30,6 @@
 html {
   body {
     height: 100vh;
-    background-color: var(--main-bg-color);
     font-family: 'Titillium Web', sans-serif;
     color: var(--text-normal);
     text-shadow: 0 1px 2px rgb(0 0 0 / 55%);

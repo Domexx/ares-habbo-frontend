@@ -1,11 +1,16 @@
 <div class="card d-flex flex-row">
   <img class="employee-figure" [src]="figure(employee$.look)" [alt]="employee$.username" />
 
-  <div class="d-inline-flex flex-column justify-content-center flex-fill">
-    <span class="employee-username">{{ employee$.username }}</span>
-    <i>{{ employee$.motto }}</i>
+  <div class="d-inline-flex flex-column justify-content-center flex-fill text-ellipsis">
+    <span class="employee-username text-ellipsis">{{ employee$.username }}</span>
+    <i class="employee-motto text-ellipsis">{{ employee$.motto }}</i>
   </div>
 
-  <i class="sprite sprite--date"></i>
-  {{ employee$.last_login }}
+  <div class="flex-fill d-inline-flex justify-content-end pt-2 pr-4">
+    <i class="sprite sprite--date mr-1 mt-1"></i>
+    <!-- @TODO change last_login to last_online -->
+    {{ (employee$.last_login | amFromUnix) | amLocale:locale | amTimeAgo }}
+  </div>
+
+  <img class="rank-badge" [src]="badgePath(badge$)" [alt]="name$" [tooltip]="name$" placement="right" />
 </div>
