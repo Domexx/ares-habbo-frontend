@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import { environment } from 'src/environments/environment';
-import {UserService} from '../../../../_shared/service/user.service';
+import {UserService} from '../../../../_service/user.service';
 
 @Component({
   selector: 'ares-navigation',

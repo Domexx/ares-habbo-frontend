@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {ApiService} from '../../_shared/service/api.service';
+import {ApiService} from '../../_service/api.service';
 
 @Injectable({
   providedIn: 'root'

@@ -1,5 +1,5 @@
 import {Component, OnInit, ChangeDetectorRef, AfterViewChecked} from '@angular/core';
-import { UserService } from './_shared/service/user.service';
+import { UserService } from './_service/user.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import {HttpLoaderService} from './_service/http-loader.service';
 import {Router} from '@angular/router';

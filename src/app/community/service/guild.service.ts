@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {ApiService} from '../../_shared/service/api.service';
+import {ApiService} from '../../_service/api.service';
 import {Observable} from 'rxjs';
 import {Guild} from '../model/guild/guild';
 import {User} from '../../_shared/model/user/user';

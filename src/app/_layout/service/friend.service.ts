@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {ApiService} from '../../_shared/service/api.service';
+import {ApiService} from '../../_service/api.service';
 import {map} from 'rxjs/operators';
 import {FriendPagination} from '../../dashboard/model/friend';
 import {User} from '../../_shared/model/user/user';

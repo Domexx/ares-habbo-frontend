@@ -1,6 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {User} from '../../../../_shared/model/user/user';
-import {UserService} from '../../../../_shared/service/user.service';
+import {UserService} from '../../../../_service/user.service';
 import {environment} from '../../../../../environments/environment';
 import {ClientService} from '../../../../client/service/client.service';
 import {Subscription} from 'rxjs';

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {ApiService} from './api.service';
+import {ApiService} from '../../_service/api.service';
 import {BehaviorSubject, Observable} from 'rxjs';
 import {EntityType, Vote, VoteType} from '../model/vote';
 import {map} from 'rxjs/operators';

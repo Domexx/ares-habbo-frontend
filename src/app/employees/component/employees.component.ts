@@ -8,7 +8,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {PermissionRank} from '../model/permission-rank.model';
-import {TitleService} from '../../_shared/service/title.service';
+import {TitleService} from '../../_service/title.service';
 import {TranslateService} from '@ngx-translate/core';
 
 @Component({

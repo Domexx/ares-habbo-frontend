@@ -1,10 +1,17 @@
+/*
+ * Ares (https://ares.to)
+ *
+ * @license https://gitlab.com/arescms/ares-frontend/LICENSE (MIT License)
+ *
+ */
+
 import {Injectable} from '@angular/core';
 import {map} from 'rxjs/operators';
 import {BehaviorSubject, Observable} from 'rxjs';
-import {User} from '../model/user/user';
+import {User} from '../_shared/model/user/user';
 import {ApiService} from './api.service';
-import {API} from '../model/api';
-import {environment} from '../../../environments/environment';
+import {API} from '../_shared/model/api';
+import {VoteService} from '../_shared/service/vote.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +20,10 @@ export class UserService {
   private readonly userSubject: BehaviorSubject<User>;
   public user$: Observable<User>;
 
-  constructor(private apiService: ApiService) {
+  constructor(
+    private apiService: ApiService,
+    private voteService: VoteService
+  ) {
     this.userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('ares-user')));
     this.user$ = this.userSubject.asObservable();
   }
@@ -25,6 +35,7 @@ export class UserService {
       );
   }
 
+  // @TODO: change any return type to ????
   getUser(token: string = null): Observable<any> {
     return this.apiService.get('user', {headers: {Authorization: `Bearer ${token}`}})
       .pipe(
@@ -46,6 +57,8 @@ export class UserService {
   logout(): Promise<void | API> {
     localStorage.removeItem('ares-user');
     this.change(null);
+
+    this.voteService.votes = [];
 
     return this.apiService.post('logout', {}, {
       headers: {

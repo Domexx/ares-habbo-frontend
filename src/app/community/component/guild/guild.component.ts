@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Guild} from '../../model/guild/guild';
 import {environment} from '../../../../environments/environment';
-import {TitleService} from '../../../_shared/service/title.service';
+import {TitleService} from '../../../_service/title.service';
 import {Pagination} from '../../../_shared/model/pagination';
 import {Member} from '../../model/guild/member';
 import {GuestbookPagination} from '../../../_shared/model/guestbook';

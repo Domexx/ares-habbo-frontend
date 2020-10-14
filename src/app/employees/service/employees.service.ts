@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';;
 import {Observable} from 'rxjs';
 import {PermissionRank} from '../model/permission-rank.model';
-import {ApiService} from '../../_shared/service/api.service';
+import {ApiService} from '../../_service/api.service';
 import {map} from 'rxjs/operators';
-import {UserService} from '../../_shared/service/user.service';
+import {UserService} from '../../_service/user.service';
 
 @Injectable({
   providedIn: 'root'

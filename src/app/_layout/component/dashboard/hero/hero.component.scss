@@ -1,7 +1,6 @@
-@import '../../../../../styles/variables';
-@import "../../../../../../node_modules/bootstrap/scss/functions";
-@import "../../../../../../node_modules/bootstrap/scss/variables";
-@import "../../../../../../node_modules/bootstrap/scss/mixins/breakpoints";
+@import "~bootstrap/scss/functions";
+@import 'src/styles/variables';
+@import "~bootstrap/scss/mixins/breakpoints";
 
 :host {
   background-image: url('../../../../../assets/images/dashboard/tree_left.png'), url('../../../../../assets/images/dashboard/tree_right.png'), url('../../../../../assets/images/dashboard/hero-bg.png');
@@ -13,7 +12,7 @@
   display: flex;
   position: relative;
 
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-down(lg) {
     background-image: url('../../../../../assets/images/dashboard/hero-bg.png');
     background-position: center;
     background-size: cover;
@@ -53,7 +52,7 @@
     background-position: bottom center;
     position: absolute;
     bottom: -3rem;
-    left: -5rem;
+    left: -7rem;
     height: 10rem;
     width: 20rem;
     z-index: -1;

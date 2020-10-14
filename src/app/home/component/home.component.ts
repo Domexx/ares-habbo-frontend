@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {TitleService} from 'src/app/_shared/service/title.service';
+import {TitleService} from 'src/app/_service/title.service';
 import {FormGroup, FormBuilder, Validators} from '@angular/forms';
-import {UserService} from 'src/app/_shared/service/user.service';
+import {UserService} from 'src/app/_service/user.service';
 import {Subscription} from 'rxjs';
 import {Router} from '@angular/router';
 import {AlertService} from '../../_shared/service/alert.service';

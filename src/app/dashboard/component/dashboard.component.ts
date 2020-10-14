@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from 'src/app/_shared/model/user/user';
-import {UserService} from 'src/app/_shared/service/user.service';
-import {TitleService} from 'src/app/_shared/service/title.service';
+import {UserService} from 'src/app/_service/user.service';
+import {TitleService} from 'src/app/_service/title.service';
 import {environment} from 'src/environments/environment';
 import {Article} from '../../article/model/article';
 import {ActivatedRoute} from '@angular/router';

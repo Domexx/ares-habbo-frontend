@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {Article} from '../model/article';
 import {environment} from '../../../environments/environment';
-import {TitleService} from '../../_shared/service/title.service';
+import {TitleService} from '../../_service/title.service';
 import {Comment, CommentPagination} from '../model/comment';
 import {Subscription} from 'rxjs';
 

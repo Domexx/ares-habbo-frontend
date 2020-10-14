@@ -137,7 +137,8 @@
     }
   },
   "EMPLOYEES": {
-    "TITLE": "Mitarbeiter"
+    "TITLE": "Mitarbeiter",
+    "NO_USERS": "Keine Mitarbeiter gefunden"
   },
   "CLIENT": {
     "DISCONNECTED": {

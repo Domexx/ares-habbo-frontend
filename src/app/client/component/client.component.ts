@@ -1,9 +1,9 @@
 import {Component, ElementRef, NgZone, OnDestroy, OnInit} from '@angular/core';
 import {client} from '../../../environments/environment';
 import {NavigationEnd, NavigationStart, Router} from '@angular/router';
-import {TitleService} from '../../_shared/service/title.service';
+import {TitleService} from '../../_service/title.service';
 import {Subscription} from 'rxjs';
-import {UserService} from '../../_shared/service/user.service';
+import {UserService} from '../../_service/user.service';
 import {Location} from '@angular/common';
 import {ClientService} from '../service/client.service';
 import * as FlashDetect from 'flash-detect';

@@ -1,10 +1,17 @@
+/*
+ * Ares (https://ares.to)
+ *
+ * @license https://gitlab.com/arescms/ares-frontend/LICENSE (MIT License)
+ *
+ */
+
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {LanguageService} from './language.service';
-import {API} from '../model/api';
-import {environment} from '../../../environments/environment';
+import {LanguageService} from '../_shared/service/language.service';
+import {API} from '../_shared/model/api';
+import {environment} from '../../environments/environment';
 import {Observable} from 'rxjs';
-import {HttpLoaderService} from '../../_service/http-loader.service';
+import {HttpLoaderService} from './http-loader.service';
 
 @Injectable({
   providedIn: 'root'

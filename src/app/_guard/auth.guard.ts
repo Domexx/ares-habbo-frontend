@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router} from '@angular/router';
 import {Observable} from 'rxjs';
-import {UserService} from '../_shared/service/user.service';
+import {UserService} from '../_service/user.service';
 import {AlertService} from '../_shared/service/alert.service';
 import {TranslateService} from '@ngx-translate/core';
 

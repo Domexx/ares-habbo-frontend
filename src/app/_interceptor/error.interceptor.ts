@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpErrorResponse} from '@angular/common/http';
 import {Observable, of, throwError} from 'rxjs';
 import {catchError} from 'rxjs/operators';
-import {UserService} from 'src/app/_shared/service/user.service';
+import {UserService} from 'src/app/_service/user.service';
 import {AlertService} from '../_shared/service/alert.service';
 import {Router} from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
