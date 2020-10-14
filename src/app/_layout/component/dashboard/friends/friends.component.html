@@ -27,7 +27,7 @@
       </ng-container>
 
       <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12" *ngFor="let friend of friends$ | searchFriend: searchName as result">
-        <div class="card friend mb-2 d-flex flex-row align-items-center" [class.offline]="friend?.online === 0">
+        <div class="card friend mb-2 d-flex flex-row align-items-center" [class.offline]="friend?.online < 1">
           <img [src]="look(friend?.look)" [alt]="friend.username" />
 
           <div class="user-info d-inline-flex flex-column text-ellipsis">

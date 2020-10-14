@@ -1,19 +1,22 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {User} from '../../../../_shared/model/user/user';
 import {environment} from '../../../../../environments/environment';
 import {LanguageService} from '../../../../_shared/service/language.service';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'ares-layout-employees-item',
   templateUrl: './item.component.html',
   styleUrls: ['./item.component.scss']
 })
-export class ItemComponent implements OnInit{
+export class ItemComponent implements OnInit, OnDestroy {
   employee$: User;
   color$: string;
   badge$: string;
   name$: string;
   locale: string;
+
+  localeSubscription: Subscription;
 
   /**
    * Sets the employee
@@ -53,8 +56,8 @@ export class ItemComponent implements OnInit{
   /**
    * Initialize Item component
    */
-  ngOnInit() {
-    const subscription = this.languageService.currentLang.subscribe({
+  ngOnInit(): void {
+    this.localeSubscription = this.languageService.currentLang.subscribe({
       next: value => this.locale = value
     });
   }
@@ -68,7 +71,24 @@ export class ItemComponent implements OnInit{
     return `${environment.app.imager}${look}&action=std&gesture=sml&direction=2&head_direction=2&size=l`;
   }
 
+  /**
+   * Returns a formatted string including pre-configured badge path
+   * with the given badge code
+   *
+   * @param code Badge Code
+   * @return string
+   */
   public badgePath(code: string): string {
     return `${environment.app.album1584}${code}.gif`;
   }
+
+  /**
+   * Gets called after the component gets destroyed
+   */
+  ngOnDestroy(): void {
+    if (this.localeSubscription && !this.localeSubscription.unsubscribe) {
+      this.localeSubscription.unsubscribe();
+    }
+  }
+
 }

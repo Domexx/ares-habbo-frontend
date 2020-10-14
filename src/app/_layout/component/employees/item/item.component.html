@@ -8,8 +8,7 @@
 
   <div class="flex-fill d-inline-flex justify-content-end pt-2 pr-4">
     <i class="sprite sprite--date mr-1 mt-1"></i>
-    <!-- @TODO change last_login to last_online -->
-    {{ (employee$.last_login | amFromUnix) | amLocale:locale | amTimeAgo }}
+    {{ (employee$.last_online | amFromUnix) | amLocale:locale | amTimeAgo }}
   </div>
 
   <img class="rank-badge" [src]="badgePath(badge$)" [alt]="name$" [tooltip]="name$" placement="right" />

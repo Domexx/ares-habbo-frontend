@@ -13,7 +13,10 @@
 <div class="container">
   <div class="row">
     <div class="col-12 mb-3" *ngFor="let rank of ranks">
-      <h4>{{ rank.rank_name }}</h4>
+      <div class="d-flex flex-row">
+        <i class="icon icon--community mr-2"></i>
+        <span class="rank-name">{{ rank.rank_name }}</span>
+      </div>
       <ng-container *ngIf="rank.users.length > 0; else noEmployees">
         <div class="row mt-4">
           <ares-layout-employees-item class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-4" [class.offline]="employee.online === 0"  [employee]="employee" [color]="rank.prefix_color"
@@ -22,7 +25,7 @@
         </div>
       </ng-container>
       <ng-template #noEmployees>
-        <span [translate]="'EMPLOYEES.TITLE'"></span>
+        <h5 [translate]="'EMPLOYEES.EMPTY'"></h5>
       </ng-template>
     </div>
   </div>
