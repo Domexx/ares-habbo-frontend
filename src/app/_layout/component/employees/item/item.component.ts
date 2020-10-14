@@ -55,10 +55,7 @@ export class ItemComponent implements OnInit{
    */
   ngOnInit() {
     const subscription = this.languageService.currentLang.subscribe({
-      next: value => {
-        console.log(value);
-        this.locale = value
-      }
+      next: value => this.locale = value
     });
   }
 
