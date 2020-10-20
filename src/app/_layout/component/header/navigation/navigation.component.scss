@@ -122,6 +122,20 @@
             }
           }
         }
+
+        #user--dropdown {
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center, center;
+          height: 3rem;
+          line-height: 3rem;
+          filter: grayscale(80%);
+
+          &:hover,
+          &:focus {
+            filter: grayscale(0%);
+          }
+        }
       }
     }
   }

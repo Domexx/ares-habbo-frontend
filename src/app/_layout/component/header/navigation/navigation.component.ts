@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import { environment } from 'src/environments/environment';
+import {environment} from 'src/environments/environment';
 import {UserService} from '../../../../_service/user.service';
+import {LookService} from '../../../../_service/look.service';
+import {LookAction, LookDirection, LookGestures, LookSize} from '../../../../_shared/model/user/look';
 
 @Component({
   selector: 'ares-navigation',
@@ -17,7 +19,8 @@ export class NavigationComponent implements OnInit {
   isCollapsed = false;
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private lookService: LookService
   ) { }
 
   ngOnInit(): void {
@@ -25,7 +28,15 @@ export class NavigationComponent implements OnInit {
     this.imager = environment.app.imager;
 
     this.username = this.userService.user.username;
-    this.look = this.userService.user.look;
+    this.look = this.lookService.get({
+      url: this.userService.user.look,
+      action: LookAction.DEFAULT,
+      size: LookSize.DEFAULT,
+      direction: LookDirection.SOUTH,
+      headDirection: LookDirection.SOUTH_WEST,
+      headOnly: true,
+      gesture: LookGestures.SMILE
+    });
   }
 
   toggle() {

@@ -37,10 +37,11 @@
 
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
-          <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img src="" [alt]="username" />
+          <a id="user--dropdown" [style.backgroundImage]="'url('+ look + ')'"  class="nav-link" href="#"
+             role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{ username }}
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div class="dropdown-menu" aria-labelledby="user--dropdown">
             <a class="dropdown-item" href="#">Action</a>
             <a class="dropdown-item" href="#">Another action</a>
             <div class="dropdown-divider"></div>
