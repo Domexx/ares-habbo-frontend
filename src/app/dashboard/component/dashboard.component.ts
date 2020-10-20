@@ -11,6 +11,7 @@ import {Room} from '../../community/model/room';
 import {Setting} from '../../_shared/model/setting';
 import {GuildService} from '../../community/service/guild.service';
 import {RoomService} from '../../community/service/room.service';
+import {LookService} from '../../_service/look.service';
 
 @Component({
   selector: 'ares-dashboard',
@@ -39,7 +40,8 @@ export class DashboardComponent implements OnInit {
     private titleService: TitleService,
     private route: ActivatedRoute,
     private guildService: GuildService,
-    private roomService: RoomService
+    private roomService: RoomService,
+    private lookService: LookService
   ) {
   }
 
@@ -48,7 +50,9 @@ export class DashboardComponent implements OnInit {
    */
   ngOnInit(): void {
     this.user = this.userService.user;
-    this.look = `${environment.app.imager}${this.user.look}&action=std&gesture=sml&direction=2&head_direction=2&size=l`;
+    this.look = this.lookService.get({
+      look: this.user.look
+    });
 
     this.articles = this.route.snapshot.data.slider;
     this.pinned = this.route.snapshot.data.pinned;

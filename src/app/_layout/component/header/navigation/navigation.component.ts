@@ -29,13 +29,9 @@ export class NavigationComponent implements OnInit {
 
     this.username = this.userService.user.username;
     this.look = this.lookService.get({
-      url: this.userService.user.look,
-      action: LookAction.DEFAULT,
-      size: LookSize.DEFAULT,
-      direction: LookDirection.SOUTH,
+      look: this.userService.user.look,
       headDirection: LookDirection.SOUTH_WEST,
-      headOnly: true,
-      gesture: LookGestures.SMILE
+      headOnly: true
     });
   }
 

@@ -6,13 +6,13 @@
  */
 
 export class LookConfig {
-  url: string;
-  action: LookAction;
-  size: LookSize;
-  direction: LookDirection;
-  headDirection: LookDirection;
-  headOnly: boolean;
-  gesture: LookGestures;
+  look: string;
+  action?: LookAction = LookAction.DEFAULT;
+  size?: LookSize = LookSize.DEFAULT;
+  direction?: LookDirection = LookDirection.SOUTH_EAST;
+  headDirection?: LookDirection = LookDirection.SOUTH_EAST;
+  headOnly?: boolean = false;
+  gesture?: LookGestures = LookGestures.STANDARD;
 }
 
 export enum LookAction {
