@@ -1,12 +1,37 @@
 :host {
-  display: flex;
-  flex-wrap: wrap;
   width: 100vw;
-  height: 9.5rem;
-  background-color: #1B1D20;
+  background-color: var(--main-bg-color);
   font-size: 15px;
-  margin-top: 2rem;
   z-index: 3;
+
+  & > #footer--sub {
+    background-color: var(--main-bg-dark);
+    color: #fff;
+
+    .list-title {
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .footer--list {
+      & > li {
+        line-height: 2.5rem;
+
+        a {
+          color: #6A6E77;
+
+          &:hover {
+            color: #fff;
+          }
+        }
+      }
+    }
+
+    p {
+      color: #6A6E77;
+      margin-top: 1rem;
+    }
+  }
 }
 
 hr {
@@ -25,11 +50,6 @@ hr {
   background-position: center;
   background-repeat: no-repeat;
   height: 5rem;
-}
-
-strong {
-  color: var(--text-link);
-  font-weight: 600;
 }
 
 .bg-dark {

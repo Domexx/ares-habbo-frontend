@@ -1,21 +1,81 @@
-<div class="container py-4">
-  <div class="row">
-    <div class="col-6 pt-3">
-      <div class="d-flex">
-        <b>{{ hotelName }}</b>
-        <p class="m-0" [innerHTML]="'FOOTER.RIGHTS_RESERVED' | translate"></p>
-      </div>
-      <p class="m-0" [innerHTML]="'FOOTER.NOT_SULAKE' | translate"></p>
+<!--<div class="row">
+  <div class="col-6 pt-3">
+    <div class="d-flex">
+      <b>{{ hotelName }}</b>
+      <p class="m-0" [innerHTML]="'FOOTER.RIGHTS_RESERVED' | translate"></p>
     </div>
+    <p class="m-0" [innerHTML]="'FOOTER.NOT_SULAKE' | translate"></p>
+  </div>
 
-    <div class="col-6 d-flex pt-2 justify-content-xl-end justify-content-lg-end justify-content-around">
-      <ares-language-selector></ares-language-selector>
+  <div class="col-6 d-flex pt-2 justify-content-xl-end justify-content-lg-end justify-content-around">
+    <ares-language-selector></ares-language-selector>
+  </div>
+</div>-->
+
+<div id="footer--sub" class="py-4">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 d-flex flex-column justify-content-center">
+        <img src="assets/images/logo.png" class="object-contain" height="59" width="104" [alt]="hotelName" />
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam </p>
+      </div>
+
+      <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mt-3">
+        <ul class="list-unstyled footer--list">
+          <li class="list-title">Support</li>
+          <li>
+            <a href="#">Passwort vergessen?</a>
+          </li>
+          <li>
+            <a href="#">Forum</a>
+          </li>
+          <li>
+            <a href="#">Entwickler-Dokumentation</a>
+          </li>
+          <li>
+            <a href="#">Kontaktformular</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 mt-3">
+        <ul class="list-unstyled footer--list">
+          <li class="list-title">Informationen</li>
+          <li>
+            <a href="#">Was ist Habbo?</a>
+          </li>
+          <li>
+            <a href="#">Wie wird gespielt?</a>
+          </li>
+          <li>
+            <a href="#">Habbo Benimmregeln</a>
+          </li>
+          <li>
+            <a href="#">Sicherheit</a>
+          </li>
+          <li>
+            <a href="#">Hilfe</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-xl-3 col-lg-3 col-md-12 col-sm-12 d-flex flex-column mt-3">
+        <span class="list-title">Desktop App</span>
+        <p>Downloade dir die Desktop App, um einfacher ins Hotel zukommen.</p>
+
+        <button class="btn btn-dark">Habbo downloaden</button>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="py-2 pb-lg-0 text-center bg-dark col-12">
-  Made with <span>&#10084;&#65039;</span> from <b class="cursor-pointer" (click)="openModal(modal)">Ares</b>
+<div class="container d-flex flex-row py-3">
+  <div class="flex-fill d-inline-flex flex-column">
+    <strong>&copy; 2020 by {{ hotelName }}</strong>
+    <small>{{ hotelName }} is powered by <span class="cursor-pointer" (click)="openModal(modal)">Ares</span></small>
+  </div>
+
+  <ares-language-selector></ares-language-selector>
 </div>
 
 <ng-template #modal>
