@@ -1,8 +1,18 @@
 .dropdown-menu {
-  background: var(--main-bg-gray);
+  background: var(--main-bg-dark);
+  border-radius: 0 0 .25rem .25rem;
+  border-color: transparent;
+  box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
+  animation-name: dropSlide;
+  animation-duration: .3s;
+  animation-fill-mode: both;
+  margin: 0;
+  top: 159%;
 
   .dropdown-item {
     transition: .25s background-color;
+    color: #fff;
+    padding: .5rem 1.5rem;
 
     &.active {
       &:hover,
@@ -21,5 +31,20 @@
       outline: none;
       background: #373a40;
     }
+  }
+
+  .dropdown-divider {
+    border-top-color: var(--main-bg-gray)
+  }
+}
+
+@keyframes dropSlide {
+  100% {
+    -webkit-transform: translateY(0);
+    transform: translateY(0)
+  }
+  0% {
+    -webkit-transform: translateY(10px);
+    transform: translateY(10px)
   }
 }

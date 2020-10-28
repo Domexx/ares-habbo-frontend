@@ -3,7 +3,7 @@
 @import "../../../../../../node_modules/bootstrap/scss/variables";
 @import "../../../../../../node_modules/bootstrap/scss/mixins/breakpoints";
 
-.navbar {
+:host {
   min-height: 6.5rem;
 
   & > .container {

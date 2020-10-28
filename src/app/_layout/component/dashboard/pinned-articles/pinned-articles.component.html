@@ -19,6 +19,20 @@
             <p class="article--title">{{ article.title }}</p>
             <span class="article--description w-100">{{ (article.description.length > 70)? (article.description | slice:0:70)+'..' : (article.description) }}</span>
           </div>
+
+          <div class="d-inline-flex flex-row w-100">
+            <div class="align-items-center flex-fill d-inline-flex flex-row">
+              <div class="article--likes-icon mr-2">
+                <i class="sprite sprite--thumb"></i>
+              </div>
+              {{ article.likes }}
+
+              <span class="ml-5 mr-2">{{ article.comments }}</span>
+              <div class="article--comments-icon">
+                <i class="sprite sprite--article-slider-comments"></i>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </a>

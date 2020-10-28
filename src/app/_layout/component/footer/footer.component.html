@@ -1,17 +1,3 @@
-<!--<div class="row">
-  <div class="col-6 pt-3">
-    <div class="d-flex">
-      <b>{{ hotelName }}</b>
-      <p class="m-0" [innerHTML]="'FOOTER.RIGHTS_RESERVED' | translate"></p>
-    </div>
-    <p class="m-0" [innerHTML]="'FOOTER.NOT_SULAKE' | translate"></p>
-  </div>
-
-  <div class="col-6 d-flex pt-2 justify-content-xl-end justify-content-lg-end justify-content-around">
-    <ares-language-selector></ares-language-selector>
-  </div>
-</div>-->
-
 <div id="footer--sub" class="py-4">
   <div class="container">
     <div class="row">
@@ -72,7 +58,7 @@
 <div class="container d-flex flex-row py-3 justify-content-center">
   <div class="flex-fill d-inline-flex flex-column justify-content-center">
     <strong>&copy; 2020 by {{ hotelName }}</strong>
-    <small>{{ hotelName }} is powered by <span class="cursor-pointer" (click)="openModal(modal)">Ares</span></small>
+    <small>{{ hotelName }} is powered by <strong class="cursor-pointer" (click)="openModal(modal)">Ares</strong></small>
   </div>
 
   <ares-language-selector></ares-language-selector>

@@ -44,6 +44,7 @@ import {SharedModule} from '../_shared/shared.module';
 import { GuestbookComponent } from './component/community/guild/guestbook/guestbook.component';
 import { ItemComponent } from './component/employees/item/item.component';
 import {MomentModule} from 'ngx-moment';
+import { SidebarComponent } from './component/sidebar/sidebar.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -73,7 +74,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     GuildMembersComponent,
     SearchPipe,
     GuestbookComponent,
-    ItemComponent
+    ItemComponent,
+    SidebarComponent
   ],
     imports: [
         CommonModule,
