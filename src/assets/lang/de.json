@@ -162,10 +162,10 @@
     "SUCCESS": "Du wurdest erfolgreich abgemeldet!",
     "ERROR": "Bitte melde dich erneut an!"
   },
-  "NAVIGATOR": {
-    "NEWS": "neuigkeiten",
-    "COMMUNITY": "community",
-    "EMPLOYEES": "mitarbeiter"
+  "NAVIGATION": {
+    "CREDITS": "Taler",
+    "DIAMONDS": "Diamanten",
+    "DUCKETS": "Duckets"
   },
   "FOOTER": {
     "RIGHTS_RESERVED": "&nbsp; &copy; 2020. Alle Rechte an dieser Website vorbehalten.",

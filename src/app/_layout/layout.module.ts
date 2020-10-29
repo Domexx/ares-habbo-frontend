@@ -45,6 +45,8 @@ import { GuestbookComponent } from './component/community/guild/guestbook/guestb
 import { ItemComponent } from './component/employees/item/item.component';
 import {MomentModule} from 'ngx-moment';
 import { SidebarComponent } from './component/sidebar/sidebar.component';
+import { TopBarComponent } from './component/top-bar/top-bar.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -75,7 +77,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     SearchPipe,
     GuestbookComponent,
     ItemComponent,
-    SidebarComponent
+    SidebarComponent,
+    TopBarComponent,
+    NavbarComponent
   ],
     imports: [
         CommonModule,
@@ -120,7 +124,8 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
         SearchPipe,
         GuestbookComponent,
         ItemComponent,
-        SidebarComponent
+        SidebarComponent,
+        NavbarComponent
     ]
 })
 export class LayoutModule {
