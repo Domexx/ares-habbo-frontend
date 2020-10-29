@@ -3,15 +3,17 @@
 <ng-container *ngIf="isAuthenticated; else guest">
   <ares-client></ares-client>
 
-  <!-- <ares-header></ares-header> -->
+  <div class="d-inline-flex flex-row">
+    <ares-sidebar></ares-sidebar>
 
-  <main>
-    <ng-container *ngIf="router.url !== '/client';">
-      <router-outlet></router-outlet>
-    </ng-container>
-  </main>
+    <main class="d-inline-flex flex-column">
+      <ng-container *ngIf="router.url !== '/client';">
+        <router-outlet></router-outlet>
+      </ng-container>
+    </main>
+  </div>
 
-  <ares-footer class="d-flex flex-column mt-4"></ares-footer>
+  <ares-footer class="d-flex flex-column"></ares-footer>
 </ng-container>
 
 <ng-template #guest>

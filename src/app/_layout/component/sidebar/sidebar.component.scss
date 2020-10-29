@@ -1,0 +1,10 @@
+:host {
+  background: var(--main-bg-dark);
+  width: 15rem;
+
+  .list-group {
+    .list-group-item {
+      background: var(--main-bg-gray);
+    }
+  }
+}

@@ -1,7 +1,11 @@
 :host {
-    height: inherit;
-    width: inherit;
-    overflow-x: hidden;
+  height: inherit;
+  width: inherit;
+  overflow-x: hidden;
+
+  main {
+    flex: 1 0 auto;
+  }
 }
 
 .ares--routes {

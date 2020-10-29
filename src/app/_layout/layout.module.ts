@@ -98,29 +98,30 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     },
     FriendService
   ],
-  exports: [
-    FooterComponent,
-    HeaderComponent,
-    LanguageSelectorComponent,
-    FriendsComponent,
-    ArticleSliderComponent,
-    PinnedArticlesComponent,
-    LoaderComponent,
-    HeroComponent,
-    DisconnectedComponent,
-    ButtonsComponent,
-    FlashDetectComponent,
-    ActiveSessionComponent,
-    ArticlesComponent,
-    CommentsComponent,
-    GuildComponent,
-    RoomComponent,
-    DiscordComponent,
-    GuildMembersComponent,
-    SearchPipe,
-    GuestbookComponent,
-    ItemComponent
-  ]
+    exports: [
+        FooterComponent,
+        HeaderComponent,
+        LanguageSelectorComponent,
+        FriendsComponent,
+        ArticleSliderComponent,
+        PinnedArticlesComponent,
+        LoaderComponent,
+        HeroComponent,
+        DisconnectedComponent,
+        ButtonsComponent,
+        FlashDetectComponent,
+        ActiveSessionComponent,
+        ArticlesComponent,
+        CommentsComponent,
+        GuildComponent,
+        RoomComponent,
+        DiscordComponent,
+        GuildMembersComponent,
+        SearchPipe,
+        GuestbookComponent,
+        ItemComponent,
+        SidebarComponent
+    ]
 })
 export class LayoutModule {
   constructor(library: FaIconLibrary) {
