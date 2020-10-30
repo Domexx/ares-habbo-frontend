@@ -10,7 +10,8 @@ import {User} from '../../../_shared/model/user/user';
 })
 export class NavbarComponent implements OnInit {
   public user: User;
-
+  public diamonds = 0;
+  public duckets = 0;
 
   constructor(
     private lookService: LookService,
@@ -19,6 +20,8 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.userService.user;
+    this.diamonds = this.userService.user.currencies.filter(value => value.type === 5).shift().amount;
+    this.duckets = this.userService.user.currencies.filter(value => value.type === 0).shift().amount;
   }
 
   look(): string {

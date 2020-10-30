@@ -1,14 +1,21 @@
-<div class="container-fluid">
+<div class="container-fluid px-5">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse"  id="navbar">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <div id="habbo--look" class="nav-link d-flex justify-content-center" [tooltip]="user.username" placement="bottom">
+      <li class="nav-item dropdown">
+        <div id="habbo--look" class="nav-link d-flex justify-content-center" [tooltip]="user.username" placement="bottom" role="button" data-toggle="dropdown" aria-expanded="false">
           <img [src]="look()" [alt]="user.username" />
         </div>
+
+        <ul class="dropdown-menu" aria-labelledby="habbo--look">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
       </li>
       <li class="nav-item info--item">
         <div class="nav-link d-flex flex-column justify-content-center user--info">
@@ -19,15 +26,21 @@
       <li class="nav-item info--item">
         <div class="nav-link d-flex flex-column justify-content-center user--info">
           <span class="user--info-header" [translate]="'NAVIGATION.DIAMONDS'"></span>
-          <span class="user--info-value">{{ user.credits }}</span>
+          <span class="user--info-value">{{ diamonds }}</span>
         </div>
       </li>
 
       <li class="nav-item info--item">
         <div class="nav-link d-flex flex-column justify-content-center user--info">
           <span class="user--info-header" [translate]="'NAVIGATION.DUCKETS'"></span>
-          <span class="user--info-value">{{ user.credits }}</span>
+          <span class="user--info-value">{{ duckets }}</span>
         </div>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a routerLink="/client" class="btn btn-client p-3" [translate]="'DASHBOARD.HERO.ENTER'"></a>
       </li>
     </ul>
   </div>
