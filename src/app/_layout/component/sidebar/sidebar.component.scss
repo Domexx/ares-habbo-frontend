@@ -32,16 +32,23 @@
         margin-top: .5rem;
 
         .sidebar--entry {
-          background: transparent;
+          background: #272a2d;
           color: #fff;
           opacity: .6;
           transition: 350ms all;
-          font-weight: 400;
           padding-left: .5rem;
+          border-radius: 4px;
+          display: flex;
+          align-items: center;
+          border: none !important;
 
           &:hover,
           &:focus {
             opacity: 1;
+          }
+
+          &:not(:first-child) {
+            margin-top: .5rem;
           }
 
           img {

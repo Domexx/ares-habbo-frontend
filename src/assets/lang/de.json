@@ -166,6 +166,10 @@
     "GENERAL": {
       "TITLE": "Allgemein",
       "DASHBOARD": "Dashboard"
+    },
+    "COMMUNITY": {
+      "TITLE": "Community",
+      "EMPLOYEES": "Mitarbeiter"
     }
   },
   "NAVIGATION": {
