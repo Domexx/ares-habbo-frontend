@@ -8,13 +8,13 @@
 
     <main class="d-inline-flex flex-column">
       <ng-container *ngIf="router.url !== '/client';">
-        <ares-navbar class="navbar navbar-expand-md navbar-dark"></ares-navbar>
+        <ares-navbar class="navbar fixed-top navbar-expand-md navbar-dark"></ares-navbar>
         <router-outlet></router-outlet>
       </ng-container>
+
+      <ares-footer class="d-flex flex-column"></ares-footer>
     </main>
   </div>
-
-  <ares-footer class="d-flex flex-column"></ares-footer>
 </ng-container>
 
 <ng-template #guest>

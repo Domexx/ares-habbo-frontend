@@ -1,9 +1,27 @@
-<div class="list-group list-group-flush">
-  <a href="#" class="list-group-item list-group-item-action active">Dashboard</a>
-  <a href="#" class="list-group-item list-group-item-action">Menu</a>
-  <a href="#" class="list-group-item list-group-item-action">Menu</a>
-  <a href="#" class="list-group-item list-group-item-action">Menu</a>
-  <a href="#" class="list-group-item list-group-item-action">Menu</a>
-  <a href="#" class="list-group-item list-group-item-action">Menu</a>
-  <a href="#" class="list-group-item list-group-item-action">Menu</a>
-</div>
+<ul id="sidebar--nav" class="h-100 list-group list-group-flush">
+  <li class="sidebar--brand d-flex justify-content-center">
+    <img src="assets/images/logo.png" class="img-fluid" [alt]="hotelName + ' Logo'" />
+  </li>
+
+  <li>
+    <a class="sidebar--category" [translate]="'SIDEBAR.GENERAL.TITLE'"></a>
+    <div class="list-unstyled sidebar--category-nav">
+      <a href="#" class="sidebar--entry list-group-item active">
+        <img src="assets/images/icons/sidebar/dashboard.png" class="image-pixelated" [alt]="'SIDEBAR.GENERAL.DASHBOARD' | translate" />
+        <span [translate]="'SIDEBAR.GENERAL.DASHBOARD'"></span>
+      </a>
+      <a href="#" class="sidebar--entry list-group-item">Page </a>
+      <a href="#" class="sidebar--entry list-group-item">Page </a>
+      <a href="#" class="sidebar--entry list-group-item">Page </a>
+      <a href="#" class="sidebar--entry list-group-item">Page </a>
+
+    </div>
+  </li>
+
+  <li>
+    <a href="#community" data-toggle="collapse" aria-expanded="true" class="sidebar--category dropdown-toggle">Community</a>
+    <div class="collapse show list-unstyled sidebar--category-nav" id="community">
+      <a href="#" class="sidebar--entry list-group-item">Page </a>
+    </div>
+  </li>
+</ul>

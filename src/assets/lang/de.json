@@ -162,6 +162,12 @@
     "SUCCESS": "Du wurdest erfolgreich abgemeldet!",
     "ERROR": "Bitte melde dich erneut an!"
   },
+  "SIDEBAR": {
+    "GENERAL": {
+      "TITLE": "Allgemein",
+      "DASHBOARD": "Dashboard"
+    }
+  },
   "NAVIGATION": {
     "CREDITS": "Taler",
     "DIAMONDS": "Diamanten",

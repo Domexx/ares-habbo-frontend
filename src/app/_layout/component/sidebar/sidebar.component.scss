@@ -1,6 +1,61 @@
 :host {
   background: var(--sidebar-bg-color);
   width: 15rem;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+
+  #sidebar--nav {
+    .sidebar--brand {
+      border-bottom: 1px solid var(--main-bg-gray);
+      padding-top: var(--sidebar-brand-padding-top);
+      padding-bottom: var(--sidebar-brand-padding-bottom);
+
+      img {
+        height: 50px;
+      }
+    }
+
+    li:not(.sidebar--brand) {
+      padding: 1rem 1rem 0 1rem;
+
+      .sidebar--category {
+        margin-bottom: 1rem;
+        color: #b1b1b1;
+        text-transform: uppercase;
+        font-size: .8rem;
+      }
+
+      .sidebar--category-nav {
+        margin-top: .5rem;
+
+        .sidebar--entry {
+          background: transparent;
+          color: #fff;
+          opacity: .6;
+          transition: 350ms all;
+          font-weight: 400;
+          padding-left: .5rem;
+
+          &:hover,
+          &:focus {
+            opacity: 1;
+          }
+
+          img {
+            padding-right: .5rem;
+          }
+        }
+
+        .active {
+          opacity: 1;
+          border: none;
+        }
+      }
+    }
+  }
 
   .list-group {
     .list-group-item {
