@@ -1,14 +1,20 @@
 <ul id="sidebar--nav" class="h-100 list-group list-group-flush">
   <li class="sidebar--brand d-flex justify-content-center">
-    <img src="assets/images/logo.png" class="img-fluid" [alt]="hotelName + ' Logo'" />
+    <img src="assets/images/logo.png" class="img-fluid d-xxl-block d-xl-block d-lg-block d-md-none d-sm-none" [alt]="hotelName + ' Logo'" />
+    <img src="assets/images/icons/ares64x64.png" class="img-fluid image-pixelated d-xxl-none d-xl-none d-lg-none d-md-block d-sm-block" [alt]="hotelName + ' Logo'" />
   </li>
 
   <li>
     <a class="sidebar--category" [translate]="'SIDEBAR.GENERAL.TITLE'"></a>
     <div class="list-unstyled sidebar--category-nav">
-      <a routerLink="/dashboard" routerLinkActive="active" class="sidebar--entry list-group-item">
+      <a routerLink="/dashboard" routerLinkActive="active" class="sidebar--entry list-group-item" container="body" [tooltip]="'SIDEBAR.GENERAL.DASHBOARD' | translate" placement="right">
         <img src="assets/images/icons/sidebar/dashboard.png" class="image-pixelated" [alt]="'SIDEBAR.GENERAL.DASHBOARD' | translate" />
         <span [translate]="'SIDEBAR.GENERAL.DASHBOARD'"></span>
+      </a>
+
+      <a routerLink="/settings" routerLinkActive="active" class="sidebar--entry list-group-item" container="body" [tooltip]="'SIDEBAR.GENERAL.SETTINGS' | translate" placement="right">
+        <img src="assets/images/icons/sidebar/settings.png" class="image-pixelated" [alt]="'SIDEBAR.GENERAL.SETTINGS' | translate" />
+        <span [translate]="'SIDEBAR.GENERAL.SETTINGS'"></span>
       </a>
     </div>
   </li>
@@ -16,9 +22,22 @@
   <li>
     <a class="sidebar--category" [translate]="'SIDEBAR.COMMUNITY.TITLE'"></a>
     <div class="list-unstyled sidebar--category-nav">
-      <a routerLink="/employees" routerLinkActive="active" class="sidebar--entry list-group-item">
+      <a routerLink="/employees" routerLinkActive="active" class="sidebar--entry list-group-item" container="body" [tooltip]="'SIDEBAR.COMMUNITY.NEWS' | translate" placement="right">
+        <img src="assets/images/icons/sidebar/news.png" class="image-pixelated" [alt]="'SIDEBAR.COMMUNITY.NEWS' | translate" />
+        <span [translate]="'SIDEBAR.COMMUNITY.NEWS'"></span>
+      </a>
+      <a routerLink="/employees" routerLinkActive="active" class="sidebar--entry list-group-item" container="body" [tooltip]="'SIDEBAR.COMMUNITY.EMPLOYEES' | translate" placement="right">
         <img src="assets/images/icons/sidebar/employees.png" class="image-pixelated" [alt]="'SIDEBAR.COMMUNITY.EMPLOYEES' | translate" />
         <span [translate]="'SIDEBAR.COMMUNITY.EMPLOYEES'"></span>
+      </a>
+    </div>
+  </li>
+
+  <li class="mt-auto mb-3">
+    <div class="list-unstyled sidebar--category-nav">
+      <a routerLink="/logout" class="sidebar--entry list-group-item" container="body" [tooltip]="'SIDEBAR.LOGOUT' | translate" placement="right">
+        <img src="assets/images/icons/sidebar/logout.png" class="image-pixelated" [alt]="'SIDEBAR.LOGOUT' | translate" />
+        <span [translate]="'SIDEBAR.LOGOUT'"></span>
       </a>
     </div>
   </li>

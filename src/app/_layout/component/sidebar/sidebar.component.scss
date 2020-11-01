@@ -1,3 +1,8 @@
+@import '../../../../styles/variables';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
 :host {
   background: var(--sidebar-bg-color);
   width: 15rem;
@@ -6,6 +11,20 @@
   right: 0;
   top: 0;
   bottom: 0;
+
+  @include media-breakpoint-down(lg) {
+    width: 5rem;
+
+    .sidebar--category {
+      display: none;
+    }
+
+    .sidebar--entry {
+      span {
+        display: none;
+      }
+    }
+  }
 
   #sidebar--nav {
     .sidebar--brand {
@@ -41,6 +60,7 @@
           display: flex;
           align-items: center;
           border: none !important;
+          height: 3rem;
 
           &:hover,
           &:focus {

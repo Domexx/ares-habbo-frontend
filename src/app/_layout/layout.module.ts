@@ -35,11 +35,13 @@ import {CommentsComponent} from './component/article/comments/comments.component
 import {TooltipModule} from 'ngx-bootstrap/tooltip';
 import {ModalModule} from 'ngx-bootstrap/modal';
 
-import {GuildMembersComponent} from './component/community/guild/guild-members/guild-members.component';
-import {FriendService} from './service/friend.service';
 import {FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {faSearch} from '@fortawesome/free-solid-svg-icons/faSearch';
 import {faUnlink} from '@fortawesome/free-solid-svg-icons/faUnlink';
+import {faBars} from '@fortawesome/free-solid-svg-icons/faBars';
+
+import {GuildMembersComponent} from './component/community/guild/guild-members/guild-members.component';
+import {FriendService} from './service/friend.service';
 import {SharedModule} from '../_shared/shared.module';
 import { GuestbookComponent } from './component/community/guild/guestbook/guestbook.component';
 import { ItemComponent } from './component/employees/item/item.component';
@@ -130,6 +132,6 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
 })
 export class LayoutModule {
   constructor(library: FaIconLibrary) {
-    library.addIcons(faSearch, faUnlink);
+    library.addIcons(faSearch, faUnlink, faBars);
   }
 }

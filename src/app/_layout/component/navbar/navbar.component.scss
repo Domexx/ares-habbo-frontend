@@ -1,6 +1,15 @@
+@import '../../../../styles/variables';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
 :host {
   background: var(--main-bg-color);
   left: 15rem;
+
+  @include media-breakpoint-down(lg) {
+    left: 5rem;
+  }
 
   #habbo--look {
     border-radius: 50rem;
