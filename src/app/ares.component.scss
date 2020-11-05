@@ -4,17 +4,24 @@
 @import "~bootstrap/scss/mixins/breakpoints";
 
 :host {
-  height: inherit;
-  width: inherit;
+  min-height: 100vh;
+  width: 100vw;
   overflow-x: hidden;
+  position: relative;
 
   main {
-    flex: 1 0 auto;
     padding-top: 5.28rem;
-    padding-left: 15rem;
+    width: calc(100vw - 15vw);
+    margin-left: 15vw;
 
     @include media-breakpoint-down(lg) {
-      padding-left: 5rem;
+      width: calc(100vw - 7vw);
+      margin-left: 7vw;
+    }
+
+    @include media-breakpoint-down(md) {
+      width: calc(100vw - 11vw);
+      margin-left: 11vw;
     }
   }
 }

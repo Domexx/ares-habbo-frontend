@@ -1,7 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {environment} from "../../../../../environments/environment";
-import {SwiperConfigInterface, SwiperPaginationInterface} from "ngx-swiper-wrapper";
-import {Article} from "../../../../article/model/article";
+import {environment} from '../../../../../environments/environment';
+import {SwiperConfigInterface, SwiperPaginationInterface} from 'ngx-swiper-wrapper';
+import {Article} from '../../../../article/model/article';
 
 @Component({
   selector: 'ares-layout-dashboard-pinned-articles',

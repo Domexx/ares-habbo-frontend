@@ -5,10 +5,16 @@
 
 :host {
   background: var(--main-bg-color);
-  left: 15rem;
+  left: 15vw;
+  border-bottom: 1px solid rgba(0 0 0 / 40%);
+  min-height: 85px;
 
   @include media-breakpoint-down(lg) {
-    left: 5rem;
+    left: 5vw;
+  }
+
+  @include media-breakpoint-down(md) {
+    left: 11vw;
   }
 
   #habbo--look {
@@ -20,6 +26,7 @@
 
     & > img {
       image-rendering: pixelated;
+      height: 4rem;
     }
   }
 
@@ -33,7 +40,7 @@
             font-size: .9rem;
           }
 
-          & > .user--info-value {
+          & .user--info-value {
             color: #fff;
             font-size: 1.2rem;
           }

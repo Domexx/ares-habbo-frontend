@@ -1,5 +1,5 @@
-import {Pagination} from '../../../_shared/model/pagination';
 import {User} from '../../../_shared/model/user/user';
+import {APIPagination} from '../../../_shared/model/api';
 
 export class Member {
   id: number;
@@ -10,7 +10,6 @@ export class Member {
   member_since: number;
 }
 
-export class MemberPagination {
-  pagination: Pagination;
-  members: Member[];
+export class MemberPagination extends APIPagination {
+  data: Member[];
 }

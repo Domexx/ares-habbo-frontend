@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {ApiService} from '../../_service/api.service';
 import {Observable} from 'rxjs';
-import {API} from '../../_shared/model/api';
+import {API, APIPagination} from '../../_shared/model/api';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +24,7 @@ export class RegisterService {
    * Gets the pre-configured looks from the backend
    * @return Observable<API>
    */
-  looks(): Observable<API> {
+  looks(): Observable<API | APIPagination> {
     return this.apiService.get('register/looks');
   }
 }

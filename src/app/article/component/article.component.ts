@@ -5,6 +5,8 @@ import {environment} from '../../../environments/environment';
 import {TitleService} from '../../_service/title.service';
 import {Comment, CommentPagination} from '../model/comment';
 import {Subscription} from 'rxjs';
+import {LookService} from '../../_service/look.service';
+import {LookSize} from '../../_shared/model/user/look';
 
 @Component({
   selector: 'ares-article',
@@ -26,7 +28,8 @@ export class ArticleComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private titleService: TitleService
+    private titleService: TitleService,
+    private lookService: LookService
   ) {
   }
 
@@ -51,6 +54,13 @@ export class ArticleComponent implements OnInit, OnDestroy {
    */
   onComment(): void {
     this.article.comments++;
+  }
+
+  look(): string {
+    return this.lookService.get({
+      look: this.article.user.look,
+      size: LookSize.SMALL
+    });
   }
 
   /**

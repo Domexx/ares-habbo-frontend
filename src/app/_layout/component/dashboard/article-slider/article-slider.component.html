@@ -5,9 +5,9 @@
         <div class="article--info d-flex align-items-center">
           <div class="article--user">
             <img
-              [src]="imager + article.author.look + '&amp;action=std&amp;direction=3&amp;head_direction=3&amp;img_format=png&amp;gesture=std&amp;headonly=0&amp;size=s'">
+              [src]="imager + article.user.look + '&amp;action=std&amp;direction=3&amp;head_direction=3&amp;img_format=png&amp;gesture=std&amp;headonly=0&amp;size=s'">
           </div>
-          <span>{{ article.author.username }}</span>
+          <span>{{ article.user.username }}</span>
         </div>
 
         <div class="article--thumb mt-2">
@@ -36,7 +36,7 @@
               <i class="sprite sprite--article-slider-comments"></i>
             </div>
           </div>
-          <a [routerLink]="['/articles', article.slug]" class="btn btn-danger align-self-end w-25" [translate]="'DASHBOARD.SLIDER.ARTICLES.READ_MORE'"></a>
+          <a [routerLink]="['/articles', article.id + '-' + article.slug]" class="btn btn-danger align-self-end w-25" [translate]="'DASHBOARD.SLIDER.ARTICLES.READ_MORE'"></a>
         </div>
       </div>
     </div>
@@ -48,13 +48,13 @@
     <div class="card-body d-inline-flex flex-column">
       <div class="article--info d-flex align-items-center">
         <div class="article--user">
-          <img id="frank" src="../../../../../assets/images/articles/frank_15.gif">
+          <img id="frank" src="assets/images/articles/frank_15.gif" alt="Frank">
         </div>
         <span>Frank</span>
       </div>
 
       <div class="article--thumb mt-2">
-        <img src="../../../../../assets/images/articles/topstory.gif">
+        <img src="assets/images/articles/topstory.gif" [alt]="'DASHBOARD.SLIDER.ARTICLES.DESCRIPTION' | translate" />
       </div>
 
       <div class="d-inline-flex flex-column pb-2">

@@ -10,4 +10,6 @@ export class Guild {
   // tslint:disable-next-line:variable-name
   date_created: number;
   room: Room;
+  // tslint:disable-next-line:variable-name
+  member_count: number;
 }

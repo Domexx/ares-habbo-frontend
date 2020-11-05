@@ -94,7 +94,7 @@
     background-color: var(--gray);
     border: 5px solid #fff !important;
     border-radius: 50rem !important;
-    padding: 1rem;
+    padding: .4rem;
     color: #3D3D44;
     font-weight: 700;
   }
@@ -106,6 +106,7 @@
     border: 1px solid #fff;
     width: 2rem;
     padding: 0;
+    font-size: 1.4rem;
 
     & > fa-icon {
       margin-left: .25rem

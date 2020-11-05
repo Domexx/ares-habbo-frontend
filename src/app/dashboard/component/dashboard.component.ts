@@ -5,7 +5,7 @@ import {TitleService} from 'src/app/_service/title.service';
 import {environment} from 'src/environments/environment';
 import {Article} from '../../article/model/article';
 import {ActivatedRoute} from '@angular/router';
-import {Friend} from '../model/friend';
+import {Friend, FriendPagination} from '../model/friend';
 import {Guild} from '../../community/model/guild/guild';
 import {Room} from '../../community/model/room';
 import {Setting} from '../../_shared/model/setting';
@@ -24,16 +24,12 @@ export class DashboardComponent implements OnInit {
 
   articles: Article[];
   pinned: Article[];
-  friends: Friend[];
-  guild: { guild: Guild, member_count: number };
+  friends: User[];
+  guild: Guild;
   room: Room;
   discord: Setting;
 
-  friendsPagination: { totalPages: number; nextPage: number; prevPage: number } = {
-    totalPages: 1,
-    nextPage: 1,
-    prevPage: 1
-  };
+  friendsPagination: FriendPagination;
 
   constructor(
     private userService: UserService,
@@ -57,15 +53,15 @@ export class DashboardComponent implements OnInit {
     this.articles = this.route.snapshot.data.slider;
     this.pinned = this.route.snapshot.data.pinned;
 
-    const friendsList = this.route.snapshot.data.friends.friends;
-    let friendsArray: Friend[] = [];
+    const friendsList = this.route.snapshot.data.friends.data;
+    let friendsArray: User[] = [];
 
     if (friendsList) {
-      friendsArray = friendsList.map((value: Friend, index: number) => friendsList[index].friend);
+      friendsArray = friendsList.map((value: Friend, index: number) => friendsList[index].user);
     }
 
     this.friends = friendsArray;
-    this.friendsPagination = this.route.snapshot.data.friends?.pagination ?? 0;
+    this.friendsPagination = this.route.snapshot.data.friends;
 
     this.guild = (!this.route.snapshot.data.guild) ? this.guildService.fakeGuild() : this.route.snapshot.data.guild;
     this.room = (!this.route.snapshot.data.room) ? this.roomService.fakeRoom() : this.route.snapshot.data.room;

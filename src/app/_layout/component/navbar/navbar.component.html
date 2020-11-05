@@ -1,43 +1,49 @@
-<div class="container-fluid">
-  <button type="button" data-toggle="collapse" data-target="#sidebar" aria-hidden="true" aria-expanded="false" aria-controls="sidebar" class="btn btn-default">
-    <fa-icon icon="bars"></fa-icon>
-  </button>
-
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+<div class="container">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar"
+          aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse"  id="navbar">
+  <div class="collapse navbar-collapse" id="navbar">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item dropdown">
-        <a id="habbo--look" class="nav-link d-flex justify-content-center" [tooltip]="user.username" placement="bottom">
-          <img [src]="look()" [alt]="user.username" />
+        <a id="habbo--look" class="nav-link d-flex align-items-center">
+          <img [src]="look()" [alt]="user.username"/>
         </a>
       </li>
       <li class="nav-item info--item">
         <div class="nav-link d-flex flex-column justify-content-center user--info">
           <span class="user--info-header" [translate]="'NAVIGATION.CREDITS'"></span>
-          <span class="user--info-value">{{ user.credits }}</span>
+          <div class="d-inline-flex flex-row align-items-center">
+            <img src="assets/images/icons/credits.png" class="mr-1 img-fluid image-pixelated" height="22" width="22" [alt]="'NAVIGATION.CREDITS' | translate" />
+            <span class="user--info-value">{{ user.credits | numberSuffix: 2.0 }}</span>
+          </div>
         </div>
       </li>
       <li class="nav-item info--item">
         <div class="nav-link d-flex flex-column justify-content-center user--info">
           <span class="user--info-header" [translate]="'NAVIGATION.DIAMONDS'"></span>
-          <span class="user--info-value">{{ diamonds }}</span>
+          <div class="d-inline-flex flex-row align-items-center">
+            <img src="assets/images/icons/diamonds.png" class="mr-1 img-fluid image-pixelated"  height="22" width="22" [alt]="'NAVIGATION.DIAMONDS' | translate" />
+            <span class="user--info-value">{{ diamonds | numberSuffix: 2.0 }}</span>
+          </div>
         </div>
       </li>
 
       <li class="nav-item info--item">
         <div class="nav-link d-flex flex-column justify-content-center user--info">
           <span class="user--info-header" [translate]="'NAVIGATION.DUCKETS'"></span>
-          <span class="user--info-value">{{ duckets }}</span>
+          <div class="d-inline-flex flex-row align-items-center">
+            <img src="assets/images/icons/duckets.png" class="mr-1 img-fluid image-pixelated" height="22" width="22" [alt]="'NAVIGATION.DUCKETS' | translate" />
+            <span class="user--info-value">{{ duckets | numberSuffix: 2.0 }}</span>
+          </div>
         </div>
       </li>
     </ul>
 
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a routerLink="/client" class="btn btn-client p-3" [translate]="'DASHBOARD.HERO.ENTER'"></a>
+        <a routerLink="/client" class="btn btn-client py-2 px-5" [translate]="'DASHBOARD.HERO.ENTER'"></a>
       </li>
     </ul>
   </div>

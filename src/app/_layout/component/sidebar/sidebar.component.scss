@@ -5,15 +5,14 @@
 
 :host {
   background: var(--sidebar-bg-color);
-  width: 15rem;
+  width: 15vw;
   position: fixed;
   left: 0;
-  right: 0;
   top: 0;
   bottom: 0;
 
   @include media-breakpoint-down(lg) {
-    width: 5rem;
+    width: 7vw;
 
     .sidebar--category {
       display: none;
@@ -26,9 +25,13 @@
     }
   }
 
+  @include media-breakpoint-down(md) {
+    width: 11vw;
+  }
+
   #sidebar--nav {
     .sidebar--brand {
-      border-bottom: 1px solid var(--main-bg-gray);
+      border-bottom: 1px solid rgba(0 0 0 / 40%);
       padding-top: var(--sidebar-brand-padding-top);
       padding-bottom: var(--sidebar-brand-padding-bottom);
 

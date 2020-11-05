@@ -21,7 +21,7 @@ export class ArticleService {
    */
   slide(page: number = 1, results: number = 3): Observable<Article[]> {
     return this.apiService.get(`articles/list/${page}/${results}`).pipe(
-      map(resp => resp.data)
+      map(resp => resp.data.data)
     );
   }
 

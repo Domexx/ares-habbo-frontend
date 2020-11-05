@@ -8,10 +8,10 @@ import {environment} from '../../../../../environments/environment';
   styleUrls: ['./guild.component.scss']
 })
 export class GuildComponent implements OnInit {
-  guild$: { guild: Guild, member_count: number };
+  guild$: Guild;
 
   @Input('guild')
-  set guild(value: { guild: Guild, member_count: number }) {
+  set guild(value: Guild) {
     this.guild$ = value;
   }
 
