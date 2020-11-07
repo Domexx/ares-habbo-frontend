@@ -5,6 +5,8 @@ import {GuildComponent} from './component/guild/guild.component';
 import {CommunityGuildResolver} from './resolver/guild/guild.resolver';
 import {CommunityGuildMembersResolver} from './resolver/guild/members.resolver';
 import {CommunityGuildGuestbookResolver} from './resolver/guild/guestbook.resolver';
+import {RoomComponent} from './component/room/room.component';
+import {CommunityRoomResolver} from './resolver/room/room.resolver';
 
 const routes: Routes = [
   {
@@ -18,6 +20,13 @@ const routes: Routes = [
       guild: CommunityGuildResolver,
       members: CommunityGuildMembersResolver,
       guestbook: CommunityGuildGuestbookResolver
+    }
+  },
+  {
+    path: 'room/:id',
+    component: RoomComponent,
+    resolve: {
+      room: CommunityRoomResolver
     }
   }
 ];

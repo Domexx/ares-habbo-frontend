@@ -1,44 +1,72 @@
+/*!
+ * Ares (https://ares.to)
+ *
+ * @license https://gitlab.com/arescms/ares-frontend/LICENSE (MIT License)
+ *
+ */
+
 /**
   * @template ARES - 2020
   * @author necmi & madness
   * @license GNU General Public License v3.0 <https://gitlab.com/arescms/ares-frontend/-/blob/master/LICENSE>
   */
 
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-
-@import 'styles/variables';
+@import 'variables';
 
 @import "~bootstrap/scss/bootstrap";
-@import "~bootstrap/scss/grid";
 @import "~bootstrap-select/dist/css/bootstrap-select.min.css";
 
 @import "~notyf/notyf.min.css";
 @import '~swiper/css/swiper.min.css';
 
-@import 'styles/fonts';
-@import 'styles/modals';
-@import 'styles/buttons';
-@import 'styles/icons';
-@import 'styles/alerts';
-@import 'styles/cards';
-@import 'styles/utilities';
-@import 'styles/navbar';
-@import 'styles/forms';
-@import 'styles/bootstrap-select';
+@import 'fonts';
+@import 'modals';
+@import 'buttons';
+@import 'icons';
+@import 'alerts';
+@import 'cards';
+@import 'utilities';
+@import 'navbar';
+@import 'forms';
+@import 'bootstrap-select';
+
+:root {
+  --main-bg-color: #{$main-bg-color};
+  --main-bg-red: #{$main-bg-red};
+  --main-bg-red-alt: #{$main-bg-red-alt};
+  --main-bg-dark: #{$main-bg-dark};
+  --main-bg-gray: #{$main-bg-gray};
+  --main-bg-green: #{$main-bg-green};
+
+  --main-modal-bg: #292B2F;
+  --modal-close-bg: #17181A;
+  --modal-close-bg-hover: #343436;
+
+  --text-normal: #{$text-normal};
+  --text-link: #{$text-link};
+  --text-link-hover: #{$text-link-hover};
+
+  --sidebar-bg-color: #{$sidebar-bg-color};
+  --sidebar-brand-padding-top: #{$sidebar-brand-padding-top};
+  --sidebar-brand-padding-bottom: #{$sidebar-brand-padding-bottom};
+
+  --swiper-theme-color: #{$swiper-theme-color} !important;
+
+  --btn-danger-primary: #ff1744;
+  --btn-danger-secondary: #ff2953;
+
+  --hero-background-color: #fc374e;
+
+  --gray: #EBEFF0 !important;
+}
 
 html {
   body {
-    height: 100vh;
+    min-height: 100vh;
     font-family: 'Titillium Web', sans-serif;
-    color: var(--text-normal);
     text-shadow: 0 1px 2px rgb(0 0 0 / 55%);
+    overflow-x: hidden;
   }
-}
-
-main {
-  flex: 1;
-  position: relative;
 }
 
 a {
@@ -83,7 +111,7 @@ a {
 }
 
 .ares--logo {
-  background-image: url('./assets/images/logo.png');
+  background-image: url('../assets/images/logo.png');
   background-repeat: no-repeat;
   height: 3.6rem;
   width: 6.5rem;
@@ -103,7 +131,7 @@ a {
 
 /* register */
 .register--component {
-  background-image: url('./assets/images/register/bg.png');
+  background-image: url('../assets/images/register/bg.png');
   background-repeat: no-repeat;
   background-size: contain;
   background-position: bottom center;

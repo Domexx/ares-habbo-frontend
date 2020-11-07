@@ -8,7 +8,7 @@ export class Article {
   content: string;
   image: string;
   comments: number;
-  author: User;
+  user: User;
   likes: number;
   dislikes: number;
   // tslint:disable-next-line:variable-name

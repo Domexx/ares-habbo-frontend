@@ -6,18 +6,20 @@
           <div class="article--info d-flex align-items-center">
             <div class="article--user">
               <img
-                [src]="imager + article.author.look + '&amp;action=std&amp;direction=3&amp;head_direction=3&amp;img_format=png&amp;gesture=std&amp;headonly=0&amp;size=s'">
+                [src]="imager + article?.user.look + '&amp;action=std&amp;direction=3&amp;head_direction=3&amp;img_format=png&amp;gesture=std&amp;headonly=0&amp;size=s'"
+              [alt]="article?.user.username" />
             </div>
-            <span>{{ article.author.username }}</span>
+            <span>{{ article?.user.username }}</span>
           </div>
 
           <div class="article--thumb mt-2">
-            <img [src]="article.image">
+            <img [src]="article?.image">
           </div>
 
           <div class="d-inline-flex flex-column pb-2">
-            <p class="article--title">{{ article.title }}</p>
-            <span class="article--description w-100">{{ (article.description.length > 70)? (article.description | slice:0:70)+'..' : (article.description) }}</span>
+            <p class="article--title">{{ article?.title }}</p>
+            <span
+              class="article--description w-100">{{ (article?.description.length > 70) ? (article?.description | slice:0:70) + '..' : (article?.description) }}</span>
           </div>
 
           <div class="d-inline-flex flex-row w-100">
@@ -25,9 +27,9 @@
               <div class="article--likes-icon mr-2">
                 <i class="sprite sprite--thumb"></i>
               </div>
-              {{ article.likes }}
+              {{ article?.likes }}
 
-              <span class="ml-5 mr-2">{{ article.comments }}</span>
+              <span class="ml-5 mr-2">{{ article?.comments }}</span>
               <div class="article--comments-icon">
                 <i class="sprite sprite--article-slider-comments"></i>
               </div>

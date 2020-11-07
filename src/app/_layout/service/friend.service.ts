@@ -3,7 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {ApiService} from '../../_service/api.service';
 import {map} from 'rxjs/operators';
-import {FriendPagination} from '../../dashboard/model/friend';
+import {Friend, FriendPagination} from '../../dashboard/model/friend';
 import {User} from '../../_shared/model/user/user';
 import {TranslateService} from '@ngx-translate/core';
 
@@ -21,9 +21,9 @@ export class FriendService {
   friends(page: number = 1, results: number = 9): Observable<FriendPagination> {
     return this.apiService.get(`friends/list/${page}/${results}`, {}, false).pipe(
       map(resp => {
-        for (let i = resp.data.friends.length; i < 9; i++) {
-          resp.data.friends.push({
-            friend: this.mannequin()
+        for (let i = resp.data.data.length; i < 9; i++) {
+          resp.data.data.push({
+            user: this.mannequin()
           });
         }
 

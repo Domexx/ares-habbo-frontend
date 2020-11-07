@@ -1,7 +1,33 @@
+@import '../styles/variables';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
 :host {
-    height: inherit;
-    width: inherit;
-    overflow-x: hidden;
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+
+  main {
+    padding-top: 5.28rem;
+    height: 100vh;
+    width: calc(100% - 15em);
+    margin-left: 15em;
+
+    @include media-breakpoint-down(lg) {
+      &:not(.no--sidebar) {
+        width: calc(100% - 5em);
+        margin-left: 5em;
+      }
+    }
+
+    &.no--sidebar {
+      width: 100vw;
+      padding-top: 0;
+      margin-left: 0;
+    }
+  }
 }
 
 .ares--routes {

@@ -3,6 +3,8 @@ import {User} from '../../../../_shared/model/user/user';
 import {environment} from '../../../../../environments/environment';
 import {LanguageService} from '../../../../_shared/service/language.service';
 import {Subscription} from 'rxjs';
+import {LookService} from '../../../../_service/look.service';
+import {LookGestures} from '../../../../_shared/model/user/look';
 
 @Component({
   selector: 'ares-layout-employees-item',
@@ -50,7 +52,10 @@ export class ItemComponent implements OnInit, OnDestroy {
     this.badge$ = value;
   }
 
-  constructor(private languageService: LanguageService) {
+  constructor(
+    private languageService: LanguageService,
+    private lookService: LookService
+  ) {
   }
 
   /**
@@ -67,8 +72,11 @@ export class ItemComponent implements OnInit, OnDestroy {
    * @param look Figure String
    * @return string
    */
-  public figure(look: string): string {
-    return `${environment.app.imager}${look}&action=std&gesture=sml&direction=2&head_direction=2&size=l`;
+  public figure(): string {
+    return this.lookService.get({
+      look: this.employee$.look,
+      gesture: this.employee$.online === 1 ? LookGestures.STANDARD :  LookGestures.EYE_BLINK
+    });
   }
 
   /**

@@ -11,10 +11,10 @@
       <div class="card article--card d-flex px-4 py-2 mb-4">
         <div class="card-header d-inline-flex align-items-center flex-row px-0">
           <div class="author--look mr-2">
-            <img [src]="imager + article.author.look + '&amp;action=std&amp;direction=2&amp;head_direction=2&amp;img_format=png&amp;gesture=std&amp;headonly=0&amp;size=s'" [alt]="article.author.username">
+            <img [src]="look()" [alt]="article.user.username">
           </div>
 
-          <span class="mr-2 flex-fill">{{ article.author.username }}</span>
+          <span class="mr-2 flex-fill">{{ article.user.username }}</span>
 
           <div class="d-inline-flex flex-row align-items-center mr-2">
             <i class="sprite sprite--date mr-2"></i>

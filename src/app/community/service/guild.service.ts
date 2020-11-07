@@ -51,9 +51,9 @@ export class GuildService {
   members(id: number, page: number = 1, results: number = 6): Observable<MemberPagination> {
     return this.apiService.get(`guilds/members/${id}/list/${page}/${results}`, {}, false).pipe(
       map(resp => {
-        if (resp.data.members.length < 6) {
-          for (let i = resp.data.members.length; i < 6; i++) {
-            resp.data.members.push({
+        if (resp.data.data.length < 6) {
+          for (let i = resp.data.data.length; i < 6; i++) {
+            resp.data.data.push({
               member: this.mannequin()
             });
           }
@@ -66,9 +66,9 @@ export class GuildService {
 
   /**
    * Creates a temporary guild
-   * @return { guild: Guild, member_count: number }
+   * @return Guild
    */
-  fakeGuild(): { guild: Guild, member_count: number } {
+  fakeGuild():  Guild {
     const guild = new Guild();
 
     guild.badge = null;
@@ -77,8 +77,9 @@ export class GuildService {
     guild.id = 0;
     guild.name = this.translateService.instant('DASHBOARD.GUILD.TITLE');
     guild.description = this.translateService.instant('DASHBOARD.GUILD.DESCRIPTION');
+    guild.member_count = 0;
 
-    return {guild, member_count: 0};
+    return guild;
   }
 
   /**

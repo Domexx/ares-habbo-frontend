@@ -17,6 +17,18 @@ export class RoomService {
   }
 
   /**
+   * Get room by id
+   *
+   * @param id
+   * @return Observable<Room>
+   */
+  get(id: number): Observable<Room> {
+    return this.apiService.get(`rooms/${id}`).pipe(
+      map(value => value.data)
+    );
+  }
+
+  /**
    * Gets the most visited room
    * @return Observable<Room>
    */
@@ -34,7 +46,7 @@ export class RoomService {
     const room = new Room();
 
     room.id = 0;
-    room.creator = null;
+    room.user = null;
     room.description = this.translateService.instant('DASHBOARD.ROOM.DESCRIPTION');
     room.name = this.translateService.instant('DASHBOARD.ROOM.TITLE');
     room.users = 0;

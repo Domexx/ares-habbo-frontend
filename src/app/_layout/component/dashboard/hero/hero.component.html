@@ -15,29 +15,6 @@
             <h4 class="w-100" [innerHTML]="'DASHBOARD.HERO.WELCOME' | translate: { username: user?.username }"></h4>
             <p class="mb-0 w-100" [innerHTML]="'DASHBOARD.HERO.LOGIN' | translate: { date: lastLogin | date: date : undefined : locale, time: lastLogin | date: time, undefined : locale }"></p>
             <span class="w-100" [innerHTML]="'DASHBOARD.HERO.MOTTO' | translate: { motto: user?.motto }"></span>
-
-            <div class="row mt-3 user--info d-xl-flex d-lg-flex d-none">
-              <div class="col-xl-4 col-lg-4 col-md-12">
-                <div class="d-inline-flex flex-row w-100">
-                  <div class="sprite sprite--credits mr-2"></div>
-                  <strong class="py-3" data-toggle="tooltip" data-placement="bottom" [attr.title]="'DASHBOARD.HERO.CREDITS' | translate">{{ user?.credits | numberSuffix: 2.0 }}</strong>
-                </div>
-              </div>
-
-              <div class="col-xl-4 col-lg-4 col-md-12">
-                <div class="d-inline-flex flex-row w-100">
-                  <div class="sprite sprite--diamonds mr-2"></div>
-                  <strong class="py-3" data-toggle="tooltip" data-placement="bottom" [attr.title]="'DASHBOARD.HERO.POINTS' | translate">{{ diamonds | numberSuffix: 2.0 }}</strong>
-                </div>
-              </div>
-
-              <div class="col-xl-4 col-lg-4 col-md-12">
-                <div class="d-inline-flex flex-row w-100">
-                  <div class="sprite sprite--duckets my-3 mr-2"></div>
-                  <strong class="py-3" data-toggle="tooltip" data-placement="bottom" [attr.title]="'DASHBOARD.HERO.PIXELS' | translate">{{ duckets | numberSuffix: 2.0 }}</strong>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -46,7 +23,6 @@
     <div class="col-xl-4 col-lg-4 col-md-12 h-50 pt-4">
       <div class="d-flex flex-column align-items-lg-end align-items-md-center pt-3 mb-5">
         <h5 [innerHTML]="'DASHBOARD.HERO.COUNTER' | translate: { online: this.counter, name: this.name }"></h5>
-        <a routerLink="/client" class="btn btn-client w-75 p-3" [translate]="'DASHBOARD.HERO.ENTER'"></a>
       </div>
     </div>
   </div>

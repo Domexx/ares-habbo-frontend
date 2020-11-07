@@ -45,7 +45,7 @@ export class GuildMembersComponent {
       return;
     }
 
-    this.membersSubscription = this.guildService.members(this.id$, this.pagination$.nextPage).subscribe({
+    /*this.membersSubscription = this.guildService.members(this.id$, this.pagination$.nextPage).subscribe({
       next: (e) => {
         e.members.forEach(value => {
           this.members$.push(value);
@@ -54,7 +54,7 @@ export class GuildMembersComponent {
         this.pagination$ = e.pagination;
       },
       complete: () => this.membersSubscription.unsubscribe()
-    });
+    });*/
   }
 
   look(look: string): string {

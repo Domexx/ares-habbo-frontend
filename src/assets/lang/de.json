@@ -162,10 +162,23 @@
     "SUCCESS": "Du wurdest erfolgreich abgemeldet!",
     "ERROR": "Bitte melde dich erneut an!"
   },
-  "NAVIGATOR": {
-    "NEWS": "neuigkeiten",
-    "COMMUNITY": "community",
-    "EMPLOYEES": "mitarbeiter"
+  "SIDEBAR": {
+    "GENERAL": {
+      "TITLE": "Allgemein",
+      "DASHBOARD": "Dashboard",
+      "SETTINGS": "Einstellungen"
+    },
+    "COMMUNITY": {
+      "TITLE": "Community",
+      "NEWS": "Neuigkeiten",
+      "EMPLOYEES": "Mitarbeiter"
+    },
+    "LOGOUT": "Abmelden"
+  },
+  "NAVIGATION": {
+    "CREDITS": "Taler",
+    "DIAMONDS": "Diamanten",
+    "DUCKETS": "Duckets"
   },
   "FOOTER": {
     "RIGHTS_RESERVED": "&nbsp; &copy; 2020. Alle Rechte an dieser Website vorbehalten.",

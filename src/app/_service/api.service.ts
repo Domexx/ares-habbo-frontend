@@ -8,7 +8,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {LanguageService} from '../_shared/service/language.service';
-import {API} from '../_shared/model/api';
+import {API, APIPagination} from '../_shared/model/api';
 import {environment} from '../../environments/environment';
 import {Observable} from 'rxjs';
 import {HttpLoaderService} from './http-loader.service';
@@ -45,7 +45,7 @@ export class ApiService {
    * @param loader
    * @return Observable<API>
    */
-  get(url: string, options: {} = {}, loader: boolean = true): Observable<API> {
+  get(url: string, options: {} = {}, loader: boolean = true): Observable<API | APIPagination> {
     this.isLoadable(url, loader);
     return this.http.get<API>(`${environment.app.endpoint}/${this.languageService.language}/${url}`, options);
   }

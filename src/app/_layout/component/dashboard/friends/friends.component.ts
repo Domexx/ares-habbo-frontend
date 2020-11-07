@@ -4,8 +4,8 @@ import {environment} from '../../../../../environments/environment';
 import {Subscription} from 'rxjs';
 import {FriendService} from '../../../service/friend.service';
 import {animate, state, style, transition, trigger} from '@angular/animations';
-import {Pagination} from '../../../../_shared/model/pagination';
 import {TranslateService} from '@ngx-translate/core';
+import {FriendPagination} from '../../../../dashboard/model/friend';
 
 @Component({
   selector: 'ares-layout-dashboard-friends',
@@ -26,7 +26,7 @@ export class FriendsComponent implements OnInit, OnDestroy {
   friendSubscription: Subscription;
 
   friends$: User[];
-  pagination$: Pagination;
+  pagination$: FriendPagination;
 
   searchName: string;
 
@@ -38,7 +38,7 @@ export class FriendsComponent implements OnInit, OnDestroy {
   }
 
   @Input('pagination')
-  set pagination(value: Pagination) {
+  set pagination(value: FriendPagination) {
     this.pagination$ = value;
   }
 
@@ -64,19 +64,19 @@ export class FriendsComponent implements OnInit, OnDestroy {
   }
 
   onScroll() {
-    if (!this.pagination$.nextPage) {
+    if (!this.pagination$.next_page_url || this.pagination$.current_page > this.pagination$.last_page) {
       return;
     }
 
     this.state = false;
 
-    this.friendSubscription = this.friendService.friends(this.pagination$.nextPage).subscribe({
+    this.friendSubscription = this.friendService.friends(++this.pagination$.current_page).subscribe({
       next: (e) => {
-        e.friends.forEach(value => {
-          this.friends$.push(value.friend);
+        e.data.forEach(value => {
+          this.friends$.push(value.user);
         });
 
-        this.pagination$ = e.pagination;
+        this.pagination$ = e;
       },
       complete: () => this.state = true
     });

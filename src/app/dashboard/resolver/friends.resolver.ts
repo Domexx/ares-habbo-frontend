@@ -3,7 +3,7 @@ import {ActivatedRouteSnapshot, Resolve, RouterStateSnapshot} from '@angular/rou
 import {Observable} from 'rxjs';
 import {FriendPagination} from '../model/friend';
 import {FriendService} from '../../_layout/service/friend.service';
-import {catchError} from 'rxjs/operators';
+import {catchError, map} from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class DashboardFriendResolver implements Resolve<FriendPagination> {

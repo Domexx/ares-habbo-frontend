@@ -35,16 +35,20 @@ import {CommentsComponent} from './component/article/comments/comments.component
 import {TooltipModule} from 'ngx-bootstrap/tooltip';
 import {ModalModule} from 'ngx-bootstrap/modal';
 
-import {GuildMembersComponent} from './component/community/guild/guild-members/guild-members.component';
-import {FriendService} from './service/friend.service';
 import {FaIconLibrary, FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {faSearch} from '@fortawesome/free-solid-svg-icons/faSearch';
 import {faUnlink} from '@fortawesome/free-solid-svg-icons/faUnlink';
+import {faBars} from '@fortawesome/free-solid-svg-icons/faBars';
+
+import {GuildMembersComponent} from './component/community/guild/guild-members/guild-members.component';
+import {FriendService} from './service/friend.service';
 import {SharedModule} from '../_shared/shared.module';
 import { GuestbookComponent } from './component/community/guild/guestbook/guestbook.component';
 import { ItemComponent } from './component/employees/item/item.component';
 import {MomentModule} from 'ngx-moment';
 import { SidebarComponent } from './component/sidebar/sidebar.component';
+import { TopBarComponent } from './component/top-bar/top-bar.component';
+import { NavbarComponent } from './component/navbar/navbar.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -75,7 +79,9 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     SearchPipe,
     GuestbookComponent,
     ItemComponent,
-    SidebarComponent
+    SidebarComponent,
+    TopBarComponent,
+    NavbarComponent
   ],
     imports: [
         CommonModule,
@@ -98,32 +104,34 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     },
     FriendService
   ],
-  exports: [
-    FooterComponent,
-    HeaderComponent,
-    LanguageSelectorComponent,
-    FriendsComponent,
-    ArticleSliderComponent,
-    PinnedArticlesComponent,
-    LoaderComponent,
-    HeroComponent,
-    DisconnectedComponent,
-    ButtonsComponent,
-    FlashDetectComponent,
-    ActiveSessionComponent,
-    ArticlesComponent,
-    CommentsComponent,
-    GuildComponent,
-    RoomComponent,
-    DiscordComponent,
-    GuildMembersComponent,
-    SearchPipe,
-    GuestbookComponent,
-    ItemComponent
-  ]
+    exports: [
+        FooterComponent,
+        HeaderComponent,
+        LanguageSelectorComponent,
+        FriendsComponent,
+        ArticleSliderComponent,
+        PinnedArticlesComponent,
+        LoaderComponent,
+        HeroComponent,
+        DisconnectedComponent,
+        ButtonsComponent,
+        FlashDetectComponent,
+        ActiveSessionComponent,
+        ArticlesComponent,
+        CommentsComponent,
+        GuildComponent,
+        RoomComponent,
+        DiscordComponent,
+        GuildMembersComponent,
+        SearchPipe,
+        GuestbookComponent,
+        ItemComponent,
+        SidebarComponent,
+        NavbarComponent
+    ]
 })
 export class LayoutModule {
   constructor(library: FaIconLibrary) {
-    library.addIcons(faSearch, faUnlink);
+    library.addIcons(faSearch, faUnlink, faBars);
   }
 }

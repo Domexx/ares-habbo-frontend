@@ -1,29 +1,28 @@
-:root {
-  --main-bg-color: #202225;
-  --main-bg-red: #B41030;
-  --main-bg-red-alt: #A51A33;
-  --main-bg-dark: #1C1D20;
-  --main-bg-gray: #292B2F;
-  --main-bg-green: #00732B;
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
 
-  --main-modal-bg: #292B2F;
-  --modal-close-bg: #17181A;
-  --modal-close-bg-hover: #343436;
+// Color Palette
+$main-bg-color: #1C1D20;
+$main-bg-red: #B41030;
+$main-bg-red-alt: #A51A33;
+$main-bg-dark: #1b1b1d;
+$main-bg-gray: #202225;
+$main-bg-green: #00732B;
 
-  --text-normal: #fff;
-  --text-link: #ff2953;
-  --text-link-hover: #e1284d;
+// Text
+$text-normal: #fff;
+$text-link: #ff2953;
+$text-link-hover: #e1284d;
 
-  --swiper-theme-color: #ff1744 !important;
+// Swiper
+$swiper-theme-color: #ff1744;
 
-  --btn-danger-primary: #ff1744;
-  --btn-danger-secondary: #ff2953;
+// Sidebar
+$sidebar-bg-color: #1c1f22;
+$sidebar-brand-padding-top: 1.07rem;
+$sidebar-brand-padding-bottom: 1.07rem;
 
-  --hero-background-color: #fc374e;
-
-  --gray: #EBEFF0 !important;
-}
-
+// Breakpoints
 $grid-breakpoints: (
   xs: 0,
   sm: 576px,
@@ -33,10 +32,12 @@ $grid-breakpoints: (
 );
 
 $container-max-widths: (
-  sm: 540px,
-  md: 720px,
+  sm: 576px,
+  md: 768px,
   lg: 1200px,
   xl: 1400px
 );
 
-$body-bg: var(--main-bg-color);
+// Bootstrap Configuration
+$body-bg: $main-bg-color;
+$body-color: $text-normal;

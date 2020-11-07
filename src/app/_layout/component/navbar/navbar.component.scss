@@ -1,0 +1,66 @@
+@import '../../../../styles/variables';
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins/breakpoints";
+
+:host {
+  background: var(--main-bg-color);
+  left: 15em;
+  border-bottom: 1px solid rgba(0 0 0 / 40%);
+  min-height: 85px;
+
+  @include media-breakpoint-down(lg) {
+    left: 5em;
+  }
+
+  #habbo--look {
+    border-radius: 50rem;
+    background-color: var(--main-bg-gray);
+    overflow: hidden;
+    height: 4rem;
+    width: 4rem;
+
+    & > img {
+      image-rendering: pixelated;
+      height: 4rem;
+    }
+  }
+
+  #navbar {
+    .navbar-nav {
+      .info--item {
+        position: relative;
+
+        .user--info {
+          & > .user--info--header {
+            font-size: .9rem;
+          }
+
+          & .user--info-value {
+            color: #fff;
+            font-size: 1.2rem;
+          }
+        }
+
+        &:not(:first-child) {
+          padding-left: .5rem;
+        }
+
+        &:not(:last-child) {
+          padding-right: .5rem;
+
+          &::after {
+            content: '';
+            display: inline-block;
+            background: var(--main-bg-gray);
+            height: 3.5rem;
+            width: 1px;
+            top: .4rem;
+            position: absolute;
+            right: 0;
+          }
+        }
+      }
+    }
+  }
+}
