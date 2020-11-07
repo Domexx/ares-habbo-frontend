@@ -17,7 +17,7 @@
         <i class="icon icon--community mr-2"></i>
         <span class="rank-name">{{ rank.rank_name }}</span>
       </div>
-      <ng-container *ngIf="rank.users.length > 0; else noEmployees">
+      <ng-container *ngIf="rank.users?.length > 0; else noEmployees">
         <div class="row mt-4">
           <ares-layout-employees-item class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-4" [class.offline]="employee.online === 0"  [employee]="employee" [color]="rank.prefix_color"
                                       [badge]="rank.badge" [name]="rank.rank_name" *ngFor="let employee of rank.users">
