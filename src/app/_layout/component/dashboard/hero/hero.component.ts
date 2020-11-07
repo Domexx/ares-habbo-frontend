@@ -34,8 +34,11 @@ export class HeroComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.user = this.userService.user;
     this.lastLogin = this.user.last_login * 1000;
-    this.diamonds = this.userService.user.currencies.filter(value => value.type === 5).shift().amount;
-    this.duckets = this.userService.user.currencies.filter(value => value.type === 0).shift().amount;
+
+    if (this.user.currencies) {
+      this.diamonds = this.userService.user.currencies.filter(value => value.type === 5).shift().amount;
+      this.duckets = this.userService.user.currencies.filter(value => value.type === 0).shift().amount;
+    }
 
     this.counterSubscription = this.clientService.counter().subscribe({
       next: value => {

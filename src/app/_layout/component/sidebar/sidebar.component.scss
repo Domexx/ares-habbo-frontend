@@ -10,6 +10,7 @@
   left: 0;
   top: 0;
   bottom: 0;
+  transition: 250ms all;
 
   @include media-breakpoint-down(lg) {
     width: 5em;

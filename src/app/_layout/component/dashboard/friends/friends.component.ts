@@ -64,16 +64,16 @@ export class FriendsComponent implements OnInit, OnDestroy {
   }
 
   onScroll() {
-    if (!this.pagination$.next_page_url) {
+    if (!this.pagination$.next_page_url || this.pagination$.current_page > this.pagination$.last_page) {
       return;
     }
 
     this.state = false;
 
-    this.friendSubscription = this.friendService.friends(this.pagination$.to).subscribe({
+    this.friendSubscription = this.friendService.friends(++this.pagination$.current_page).subscribe({
       next: (e) => {
         e.data.forEach(value => {
-          this.friends$.push(value.friend);
+          this.friends$.push(value.user);
         });
 
         this.pagination$ = e;
