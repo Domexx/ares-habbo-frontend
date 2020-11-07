@@ -11,17 +11,12 @@
 
   main {
     padding-top: 5.28rem;
-    width: calc(100vw - 15vw);
-    margin-left: 15vw;
+    width: calc(100% - 15em);
+    margin-left: 15em;
 
     @include media-breakpoint-down(lg) {
-      width: calc(100vw - 7vw);
-      margin-left: 7vw;
-    }
-
-    @include media-breakpoint-down(md) {
-      width: calc(100vw - 11vw);
-      margin-left: 11vw;
+      width: calc(100% - 5em);
+      margin-left: 5em;
     }
   }
 }

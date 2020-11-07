@@ -5,16 +5,12 @@
 
 :host {
   background: var(--main-bg-color);
-  left: 15vw;
+  left: 15em;
   border-bottom: 1px solid rgba(0 0 0 / 40%);
   min-height: 85px;
 
   @include media-breakpoint-down(lg) {
-    left: 5vw;
-  }
-
-  @include media-breakpoint-down(md) {
-    left: 11vw;
+    left: 5em;
   }
 
   #habbo--look {

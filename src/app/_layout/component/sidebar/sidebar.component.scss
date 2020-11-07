@@ -5,14 +5,14 @@
 
 :host {
   background: var(--sidebar-bg-color);
-  width: 15vw;
+  width: 15em;
   position: fixed;
   left: 0;
   top: 0;
   bottom: 0;
 
   @include media-breakpoint-down(lg) {
-    width: 7vw;
+    width: 5em;
 
     .sidebar--category {
       display: none;
@@ -25,10 +25,6 @@
     }
   }
 
-  @include media-breakpoint-down(md) {
-    width: 11vw;
-  }
-
   #sidebar--nav {
     .sidebar--brand {
       border-bottom: 1px solid rgba(0 0 0 / 40%);
@@ -37,6 +33,12 @@
 
       img {
         height: 50px;
+      }
+
+      @include media-breakpoint-down(xs) {
+        .logo--big {
+          display: none;
+        }
       }
     }
 
