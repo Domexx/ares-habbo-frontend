@@ -5,24 +5,23 @@
  *
  */
 
-import {Injectable} from '@angular/core';
-import {HttpClient} from '@angular/common/http';
-import {LanguageService} from '../_shared/service/language.service';
-import {API, APIPagination} from '../_shared/model/api';
-import {environment} from '../../environments/environment';
-import {Observable} from 'rxjs';
-import {HttpLoaderService} from './http-loader.service';
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { LanguageService } from '../_shared/service/language.service';
+import { API, APIPagination } from '../_shared/model/api';
+import { environment } from '../../environments/environment';
+import { Observable } from 'rxjs';
+import { HttpLoaderService } from './http-loader.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
-
-  constructor(private http: HttpClient,
-              private languageService: LanguageService,
-              private httpLoaderService: HttpLoaderService
-  ) {
-  }
+  constructor(
+    private http: HttpClient,
+    private languageService: LanguageService,
+    private httpLoaderService: HttpLoaderService
+  ) {}
 
   /**
    * Sends a POST request to the API
@@ -33,9 +32,18 @@ export class ApiService {
    * @param loader
    * @return Observable<API>
    */
-  post(url: string, body: any = {}, options = {}, loader: boolean = true): Observable<API> {
+  post(
+    url: string,
+    body: any = {},
+    options = {},
+    loader: boolean = true
+  ): Observable<API> {
     this.isLoadable(url, loader);
-    return this.http.post<API>(`${environment.app.endpoint}/${this.languageService.language}/${url}`, body, options);
+    return this.http.post<API>(
+      `${environment.app.endpoint}/${this.languageService.language}/${url}`,
+      body,
+      options
+    );
   }
 
   /**
@@ -45,9 +53,16 @@ export class ApiService {
    * @param loader
    * @return Observable<API>
    */
-  get(url: string, options: {} = {}, loader: boolean = true): Observable<API | APIPagination> {
+  get(
+    url: string,
+    options: {} = {},
+    loader: boolean = true
+  ): Observable<API | APIPagination> {
     this.isLoadable(url, loader);
-    return this.http.get<API>(`${environment.app.endpoint}/${this.languageService.language}/${url}`, options);
+    return this.http.get<API>(
+      `${environment.app.endpoint}/${this.languageService.language}/${url}`,
+      options
+    );
   }
 
   /**
@@ -58,9 +73,18 @@ export class ApiService {
    * @param loader
    * @return Observable<API>
    */
-  put(url: string, body: any = {}, options: {} = {}, loader: boolean = true): Observable<API> {
+  put(
+    url: string,
+    body: any = {},
+    options: {} = {},
+    loader: boolean = true
+  ): Observable<API> {
     this.isLoadable(url, loader);
-    return this.http.put<API>(`${environment.app.endpoint}/${this.languageService.language}/${url}`, body, options);
+    return this.http.put<API>(
+      `${environment.app.endpoint}/${this.languageService.language}/${url}`,
+      body,
+      options
+    );
   }
 
   /**
@@ -70,9 +94,16 @@ export class ApiService {
    * @param loader
    * @return Observable<API>
    */
-  delete(url: string, options: {} = {}, loader: boolean = true): Observable<API> {
+  delete(
+    url: string,
+    options: {} = {},
+    loader: boolean = true
+  ): Observable<API> {
     this.isLoadable(url, loader);
-    return this.http.delete<API>(`${environment.app.endpoint}/${this.languageService.language}/${url}`, options);
+    return this.http.delete<API>(
+      `${environment.app.endpoint}/${this.languageService.language}/${url}`,
+      options
+    );
   }
 
   /**
@@ -95,5 +126,4 @@ export class ApiService {
       this.httpLoaderService.push(this.url(url));
     }
   }
-
 }

@@ -1,6 +1,6 @@
-import {User} from './user/user';
-import {Timestamp} from './timestamp';
-import {Pagination} from './pagination';
+import { APIPagination } from './api';
+import { User } from './user/user';
+import { Timestamp } from './timestamp';
 
 export class Guestbook {
   id: number;
@@ -12,12 +12,11 @@ export class Guestbook {
   created_at: Timestamp;
 }
 
-export class GuestbookPagination {
-  pagination: Pagination;
-  entries: Guestbook[];
+export class GuestbookPagination extends APIPagination {
+  data: Guestbook[];
 }
 
 export enum GuestbookEntity {
   PROFILE,
-  GUILD
+  GUILD,
 }

@@ -1,9 +1,9 @@
-import {User} from '../../../_shared/model/user/user';
-import {Room} from '../room';
+import { User } from '../../../_shared/model/user/user';
+import { Room } from '../room';
 
 export class Guild {
   id: number;
-  creator: User;
+  user: User;
   name: string;
   description: string;
   badge: string;
