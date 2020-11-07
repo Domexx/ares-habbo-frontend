@@ -11,5 +11,5 @@
     {{ (employee$.last_online | amFromUnix) | amLocale:locale | amTimeAgo }}
   </div>
 
-  <img class="rank-badge" [src]="badgePath(badge$)" [alt]="name$" [tooltip]="name$" placement="right" />
+  <img class="rank-badge" [src]="badgePath(badge$)" [alt]="name$" [tooltip]="name$" placement="right" container="body" />
 </div>
