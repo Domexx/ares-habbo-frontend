@@ -1,8 +1,18 @@
+.input-group {
+  transition: 0.25s all;
+
+  & > .input-group-text {
+    color: #fff;
+    background: #292b2f;
+    border: unset;
+  }
+}
+
 .form-control {
-  background-color: #292B2F;
+  background-color: #292b2f;
   border-radius: 2px;
-  border: 1px solid #292B2F;
-  transition: .25s all;
+  border: 1px solid #292b2f;
+  transition: 0.25s all;
   color: #fff;
 
   &:focus {

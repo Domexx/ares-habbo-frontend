@@ -110,7 +110,8 @@
     },
 
     "SEARCH": {
-      "FAILED": "\"{{ term }}\" konnte nicht gefunden werden"
+      "FAILED": "\"{{ term }}\" konnte nicht gefunden werden",
+      "PLACEHOLDER": "Artikel suchen"
     }
   },
   "COMMUNITY": {

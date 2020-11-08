@@ -11,6 +11,12 @@ import { ArticlesComponent } from './component/articles.component';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchArticlePipe } from './pipe/search-article.pipe';
+import { TranslateModule } from '@ngx-translate/core';
+import {
+  FaIconLibrary,
+  FontAwesomeModule,
+} from '@fortawesome/angular-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons/faSearch';
 
 @NgModule({
   declarations: [ArticleComponent, ArticlesComponent, SearchArticlePipe],
@@ -23,6 +29,12 @@ import { SearchArticlePipe } from './pipe/search-article.pipe';
     InfiniteScrollModule,
     FormsModule,
     ReactiveFormsModule,
+    TranslateModule.forChild(),
+    FontAwesomeModule,
   ],
 })
-export class ArticlesModule {}
+export class ArticlesModule {
+  constructor(library: FaIconLibrary) {
+    library.addIcons(faSearch);
+  }
+}
