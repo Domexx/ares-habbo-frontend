@@ -1,15 +1,18 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {SwiperConfigInterface, SwiperPaginationInterface} from 'ngx-swiper-wrapper';
-import {ArticleService} from '../../../../article/service/article.service';
-import {Article} from '../../../../article/model/article';
-import {environment} from '../../../../../environments/environment';
-import {LanguageService} from '../../../../_shared/service/language.service';
+import { Component, Input, OnInit } from '@angular/core';
+import {
+  SwiperConfigInterface,
+  SwiperPaginationInterface,
+} from 'ngx-swiper-wrapper';
+import { ArticleService } from '../../../../articles/service/article.service';
+import { Article } from '../../../../articles/model/article';
+import { environment } from '../../../../../environments/environment';
+import { LanguageService } from '../../../../_shared/service/language.service';
 
 @Component({
   selector: 'ares-layout-dashboard-article-slider',
   templateUrl: './article-slider.component.html',
   styleUrls: ['./article-slider.component.scss'],
-  providers: [ArticleService]
+  providers: [ArticleService],
 })
 export class ArticleSliderComponent implements OnInit {
   imager = environment.app.imager;
@@ -26,13 +29,13 @@ export class ArticleSliderComponent implements OnInit {
     allowTouchMove: true,
     loop: true,
     autoplay: true,
-    speed: 500
+    speed: 500,
   };
 
   private pagination: SwiperPaginationInterface = {
     el: '.swiper-pagination',
     clickable: true,
-    hideOnClick: false
+    hideOnClick: false,
   };
 
   articles$: Article[];
@@ -42,10 +45,7 @@ export class ArticleSliderComponent implements OnInit {
     this.articles$ = items;
   }
 
-  constructor(
-    private languageService: LanguageService
-  ) {
-  }
+  constructor(private languageService: LanguageService) {}
 
   ngOnInit(): void {
     this.config.pagination = this.pagination;
@@ -55,5 +55,4 @@ export class ArticleSliderComponent implements OnInit {
   get locale(): string {
     return this.languageService.getCurrentCulture();
   }
-
 }
