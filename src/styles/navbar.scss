@@ -1,21 +1,21 @@
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
 
 .dropdown-menu {
   background: var(--main-bg-dark);
-  border-radius: 0 0 .25rem .25rem;
+  border-radius: 0 0 0.25rem 0.25rem;
   border-color: transparent;
-  box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
   animation-name: dropSlide;
-  animation-duration: .3s;
+  animation-duration: 0.3s;
   animation-fill-mode: both;
   margin: 0;
   top: 5rem;
 
   .dropdown-item {
-    transition: .25s background-color;
+    transition: 0.25s background-color;
     color: #fff;
-    padding: .5rem 1.5rem;
+    padding: 0.5rem 1.5rem;
 
     &.active {
       &:hover,
@@ -25,29 +25,29 @@
     }
 
     &.active,
-    &:active, {
+    &:active {
       background: #ff1744;
     }
 
     &:hover,
     &:focus {
       outline: none;
-      background: #373a40;
+      background: var(--main-bg-gray);
     }
   }
 
   .dropdown-divider {
-    border-top-color: var(--main-bg-gray)
+    border-top-color: var(--main-bg-gray);
   }
 }
 
 @keyframes dropSlide {
   100% {
     -webkit-transform: translateY(0);
-    transform: translateY(0)
+    transform: translateY(0);
   }
   0% {
     -webkit-transform: translateY(10px);
-    transform: translateY(10px)
+    transform: translateY(10px);
   }
 }
