@@ -17,12 +17,12 @@
   [scrollWindow]="true">
     <ng-container *ngIf="searchEntries.length === 0; else searchEntriesRef">
       <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12" *ngFor="let article of entries">
-        <a [routerLink]="['/articles/', article.id + '-' +article.slug]" class="card d-flex flex-row align-content-center p-4 mb-3">
-          <div class="article--image mr-3" @fade [style.backgroundImage]="'url('+ article.image +')'"></div>
+        <a [routerLink]="['/articles/', article?.id + '-' +article?.slug]" class="card d-flex flex-row align-content-center p-4 mb-3">
+          <div class="article--image mr-3" @fade [style.backgroundImage]="'url('+ article?.image +')'"></div>
 
           <div class="flex-fill d-inline-flex flex-column justify-content-center text-ellipsis">
-            <span class="article--title text-ellipsis">{{ article.title }}</span>
-            <span class="article--date text-ellipsis">{{ article.created_at | date: date }}</span>
+            <span class="article--title text-ellipsis">{{ article?.title }}</span>
+            <span class="article--date text-ellipsis">{{ article?.created_at | date: date }}</span>
           </div>
         </a>
       </div>
@@ -30,12 +30,12 @@
 
     <ng-template #searchEntriesRef>
       <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12" *ngFor="let article of searchEntries">
-        <a [routerLink]="['/articles/', article.id + '-' +article.slug]" class="card d-flex flex-row align-content-center p-4 mb-3">
+        <a [routerLink]="['/articles/', article?.id + '-' +article?.slug]" class="card d-flex flex-row align-content-center p-4 mb-3">
           <div class="article--image mr-3" @fade [style.backgroundImage]="'url('+ article.image +')'"></div>
 
           <div class="flex-fill d-inline-flex flex-column justify-content-center text-ellipsis">
-            <span class="article--title text-ellipsis">{{ article.title }}</span>
-            <span class="article--date text-ellipsis">{{ article.created_at | date: date }}</span>
+            <span class="article--title text-ellipsis">{{ article?.title }}</span>
+            <span class="article--date text-ellipsis">{{ article?.created_at | date: date }}</span>
           </div>
         </a>
       </div>

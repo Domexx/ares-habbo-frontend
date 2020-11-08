@@ -12,6 +12,8 @@ import {
 } from '@angular/animations';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
+import { AlertService } from 'src/app/_shared/service/alert.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'ares-articles',
@@ -39,7 +41,9 @@ export class ArticlesComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private articleService: ArticleService
+    private articleService: ArticleService,
+    private alertService: AlertService,
+    private translateService: TranslateService
   ) {}
 
   /**
@@ -61,7 +65,18 @@ export class ArticlesComponent implements OnInit {
     }
 
     const subscription = this.articleService.search(term).subscribe({
-      next: (resp) => (this.searchEntries = resp.data),
+      next: (resp: ArticlePagination) => {
+        if (resp.data.length === 0) {
+          this.alertService.error(
+            this.translateService.instant('ARTICLES.SEARCH.FAILED', {
+              term,
+            })
+          );
+          return;
+        }
+
+        this.searchEntries = resp.data;
+      },
       complete: () => subscription.unsubscribe(),
     });
   }

@@ -21,20 +21,22 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.userService.user;
 
-    const diamonds = this.userService.user.currencies
-      .filter((value) => value.type === 5)
-      .shift();
+    if (this.user.currencies) {
+      const diamonds = this.userService.user.currencies
+        .filter((value) => value.type === 5)
+        .shift();
 
-    if (diamonds) {
-      this.diamonds = diamonds.amount;
-    }
+      if (diamonds) {
+        this.diamonds = diamonds.amount;
+      }
 
-    const duckets = this.userService.user.currencies
-      .filter((value) => value.type === 0)
-      .shift();
+      const duckets = this.userService.user.currencies
+        .filter((value) => value.type === 0)
+        .shift();
 
-    if (duckets) {
-      this.duckets = duckets.amount;
+      if (duckets) {
+        this.duckets = duckets.amount;
+      }
     }
   }
 

@@ -22,7 +22,8 @@ export const environment = {
 
     camera: {
       images: '',
-      thumbnails: 'https:/yourdomain.com/swf/gamedata/camera/thumbnails/thumbnail_'
+      thumbnails:
+        'https:/yourdomain.com/swf/gamedata/camera/thumbnails/thumbnail_',
     },
 
     // Language
@@ -34,26 +35,30 @@ export const environment = {
       dashboard: {
         hero: {
           date: 'dd.MM.yyyy',
-          time: 'HH:mm'
-        }
+          time: 'HH:mm',
+        },
+      },
+
+      articles: {
+        date: 'dd MMM yyyy',
       },
 
       article: {
         date: 'dd.MM.yyyy',
-        time: 'HH:mm'
+        time: 'HH:mm',
       },
 
       community: {
         guild: {
-          date: 'dd.MM.yyyy'
-        }
+          date: 'dd.MM.yyyy',
+        },
       },
 
       employees: {
-        date: 'dd.MM.yyyy'
-      }
-    }
-  }
+        date: 'dd.MM.yyyy',
+      },
+    },
+  },
 };
 
 export const client = {
@@ -83,12 +88,12 @@ export const client = {
     'flash.client.url': `${environment.app.swf}/gordon/PRODUCTION-201601012205-226667486/`,
     'diamonds.enabled': '1',
     'logout.url': `${environment.app.url}/logout`,
-    spaweb: '1'
+    spaweb: '1',
   },
 
   params: {
     base: `${environment.app.swf}/gordon/PRODUCTION-201601012205-226667486/`,
     allowScriptAccess: 'always',
-    wmode: 'opaque'
-  }
+    wmode: 'opaque',
+  },
 };

@@ -107,6 +107,10 @@
         "TITLE": "Neuigkeiten",
         "DESCRIPTION": "Hier findest du eine Auflistung aktueller Neuigkeiten"
       }
+    },
+
+    "SEARCH": {
+      "FAILED": "\"{{ term }}\" konnte nicht gefunden werden"
     }
   },
   "COMMUNITY": {

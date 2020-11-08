@@ -32,7 +32,7 @@
         </div>
       </div>
 
-      <ares-layout-article-comments [pagination]="comments" [id]="article.id" (hasCommented)="onComment()"></ares-layout-article-comments>
+      <ares-layout-article-comments [pagination]="commentsPagination" [comments]="comments" [id]="article.id" (hasCommented)="onComment()"></ares-layout-article-comments>
     </div>
 
     <div class="col-xl-4 col-lg-4 col-sm-12">

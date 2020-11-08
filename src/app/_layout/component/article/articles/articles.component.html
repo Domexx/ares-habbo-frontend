@@ -15,7 +15,7 @@
   </div>
 
   <div class="col-12 mb-3" *ngFor="let article of articles$">
-    <a [routerLink]="'/articles/' + article.slug">
+    <a [routerLink]="'/articles/' + article.id + '-' + article.slug">
       <div class="card card--article cursor-pointer">
         <div class="d-flex flex-row p-4">
           <img class="mr-3" [src]="article.image" [alt]="article.title" [title]="article.title" />

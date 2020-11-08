@@ -15,7 +15,8 @@ import { LookSize } from '../../../_shared/model/user/look';
 })
 export class ArticleComponent implements OnInit, OnDestroy {
   article: Article;
-  comments: CommentPagination;
+  comments: Comment[];
+  commentsPagination: CommentPagination;
   articles: Article[];
 
   imager = environment.app.imager;
@@ -38,7 +39,8 @@ export class ArticleComponent implements OnInit, OnDestroy {
       this.article = data.article;
       this.articles = data.articles;
 
-      this.comments = data.comments;
+      this.comments = data.comments.data;
+      this.commentsPagination = data.comments;
 
       this.titleService.setTitle(this.article.title);
     });

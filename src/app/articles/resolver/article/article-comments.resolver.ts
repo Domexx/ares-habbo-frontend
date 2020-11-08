@@ -22,7 +22,6 @@ export class ArticleCommentsResolver implements Resolve<CommentPagination> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<CommentPagination> {
-    console.log(route.params.slug);
     return this.articleService.getComments(route.params.slug.split('-')[0]);
   }
 }

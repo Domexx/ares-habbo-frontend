@@ -15,7 +15,6 @@ import {
 } from '@angular/core';
 import { Comment, CommentPagination } from '../../../../articles/model/comment';
 import { environment } from '../../../../../environments/environment';
-import { Pagination } from '../../../../_shared/model/pagination';
 import { Subscription } from 'rxjs';
 import { ArticleService } from '../../../../articles/service/article.service';
 import { ActivatedRoute } from '@angular/router';
@@ -40,6 +39,11 @@ export class CommentsComponent implements OnInit {
 
   modalRef: BsModalRef;
 
+  @Input('comments')
+  set comments(value: Comment[]) {
+    this.comments$ = value;
+  }
+
   @Input('pagination')
   set pagination(value: CommentPagination) {
     this.pagination$ = value;
@@ -63,8 +67,6 @@ export class CommentsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.comments$ = this.pagination$.data;
-
     this.commentForm = this.formBuilder.group({
       comment: ['', Validators.required],
     });
