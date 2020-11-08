@@ -18,7 +18,7 @@
 
           <div class="d-inline-flex flex-row align-items-center mr-2">
             <i class="sprite sprite--date mr-2"></i>
-            <span>{{ article.created_at.date | date: date }} - {{ article.created_at.date | date: time }}</span>
+            <span>{{ article.created_at | date: date }} - {{ article.created_at | date: time }}</span>
           </div>
 
           <div class="d-inline-flex flex-row align-items-center mr-2">
@@ -32,7 +32,7 @@
         </div>
       </div>
 
-      <ares-layout-article-comments [comments]="comments" [pagination]="commentsPagination" [id]="article.id" (hasCommented)="onComment()"></ares-layout-article-comments>
+      <ares-layout-article-comments [pagination]="comments" [id]="article.id" (hasCommented)="onComment()"></ares-layout-article-comments>
     </div>
 
     <div class="col-xl-4 col-lg-4 col-sm-12">

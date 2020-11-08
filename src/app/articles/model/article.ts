@@ -1,4 +1,5 @@
-import {User} from '../../_shared/model/user/user';
+import { APIPagination } from './../../_shared/model/api';
+import { User } from '../../_shared/model/user/user';
 
 export class Article {
   id: number;
@@ -12,15 +13,11 @@ export class Article {
   likes: number;
   dislikes: number;
   // tslint:disable-next-line:variable-name
-  created_at: {
-    date: string,
-    timezone_type: number;
-    timezone: string;
-  };
+  created_at: string;
   // tslint:disable-next-line:variable-name
-  updated_at: {
-    data: string,
-    timezone_type: number;
-    timezone: string;
-  };
+  updated_at: string;
+}
+
+export class ArticlePagination extends APIPagination {
+  data: Article[];
 }

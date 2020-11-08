@@ -1,3 +1,4 @@
+import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
@@ -22,6 +23,6 @@ export class ArticleSliderResolver implements Resolve<Article[]> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<Article[]> {
-    return this.articleService.slide();
+    return this.articleService.list().pipe(map((resp) => resp.data));
   }
 }

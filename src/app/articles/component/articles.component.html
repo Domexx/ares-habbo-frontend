@@ -1,1 +1,44 @@
-<p>articles works!</p>
+<section class="ares--hero bg-green">
+  <div id="room"></div>
+
+  <div class="container d-flex">
+    <div id="camera"></div>
+    test
+  </div>
+</section>
+
+<div class="container">
+  <input class="form-control mb-4 p-3" type="search" [formControl]="searchField" />
+
+  <div class="row" infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="50"
+  (scrolled)="onScroll()"
+  [scrollWindow]="true">
+    <ng-container *ngIf="searchEntries.length === 0; else searchEntriesRef">
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12" *ngFor="let article of entries">
+        <a [routerLink]="['/articles/', article.id + '-' +article.slug]" class="card d-flex flex-row align-content-center p-4 mb-3">
+          <div class="article--image mr-3" @fade [style.backgroundImage]="'url('+ article.image +')'"></div>
+
+          <div class="flex-fill d-inline-flex flex-column justify-content-center text-ellipsis">
+            <span class="article--title text-ellipsis">{{ article.title }}</span>
+            <span class="article--date text-ellipsis">{{ article.created_at | date: date }}</span>
+          </div>
+        </a>
+      </div>
+    </ng-container>
+
+    <ng-template #searchEntriesRef>
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12" *ngFor="let article of searchEntries">
+        <a [routerLink]="['/articles/', article.id + '-' +article.slug]" class="card d-flex flex-row align-content-center p-4 mb-3">
+          <div class="article--image mr-3" @fade [style.backgroundImage]="'url('+ article.image +')'"></div>
+
+          <div class="flex-fill d-inline-flex flex-column justify-content-center text-ellipsis">
+            <span class="article--title text-ellipsis">{{ article.title }}</span>
+            <span class="article--date text-ellipsis">{{ article.created_at | date: date }}</span>
+          </div>
+        </a>
+      </div>
+    </ng-template>
+  </div>
+</div>

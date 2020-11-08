@@ -15,11 +15,11 @@
        [scrollWindow]="false">
     <div *ngFor="let comment of comments$" class="col-12 comment">
       <div class="d-flex justify-content-start">
-        <img class="align-self-start" [src]="look(comment.author.look)" [class.offline]="comment.author.online == 0" />
+        <img class="align-self-start" [src]="look(comment.user.look)" [class.offline]="comment.user.online == 0" />
 
         <div class="flex-grow-1 d-inline-flex flex-column">
           <div class="d-inline-flex flex-row">
-            <strong class="pb-1 pt-2">{{ comment.author.username }}</strong>
+            <strong class="pb-1 pt-2">{{ comment.user.username }}</strong>
           </div>
 
           <span class="pb-3 mr-2">{{ comment.content }}</span>

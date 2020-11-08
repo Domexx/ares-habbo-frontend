@@ -13,7 +13,7 @@ import {
   Output,
   TemplateRef,
 } from '@angular/core';
-import { Comment } from '../../../../articles/model/comment';
+import { Comment, CommentPagination } from '../../../../articles/model/comment';
 import { environment } from '../../../../../environments/environment';
 import { Pagination } from '../../../../_shared/model/pagination';
 import { Subscription } from 'rxjs';
@@ -33,20 +33,15 @@ import { EntityType, VoteType } from '../../../../_shared/model/vote';
 })
 export class CommentsComponent implements OnInit {
   comments$: Comment[] = [];
-  pagination$: Pagination;
+  pagination$: CommentPagination;
   id$: number;
 
   commentForm: FormGroup;
 
   modalRef: BsModalRef;
 
-  @Input('comments')
-  set comments(value: Comment[]) {
-    this.comments$ = value;
-  }
-
   @Input('pagination')
-  set pagination(value: Pagination) {
+  set pagination(value: CommentPagination) {
     this.pagination$ = value;
   }
 
@@ -68,6 +63,8 @@ export class CommentsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.comments$ = this.pagination$.data;
+
     this.commentForm = this.formBuilder.group({
       comment: ['', Validators.required],
     });
@@ -166,16 +163,21 @@ export class CommentsComponent implements OnInit {
   }
 
   onScroll() {
-    if (!this.pagination$.nextPage) {
+    // Check if the next page is null or if the current page is higher then the last page
+    // and cancel all further actions
+    if (
+      !this.pagination$.next_page_url ||
+      this.pagination$.current_page > this.pagination$.last_page
+    ) {
       return;
     }
 
     const subscription = this.articleService
-      .getComments(this.id$, this.pagination$.nextPage)
+      .getComments(this.id$, ++this.pagination$.current_page)
       .subscribe({
         next: (e) => {
-          e.comments.forEach((value) => this.comments$.push(value));
-          this.pagination$ = e.pagination;
+          e.data.forEach((value) => this.comments$.push(value));
+          this.pagination$ = e;
         },
         complete: () => subscription.unsubscribe(),
       });
