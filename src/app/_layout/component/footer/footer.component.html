@@ -55,13 +55,9 @@
   </div>
 </div>
 
-<div class="container d-flex flex-row py-3 justify-content-center">
-  <div class="flex-fill d-inline-flex flex-column justify-content-center">
-    <strong>&copy; 2020 by {{ hotelName }}</strong>
-    <small>{{ hotelName }} is powered by <strong class="cursor-pointer" (click)="openModal(modal)">Ares</strong></small>
-  </div>
-
-  <ares-language-selector></ares-language-selector>
+<div class="container d-flex flex-column py-3 justify-content-center">
+  <strong>&copy; 2020 by {{ hotelName }}</strong>
+  <small>{{ hotelName }} is powered by <strong class="cursor-pointer" (click)="openModal(modal)">Ares</strong></small>
 </div>
 
 <ng-template #modal>
