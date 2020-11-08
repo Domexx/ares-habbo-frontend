@@ -1,17 +1,17 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import {Article} from '../model/article';
-import {environment} from '../../../environments/environment';
-import {TitleService} from '../../_service/title.service';
-import {Comment, CommentPagination} from '../model/comment';
-import {Subscription} from 'rxjs';
-import {LookService} from '../../_service/look.service';
-import {LookSize} from '../../_shared/model/user/look';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Article } from '../../model/article';
+import { environment } from '../../../../environments/environment';
+import { TitleService } from '../../../_service/title.service';
+import { Comment, CommentPagination } from '../../model/comment';
+import { Subscription } from 'rxjs';
+import { LookService } from '../../../_service/look.service';
+import { LookSize } from '../../../_shared/model/user/look';
 
 @Component({
   selector: 'ares-article',
   templateUrl: './article.component.html',
-  styleUrls: ['./article.component.scss']
+  styleUrls: ['./article.component.scss'],
 })
 export class ArticleComponent implements OnInit, OnDestroy {
   article: Article;
@@ -30,8 +30,7 @@ export class ArticleComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private titleService: TitleService,
     private lookService: LookService
-  ) {
-  }
+  ) {}
 
   /**
    * Iniitialize Article component
@@ -59,7 +58,7 @@ export class ArticleComponent implements OnInit, OnDestroy {
   look(): string {
     return this.lookService.get({
       look: this.article.user.look,
-      size: LookSize.SMALL
+      size: LookSize.SMALL,
     });
   }
 
@@ -71,5 +70,4 @@ export class ArticleComponent implements OnInit, OnDestroy {
       this.routerSubscription.unsubscribe();
     }
   }
-
 }
