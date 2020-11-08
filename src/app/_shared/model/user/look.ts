@@ -19,13 +19,13 @@ export enum LookAction {
   'DEFAULT' = 'std',
   'SIT' = 'sit',
   'LAY' = 'lay',
-  'WALK' = 'wlk'
+  'WALK' = 'wlk',
 }
 
 export enum LookSize {
   'DEFAULT' = 'n',
   'LARGE' = 'l',
-  'SMALL' = 's'
+  'SMALL' = 's',
 }
 
 export enum LookDirection {
@@ -36,15 +36,15 @@ export enum LookDirection {
   'SOUTH_WEST',
   'WEST',
   'NORTH_WEST',
-  'NORTH'
+  'NORTH',
 }
 
 export enum LookGestures {
   'STANDARD' = 'std',
-  'SPEAK'  = 'spk',
+  'SPEAK' = 'spk',
   'EYE_BLINK' = 'eyb',
   'SMILE' = 'sml',
   'SAD' = 'sad',
   'SUPRISED' = 'srp',
-  'ANGRY' = 'agr'
+  'ANGRY' = 'agr',
 }

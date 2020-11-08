@@ -2,7 +2,7 @@ import { UserService } from 'src/app/_service/user.service';
 import { LookService } from './../../../../_service/look.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { User } from 'src/app/_shared/model/user/user';
-import { LookSize } from 'src/app/_shared/model/user/look';
+import { LookGestures, LookSize } from 'src/app/_shared/model/user/look';
 
 @Component({
   selector: 'ares-layout-dashboard-user-of-hotel',
@@ -40,6 +40,10 @@ export class UserOfHotelComponent implements OnInit {
     return this.lookService.get({
       look: this.user$.look,
       size: LookSize.LARGE,
+      gesture:
+        this.user$.online === 0
+          ? LookGestures.EYE_BLINK
+          : LookGestures.STANDARD,
     });
   }
 }

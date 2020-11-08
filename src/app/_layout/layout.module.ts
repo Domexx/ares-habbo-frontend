@@ -54,7 +54,6 @@ import { GuestbookComponent } from './component/community/guild/guestbook/guestb
 import { ItemComponent } from './component/employees/item/item.component';
 import { MomentModule } from 'ngx-moment';
 import { SidebarComponent } from './component/sidebar/sidebar.component';
-import { TopBarComponent } from './component/top-bar/top-bar.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { UserOfHotelComponent } from './component/dashboard/user-of-hotel/user-of-hotel.component';
 
@@ -88,7 +87,6 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     GuestbookComponent,
     ItemComponent,
     SidebarComponent,
-    TopBarComponent,
     NavbarComponent,
     UserOfHotelComponent,
   ],

@@ -1,3 +1,10 @@
-<select class="language-selection selectpicker" data-style="btn-lang" data-selected-text-format="values">
-  <option *ngFor="let lang of languages" [value]="lang" id="{{lang}}" [attr.data-content]="flag(lang)"></option>
-</select>
+<div class="btn-group dropup">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    LANG
+  </button>
+  <div class="dropdown-menu">
+    <div class="dropdown-item d-flex justify-content-center cursor-pointer" *ngFor="let lang of languages" id="{{lang}}"
+      [innerHTML]="flag(lang)"
+      (click)="switchLanguage(lang)"></div>
+  </div>
+</div>
