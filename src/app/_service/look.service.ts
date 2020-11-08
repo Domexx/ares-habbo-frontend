@@ -28,10 +28,12 @@ export class LookService {
     if ((look as LookConfig).look) {
       look = look as LookConfig;
       return `${environment.app.imager}${look.look}&action=${
-        look.action
-      }&gesture=${look.gesture}&direction=${look.direction}&head_direction=${
-        look.headDirection
-      }&size=${look.size}&headonly=${look.headOnly ? 1 : 0}`;
+        look.action ?? LookAction.DEFAULT
+      }&gesture=${look.gesture ?? LookGestures.STANDARD}&direction=${
+        look.direction ?? LookDirection.SOUTH_EAST
+      }&head_direction=${look.headDirection ?? LookDirection.SOUTH_EAST}&size=${
+        look.size ?? LookSize.DEFAULT
+      }&headonly=${look.headOnly ? 1 : 0}`;
     }
 
     return `${environment.app.imager}${look}&action=${LookAction.DEFAULT}&gesture=${LookGestures.STANDARD}&direction=${LookDirection.SOUTH_EAST}&head_direction=${LookDirection.SOUTH_EAST}&size=${LookSize.DEFAULT}`;
