@@ -1,13 +1,13 @@
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
 
 // Color Palette
-$main-bg-color: #1C1D20;
-$main-bg-red: #B41030;
-$main-bg-red-alt: #A51A33;
-$main-bg-dark: #1b1b1d;
-$main-bg-gray: #202225;
-$main-bg-green: #00732B;
+$main-bg-color: #1b1b1b;
+$main-bg-red: #b41030;
+$main-bg-red-alt: #a51a33;
+$main-bg-dark: #191919;
+$main-bg-gray: #1c1d20;
+$main-bg-green: #00732b;
 
 // Text
 $text-normal: #fff;
@@ -18,7 +18,7 @@ $text-link-hover: #e1284d;
 $swiper-theme-color: #ff1744;
 
 // Sidebar
-$sidebar-bg-color: #1c1f22;
+$sidebar-bg-color: #1b1b1d;
 $sidebar-brand-padding-top: 1.07rem;
 $sidebar-brand-padding-bottom: 1.07rem;
 
@@ -28,14 +28,14 @@ $grid-breakpoints: (
   sm: 576px,
   md: 768px,
   lg: 1200px,
-  xl: 1400px
+  xl: 1400px,
 );
 
 $container-max-widths: (
   sm: 576px,
   md: 768px,
   lg: 1200px,
-  xl: 1400px
+  xl: 1400px,
 );
 
 // Bootstrap Configuration

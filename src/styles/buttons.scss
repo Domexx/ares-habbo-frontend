@@ -17,19 +17,21 @@ button {
   float: right;
   width: 2rem;
   position: absolute;
-  right: .5rem;
-  top: .5rem;
+  right: 0.5rem;
+  top: 0.5rem;
 
   &:hover,
   &:focus {
-    opacity: .9;
+    opacity: 0.9;
   }
 }
 
 .btn {
   color: #fff;
-  transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
   font-weight: 600;
+  box-shadow: unset;
+  border: unset;
 
   &:focus {
     animation: btnEffect 1s;
@@ -41,29 +43,35 @@ button {
 
   &:focus,
   &:hover {
-    box-shadow: 0px 1px 3px 0px rgba(0, 6, 33, 0.5), 0 0 0 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 1px 3px 0px rgba(0, 6, 33, 0.5),
+      0 0 0 3px rgba(0, 0, 0, 0.2);
   }
 
   &:active:focus {
-    box-shadow: 0px 1px 3px 0px rgba(0, 6, 33, 0.5), 0 0 0 3px rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 0px 1px 3px 0px rgba(0, 6, 33, 0.5),
+      0 0 0 3px rgba(0, 0, 0, 0.2) !important;
   }
 
   &.btn-lang {
     background-color: var(--main-bg-gray);
     color: #fff;
-    padding: .5rem 1rem .5rem .5rem;
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
 
     &:hover {
-      background: #FF1744;
+      background: #ff1744;
       color: #fff;
     }
   }
 
   &.btn-danger {
-    padding: .8rem;
+    padding: 0.8rem;
 
     background-color: unset;
-    background: linear-gradient(to top, var(--btn-danger-primary) 50%, var(--btn-danger-secondary) 50%);
+    background: linear-gradient(
+      to top,
+      var(--btn-danger-primary) 50%,
+      var(--btn-danger-secondary) 50%
+    );
     border-color: var(--btn-danger-primary);
     border-width: 4px;
     border-style: solid;
@@ -72,6 +80,11 @@ button {
       background-color: transparent !important;
       border-color: var(--btn-danger-primary) !important;
     }
+  }
+
+  &.btn-dark {
+    background-color: var(--main-bg-dark);
+    border: 1px solid #343434;
   }
 
   &.btn-client {
@@ -83,7 +96,11 @@ button {
 
 @keyframes btnEffect {
   0% {
-    box-shadow: 0 1px 3px 0 rgba(0, 6, 33, 0.5), 0 0 0 3px rgba(0 0 0 / 20%), 0 0 0 6px rgba(30 30 30 / 85%); }
+    box-shadow: 0 1px 3px 0 rgba(0, 6, 33, 0.5), 0 0 0 3px rgba(0 0 0 / 20%),
+      0 0 0 6px rgba(30 30 30 / 85%);
+  }
   100% {
-    box-shadow: 0 1px 3px 0 rgba(0, 6, 33, 0.5), 0 0 0 3px rgba(0, 0, 0, 0.2), 0 0 0 1920px transparent; }
+    box-shadow: 0 1px 3px 0 rgba(0, 6, 33, 0.5), 0 0 0 3px rgba(0, 0, 0, 0.2),
+      0 0 0 1920px transparent;
+  }
 }

@@ -5,15 +5,15 @@ import {
   RouterStateSnapshot,
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { ArticleService } from '../../../articles/service/article.service';
-import { Article } from '../../../articles/model/article';
+import { ArticleService } from '../service/article.service';
+import { ArticlePagination } from '../model/article';
 
 @Injectable({ providedIn: 'root' })
-export class PinnedArticlesResolver implements Resolve<Article[]> {
+export class ArticlesResolver implements Resolve<ArticlePagination> {
   constructor(private articleService: ArticleService) {}
 
   /**
-   * Gets the pinned articles and pass the data to the component
+   * Gets the latest 9 articles and pass the data to the component
    * @param route
    * @param state
    * @return Observable<Article[]>
@@ -21,7 +21,7 @@ export class PinnedArticlesResolver implements Resolve<Article[]> {
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<Article[]> {
-    return this.articleService.pinned();
+  ): Observable<ArticlePagination> {
+    return this.articleService.list(1, 9);
   }
 }

@@ -1,10 +1,16 @@
 <div class="btn-group">
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    LANG
+  <button type="button" class="btn btn-dark py-2 d-flex flex-row align-items-center dropdown-toggle"
+    data-toggle="dropdown"
+    aria-haspopup="true"
+    aria-expanded="false"
+    [innerHTML]="flag(language)">
   </button>
   <div class="dropdown-menu">
-    <div class="dropdown-item d-flex justify-content-center cursor-pointer" *ngFor="let lang of languages" id="{{lang}}"
+    <div class="dropdown-item d-flex justify-content-center cursor-pointer"
+      *ngFor="let lang of languages"
+      id="{{lang}}"
       [innerHTML]="flag(lang)"
-      (click)="switchLanguage(lang)"></div>
+      (click)="switchLanguage(lang)"
+      [class.active]="lang === language"></div>
   </div>
 </div>

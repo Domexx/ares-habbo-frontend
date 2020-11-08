@@ -26,7 +26,7 @@ const routes: Routes = [
   {
     path: 'articles',
     loadChildren: () =>
-      import('./articles/articles.module').then((m) => m.ArticlesModule),
+      import('./article/article.module').then((m) => m.ArticleModule),
     canActivate: [AuthGuard],
     canActivateChild: [ActiveSessionGuard],
   },

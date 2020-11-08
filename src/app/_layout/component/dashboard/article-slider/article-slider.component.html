@@ -14,8 +14,8 @@
           <img [src]="article.image" [alt]="article.title + ' - ' + article.description">
 
           <div class="article--date">
-            <p class="date mb-2"><span>{{ article.created_at.date | date: 'd' : undefined : locale }}</span> {{ article.created_at.date | date: 'MMMM' : undefined : locale }}</p>
-            <p class="time">{{ article.created_at.date | date: 'hh:mm' : undefined : locale }}</p>
+            <p class="date mb-2"><span>{{ article.created_at | date: 'd' : undefined : locale }}</span> {{ article.created_at.date | date: 'MMMM' : undefined : locale }}</p>
+            <p class="time">{{ article.created_at | date: 'hh:mm' : undefined : locale }}</p>
           </div>
         </div>
 

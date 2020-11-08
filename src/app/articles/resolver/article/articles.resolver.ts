@@ -1,3 +1,4 @@
+import { map } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
@@ -5,15 +6,15 @@ import {
   RouterStateSnapshot,
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { ArticleService } from '../../../articles/service/article.service';
-import { Article } from '../../../articles/model/article';
+import { ArticleService } from '../../service/article.service';
+import { Article } from '../../model/article';
 
 @Injectable({ providedIn: 'root' })
-export class PinnedArticlesResolver implements Resolve<Article[]> {
+export class ArticleArticlesResolver implements Resolve<Article[]> {
   constructor(private articleService: ArticleService) {}
 
   /**
-   * Gets the pinned articles and pass the data to the component
+   * Gets the latest 5 articles and pass the data to the component
    * @param route
    * @param state
    * @return Observable<Article[]>
@@ -22,6 +23,6 @@ export class PinnedArticlesResolver implements Resolve<Article[]> {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<Article[]> {
-    return this.articleService.pinned();
+    return this.articleService.list(1, 5).pipe(map((resp) => resp.data));
   }
 }
