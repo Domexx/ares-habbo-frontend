@@ -1,22 +1,22 @@
-import {Component, OnInit} from '@angular/core';
-import {User} from 'src/app/_shared/model/user/user';
-import {UserService} from 'src/app/_service/user.service';
-import {TitleService} from 'src/app/_service/title.service';
-import {environment} from 'src/environments/environment';
-import {Article} from '../../article/model/article';
-import {ActivatedRoute} from '@angular/router';
-import {Friend, FriendPagination} from '../model/friend';
-import {Guild} from '../../community/model/guild/guild';
-import {Room} from '../../community/model/room';
-import {Setting} from '../../_shared/model/setting';
-import {GuildService} from '../../community/service/guild.service';
-import {RoomService} from '../../community/service/room.service';
-import {LookService} from '../../_service/look.service';
+import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/_shared/model/user/user';
+import { UserService } from 'src/app/_service/user.service';
+import { TitleService } from 'src/app/_service/title.service';
+import { environment } from 'src/environments/environment';
+import { Article } from '../../article/model/article';
+import { ActivatedRoute } from '@angular/router';
+import { Friend, FriendPagination } from '../model/friend';
+import { Guild } from '../../community/model/guild/guild';
+import { Room } from '../../community/model/room';
+import { Setting } from '../../_shared/model/setting';
+import { GuildService } from '../../community/service/guild.service';
+import { RoomService } from '../../community/service/room.service';
+import { LookService } from '../../_service/look.service';
 
 @Component({
   selector: 'ares-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss']
+  styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
   user: User;
@@ -31,6 +31,8 @@ export class DashboardComponent implements OnInit {
 
   friendsPagination: FriendPagination;
 
+  userOfTheHotel: User;
+
   constructor(
     private userService: UserService,
     private titleService: TitleService,
@@ -38,8 +40,7 @@ export class DashboardComponent implements OnInit {
     private guildService: GuildService,
     private roomService: RoomService,
     private lookService: LookService
-  ) {
-  }
+  ) {}
 
   /**
    * Initialize the Dashboard component
@@ -47,7 +48,7 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     this.user = this.userService.user;
     this.look = this.lookService.get({
-      look: this.user.look
+      look: this.user.look,
     });
 
     this.articles = this.route.snapshot.data.slider;
@@ -57,17 +58,23 @@ export class DashboardComponent implements OnInit {
     let friendsArray: User[] = [];
 
     if (friendsList) {
-      friendsArray = friendsList.map((value: Friend, index: number) => friendsList[index].user);
+      friendsArray = friendsList.map(
+        (value: Friend, index: number) => friendsList[index].user
+      );
     }
 
     this.friends = friendsArray;
     this.friendsPagination = this.route.snapshot.data.friends;
 
-    this.guild = (!this.route.snapshot.data.guild) ? this.guildService.fakeGuild() : this.route.snapshot.data.guild;
-    this.room = (!this.route.snapshot.data.room) ? this.roomService.fakeRoom() : this.route.snapshot.data.room;
+    this.guild = !this.route.snapshot.data.guild
+      ? this.guildService.fakeGuild()
+      : this.route.snapshot.data.guild;
+    this.room = !this.route.snapshot.data.room
+      ? this.roomService.fakeRoom()
+      : this.route.snapshot.data.room;
     this.discord = this.route.snapshot.data.discord;
+    this.userOfTheHotel = this.route.snapshot.data.userOfHotel;
 
     this.titleService.setTitle('Dashboard');
   }
-
 }

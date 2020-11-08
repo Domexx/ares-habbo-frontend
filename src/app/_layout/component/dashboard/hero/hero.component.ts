@@ -41,7 +41,7 @@ export class HeroComponent implements OnInit {
         }
       },
 
-      complete: () => subscription.unsubscribe();
+      complete: () => subscription.unsubscribe(),
     });
   }
 
