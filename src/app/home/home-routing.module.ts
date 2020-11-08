@@ -1,19 +1,18 @@
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
-import {HomeComponent} from './component/home.component';
-import {RedirectIfAuthenthicatedGuard} from 'src/app/_guard/redirect-if-authenthicated.guard';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { HomeComponent } from './component/home.component';
+import { RedirectIfAuthenticatedGuard } from 'src/app/_guard/redirect-if-authenticated.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
-    canActivate: [RedirectIfAuthenthicatedGuard]
-  }
+    canActivate: [RedirectIfAuthenticatedGuard],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class HomeRoutingModule {
-}
+export class HomeRoutingModule {}

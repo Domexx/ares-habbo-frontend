@@ -1,22 +1,22 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {RegisterComponent} from './component/register.component';
-import {RedirectIfAuthenthicatedGuard} from '../_guard/redirect-if-authenthicated.guard';
-import {RegisterLookResolver} from './resolver/looks.resolver';
+import { RegisterComponent } from './component/register.component';
+import { RedirectIfAuthenticatedGuard } from '../_guard/redirect-if-authenticated.guard';
+import { RegisterLookResolver } from './resolver/looks.resolver';
 
 const routes: Routes = [
   {
     path: '',
     component: RegisterComponent,
-    canActivate: [RedirectIfAuthenthicatedGuard],
+    canActivate: [RedirectIfAuthenticatedGuard],
     resolve: {
-      looks: RegisterLookResolver
-    }
-  }
+      looks: RegisterLookResolver,
+    },
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class RegisterRoutingModule { }
+export class RegisterRoutingModule {}

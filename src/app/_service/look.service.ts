@@ -20,7 +20,11 @@ export class LookService {
    * @param look
    * @return string
    */
-  get(look: string | LookConfig): string {
+  get(look: string | LookConfig = null): string {
+    if (!look || look === null || !(look as LookConfig).look) {
+      return 'assets/images/habbo.gif';
+    }
+
     if ((look as LookConfig).look) {
       look = look as LookConfig;
       return `${environment.app.imager}${look.look}&action=${

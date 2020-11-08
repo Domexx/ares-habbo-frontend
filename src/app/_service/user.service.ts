@@ -1,3 +1,4 @@
+import { TranslateService } from '@ngx-translate/core';
 /*
  * Ares (https://ares.to)
  *
@@ -22,7 +23,8 @@ export class UserService {
 
   constructor(
     private apiService: ApiService,
-    private voteService: VoteService
+    private voteService: VoteService,
+    private translateService: TranslateService
   ) {
     this.userSubject = new BehaviorSubject<User>(
       JSON.parse(localStorage.getItem('ares-user'))
@@ -30,14 +32,13 @@ export class UserService {
     this.user$ = this.userSubject.asObservable();
   }
 
-  auth(username: string, password: string): Observable<string> {
-    return this.apiService
-      .post('login', { username, password })
-      .pipe(map((e) => (this.token = e.data.token)));
-  }
-
-  // @TODO: change any return type to ????
-  getUser(token: string = null): Observable<any> {
+  /**
+   * Gets a user by the provided token
+   *
+   * @param token
+   * @return Observable<User>
+   */
+  get(token: string = null): Observable<User> {
     return this.apiService
       .get('user', { headers: { Authorization: `Bearer ${token}` } })
       .pipe(
@@ -48,47 +49,62 @@ export class UserService {
 
           localStorage.setItem('ares-user', JSON.stringify(response.data));
           this.change(response.data);
+
+          return response.data;
         })
       );
   }
 
+  /**
+   * Creates a "fake" user to provide any data
+   *
+   * @return User
+   */
+  mannequin(): User {
+    const mannequin = new User();
+
+    mannequin.id = 0;
+    mannequin.username = this.translateService.instant('MANNEQUIN.NAME');
+    mannequin.motto = this.translateService.instant('MANNEQUIN.MOTTO');
+    mannequin.look = null;
+    mannequin.online = -1;
+
+    return mannequin;
+  }
+
+  /**
+   * Updates the value in the BehaviorSubject
+   *
+   * @param user
+   */
   change(user: User): void {
     this.userSubject.next(user);
   }
 
-  logout(): Promise<void | API> {
-    localStorage.removeItem('ares-user');
-    this.change(null);
-
-    this.voteService.votes = [];
-
-    return this.apiService
-      .post(
-        'logout',
-        {},
-        {
-          headers: {
-            Authorization: `Bearer ${this.token}`,
-          },
-        }
-      )
-      .toPromise()
-      .finally(() => localStorage.removeItem('ares-token'));
-  }
-
-  get isAuthenticated(): boolean {
-    return !!(this.user && this.token);
-  }
-
-  get user(): User {
-    return this.userSubject.value;
-  }
-
+  /**
+   * Returns token from local storage
+   *
+   * @return string
+   */
   get token(): string {
     return localStorage.getItem('ares-token');
   }
 
+  /**
+   * Set local storage token
+   *
+   * @param value
+   */
   set token(value: string) {
     localStorage.setItem('ares-token', value);
+  }
+
+  /**
+   * Returns the current user
+   *
+   * @return User
+   */
+  get user(): User {
+    return this.userSubject.value;
   }
 }

@@ -1,20 +1,20 @@
-import {Component, ElementRef, OnInit} from '@angular/core';
-import {TitleService} from '../../_service/title.service';
-import {TranslateService} from '@ngx-translate/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {AlertService} from '../../_shared/service/alert.service';
-import {RegisterService} from '../service/register.service';
-import {Subscription} from 'rxjs';
-import {UserService} from '../../_service/user.service';
-import {ActivatedRoute, Router} from '@angular/router';
-import {environment} from '../../../environments/environment';
-import {VoteService} from '../../_shared/service/vote.service';
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { TitleService } from '../../_service/title.service';
+import { TranslateService } from '@ngx-translate/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AlertService } from '../../_shared/service/alert.service';
+import { RegisterService } from '../service/register.service';
+import { Subscription } from 'rxjs';
+import { UserService } from '../../_service/user.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { environment } from '../../../environments/environment';
+import { VoteService } from '../../_shared/service/vote.service';
 
 @Component({
   selector: 'ares-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
-  providers: [RegisterService]
+  providers: [RegisterService],
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
@@ -36,8 +36,7 @@ export class RegisterComponent implements OnInit {
     private elRef: ElementRef,
     private route: ActivatedRoute,
     private voteService: VoteService
-  ) {
-  }
+  ) {}
 
   /**
    * Initialize the Register Component
@@ -50,12 +49,11 @@ export class RegisterComponent implements OnInit {
       this.selectLook('', true ?? false);
     }
 
-
     this.registerForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
       confirmPassword: ['', Validators.required],
-      mail: ['', Validators.required]
+      mail: ['', Validators.required],
     });
 
     this.titleService.setTitle(this.translateService.instant('REGISTER.TITLE'));
@@ -79,7 +77,11 @@ export class RegisterComponent implements OnInit {
     if (!username.value) {
       username.markAsTouched();
 
-      this.alertService.error(this.translateService.instant('REGISTER.FORM.INPUT.USERNAME.ERRORS.EMPTY'));
+      this.alertService.error(
+        this.translateService.instant(
+          'REGISTER.FORM.INPUT.USERNAME.ERRORS.EMPTY'
+        )
+      );
 
       return false;
     }
@@ -99,7 +101,11 @@ export class RegisterComponent implements OnInit {
       password.markAsTouched();
       passwordConfirmation.markAsTouched();
 
-      this.alertService.error(this.translateService.instant('REGISTER.FORM.INPUT.PASSWORD.ERRORS.EMPTY'));
+      this.alertService.error(
+        this.translateService.instant(
+          'REGISTER.FORM.INPUT.PASSWORD.ERRORS.EMPTY'
+        )
+      );
 
       return false;
     }
@@ -108,7 +114,11 @@ export class RegisterComponent implements OnInit {
       password.markAsTouched();
       passwordConfirmation.markAsTouched();
 
-      this.alertService.error(this.translateService.instant('REGISTER.FORM.INPUT.PASSWORD.ERRORS.NOT_SAME'));
+      this.alertService.error(
+        this.translateService.instant(
+          'REGISTER.FORM.INPUT.PASSWORD.ERRORS.NOT_SAME'
+        )
+      );
 
       return false;
     }
@@ -126,14 +136,18 @@ export class RegisterComponent implements OnInit {
     if (!mail.value) {
       mail.markAsTouched();
 
-      this.alertService.error(this.translateService.instant('REGISTER.FORM.INPUT.MAIL.ERRORS.EMPTY'));
+      this.alertService.error(
+        this.translateService.instant('REGISTER.FORM.INPUT.MAIL.ERRORS.EMPTY')
+      );
       return false;
     }
 
     if (mail.errors?.pattern) {
       mail.markAsTouched();
 
-      this.alertService.error(this.translateService.instant('REGISTER.FORM.INPUT.MAIL.ERRORS.PATTERN'));
+      this.alertService.error(
+        this.translateService.instant('REGISTER.FORM.INPUT.MAIL.ERRORS.PATTERN')
+      );
       return false;
     }
 
@@ -152,10 +166,13 @@ export class RegisterComponent implements OnInit {
    */
   selectLook(look: string, male: boolean = false): void {
     if (male) {
-      const maleLookExists = this.males.findIndex(value => value === look);
+      const maleLookExists = this.males.findIndex((value) => value === look);
 
       if (maleLookExists === -1) {
-        this.selectLook(this.males.find(value => true), true);
+        this.selectLook(
+          this.males.find((value) => true),
+          true
+        );
         return;
       }
 
@@ -165,10 +182,10 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-    const femaleLookExists = this.females.findIndex(value => value === look);
+    const femaleLookExists = this.females.findIndex((value) => value === look);
 
     if (femaleLookExists === -1) {
-      this.selectLook(this.females.find(value => true));
+      this.selectLook(this.females.find((value) => true));
       return;
     }
 
@@ -184,14 +201,20 @@ export class RegisterComponent implements OnInit {
    * @return string
    */
   figure(look: string, head: boolean = false, large: boolean = false): string {
-    return `${environment.app.imager}${look}${(head) ? '&headonly=1' : ''}${(large) ? '&size=l' : ''}`;
+    return `${environment.app.imager}${look}${head ? '&headonly=1' : ''}${
+      large ? '&size=l' : ''
+    }`;
   }
 
   /**
    * Submits the input data
    */
   onSubmit(): void {
-    if (!this.validateUsername() || !this.validatePassword() || !this.validateMail()) {
+    if (
+      !this.validateUsername() ||
+      !this.validatePassword() ||
+      !this.validateMail()
+    ) {
       return;
     }
 
@@ -200,30 +223,39 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-    const registerSubscription: Subscription = this.registerService.register({
-      username: this.f.username.value,
-      mail: this.f.mail.value,
-      password: this.f.password.value,
-      password_confirmation: this.f.confirmPassword.value,
-      gender: this.selectedLookGender,
-      look: this.selectedLook
-    }).subscribe({
-      next: (e) => {
-        const userSubscription: Subscription = this.userService.getUser(e.data.token)
-          .subscribe({
-            next: () => this.router.navigateByUrl('/dashboard')
-              .then(() => {
-                this.alertService.success(this.translateService.instant('REGISTER.SUCCESS'));
-                const voteSubscription: Subscription = this.voteService.total().subscribe({
-                  complete: () => voteSubscription.unsubscribe()
-                });
-              }),
-            error: () => this.alertService.error(this.translateService.instant('REGISTER.ERROR')),
-            complete: () => userSubscription.unsubscribe()
-          });
-      },
-      complete: () => registerSubscription.unsubscribe()
-    });
+    const registerSubscription: Subscription = this.registerService
+      .register({
+        username: this.f.username.value,
+        mail: this.f.mail.value,
+        password: this.f.password.value,
+        password_confirmation: this.f.confirmPassword.value,
+        gender: this.selectedLookGender,
+        look: this.selectedLook,
+      })
+      .subscribe({
+        next: (e) => {
+          const userSubscription: Subscription = this.userService
+            .get(e.data.token)
+            .subscribe({
+              next: () =>
+                this.router.navigateByUrl('/dashboard').then(() => {
+                  this.alertService.success(
+                    this.translateService.instant('REGISTER.SUCCESS')
+                  );
+                  const voteSubscription: Subscription = this.voteService
+                    .total()
+                    .subscribe({
+                      complete: () => voteSubscription.unsubscribe(),
+                    });
+                }),
+              error: () =>
+                this.alertService.error(
+                  this.translateService.instant('REGISTER.ERROR')
+                ),
+              complete: () => userSubscription.unsubscribe(),
+            });
+        },
+        complete: () => registerSubscription.unsubscribe(),
+      });
   }
-
 }

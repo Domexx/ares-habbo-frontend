@@ -1,3 +1,4 @@
+import { UserService } from 'src/app/_service/user.service';
 import { LookService } from './../../../../_service/look.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { User } from 'src/app/_shared/model/user/user';
@@ -16,9 +17,19 @@ export class UserOfHotelComponent implements OnInit {
     this.user$ = value;
   }
 
-  constructor(private lookService: LookService) {}
+  constructor(
+    private lookService: LookService,
+    private userService: UserService
+  ) {}
 
-  ngOnInit(): void {}
+  /**
+   * Initialize component
+   */
+  ngOnInit(): void {
+    if (!this.user$) {
+      this.user$ = this.userService.mannequin();
+    }
+  }
 
   /**
    * Returns the full image path

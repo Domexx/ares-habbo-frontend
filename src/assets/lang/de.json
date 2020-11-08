@@ -197,6 +197,10 @@
     "LIKE": "Gefällt mir",
     "DISLIKE": "Gefällt mir nicht"
   },
+  "MANNEQUIN": {
+    "NAME": "Kein Habbo gefunden",
+    "MOTTO": "Es wurde kein Habbo gefunden"
+  },
   "UNKNOWN_ERROR": "Ein unbekannter Fehler ist aufgetreten!",
   "SESSION": "Du musst angemeldet sein, um diese Seite aufrufen zu können!"
 }
