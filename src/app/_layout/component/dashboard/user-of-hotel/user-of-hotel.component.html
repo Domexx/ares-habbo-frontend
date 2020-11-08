@@ -1,6 +1,8 @@
-<div class="card-body d-flex flex-row">
-    
-    <div class="d-inline-flex flex-column">
-        <h3>{{ user$?.username }}</h3>
+<div class="card-body d-flex flex-row align-content-center">
+  <img class="image-pixelated img-fluid" [class.offline]="user$?.online == 0" [src]="look" [alt]="user$?.username" />
+
+    <div class="d-inline-flex flex-column align-content-center">
+        <span class="user--username">{{ user$?.username }}</span>
+        <span class="user--motto pt-1">"{{ user$?.motto  }}"</span>
     </div>
 </div>
