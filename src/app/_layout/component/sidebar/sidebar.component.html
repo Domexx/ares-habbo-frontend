@@ -44,12 +44,16 @@
     <li>
       <a class="sidebar--category text-ellipsis" [translate]="'SIDEBAR.HOBBA.TITLE'"></a>
       <div class="list-unstyled sidebar--category-nav">
-        <a routerLink="/hobba/settings" routerLinkActive="active" class="sidebar--entry list-group-item" container="body">
+        <a *ngIf="hasPermission('set-global-setting')" routerLink="/hobba/settings"
+          routerLinkActive="active"
+          class="sidebar--entry list-group-item">
           <img src="assets/images/icons/sidebar/employees.png" class="image-pixelated"
                [alt]="'SIDEBAR.HOBBA.SETTINGS' | translate"/>
           <span class="text-ellipsis" [translate]="'SIDEBAR.HOBBA.SETTINGS'"></span>
         </a>
-        <a routerLink="/hobba/articles" routerLinkActive="active" class="sidebar--entry list-group-item">
+        <a *ngIf="hasPermission('delete-article')" routerLink="/hobba/articles"
+          routerLinkActive="active"
+          class="sidebar--entry list-group-item">
           <img src="assets/images/icons/sidebar/news.png" class="image-pixelated"
                [alt]="'SIDEBAR.HOBBA.NEWS' | translate"/>
           <span class="text-ellipsis" [translate]="'SIDEBAR.HOBBA.NEWS'"></span>

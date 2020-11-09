@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Permission, PermissionPagination } from '../_model/permission';
+import {
+  Permission,
+  PermissionPagination,
+  PermissionType,
+} from '../_model/permission';
 import { API } from '../_shared/model/api';
 import { ApiService } from './api.service';
 
@@ -28,7 +32,7 @@ export class PermissionService {
    */
   list(
     page: number = 1,
-    result: number = 10
+    result: number = 50
   ): Observable<PermissionPagination> {
     return this.apiService
       .get(`roles/permissions/list/${page}/${result}`, true, false)
@@ -38,6 +42,10 @@ export class PermissionService {
           return resp.data;
         })
       );
+  }
+
+  has(key: string | PermissionType): boolean {
+    return this.permissions.filter((value) => value.name === key).length !== 0;
   }
 
   /**

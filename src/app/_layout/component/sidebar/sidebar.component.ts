@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PermissionType } from 'src/app/_model/permission';
 import { PermissionService } from 'src/app/_service/permission.service';
 import { environment } from '../../../../environments/environment';
 
@@ -16,6 +17,15 @@ export class SidebarComponent implements OnInit {
    * Initialize component
    */
   ngOnInit(): void {}
+
+  /**
+   * Check if user has permission
+   *
+   * @return boolean
+   */
+  hasPermission(key: string | PermissionType): boolean {
+    return this.permissionService.has(key);
+  }
 
   /**
    * Check if user has any permissions
