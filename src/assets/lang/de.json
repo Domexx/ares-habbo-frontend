@@ -178,6 +178,10 @@
       "NEWS": "Neuigkeiten",
       "EMPLOYEES": "Mitarbeiter"
     },
+    "HOBBA": {
+      "TITLE": "Hobba Housekeeping",
+      "SETTINGS": "Globale Einstellungen"
+    },
     "LOGOUT": "Abmelden"
   },
   "NAVIGATION": {

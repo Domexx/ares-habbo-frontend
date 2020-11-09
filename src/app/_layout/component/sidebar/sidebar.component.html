@@ -40,6 +40,17 @@
     </div>
   </li>
 
+  <li>
+    <a class="sidebar--category text-ellipsis" [translate]="'SIDEBAR.HOBBA.TITLE'"></a>
+    <div class="list-unstyled sidebar--category-nav">
+      <a routerLink="/hobba/settings" routerLinkActive="active" class="sidebar--entry list-group-item" container="body">
+        <img src="assets/images/icons/sidebar/employees.png" class="image-pixelated"
+             [alt]="'SIDEBAR.HOBBA.SETTINGS' | translate"/>
+        <span class="text-ellipsis" [translate]="'SIDEBAR.HOBBA.SETTINGS'"></span>
+      </a>
+    </div>
+  </li>
+
   <li class="mt-auto mb-3">
     <div class="list-unstyled sidebar--category-nav">
       <a routerLink="/logout" class="sidebar--entry list-group-item">
