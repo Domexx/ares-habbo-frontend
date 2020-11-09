@@ -200,7 +200,7 @@
       "SUCCESS": "\"{{ key }}\" wurde erfolgreich in \"{{ value }}\" geändert"
     },
     "ARTICLES": {
-
+      "DELETE": "\"{{ title }}\" ({{ id }}) wurde erfolgreich gelöscht"
     }
   },
   "404": {

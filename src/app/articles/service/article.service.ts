@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Article } from '../model/article';
 import { Comment, CommentPagination } from '../model/comment';
+import { API } from 'src/app/_shared/model/api';
 
 @Injectable({
   providedIn: 'root',
@@ -22,6 +23,18 @@ export class ArticleService {
     return this.apiService
       .get(`articles/list/${page}/${results}`)
       .pipe(map((resp) => resp.data));
+  }
+
+  /**
+   * Delete article
+   *
+   * @param id
+   * @return Observable<Article>
+   */
+  delete(id: number): Observable<Article> {
+    return this.apiService
+      .delete(`articles/${id}`)
+      .pipe(map((resp: API) => resp.data.data));
   }
 
   /**

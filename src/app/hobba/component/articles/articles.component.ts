@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { ArticlePagination, Article } from 'src/app/articles/model/article';
 import { ArticleService } from 'src/app/articles/service/article.service';
@@ -58,6 +59,29 @@ export class ArticlesComponent implements OnInit {
     this.titleService.setTitle(
       this.translateService.instant('SIDEBAR.HOBBA.NEWS')
     );
+  }
+
+  delete(article: Article): void {
+    const subscription: Subscription = this.articleService
+      .delete(article.id)
+      .subscribe({
+        next: () => {
+          this.entries = this.entries.filter(
+            (value) => value.id !== article.id
+          );
+          this.searchEntries = this.searchEntries.filter(
+            (value) => value.id !== article.id
+          );
+
+          this.alertService.success(
+            this.translateService.instant('HOBBA.ARTICLES.DELETE', {
+              id: article.id,
+              title: article.title,
+            })
+          );
+        },
+        complete: () => subscription.unsubscribe(),
+      });
   }
 
   onSearch(term: string): void {
