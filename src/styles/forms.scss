@@ -27,6 +27,10 @@
       border: 1px solid #b41030;
     }
   }
+
+  &:disabled {
+    background-color: #292b2f;
+  }
 }
 
 textarea {

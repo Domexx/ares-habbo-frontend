@@ -193,6 +193,12 @@
     "RIGHTS_RESERVED": "&nbsp; &copy; 2020. Alle Rechte an dieser Website vorbehalten.",
     "NOT_SULAKE": "Diese Website gehört nicht der Sulake Corporation und wird nicht von Habbo Hotel &reg; betrieben."
   },
+  "HOBBA": {
+    "SETTINGS": {
+      "SAVE": "Speichern",
+      "SUCCESS": "\"{{ key }}\" wurde erfolgreich in \"{{ value }}\" geändert"
+    }
+  },
   "404": {
     "DESCRIPTION": "Seite wurde nicht gefunden!",
     "BUTTON": "Zurück"

@@ -1,14 +1,33 @@
-<div class="container">
+<div class="container mt-4">
+  <h5 [innerHTML]="'SIDEBAR.HOBBA.SETTINGS' | translate"></h5>
   <div class="card d-flex p-4">
     <div class="row">
-      <div class="col-12" *ngFor="let setting of settings">
+      <div class="col-12 mb-3">
         <div class="row">
           <div class="col-6">
-            {{ setting.key }}
+            <strong>Key</strong>
           </div>
 
           <div class="col-6">
-            {{ setting.value }}
+            <strong>Value</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 mb-3" *ngFor="let setting of settings">
+        <div class="row">
+          <div class="col-6">
+            <input type="text" class="form-control" [value]="setting?.key" disabled/>
+          </div>
+
+          <div class="col-6 flex-column">
+            <input type="text" class="form-control" [value]="setting?.value"
+              (keyup)="onChange(setting?.id, $event.target.value)" />
+            <ng-container *ngIf="itemsToUpdate[setting?.id]">
+              <button @fade type="button" class="btn btn-success mt-2"
+                (click)="update(setting?.id, setting?.key)"
+                [innerHTML]="'HOBBA.SETTINGS.SAVE' | translate"></button>
+            </ng-container>
           </div>
         </div>
       </div>

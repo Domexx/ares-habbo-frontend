@@ -14,6 +14,7 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 import { AlertService } from 'src/app/_shared/service/alert.service';
 import { TranslateService } from '@ngx-translate/core';
+import { TitleService } from 'src/app/_service/title.service';
 
 @Component({
   selector: 'ares-articles',
@@ -43,7 +44,8 @@ export class ArticlesComponent implements OnInit {
     private route: ActivatedRoute,
     private articleService: ArticleService,
     private alertService: AlertService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private titleService: TitleService
   ) {}
 
   /**
@@ -56,6 +58,10 @@ export class ArticlesComponent implements OnInit {
     this.searchField.valueChanges
       .pipe(debounceTime(500), distinctUntilChanged())
       .subscribe((term) => this.onSearch(term));
+
+    this.titleService.setTitle(
+      this.translateService.instant('SIDEBAR.COMMUNITY.NEWS')
+    );
   }
 
   onSearch(term: string): void {

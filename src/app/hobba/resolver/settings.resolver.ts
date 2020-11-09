@@ -13,7 +13,6 @@ export class HobbaSettingsResolver implements Resolve<SettingsPagination> {
   constructor(private settingService: SettingService) {}
 
   /**
-   * Gets the configured Discord URL and passes the URL to the component
    * @param route
    * @param state
    * @return Observable<Setting>
