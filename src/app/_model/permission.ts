@@ -32,7 +32,7 @@ export enum PermissionType {
   'CREATE_FORUM_TOPIC' = 'create-forum-topic',
   'DELETE_FORUM_COMMENT' = 'delete-forum-comment',
   'DELETE_PHOTO' = 'delete-photo',
-  'SET_GLOBAL_SETTINGS' = 'set-global-settings',
+  'SET_GLOBAL_SETTING' = 'set-global-setting',
   'DELETE_PAYMENT' = 'delete-payment',
   'DELETE_GUESTBOOK_ENTRY' = 'delete-guestbook-entry',
   'DELETE_ARTICLE_COMMENT' = 'delete-article-comment',
