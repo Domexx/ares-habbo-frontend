@@ -180,7 +180,8 @@
     },
     "HOBBA": {
       "TITLE": "Hobba Housekeeping",
-      "SETTINGS": "Globale Einstellungen"
+      "SETTINGS": "Globale Einstellungen",
+      "NEWS": "Artikel verwalten"
     },
     "LOGOUT": "Abmelden"
   },
@@ -197,6 +198,9 @@
     "SETTINGS": {
       "SAVE": "Speichern",
       "SUCCESS": "\"{{ key }}\" wurde erfolgreich in \"{{ value }}\" geändert"
+    },
+    "ARTICLES": {
+
     }
   },
   "404": {

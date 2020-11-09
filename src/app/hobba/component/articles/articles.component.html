@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="input-group mb-4 has-feedback">
+    <fa-icon icon="search" class="input-group-text"></fa-icon>
+    <input class="form-control p-3" type="search" [placeholder]="'ARTICLES.SEARCH.PLACEHOLDER' | translate" [formControl]="searchField" />
+  </div>
+
+  <div class="row" infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="50"
+  (scrolled)="onScroll()"
+  [scrollWindow]="true">
+    <ng-container *ngIf="searchEntries.length === 0; else searchEntriesRef">
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12" *ngFor="let article of entries">
+        <a [routerLink]="['/articles/', article?.id + '-' +article?.slug]" class="card d-flex flex-row align-content-center p-4 mb-3">
+          <div class="article--image mr-3" @fade [style.backgroundImage]="'url('+ article?.image +')'"></div>
+
+          <div class="flex-fill d-inline-flex flex-column justify-content-center text-ellipsis">
+            <span class="article--title text-ellipsis">{{ article?.title }}</span>
+            <span class="article--date text-ellipsis">{{ article?.created_at | date: date }}</span>
+          </div>
+        </a>
+      </div>
+    </ng-container>
+
+    <ng-template #searchEntriesRef>
+      <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12" *ngFor="let article of searchEntries">
+        <a [routerLink]="['/articles/', article?.id + '-' +article?.slug]" class="card d-flex flex-row align-content-center p-4 mb-3">
+          <div class="article--image mr-3" @fade [style.backgroundImage]="'url('+ article.image +')'"></div>
+
+          <div class="flex-fill d-inline-flex flex-column justify-content-center text-ellipsis">
+            <span class="article--title text-ellipsis">{{ article?.title }}</span>
+            <span class="article--date text-ellipsis">{{ article?.created_at | date: date }}</span>
+          </div>
+        </a>
+      </div>
+    </ng-template>
+  </div>
+</div>

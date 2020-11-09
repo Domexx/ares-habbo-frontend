@@ -1,20 +1,14 @@
-import { Article, ArticlePagination } from './../model/article';
-import { ActivatedRoute } from '@angular/router';
+import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { ArticleService } from '../service/article.service';
-import {
-  trigger,
-  state,
-  style,
-  transition,
-  animate,
-} from '@angular/animations';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
-import { AlertService } from 'src/app/_shared/service/alert.service';
+import { ActivatedRoute } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { ArticlePagination, Article } from 'src/app/articles/model/article';
+import { ArticleService } from 'src/app/articles/service/article.service';
 import { TitleService } from 'src/app/_service/title.service';
+import { AlertService } from 'src/app/_shared/service/alert.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'ares-articles',
@@ -62,7 +56,7 @@ export class ArticlesComponent implements OnInit {
       .subscribe((term) => this.onSearch(term));
 
     this.titleService.setTitle(
-      this.translateService.instant('SIDEBAR.COMMUNITY.NEWS')
+      this.translateService.instant('SIDEBAR.HOBBA.NEWS')
     );
   }
 
