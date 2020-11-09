@@ -13,6 +13,7 @@ import { UserService } from 'src/app/_service/user.service';
 import { AlertService } from '../_shared/service/alert.service';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { HttpLoaderService } from '../_service/http-loader.service';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
@@ -23,7 +24,8 @@ export class ErrorInterceptor implements HttpInterceptor {
     private authService: AuthService,
     private alertService: AlertService,
     private translateService: TranslateService,
-    private router: Router
+    private router: Router,
+    private httpLoaderService: HttpLoaderService
   ) {}
 
   intercept(
@@ -49,7 +51,10 @@ export class ErrorInterceptor implements HttpInterceptor {
           );
         }
 
-        if (err.status === 404) {
+        if (
+          err.status === 404 ||
+          this.httpLoaderService.containsErrorUrl(request.url)
+        ) {
           return throwError(err);
         }
 

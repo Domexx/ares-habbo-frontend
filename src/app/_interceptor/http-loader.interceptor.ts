@@ -3,22 +3,23 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor,
 } from '@angular/common/http';
-import {Observable} from 'rxjs';
-import {HttpLoaderService} from '../_service/http-loader.service';
-import {finalize} from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { HttpLoaderService } from '../_service/http-loader.service';
+import { finalize } from 'rxjs/operators';
 
 @Injectable()
 export class HttpLoaderInterceptor implements HttpInterceptor {
   private totalRequests = 0;
 
-  constructor(
-    private httpLoaderService: HttpLoaderService
-  ) { }
+  constructor(private httpLoaderService: HttpLoaderService) {}
 
-  intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    if (this.httpLoaderService.containsUrl(req.url)) {
+  intercept(
+    req: HttpRequest<any>,
+    next: HttpHandler
+  ): Observable<HttpEvent<any>> {
+    if (this.httpLoaderService.containsBlockedUrl(req.url)) {
       return next.handle(req);
     }
 

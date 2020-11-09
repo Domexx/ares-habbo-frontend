@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { PermissionPagination } from '../_model/permission';
+import { Permission, PermissionPagination } from '../_model/permission';
 import { API } from '../_shared/model/api';
 import { ApiService } from './api.service';
 
@@ -9,9 +9,19 @@ import { ApiService } from './api.service';
   providedIn: 'root',
 })
 export class PermissionService {
-  constructor(private apiService: ApiService) {}
+  private readonly permissionsSubject: BehaviorSubject<Permission[]>;
+  public permissions$: Observable<Permission[]>;
+
+  constructor(private apiService: ApiService) {
+    this.permissionsSubject = new BehaviorSubject<Permission[]>(
+      JSON.parse(localStorage.getItem('ares-permissions'))
+    );
+    this.permissions$ = this.permissionsSubject.asObservable();
+  }
 
   /**
+   * List permissions
+   *
    * @param page
    * @param result
    * @return Observable<PermissionPagination>
@@ -21,7 +31,27 @@ export class PermissionService {
     result: number = 10
   ): Observable<PermissionPagination> {
     return this.apiService
-      .get(`roles/permissions/${page}/${result}`)
-      .pipe(map((resp: API) => resp.data));
+      .get(`roles/permissions/list/${page}/${result}`, true, false)
+      .pipe(
+        map((resp: API) => {
+          this.permissions = resp.data.data;
+          return resp.data;
+        })
+      );
+  }
+
+  /**
+   * Set permissions
+   */
+  set permissions(value: Permission[]) {
+    localStorage.setItem('ares-permissions', JSON.stringify(value));
+    this.permissionsSubject.next(value);
+  }
+
+  /**
+   * Get permissions
+   */
+  get permissions(): Permission[] {
+    return this.permissionsSubject.value;
   }
 }
