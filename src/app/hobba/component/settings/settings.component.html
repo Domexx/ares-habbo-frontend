@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="card d-flex p-4">
+    <div class="row">
+      <div class="col-12" *ngFor="let setting of settings">
+        <div class="row">
+          <div class="col-6">
+            {{ setting.key }}
+          </div>
+
+          <div class="col-6">
+            {{ setting.value }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
