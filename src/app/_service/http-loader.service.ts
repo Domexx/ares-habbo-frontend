@@ -8,47 +8,61 @@ import { ApiService } from './api.service';
 export class HttpLoaderService {
   private loadingSubject: BehaviorSubject<boolean>;
   private blockedRequests: string[];
-  private blockedErrors: string[];
 
   constructor() {
     this.blockedRequests = [];
     this.loadingSubject = new BehaviorSubject<boolean>(true);
   }
 
-  pushBlocked(url: string): void {
+  /**
+   * Add a new item
+   *
+   * @param url
+   */
+  push(url: string): void {
     this.blockedRequests.push(url);
   }
 
-  removeBlocked(url: string): void {
+  /**
+   * Remove a existing url
+   *
+   * @param url
+   */
+  remove(url: string): void {
     this.blockedRequests = this.blockedRequests.filter(
       (value) => value !== url
     );
   }
 
-  containsBlockedUrl(url: string): boolean {
+  /**
+   * Checks if the array contains the url
+   *
+   * @param url
+   * @return boolean
+   */
+  has(url: string): boolean {
     return this.blockedRequests.filter((entry) => entry === url).length > 0;
   }
 
-  pushError(url: string): void {
-    this.blockedErrors.push(url);
-  }
-
-  removeError(url: string): void {
-    this.blockedErrors = this.blockedErrors.filter((value) => value !== url);
-  }
-
-  containsErrorUrl(url: string): boolean {
-    return this.blockedErrors.filter((entry) => entry === url).length > 0;
-  }
-
+  /**
+   * Returns Loading-Subject as Observable
+   *
+   * @return Observable<boolean>
+   */
   asObservable(): Observable<boolean> {
     return this.loadingSubject.asObservable();
   }
 
+  /**
+   * Set a new value
+   */
   set loading(value: boolean) {
     this.loadingSubject.next(value);
   }
 
+  /**
+   * Get the current loading state
+   */
   get loading(): boolean {
     return this.loadingSubject.value;
   }

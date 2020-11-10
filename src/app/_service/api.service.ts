@@ -36,11 +36,9 @@ export class ApiService {
     url: string,
     body: any = {},
     options = {},
-    loader: boolean = true,
-    error: boolean = true
+    loader: boolean = true
   ): Observable<API> {
     this.isLoadable(url, loader);
-    this.isErrorable(url, error);
 
     return this.http.post<API>(
       `${environment.app.endpoint}/${this.languageService.language}/${url}`,
@@ -59,11 +57,9 @@ export class ApiService {
   get(
     url: string,
     options: {} = {},
-    loader: boolean = true,
-    error: boolean = true
+    loader: boolean = true
   ): Observable<API | APIPagination> {
     this.isLoadable(url, loader);
-    this.isErrorable(url, error);
 
     return this.http.get<API>(
       `${environment.app.endpoint}/${this.languageService.language}/${url}`,
@@ -83,11 +79,9 @@ export class ApiService {
     url: string,
     body: any = {},
     options: {} = {},
-    loader: boolean = true,
-    error: boolean = true
+    loader: boolean = true
   ): Observable<API> {
     this.isLoadable(url, loader);
-    this.isErrorable(url, error);
 
     return this.http.put<API>(
       `${environment.app.endpoint}/${this.languageService.language}/${url}`,
@@ -106,11 +100,9 @@ export class ApiService {
   delete(
     url: string,
     options: {} = {},
-    loader: boolean = true,
-    error: boolean = true
+    loader: boolean = true
   ): Observable<API> {
     this.isLoadable(url, loader);
-    this.isErrorable(url, error);
 
     return this.http.delete<API>(
       `${environment.app.endpoint}/${this.languageService.language}/${url}`,
@@ -135,16 +127,8 @@ export class ApiService {
   isLoadable(path: string, loader: boolean): void {
     const url = this.url(path);
 
-    if (!loader && !this.httpLoaderService.containsBlockedUrl(url)) {
-      this.httpLoaderService.pushBlocked(url);
-    }
-  }
-
-  isErrorable(path: string, error: boolean): void {
-    const url = this.url(path);
-
-    if (!error && !this.httpLoaderService.containsBlockedUrl(url)) {
-      this.httpLoaderService.pushBlocked(url);
+    if (!loader && !this.httpLoaderService.has(url)) {
+      this.httpLoaderService.push(url);
     }
   }
 }

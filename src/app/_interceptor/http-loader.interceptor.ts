@@ -19,7 +19,7 @@ export class HttpLoaderInterceptor implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    if (this.httpLoaderService.containsBlockedUrl(req.url)) {
+    if (this.httpLoaderService.has(req.url)) {
       return next.handle(req);
     }
 

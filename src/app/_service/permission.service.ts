@@ -13,14 +13,23 @@ import { ApiService } from './api.service';
   providedIn: 'root',
 })
 export class PermissionService {
-  private readonly permissionsSubject: BehaviorSubject<Permission[]>;
-  public permissions$: Observable<Permission[]>;
+  private readonly permissionsSubject: BehaviorSubject<string[]>;
+  public permissions$: Observable<string[]>;
 
   constructor(private apiService: ApiService) {
-    this.permissionsSubject = new BehaviorSubject<Permission[]>(
+    this.permissionsSubject = new BehaviorSubject<string[]>(
       JSON.parse(localStorage.getItem('ares-permissions'))
     );
     this.permissions$ = this.permissionsSubject.asObservable();
+  }
+
+  /**
+   * Get all permissions
+   */
+  get(): Observable<string[]> {
+    return this.apiService
+      .get('roles/user/permissions')
+      .pipe(map((resp: API) => (this.permissions = resp.data)));
   }
 
   /**
@@ -35,23 +44,24 @@ export class PermissionService {
     result: number = 50
   ): Observable<PermissionPagination> {
     return this.apiService
-      .get(`roles/permissions/list/${page}/${result}`, true, false)
-      .pipe(
-        map((resp: API) => {
-          this.permissions = resp.data.data;
-          return resp.data;
-        })
-      );
+      .get(`roles/permissions/list/${page}/${result}`, true)
+      .pipe(map((resp: API) => (this.permissions = resp.data.data)));
   }
 
+  /**
+   * Checks if the array contains the key
+   *
+   * @param key
+   * @return boolean
+   */
   has(key: string | PermissionType): boolean {
-    return this.permissions.filter((value) => value.name === key).length !== 0;
+    return this.permissions.filter((value) => value === key).length !== 0;
   }
 
   /**
    * Set permissions
    */
-  set permissions(value: Permission[]) {
+  set permissions(value: string[]) {
     localStorage.setItem('ares-permissions', JSON.stringify(value));
     this.permissionsSubject.next(value);
   }
@@ -59,7 +69,7 @@ export class PermissionService {
   /**
    * Get permissions
    */
-  get permissions(): Permission[] {
+  get permissions(): string[] {
     return this.permissionsSubject.value;
   }
 }

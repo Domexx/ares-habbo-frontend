@@ -77,7 +77,7 @@ export class HomeComponent implements OnInit {
                   });
 
                 const permissionSubscription: Subscription = this.permissionService
-                  .list()
+                  .get()
                   .subscribe({
                     complete: () => permissionSubscription.unsubscribe(),
                   });
