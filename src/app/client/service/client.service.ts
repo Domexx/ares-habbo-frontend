@@ -16,7 +16,7 @@ export class ClientService {
    * @return Observable<string>
    */
   ticket(): Observable<string> {
-    return this.apiService.post('user/ticket', {}, {}, false).pipe(
+    return this.apiService.put('user/ticket', {}, {}, false).pipe(
       map(response => response.data.ticket)
     );
   }
