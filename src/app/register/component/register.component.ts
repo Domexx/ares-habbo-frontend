@@ -243,7 +243,7 @@ export class RegisterComponent implements OnInit {
                     this.translateService.instant('REGISTER.SUCCESS')
                   );
                   const voteSubscription: Subscription = this.voteService
-                    .total()
+                    .list()
                     .subscribe({
                       complete: () => voteSubscription.unsubscribe(),
                     });
