@@ -21,7 +21,7 @@
           [scrollWindow]="true">
             <ng-container *ngIf="searchEntries.length === 0; else searchEntriesRef">
               <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12" *ngFor="let article of entries">
-                <div (click)="delete(article)" class="card cursor-pointer d-flex flex-row align-content-center p-4 mb-3">
+                <div (click)="openModal(template, article)" class="card cursor-pointer d-flex flex-row align-content-center p-4 mb-3">
                   <div class="article--image mr-3" @fade [style.backgroundImage]="'url('+ article?.image +')'"></div>
 
                   <div class="flex-fill d-inline-flex flex-column justify-content-center text-ellipsis">
@@ -34,7 +34,7 @@
 
             <ng-template #searchEntriesRef>
               <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12" *ngFor="let article of searchEntries">
-                <div (click)="delete(article)" class="card cursor-pointer d-flex flex-row align-content-center p-4 mb-3">
+                <div (click)="openModal(template, article)" class="card cursor-pointer d-flex flex-row align-content-center p-4 mb-3">
                   <div class="article--image mr-3" @fade [style.backgroundImage]="'url('+ article.image +')'"></div>
 
                   <div class="flex-fill d-inline-flex flex-column justify-content-center text-ellipsis">
@@ -55,3 +55,15 @@
   </div>
 </div>
 
+<ng-template #template>
+  <div class="modal-body d-flex flex-column justify-content-center align-items-center">
+    <div class="container d-inline-flex flex-column mt-4">
+      Willst du diesen Artikel wirklich löschen?
+
+      <div class="d-inline-flex flex-row mt-2 align-items-center justify-content-end">
+        <span class="cursor-pointer mr-2" (click)="delete(toDelete)">Yes</span>
+        <button type="button" class="btn btn-primary" (click)="reset()">No</button>
+      </div>
+    </div>
+  </div>
+</ng-template>
