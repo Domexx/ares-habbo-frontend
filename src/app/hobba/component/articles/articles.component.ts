@@ -39,6 +39,11 @@ export class ArticlesComponent implements OnInit {
   searchField: FormControl = new FormControl();
 
   modalRef: BsModalRef;
+  modalConfig = {
+    class: 'h-100 d-flex flex-column justify-content-center my-0',
+    animated: true
+  };
+
   toDelete: Article = null;
 
   /**
@@ -180,7 +185,7 @@ export class ArticlesComponent implements OnInit {
   ): void {
     this.modalRef = this.modalService.show(
       template,
-      Object.assign({}, { class: 'h-100 d-flex flex-column justify-content-center my-0' })
+      this.modalConfig
     );
     this.toDelete = article;
   }

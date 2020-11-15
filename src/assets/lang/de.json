@@ -203,7 +203,7 @@
       "DELETE": "\"{{ title }}\" ({{ id }}) wurde erfolgreich gelöscht"
     }
   },
-  "404": {
+  "NOT_FOUND": {
     "DESCRIPTION": "Seite wurde nicht gefunden!",
     "BUTTON": "Zurück"
   },
