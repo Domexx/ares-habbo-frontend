@@ -103,7 +103,7 @@ export class FriendsComponent implements OnInit {
         next: (e) => {
           // Loop through all data and push the data into our array
           e.data.forEach((value) => {
-            this.friends$.push(value.user);
+            this.friends$.push(value);
           });
 
           // Set the new pagination data

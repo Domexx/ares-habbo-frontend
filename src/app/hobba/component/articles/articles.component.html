@@ -2,26 +2,31 @@
   <div class="row mt-5">
     <div class="col-3">
       <div class="nav flex-column nav-pills" id="news-pills-tab" role="tablist" aria-orientation="vertical">
-        <a class="nav-link active" id="news-pills-home-tab" data-toggle="pill" href="#news-pills-home" role="tab" aria-controls="news-pills-home" aria-selected="true">Neuigkeiten verwalten</a>
-        <a class="nav-link" id="news-pills-add-tab" data-toggle="pill" href="#news-pills-add" role="tab" aria-controls="news-pills-add" aria-selected="true">Neuigkeiten hinzufügen</a>
+        <a class="nav-link active" id="news-pills-home-tab" data-toggle="pill" href="#news-pills-home" role="tab"
+           aria-controls="news-pills-home" aria-selected="true">Neuigkeiten verwalten</a>
+        <a class="nav-link" id="news-pills-add-tab" data-toggle="pill" href="#news-pills-add" role="tab"
+           aria-controls="news-pills-add" aria-selected="true">Neuigkeiten hinzufügen</a>
       </div>
     </div>
     <div class="col-9">
       <div class="tab-content" id="news-pills-tabContent">
-        <div class="tab-pane fade show active" id="news-pills-home" role="tabpanel" aria-labelledby="news-pills-home-tab">
+        <div class="tab-pane fade show active" id="news-pills-home" role="tabpanel"
+             aria-labelledby="news-pills-home-tab">
           <div class="input-group mb-4 has-feedback">
             <fa-icon icon="search" class="input-group-text"></fa-icon>
-            <input class="form-control p-3" type="search" [placeholder]="'ARTICLES.SEARCH.PLACEHOLDER' | translate" [formControl]="searchField" />
+            <input class="form-control p-3" type="search" [placeholder]="'ARTICLES.SEARCH.PLACEHOLDER' | translate"
+                   [formControl]="searchField" />
           </div>
 
           <div class="row" infiniteScroll
-          [infiniteScrollDistance]="2"
-          [infiniteScrollThrottle]="50"
-          (scrolled)="onScroll()"
-          [scrollWindow]="true">
+               [infiniteScrollDistance]="2"
+               [infiniteScrollThrottle]="50"
+               (scrolled)="onScroll()"
+               [scrollWindow]="true">
             <ng-container *ngIf="searchEntries.length === 0; else searchEntriesRef">
               <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12" *ngFor="let article of entries">
-                <div (click)="openModal(template, article)" class="card cursor-pointer d-flex flex-row align-content-center p-4 mb-3">
+                <div (click)="openModal(template, article)"
+                     class="card cursor-pointer d-flex flex-row align-content-center p-4 mb-3">
                   <div class="article--image mr-3" @fade [style.backgroundImage]="'url('+ article?.image +')'"></div>
 
                   <div class="flex-fill d-inline-flex flex-column justify-content-center text-ellipsis">
@@ -34,7 +39,8 @@
 
             <ng-template #searchEntriesRef>
               <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12" *ngFor="let article of searchEntries">
-                <div (click)="openModal(template, article)" class="card cursor-pointer d-flex flex-row align-content-center p-4 mb-3">
+                <div (click)="openModal(template, article)"
+                     class="card cursor-pointer d-flex flex-row align-content-center p-4 mb-3">
                   <div class="article--image mr-3" @fade [style.backgroundImage]="'url('+ article.image +')'"></div>
 
                   <div class="flex-fill d-inline-flex flex-column justify-content-center text-ellipsis">
@@ -58,7 +64,12 @@
 <ng-template #template>
   <div class="modal-body d-flex flex-column justify-content-center align-items-center">
     <div class="container d-inline-flex flex-column mt-4">
-      Willst du diesen Artikel wirklich löschen?
+      <div class="d-inline-flex flex-row mb-3">
+        <div class="d-inline-flex flex-column">
+          <h4 class="mt-3 mb-0 modal--title">Kommentieren</h4>
+          <span class="modal--description">Verfasse einen Kommentar</span>
+        </div>
+      </div>
 
       <div class="d-inline-flex flex-row mt-2 align-items-center justify-content-end">
         <span class="cursor-pointer mr-2" (click)="delete(toDelete)">Yes</span>
