@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/_shared/model/user/user';
 import { UserService } from 'src/app/_service/user.service';
 import { TitleService } from 'src/app/_service/title.service';
-import { environment } from 'src/environments/environment';
 import { Article } from '../../articles/model/article';
 import { ActivatedRoute } from '@angular/router';
 import { Friend, FriendPagination } from '../model/friend';
@@ -59,7 +58,7 @@ export class DashboardComponent implements OnInit {
 
     if (friendsList) {
       friendsArray = friendsList.map(
-        (value: Friend, index: number) => friendsList[index].user
+        (value: Friend, index: number) => friendsList[index]
       );
     }
 

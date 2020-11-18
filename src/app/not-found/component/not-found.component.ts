@@ -10,6 +10,12 @@ import {NavigationEnd, Router} from '@angular/router';
 export class NotFoundComponent {
   previousUrl: string;
 
+  /**
+   * NotFoundComponent constructor
+   *
+   * @param location
+   * @param router
+   */
   constructor(
     private location: Location,
     private router: Router
@@ -29,7 +35,6 @@ export class NotFoundComponent {
 
   /**
    * Redirect the user to the previous url
-   * or to the home component
    */
   back(): void {
     if (this.previousUrl) {

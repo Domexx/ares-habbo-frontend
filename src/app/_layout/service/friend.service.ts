@@ -22,9 +22,7 @@ export class FriendService {
     return this.apiService.get(`friends/list/${page}/${results}`, {}, false).pipe(
       map(resp => {
         for (let i = resp.data.data.length; i < 9; i++) {
-          resp.data.data.push({
-            user: this.mannequin()
-          });
+          resp.data.data.push(this.mannequin());
         }
 
         return resp.data;

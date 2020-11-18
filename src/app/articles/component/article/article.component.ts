@@ -11,11 +11,11 @@ import { LookSize } from '../../../_shared/model/user/look';
 @Component({
   selector: 'ares-article',
   templateUrl: './article.component.html',
-  styleUrls: ['./article.component.scss'],
+  styleUrls: ['./article.component.scss']
 })
 export class ArticleComponent implements OnInit, OnDestroy {
   article: Article;
-  comments: Comment[];
+  comments: Comment[] = [];
   commentsPagination: CommentPagination;
   articles: Article[];
 
@@ -29,7 +29,8 @@ export class ArticleComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private titleService: TitleService,
     private lookService: LookService
-  ) {}
+  ) {
+  }
 
   /**
    * Initialize Article component
@@ -56,7 +57,7 @@ export class ArticleComponent implements OnInit, OnDestroy {
   look(): string {
     return this.lookService.get({
       look: this.article.user.look,
-      size: LookSize.SMALL,
+      size: LookSize.SMALL
     });
   }
 

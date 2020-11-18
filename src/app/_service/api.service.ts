@@ -24,7 +24,7 @@ export class ApiService {
   ) {}
 
   /**
-   * Sends a POST request to the API
+   * Sends a POST request
    *
    * @param url
    * @param body
@@ -39,6 +39,7 @@ export class ApiService {
     loader: boolean = true
   ): Observable<API> {
     this.isLoadable(url, loader);
+
     return this.http.post<API>(
       `${environment.app.endpoint}/${this.languageService.language}/${url}`,
       body,
@@ -47,7 +48,7 @@ export class ApiService {
   }
 
   /**
-   * Sends a GET requests to the API
+   * Sends a GET request
    * @param url
    * @param options
    * @param loader
@@ -59,6 +60,7 @@ export class ApiService {
     loader: boolean = true
   ): Observable<API | APIPagination> {
     this.isLoadable(url, loader);
+
     return this.http.get<API>(
       `${environment.app.endpoint}/${this.languageService.language}/${url}`,
       options
@@ -66,7 +68,7 @@ export class ApiService {
   }
 
   /**
-   * Sends a PUT request to the API
+   * Sends a PUT request
    * @param url
    * @param body
    * @param options
@@ -80,6 +82,7 @@ export class ApiService {
     loader: boolean = true
   ): Observable<API> {
     this.isLoadable(url, loader);
+
     return this.http.put<API>(
       `${environment.app.endpoint}/${this.languageService.language}/${url}`,
       body,
@@ -88,7 +91,7 @@ export class ApiService {
   }
 
   /**
-   * Sends a DELETE request to the API
+   * Sends a DELETE request
    * @param url
    * @param options
    * @param loader
@@ -100,6 +103,7 @@ export class ApiService {
     loader: boolean = true
   ): Observable<API> {
     this.isLoadable(url, loader);
+
     return this.http.delete<API>(
       `${environment.app.endpoint}/${this.languageService.language}/${url}`,
       options
@@ -120,10 +124,11 @@ export class ApiService {
    * @param url
    * @param loader
    */
-  isLoadable(url: string, loader: boolean): void {
-    // @TODO check if a route is already inside the array
-    if (!loader) {
-      this.httpLoaderService.push(this.url(url));
+  isLoadable(path: string, loader: boolean): void {
+    const url = this.url(path);
+
+    if (!loader && !this.httpLoaderService.has(url)) {
+      this.httpLoaderService.push(url);
     }
   }
 }

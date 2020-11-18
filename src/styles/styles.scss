@@ -13,10 +13,10 @@
 
 @import 'variables';
 
-@import "~bootstrap/scss/bootstrap";
-@import "~bootstrap-select/dist/css/bootstrap-select.min.css";
+@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap-select/dist/css/bootstrap-select.min.css';
 
-@import "~notyf/notyf.min.css";
+@import '~notyf/notyf.min.css';
 @import '~swiper/css/swiper.min.css';
 
 @import 'fonts';
@@ -27,6 +27,7 @@
 @import 'cards';
 @import 'utilities';
 @import 'navbar';
+@import 'navs';
 @import 'forms';
 @import 'bootstrap-select';
 
@@ -38,8 +39,8 @@
   --main-bg-gray: #{$main-bg-gray};
   --main-bg-green: #{$main-bg-green};
 
-  --main-modal-bg: #292B2F;
-  --modal-close-bg: #17181A;
+  --main-modal-bg: #292b2f;
+  --modal-close-bg: #17181a;
   --modal-close-bg-hover: #343436;
 
   --text-normal: #{$text-normal};
@@ -57,7 +58,7 @@
 
   --hero-background-color: #fc374e;
 
-  --gray: #EBEFF0 !important;
+  --gray: #ebeff0 !important;
 }
 
 html {
@@ -72,7 +73,7 @@ html {
 a {
   color: var(--text-link);
   text-decoration: none;
-  transition: color .25s;
+  transition: color 0.25s;
   font-weight: 700;
 
   &:hover,

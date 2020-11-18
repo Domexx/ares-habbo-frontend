@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { API } from '../_shared/model/api';
+import { PermissionService } from './permission.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +14,8 @@ export class AuthService {
   constructor(
     private apiService: ApiService,
     private userService: UserService,
-    private voteService: VoteService
+    private voteService: VoteService,
+    private permissionService: PermissionService
   ) {}
 
   /**
@@ -40,6 +42,7 @@ export class AuthService {
     this.userService.change(null);
 
     this.voteService.votes = [];
+    this.permissionService.permissions = [];
 
     return this.apiService
       .post(

@@ -58,6 +58,12 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
+    path: 'hobba',
+    loadChildren: () =>
+      import('./hobba/hobba.module').then((m) => m.HobbaModule),
+    canActivate: [AuthGuard],
+  },
+  {
     path: '404',
     loadChildren: () =>
       import('./not-found/not-found.module').then((m) => m.NotFoundModule),

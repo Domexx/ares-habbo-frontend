@@ -1,17 +1,11 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { User } from '../../../../_shared/model/user/user';
-import { environment } from '../../../../../environments/environment';
-import { Subscription } from 'rxjs';
-import { FriendService } from '../../../service/friend.service';
-import {
-  animate,
-  state,
-  style,
-  transition,
-  trigger,
-} from '@angular/animations';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { Component, Input, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { LookService } from '../../../../_service/look.service';
+import { LookGestures } from '../../../../_shared/model/user/look';
+import { User } from '../../../../_shared/model/user/user';
 import { FriendPagination } from '../../../../dashboard/model/friend';
+import { FriendService } from '../../../service/friend.service';
 
 @Component({
   selector: 'ares-layout-dashboard-friends',
@@ -47,9 +41,17 @@ export class FriendsComponent implements OnInit {
     this.pagination$ = value;
   }
 
+  /**
+   * FriendsComponent constructor
+   *
+   * @param friendService
+   * @param translateService
+   * @param lookService
+   */
   constructor(
     private friendService: FriendService,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private lookService: LookService
   ) {}
 
   /**
@@ -67,14 +69,17 @@ export class FriendsComponent implements OnInit {
    * Returns a full path image for the look
    *
    * @param look
+   * @param online
    * @return string
    */
-  look(look: string): string {
-    if (look === null) {
-      return 'assets/images/habbo.gif';
-    }
-
-    return `${environment.app.imager}${look}&action=std&gesture=sml&direction=2&head_direction=2&size=l`;
+  look(
+    look: string,
+    online: boolean = false
+  ): string {
+    return this.lookService.get({
+      look,
+      gesture: online ? LookGestures.STANDARD : LookGestures.EYE_BLINK
+    });
   }
 
   /**
@@ -98,7 +103,7 @@ export class FriendsComponent implements OnInit {
         next: (e) => {
           // Loop through all data and push the data into our array
           e.data.forEach((value) => {
-            this.friends$.push(value.user);
+            this.friends$.push(value);
           });
 
           // Set the new pagination data

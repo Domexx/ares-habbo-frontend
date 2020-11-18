@@ -9,6 +9,7 @@ import { AlertService } from '../../_shared/service/alert.service';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from '../../../environments/environment';
 import { VoteService } from '../../_shared/service/vote.service';
+import { PermissionService } from 'src/app/_service/permission.service';
 
 @Component({
   selector: 'ares-home',
@@ -31,7 +32,8 @@ export class HomeComponent implements OnInit {
     private alertService: AlertService,
     private translateService: TranslateService,
     private voteService: VoteService,
-    private authService: AuthService
+    private authService: AuthService,
+    private permissionService: PermissionService
   ) {}
 
   /**
@@ -69,9 +71,15 @@ export class HomeComponent implements OnInit {
             next: () =>
               this.router.navigateByUrl('/dashboard').then(() => {
                 const voteSubscription: Subscription = this.voteService
-                  .total()
+                  .list()
                   .subscribe({
                     complete: () => voteSubscription.unsubscribe(),
+                  });
+
+                const permissionSubscription: Subscription = this.permissionService
+                  .get()
+                  .subscribe({
+                    complete: () => permissionSubscription.unsubscribe(),
                   });
 
                 this.alertService.success(
