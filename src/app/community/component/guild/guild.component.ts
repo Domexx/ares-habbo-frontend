@@ -1,4 +1,4 @@
-import { Member, MemberPagination } from './../../model/guild/member';
+import { Member, MemberPagination } from '../../model/guild/member';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Guild } from '../../model/guild/guild';
@@ -34,6 +34,15 @@ export class GuildComponent implements OnInit {
     this.guestbook = this.route.snapshot.data.guestbook;
 
     this.titleService.setTitle(this.guild.name);
+  }
+
+  /**
+   * Replaces the image with given placeholder when badge wasnt found
+   *
+   * @param e
+   */
+  error(e: any): void {
+    e.target.src = '/assets/images/icons/ares64x64.png';
   }
 
   /**

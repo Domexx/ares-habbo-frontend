@@ -7,12 +7,12 @@
 </div>
 
 <div class="container">
-  <div class="row">
+  <div class="row mb-4">
     <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
       <div class="card guild mb-3">
         <div class="card-body d-flex flex-column">
           <div class="d-inline-flex flex-row align-items-center">
-            <img class="guild--badge mr-4" [src]="badge" />
+            <img class="guild--badge mr-4" [src]="badge" (error)="error($event)" [alt]="guild?.name" [title]="guild?.name" />
 
             <div class="d-inline-flex flex-column text-ellipsis">
               <h4 class="guild--name mb-1 text-ellipsis">{{ guild.name }}</h4>
@@ -42,12 +42,8 @@
       <ares-layout-community-guild-members class="card mb-3" [id]="guild.id" [members]="members" [pagination]="memberPagination"></ares-layout-community-guild-members>
     </div>
 
-    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+    <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
       <ares-layout-community-guild-guestbook class="card d-flex flex-column p-4" [entries]="guestbook.data" [pagination]="guestbook" [id]="guild.id"></ares-layout-community-guild-guestbook>
-    </div>
-
-    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
-      asdasd
     </div>
   </div>
 </div>

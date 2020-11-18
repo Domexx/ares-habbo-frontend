@@ -1,6 +1,6 @@
 <swiper *ngIf="articles$.length > 0; else noArticles" [config]="config" class="article--slider">
   <ng-container *ngFor="let article of articles$">
-    <a [routerLink]="['/articles', article.slug]">
+    <a [routerLink]="['/articles', article.id + '-' + article.slug]">
       <div class="card article">
         <div class="card-body d-inline-flex flex-column">
           <div class="article--info d-flex align-items-center">
