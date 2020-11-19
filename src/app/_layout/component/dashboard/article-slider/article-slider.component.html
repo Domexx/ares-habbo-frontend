@@ -14,14 +14,20 @@
           <img [src]="article.image" [alt]="article.title + ' - ' + article.description">
 
           <div class="article--date">
-            <p class="date mb-2"><span>{{ article.created_at | date: 'd' : undefined : locale }}</span> {{ article.created_at.date | date: 'MMMM' : undefined : locale }}</p>
+            <p class="date mb-2">
+              <span>{{ article.created_at | date: 'd' : undefined : locale }}</span>
+              {{ article.created_at.date | date: 'MMMM' : undefined : locale }}
+            </p>
             <p class="time">{{ article.created_at | date: 'hh:mm' : undefined : locale }}</p>
           </div>
         </div>
 
         <div class="d-inline-flex flex-column pb-1">
           <p class="article--title">{{ article.title }}</p>
-          <span class="article--description w-100">{{ (article.description.length > 90)? (article.description | slice:0:90)+'..' : (article.description) }}</span>
+          <span
+            class="article--description w-100">{{ (article.description.length > 90) ?
+            (article.description | slice:0:90) + '..' : (article.description) }}
+          </span>
         </div>
 
         <div class="d-inline-flex flex-row w-100">
@@ -36,7 +42,8 @@
               <i class="sprite sprite--article-slider-comments"></i>
             </div>
           </div>
-          <a [routerLink]="['/articles', article.id + '-' + article.slug]" class="btn btn-danger align-self-end w-25" [translate]="'DASHBOARD.SLIDER.ARTICLES.READ_MORE'"></a>
+          <a [routerLink]="['/articles', article.id + '-' + article.slug]" class="btn btn-danger align-self-end w-25"
+             [translate]="'DASHBOARD.SLIDER.ARTICLES.READ_MORE'"></a>
         </div>
       </div>
     </div>
@@ -54,7 +61,7 @@
       </div>
 
       <div class="article--thumb mt-2">
-        <img src="assets/images/articles/topstory.gif" [alt]="'DASHBOARD.SLIDER.ARTICLES.DESCRIPTION' | translate" />
+        <img src="assets/images/articles/topstory.gif" [alt]="'DASHBOARD.SLIDER.ARTICLES.DESCRIPTION' | translate"/>
       </div>
 
       <div class="d-inline-flex flex-column pb-2">

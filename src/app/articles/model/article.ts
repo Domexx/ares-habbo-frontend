@@ -1,4 +1,4 @@
-import { APIPagination } from './../../_shared/model/api';
+import { APIPagination } from '../../_shared/model/api';
 import { User } from '../../_shared/model/user/user';
 
 export class Article {
