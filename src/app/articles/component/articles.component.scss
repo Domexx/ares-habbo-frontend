@@ -1,4 +1,13 @@
 :host {
+  .ares--hero {
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    position: relative;
+    box-shadow: inset -3rem 10rem 6rem -5rem rgb(0 0 0 / 65%), inset -3rem -10rem 6rem -5rem rgb(0 0 0 / 65%);
+  }
+
   a {
     font-weight: normal;
     color: #fff;
