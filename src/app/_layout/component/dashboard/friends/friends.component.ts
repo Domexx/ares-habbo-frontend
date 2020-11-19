@@ -2,6 +2,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { Component, Input, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { LookService } from '../../../../_service/look.service';
+import { UserService } from '../../../../_service/user.service';
 import { LookGestures } from '../../../../_shared/model/user/look';
 import { User } from '../../../../_shared/model/user/user';
 import { FriendPagination } from '../../../../dashboard/model/friend';
@@ -45,11 +46,13 @@ export class FriendsComponent implements OnInit {
    * FriendsComponent constructor
    *
    * @param friendService
+   * @param userService
    * @param translateService
    * @param lookService
    */
   constructor(
     private friendService: FriendService,
+    private userService: UserService,
     private translateService: TranslateService,
     private lookService: LookService
   ) {}
@@ -60,7 +63,7 @@ export class FriendsComponent implements OnInit {
   ngOnInit(): void {
     if (this.friends$ && this.friends$.length === 0) {
       for (let i = 0; i < 9; i++) {
-        this.friends$.push(this.friendService.mannequin());
+        this.friends$.push(this.userService.mannequin());
       }
     }
   }
@@ -98,7 +101,7 @@ export class FriendsComponent implements OnInit {
     this.state = false;
 
     const subscription = this.friendService
-      .friends(++this.pagination$.current_page)
+      .list(++this.pagination$.current_page)
       .subscribe({
         next: (e) => {
           // Loop through all data and push the data into our array
