@@ -66,6 +66,11 @@ export class ArticlesComponent implements OnInit {
     );
   }
 
+  /**
+   * Search event
+   *
+   * @param term
+   */
   onSearch(term: string): void {
     if (!term) {
       this.searchEntries = [];
@@ -89,6 +94,9 @@ export class ArticlesComponent implements OnInit {
     });
   }
 
+  /**
+   * Scroll event
+   */
   onScroll(): void {
     // Check if the next page is null or if the current page is higher then the last page
     // and cancel all further actions
@@ -113,5 +121,14 @@ export class ArticlesComponent implements OnInit {
         },
         complete: () => subscription.unsubscribe(),
       });
+  }
+
+  /**
+   * Return the first entry image
+   *
+   * @return string
+   */
+  get hero(): string {
+    return (this.searchEntries[0]) ? this.searchEntries[0].image : this.entries[0].image;
   }
 }
