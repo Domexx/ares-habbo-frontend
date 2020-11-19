@@ -43,12 +43,12 @@ button {
 
   &:focus,
   &:hover {
-    box-shadow: 0px 1px 3px 0px rgba(0, 6, 33, 0.5),
+    box-shadow: 0 1px 3px 0 rgba(0, 6, 33, 0.5),
       0 0 0 3px rgba(0, 0, 0, 0.2);
   }
 
   &:active:focus {
-    box-shadow: 0px 1px 3px 0px rgba(0, 6, 33, 0.5),
+    box-shadow: 0 1px 3px 0 rgba(0, 6, 33, 0.5),
       0 0 0 3px rgba(0, 0, 0, 0.2) !important;
   }
 
@@ -70,6 +70,7 @@ button {
       var(--btn-danger-primary) 50%,
       var(--btn-danger-secondary) 50%
     );
+    padding: 0.8rem;
     border-color: var(--btn-danger-primary);
     border-width: 4px;
     border-style: solid;

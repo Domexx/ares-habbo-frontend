@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {
-  Permission,
   PermissionPagination,
   PermissionType,
 } from '../_model/permission';

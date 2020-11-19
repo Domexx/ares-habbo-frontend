@@ -1,4 +1,4 @@
-import { ArticlePagination } from './../model/article';
+import { ArticlePagination } from '../model/article';
 import { Injectable } from '@angular/core';
 import { ApiService } from '../../_service/api.service';
 import { Observable } from 'rxjs';

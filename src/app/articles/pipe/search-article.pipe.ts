@@ -1,6 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { Article, ArticlePagination } from '../model/article';
+import { Article} from '../model/article';
 import { ArticleService } from '../service/article.service';
 
 @Pipe({

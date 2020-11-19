@@ -121,7 +121,7 @@ export class ApiService {
 
   /**
    * Checks if the route is loadable
-   * @param url
+   * @param path
    * @param loader
    */
   isLoadable(path: string, loader: boolean): void {
