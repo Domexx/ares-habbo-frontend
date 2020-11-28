@@ -16,7 +16,7 @@
           <div class="article--date">
             <p class="date mb-2">
               <span>{{ article.created_at | date: 'd' : undefined : locale }}</span>
-              {{ article.created_at.date | date: 'MMMM' : undefined : locale }}
+              {{ article.created_at | date: 'MMMM' : undefined : locale }}
             </p>
             <p class="time">{{ article.created_at | date: 'hh:mm' : undefined : locale }}</p>
           </div>
