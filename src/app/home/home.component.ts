@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
@@ -19,7 +19,7 @@ import { AuthService } from './service/auth.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   hotelName = environment.app.hotelName || 'Ares';
 
   authForm: FormGroup;
@@ -68,9 +68,10 @@ export class HomeComponent implements OnInit {
     this.look = this.lookService.get(null);
 
     this.f.username.valueChanges
-      .pipe(debounceTime(500), distinctUntilChanged())
+      .pipe(debounceTime(250), distinctUntilChanged())
       .subscribe((username) => this.onUsernameChange(username));
 
+    document.body.id = 'login';
     this.titleService.setTitle(this.translateService.instant('HOME.TITLE'));
   }
 
@@ -81,8 +82,7 @@ export class HomeComponent implements OnInit {
    */
   onUsernameChange(username: string): void {
     if (!username) {
-      this.look = this.lookService.get(null);
-      this.lookMannequin = true;
+      this.resetLook();
       return;
     }
 
@@ -96,6 +96,7 @@ export class HomeComponent implements OnInit {
 
         this.lookMannequin = false;
       },
+      error: () => this.resetLook(),
       complete: () => subscription.unsubscribe()
     });
   }
@@ -144,10 +145,22 @@ export class HomeComponent implements OnInit {
   }
 
   /**
+   * Reset all properties
+   */
+  resetLook(): void {
+    this.look = this.lookService.get(null);
+    this.lookMannequin = true;
+  }
+
+  /**
    * Returns the auth form controls
    * @return {[p: string]: AbstractControl}
    */
   get f() {
     return this.authForm.controls;
+  }
+
+  ngOnDestroy(): void {
+    document.body.id = '';
   }
 }

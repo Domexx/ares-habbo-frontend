@@ -1,7 +1,7 @@
-@import '../../../styles/variables';
-@import "../../../../node_modules/bootstrap/scss/functions";
-@import "../../../../node_modules/bootstrap/scss/variables";
-@import "../../../../node_modules/bootstrap/scss/mixins/breakpoints";
+@import '../../styles/variables';
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/mixins/breakpoints";
 
 #logo {
   object-fit: contain;
@@ -83,7 +83,7 @@
 }
 
 .selected-look {
-  background-image: url('../../../assets/images/register/shine.png');
+  background-image: url('../../assets/images/register/shine.png');
   background-repeat: no-repeat;
   background-position: center;
   position: relative;

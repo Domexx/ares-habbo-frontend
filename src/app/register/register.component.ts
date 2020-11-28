@@ -1,14 +1,14 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import { TitleService } from '../../_service/title.service';
+import { TitleService } from '../_service/title.service';
 import { TranslateService } from '@ngx-translate/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AlertService } from '../../_shared/service/alert.service';
-import { RegisterService } from '../service/register.service';
+import { AlertService } from '../_shared/service/alert.service';
+import { RegisterService } from './service/register.service';
 import { Subscription } from 'rxjs';
-import { UserService } from '../../_service/user.service';
+import { UserService } from '../_service/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { environment } from '../../../environments/environment';
-import { VoteService } from '../../_shared/service/vote.service';
+import { environment } from '../../environments/environment';
+import { VoteService } from '../_shared/service/vote.service';
 
 @Component({
   selector: 'ares-register',

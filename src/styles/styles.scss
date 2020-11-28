@@ -56,6 +56,11 @@ html {
     font-family: 'Titillium Web', sans-serif;
     text-shadow: 0 1px 2px rgb(0 0 0 / 55%);
     overflow-x: hidden;
+
+    &#login {
+      background: rgb(41,43,47);
+      background: linear-gradient(90deg, rgba(41,43,47,1) 50%, rgba(32,34,37,1) 50%);
+    }
   }
 }
 

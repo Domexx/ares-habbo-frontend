@@ -29,4 +29,18 @@
     transform: scaleX(-1) scale(2);
     clip-path: inset(0 0 42% 0);
   }
+
+  & > #username {
+    background-image: url('../../assets/images/icons/home/username.png');
+    background-repeat: no-repeat;
+    background-position: 1rem 1.35rem;
+    padding-left: 3rem !important;
+  }
+}
+
+#password {
+  background-image: url('../../assets/images/icons/home/password.png');
+  background-repeat: no-repeat;
+  background-position: 1rem 1.35rem;
+  padding-left: 3rem !important;
 }

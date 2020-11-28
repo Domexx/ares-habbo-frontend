@@ -24,9 +24,12 @@
     }
 
     &.no--sidebar {
-      width: 100vw;
+      height: 70vh;
+      width: 70vw;
       padding-top: 0;
       margin-left: 0;
+      border-radius: 4px;
+      box-shadow: 0 0 7px 1px rgb(0 0 0 / 45%);
     }
   }
 }

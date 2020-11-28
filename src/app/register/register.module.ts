@@ -5,7 +5,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TranslateModule} from '@ngx-translate/core';
 import {LayoutModule} from '../_layout/layout.module';
 
-import {RegisterComponent} from './component/register.component';
+import {RegisterComponent} from './register.component';
 
 @NgModule({
   declarations: [RegisterComponent],

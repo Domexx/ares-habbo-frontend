@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { RegisterComponent } from './component/register.component';
+import { RegisterComponent } from './register.component';
 import { RedirectIfAuthenticatedGuard } from '../_guard/redirect-if-authenticated.guard';
 import { RegisterLookResolver } from './resolver/looks.resolver';
 
