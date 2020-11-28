@@ -29,8 +29,6 @@ button {
 .btn {
   color: #fff;
   transition: all 0.2s ease-in-out;
-  font-weight: 600;
-  box-shadow: unset;
   border: unset;
 
   &:focus {
@@ -41,7 +39,6 @@ button {
     transform: scale(0.9);
   }
 
-  &:focus,
   &:hover {
     box-shadow: 0 1px 3px 0 rgba(0, 6, 33, 0.5),
       0 0 0 3px rgba(0, 0, 0, 0.2);

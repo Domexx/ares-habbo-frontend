@@ -1,20 +1,12 @@
-/*!
- * Ares (https://ares.to)
- *
- * @license https://gitlab.com/arescms/ares-frontend/LICENSE (MIT License)
- *
- */
-
 /**
   * @template ARES - 2020
   * @author necmi & madness
-  * @license GNU General Public License v3.0 <https://gitlab.com/arescms/ares-frontend/-/blob/master/LICENSE>
+  * @license GNU General Public License v3.0 <https://gitlab.com/arescms/ares-frontend/LICENSE>
   */
 
 @import 'variables';
 
 @import '~bootstrap/scss/bootstrap';
-@import '~bootstrap-select/dist/css/bootstrap-select.min.css';
 
 @import '~notyf/notyf.min.css';
 @import '~swiper/css/swiper.min.css';
@@ -24,12 +16,9 @@
 @import 'buttons';
 @import 'icons';
 @import 'alerts';
-@import 'cards';
 @import 'utilities';
 @import 'navbar';
-@import 'navs';
-@import 'forms';
-@import 'bootstrap-select';
+@import 'inputs';
 
 :root {
   --main-bg-color: #{$main-bg-color};

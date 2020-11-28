@@ -9,27 +9,12 @@
 }
 
 .form-control {
-  background-color: #292b2f;
-  border-radius: 2px;
-  border: 1px solid #292b2f;
   transition: 0.25s all;
-  color: #fff;
-
-  &:focus {
-    border-color: transparent;
-    box-shadow: unset;
-    background-color: #303235;
-    color: #fff;
-  }
 
   &.ng-touched {
     &.ng-invalid {
       border: 1px solid #b41030;
     }
-  }
-
-  &:disabled {
-    background-color: #292b2f;
   }
 }
 

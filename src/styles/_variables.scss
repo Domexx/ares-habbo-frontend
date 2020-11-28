@@ -22,7 +22,7 @@ $sidebar-bg-color: #1b1b1d;
 $sidebar-brand-padding-top: 1.07rem;
 $sidebar-brand-padding-bottom: 1.07rem;
 
-// Breakpoints
+// Grid
 $grid-breakpoints: (
   xs: 0,
   sm: 576px,
@@ -31,6 +31,7 @@ $grid-breakpoints: (
   xl: 1400px,
 );
 
+// Container
 $container-max-widths: (
   sm: 576px,
   md: 768px,
@@ -38,6 +39,44 @@ $container-max-widths: (
   xl: 1400px,
 );
 
-// Bootstrap Configuration
+// Input
+$input-bg: #292b2f;
+$input-border-radius: 2px;
+$input-border-color: #292b2f;
+$input-color: #ffffff;
+$input-focus-bg: #303235;
+$input-focus-border-color: transparent;
+$input-focus-box-shadow: unset;
+$input-focus-color: #ffffff;
+$input-disabled-bg: #292b2f;
+
+// Cards
+$card-bg: $main-bg-dark;
+$card-border-radius: 0;
+$card-border-color: unset;
+
+// Buttons
+$btn-font-weight: 600;
+$btn-box-shadow: unset;
+$btn-focus-box-shadow: 0 1px 3px 0 rgba(0, 6, 33, 0.5), 0 0 0 3px rgba(0, 0, 0, 0.2);
+
+// Modal
+$modal-content-bg: $main-bg-color;
+$modal-inner-padding: 1.5rem;
+
+// Dropdown
+$dropdown-bg: $main-bg-dark;
+$dropdown-border-radius: 0 0 0.25rem 0.25rem;
+$dropdown-border-color: transparent;
+$dropdown-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+$dropdown-item-padding-x: 1.5rem;
+$dropdown-item-padding-y: 0.5rem;
+$dropdown-divider-bg: $main-bg-gray;
+
+// Nav
+$nav-link-font-weight: 600;
+$nav-pills-link-active-bg: $main-bg-red;
+
+// Body
 $body-bg: $main-bg-color;
 $body-color: $text-normal;
