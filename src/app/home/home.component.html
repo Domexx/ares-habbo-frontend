@@ -11,7 +11,7 @@
           <div class="mb-3">
             <label for="username" class="form-label" [translate]="'HOME.FORM.INPUT.USERNAME.LABEL'"></label>
             <div id="username-group" class="input-group">
-              <img [class.mannequin]="lookMannequin" [src]="look" [alt]="f.username.value || 'Mannequin'" />
+              <img class="d-xxl-block d-xl-block d-lg-block d-md-block d-none" [class.mannequin]="lookMannequin" [src]="look" [alt]="f.username.value || 'Mannequin'" />
 
               <input type="text" id="username" class="form-control p-4" formControlName="username" required
                      autocomplete="username" aria-describedby="usernameHelp" />
