@@ -1,22 +1,24 @@
 <!-- <ares-layout-loader [@loader]="!state"></ares-layout-loader>-->
 
-<ng-container *ngIf="isAuthenticated; else guest">
+<ng-container *ngIf='isAuthenticated; else guest'>
   <ares-client></ares-client>
-  <ares-sidebar id="sidebar"></ares-sidebar>
+  <ares-sidebar id='sidebar'></ares-sidebar>
 
-  <main class="d-inline-flex flex-column">
+  <main class='d-inline-flex flex-column'>
     <ng-container *ngIf="router.url !== '/client';">
-      <ares-navbar class="navbar fixed-top navbar-expand-md navbar-dark"></ares-navbar>
+      <ares-navbar class='navbar fixed-top navbar-expand-md navbar-dark'></ares-navbar>
       <router-outlet></router-outlet>
     </ng-container>
 
-    <ares-footer class="mt-auto d-flex flex-column"></ares-footer>
+    <ares-footer class='mt-auto d-flex flex-column'></ares-footer>
   </main>
 </ng-container>
 
 <ng-template #guest>
-  <div class="row h-100-vh justify-content-center align-items-center">
-    <main id="main" class="bg-dark no--sidebar">
+  <div class="row h-100-vh justify-content-xxl-center justify-content-xl-center
+    justify-content-md-center align-items-xxl-center align-items-xl-center
+    align-items-md-center">
+    <main id='main' class='bg-dark no--sidebar'>
       <router-outlet></router-outlet>
     </main>
   </div>
