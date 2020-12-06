@@ -18,8 +18,9 @@
 
     @include media-breakpoint-down(lg) {
       &:not(.no--sidebar) {
-        width: calc(100% - 5em);
-        margin-left: 5em;
+        width: 100vw;
+        padding-top: 0;
+        margin-left: 0;
       }
     }
 
