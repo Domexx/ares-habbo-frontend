@@ -13,7 +13,11 @@
   transition: 250ms all;
 
   @include media-breakpoint-down(lg) {
-    width: 5em;
+    width: 0;
+
+    #sidebar--nav {
+      display: none;
+    }
 
     .sidebar--category {
       display: none;

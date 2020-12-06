@@ -1,0 +1,37 @@
+<swiper id="sidebar--nav" class="h-100 w-100 list-group-horizontal list-group justify-content-center align-items-center w-100"
+        [config]="config">
+  <a routerLink="/dashboard" routerLinkActive="active" class="sidebar--entry list-group-item"
+     [tooltip]="'SIDEBAR.GENERAL.DASHBOARD' | translate" placement="right" container="ares-layout-mobile-sidebar">
+    <img src="assets/images/icons/sidebar/dashboard.png" class="image-pixelated"
+         [alt]="'SIDEBAR.GENERAL.DASHBOARD' | translate" />
+    <span class="text-ellipsis" [translate]="'SIDEBAR.GENERAL.DASHBOARD'"></span>
+  </a>
+
+  <a routerLink="/settings" routerLinkActive="active" class="sidebar--entry list-group-item"
+     [tooltip]="'SIDEBAR.GENERAL.SETTINGS' | translate" placement="right" container="ares-layout-mobile-sidebar">
+    <img src="assets/images/icons/sidebar/settings.png" class="image-pixelated"
+         [alt]="'SIDEBAR.GENERAL.SETTINGS' | translate" />
+    <span class="text-ellipsis" [translate]="'SIDEBAR.GENERAL.SETTINGS'"></span>
+  </a>
+
+  <a routerLink="/articles" routerLinkActive="active" class="sidebar--entry list-group-item"
+     [tooltip]="'SIDEBAR.COMMUNITY.NEWS' | translate" placement="right" container="ares-layout-mobile-sidebar">
+    <img src="assets/images/icons/sidebar/news.png" class="image-pixelated"
+         [alt]="'SIDEBAR.COMMUNITY.NEWS' | translate" />
+    <span class="text-ellipsis" [translate]="'SIDEBAR.COMMUNITY.NEWS'"></span>
+  </a>
+
+  <a routerLink="/employees" routerLinkActive="active" class="sidebar--entry list-group-item"
+     [tooltip]="'SIDEBAR.COMMUNITY.EMPLOYEES' | translate" placement="right" container="ares-layout-mobile-sidebar">
+    <img src="assets/images/icons/sidebar/employees.png" class="image-pixelated"
+         [alt]="'SIDEBAR.COMMUNITY.EMPLOYEES' | translate" />
+    <span class="text-ellipsis" [translate]="'SIDEBAR.COMMUNITY.EMPLOYEES'"></span>
+  </a>
+
+  <a routerLink="/logout" class="sidebar--entry list-group-item" [tooltip]="'SIDEBAR.LOGOUT' | translate"
+     placement="right" container="ares-layout-mobile-sidebar">
+    <img src="assets/images/icons/sidebar/logout.png" class="image-pixelated" [alt]="'SIDEBAR.LOGOUT' | translate" />
+    <span class="text-ellipsis" [translate]="'SIDEBAR.LOGOUT'"></span>
+  </a>
+</swiper>
+
