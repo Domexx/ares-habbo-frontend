@@ -1,0 +1,105 @@
+<div class="row h-100">
+  <div class="col-12">
+    <div class="d-inline-flex flex-row mb-3 mt-5 w-100">
+      <img id="logo" src="../../assets/images/icons/ares64x64.png" alt="Logo"/>
+
+      <div class="d-inline-flex flex-column flex-fill">
+        <h5 class="mb-0 mt-2" [translate]="'REGISTER.TITLE'"></h5>
+        <p [translate]="'REGISTER.DESCRIPTION'"></p>
+      </div>
+
+      <ares-language-selector class="align-self-center"></ares-language-selector>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="row">
+        <div class="col-xxl-6 col-xl-6 col-md-12 col-sm-12 bg-dark p-4">
+          <div class="mb-3">
+            <label for="username" class="form-label" [translate]="'REGISTER.FORM.INPUT.USERNAME.LABEL'"></label>
+
+            <div id="username-group" class="input-group">
+              <img [class.mannequin]="lookMannequin" class="d-xxl-block d-xl-block d-lg-block d-md-block d-none" [src]="look$" [alt]="f.username.value || 'Mannequin'" />
+
+              <input type="text" id="username" class="form-control p-4" formControlName="username" required
+                     autocomplete="username" aria-describedby="usernameHelp"/>
+            </div>
+
+            <div id="usernameHelp" class="form-text" [translate]="'HOME.FORM.INPUT.USERNAME.HELP'"></div>
+          </div>
+
+          <div class="mb-3">
+            <div class="mb-3">
+              <label for="password" class="form-label" [translate]="'HOME.FORM.INPUT.PASSWORD.LABEL'"></label>
+              <input type="password" id="password" class="form-control p-4" formControlName="password" required
+                     autocomplete="current-password" aria-describedby="passwordHelp"/>
+
+              <div id="passwordHelp" class="form-text" [translate]="'HOME.FORM.INPUT.USERNAME.HELP'"></div>
+            </div>
+
+            <div class="mb-3">
+              <label for="confirm-password" class="form-label" [translate]="'HOME.FORM.INPUT.PASSWORD.LABEL'"></label>
+              <input type="password" id="confirm-password" class="form-control p-4" formControlName="confirmPassword"
+                     required
+                     autocomplete="current-password" aria-describedby="confirmPasswordHelp"/>
+              <div id="confirmPasswordHelp" class="form-text" [translate]="'HOME.FORM.INPUT.USERNAME.HELP'"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xxl-6 col-xl-6 col-md-12 col-sm-12 bg-dark p-4">
+          <div class="mb-3">
+            <label for="email" class="form-label" [translate]="'REGISTER.FORM.INPUT.MAIL.LABEL'"></label>
+            <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" id="email" class="form-control p-4"
+                   formControlName="mail" required autocomplete="email"/>
+          </div>
+
+          <div class="mt-4 mb-3">
+            <label for="boys" class="form-label" [translate]="'REGISTER.FORM.INPUT.LOOKS.BOYS.LABEL'"></label>
+
+            <div class="row" id="boys">
+              <div *ngFor="let male of males" class="col-3">
+                <div class="d-flex justify-content-center w-100">
+                  <img (click)="selectLook(male, true)" [class]="selectedLook === male ? 'selected' : ''"
+                       class="look cursor-pointer" [src]="figure(male, true)"/>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="girls" class="form-label" [translate]="'REGISTER.FORM.INPUT.LOOKS.GIRLS.LABEL'"></label>
+
+            <div class="row" id="girls">
+              <div *ngFor="let female of females" class="col-3">
+                <div class="d-flex justify-content-center w-100">
+                  <img (click)="selectLook(female)" [class]="selectedLook === female ? 'selected' : ''"
+                       class="look cursor-pointer" [src]="figure(female, true)"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12">
+          <div class="mb-3">
+            <div class="selected-look d-flex justify-content-center">
+              <img [src]="figure(selectedLook, false, true)"/>
+            </div>
+          </div>
+
+          <div class="d-inline-flex justify-content-center w-100 mt-2 mb-3">
+            <button type="submit" class="btn btn-danger w-25 p-3" translate="REGISTER.FORM.BUTTONS.REGISTER"></button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="col-12">
+    <div class="d-flex justify-content-center mt-4 mt-xl-0 mt-lg-0 pb-3">
+      <a id="register--back" routerLink="/" [innerHTML]="'REGISTER.ALREADY' | translate"></a>
+    </div>
+  </div>
+</div>

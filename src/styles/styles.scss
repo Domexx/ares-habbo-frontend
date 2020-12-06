@@ -1,20 +1,12 @@
-/*!
- * Ares (https://ares.to)
- *
- * @license https://gitlab.com/arescms/ares-frontend/LICENSE (MIT License)
- *
- */
-
 /**
   * @template ARES - 2020
   * @author necmi & madness
-  * @license GNU General Public License v3.0 <https://gitlab.com/arescms/ares-frontend/-/blob/master/LICENSE>
+  * @license GNU General Public License v3.0 <https://gitlab.com/arescms/ares-frontend/LICENSE>
   */
 
 @import 'variables';
 
 @import '~bootstrap/scss/bootstrap';
-@import '~bootstrap-select/dist/css/bootstrap-select.min.css';
 
 @import '~notyf/notyf.min.css';
 @import '~swiper/css/swiper.min.css';
@@ -24,12 +16,9 @@
 @import 'buttons';
 @import 'icons';
 @import 'alerts';
-@import 'cards';
 @import 'utilities';
 @import 'navbar';
-@import 'navs';
-@import 'forms';
-@import 'bootstrap-select';
+@import 'inputs';
 
 :root {
   --main-bg-color: #{$main-bg-color};
@@ -53,8 +42,8 @@
 
   --swiper-theme-color: #{$swiper-theme-color} !important;
 
-  --btn-danger-primary: #ff1744;
-  --btn-danger-secondary: #ff2953;
+  --btn-danger-primary: #b41030;
+  --btn-danger-secondary: #b9213f;
 
   --hero-background-color: #fc374e;
 
@@ -67,6 +56,11 @@ html {
     font-family: 'Titillium Web', sans-serif;
     text-shadow: 0 1px 2px rgb(0 0 0 / 55%);
     overflow-x: hidden;
+
+    &#login {
+      background: rgb(41,43,47);
+      background: linear-gradient(90deg, rgba(41,43,47,1) 50%, rgba(32,34,37,1) 50%);
+    }
   }
 }
 

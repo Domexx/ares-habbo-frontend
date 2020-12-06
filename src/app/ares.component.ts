@@ -1,4 +1,4 @@
-import { AuthService } from './_service/auth.service';
+import { AuthService } from './home/service/auth.service';
 import {
   Component,
   OnInit,

@@ -1,14 +1,18 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
-import { TitleService } from '../../_service/title.service';
-import { TranslateService } from '@ngx-translate/core';
+import { Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AlertService } from '../../_shared/service/alert.service';
-import { RegisterService } from '../service/register.service';
-import { Subscription } from 'rxjs';
-import { UserService } from '../../_service/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { environment } from '../../../environments/environment';
-import { VoteService } from '../../_shared/service/vote.service';
+import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
+import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
+import { LookService } from '../_service/look.service';
+import { TitleService } from '../_service/title.service';
+import { UserService } from '../_service/user.service';
+import { LookDirection, LookSize } from '../_shared/model/user/look';
+import { AlertService } from '../_shared/service/alert.service';
+import { VoteService } from '../_shared/service/vote.service';
+import { AuthService } from '../home/service/auth.service';
+import { RegisterService } from './service/register.service';
 
 @Component({
   selector: 'ares-register',
@@ -16,8 +20,10 @@ import { VoteService } from '../../_shared/service/vote.service';
   styleUrls: ['./register.component.scss'],
   providers: [RegisterService],
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, OnDestroy {
   registerForm: FormGroup;
+  look$: string;
+  lookMannequin = true;
 
   males: [];
   females: [];
@@ -35,7 +41,9 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private elRef: ElementRef,
     private route: ActivatedRoute,
-    private voteService: VoteService
+    private voteService: VoteService,
+    private lookService: LookService,
+    private authService: AuthService
   ) {}
 
   /**
@@ -55,6 +63,18 @@ export class RegisterComponent implements OnInit {
       confirmPassword: ['', Validators.required],
       mail: ['', Validators.required],
     });
+
+    this.look$ = this.lookService.get(null);
+
+    this.f.username.valueChanges
+      .pipe(debounceTime(250), distinctUntilChanged())
+      .subscribe((username) => this.onUsernameChange(username));
+
+    const main = document.getElementById('main');
+
+    if (main) {
+      main.classList.add('register');
+    }
 
     this.titleService.setTitle(this.translateService.instant('REGISTER.TITLE'));
   }
@@ -201,9 +221,43 @@ export class RegisterComponent implements OnInit {
    * @return string
    */
   figure(look: string, head: boolean = false, large: boolean = false): string {
-    return `${environment.app.imager}${look}${head ? '&headonly=1' : ''}${
-      large ? '&size=l' : ''
-    }`;
+    return this.lookService.get({
+      look,
+      headOnly: head,
+      size: large ? LookSize.LARGE : LookSize.DEFAULT
+    });
+  }
+
+  /**
+   * Value change
+   *
+   * @param username
+   */
+  onUsernameChange(username: string): void {
+    if (!username) {
+      this.resetLook();
+      return;
+    }
+
+    const subscription: Subscription = this.authService.look(username).subscribe({
+      next: (look: string) => {
+        this.look$ = this.lookService.get({
+          look,
+          direction: LookDirection.SOUTH_WEST,
+          headDirection: LookDirection.SOUTH_WEST
+        });
+
+        this.lookMannequin = false;
+        this.f.username.setErrors({
+          invalid: true
+        });
+      },
+      error: () => {
+        this.resetLook();
+        this.f.username.setErrors(null);
+      },
+      complete: () => subscription.unsubscribe()
+    });
   }
 
   /**
@@ -257,5 +311,21 @@ export class RegisterComponent implements OnInit {
         },
         complete: () => registerSubscription.unsubscribe(),
       });
+  }
+
+  /**
+   * Reset all properties
+   */
+  resetLook(): void {
+    this.look$ = this.lookService.get(null);
+    this.lookMannequin = true;
+  }
+
+  ngOnDestroy(): void {
+    const main = document.getElementById('main');
+
+    if (main) {
+     main.classList.remove('register');
+    }
   }
 }

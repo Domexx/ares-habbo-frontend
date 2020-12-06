@@ -1,4 +1,5 @@
-import { AuthService } from './../_service/auth.service';
+import { environment } from '../../environments/environment';
+import { AuthService } from '../home/service/auth.service';
 import { Injectable } from '@angular/core';
 import {
   HttpRequest,
@@ -49,7 +50,7 @@ export class ErrorInterceptor implements HttpInterceptor {
           );
         }
 
-        if (err.status === 404) {
+        if (!environment.production && err.status === 404) {
           return throwError(err);
         }
 

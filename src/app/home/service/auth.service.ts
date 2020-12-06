@@ -1,21 +1,34 @@
-import { VoteService } from './../_shared/service/vote.service';
-import { UserService } from 'src/app/_service/user.service';
-import { ApiService } from './api.service';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { API } from '../_shared/model/api';
-import { PermissionService } from './permission.service';
+import { UserService } from 'src/app/_service/user.service';
+import { API } from '../../_shared/model/api';
+import { LookDirection } from '../../_shared/model/user/look';
+import { VoteService } from '../../_shared/service/vote.service';
+import { ApiService } from '../../_service/api.service';
+import { LookService } from '../../_service/look.service';
+import { PermissionService } from '../../_service/permission.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
+
+  /**
+   * AuthService constructor
+   *
+   * @param apiService
+   * @param userService
+   * @param voteService
+   * @param permissionService
+   * @param lookService
+   */
   constructor(
     private apiService: ApiService,
     private userService: UserService,
     private voteService: VoteService,
-    private permissionService: PermissionService
+    private permissionService: PermissionService,
+    private lookService: LookService
   ) {}
 
   /**
@@ -30,6 +43,23 @@ export class AuthService {
     return this.apiService
       .post('login', { username, password })
       .pipe(map((e) => (this.token = e.data.token)));
+  }
+
+  /**
+   * Get look
+   *
+   * @param username
+   * @return Observable<string>
+   */
+  look(username: string): Observable<string> {
+    return this.apiService.post(
+      'login/look',
+      {
+        username
+      }
+    ).pipe(
+      map((value: API) => value.data)
+    );
   }
 
   /**

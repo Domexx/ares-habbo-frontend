@@ -1,7 +1,7 @@
-@import '../../../styles/variables';
-@import "../../../../node_modules/bootstrap/scss/functions";
-@import "../../../../node_modules/bootstrap/scss/variables";
-@import "../../../../node_modules/bootstrap/scss/mixins/breakpoints";
+@import '../../styles/variables';
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/mixins/breakpoints";
 
 #logo {
   object-fit: contain;
@@ -67,7 +67,7 @@
 .look {
   margin-top: 1rem;
   border-radius: 50%;
-  background-color: var(--main-bg-dark);
+  background-color: var(--main-bg-gray);
   padding: .5rem;
   opacity: .6;
   transition: 250ms opacity;
@@ -83,7 +83,7 @@
 }
 
 .selected-look {
-  background-image: url('../../../assets/images/register/shine.png');
+  background-image: url('../../assets/images/register/shine.png');
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
@@ -102,4 +102,51 @@
   @include media-breakpoint-down(md) {
     width: 100% !important;
   }
+}
+
+#username-group {
+  position: relative;
+
+  & > img {
+    position: absolute;
+    right: 0;
+    z-index: 4;
+    image-rendering: pixelated;
+    transform: translateX(-.8rem) scale(2);
+    clip-path: inset(0 0 42% 0);
+  }
+
+  & > .mannequin {
+    transform: scaleX(-1) scale(2);
+    clip-path: inset(0 0 42% 0);
+  }
+
+  & > #username {
+    background-image: url('../../assets/images/icons/home/username.png');
+    background-repeat: no-repeat;
+    background-position: 1rem 1.35rem;
+    padding-left: 3rem !important;
+  }
+}
+
+#password {
+  background-image: url('../../assets/images/icons/home/password.png');
+  background-repeat: no-repeat;
+  background-position: 1rem 1.35rem;
+  padding-left: 3rem !important;
+}
+
+#confirm-password {
+  background-image: url('../../assets/images/icons/home/password.png');
+  background-repeat: no-repeat;
+  background-position: 1rem 1.35rem;
+  padding-left: 3rem !important;
+}
+
+#email {
+  background-image: url('../../assets/images/icons/register/mail.png');
+  background-repeat: no-repeat;
+  background-size: 1.7rem;
+  background-position: 1rem 1.55rem;
+  padding-left: 3rem !important;
 }
