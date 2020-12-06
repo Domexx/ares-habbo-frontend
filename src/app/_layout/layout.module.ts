@@ -57,7 +57,7 @@ import { SidebarComponent } from './component/sidebar/sidebar.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { UserOfHotelComponent } from './component/dashboard/user-of-hotel/user-of-hotel.component';
 import { ListDeleteComponent } from './component/hobba/articles/list-delete/list-delete.component';
-import { MobileSidebarComponent } from './component/mobile-sidebar/mobile-sidebar.component';
+import { MobileNavbarComponent } from './component/mobile-navbar/mobile-navbar.component';
 
 const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -92,7 +92,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     NavbarComponent,
     UserOfHotelComponent,
     ListDeleteComponent,
-    MobileSidebarComponent,
+    MobileNavbarComponent,
   ],
   imports: [
     CommonModule,
@@ -140,7 +140,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     SidebarComponent,
     NavbarComponent,
     UserOfHotelComponent,
-    MobileSidebarComponent
+    MobileNavbarComponent
   ]
 })
 export class LayoutModule {

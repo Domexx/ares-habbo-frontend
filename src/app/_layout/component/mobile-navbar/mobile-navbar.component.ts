@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { SwiperConfigInterface, SwiperPaginationInterface } from 'ngx-swiper-wrapper';
 
 @Component({
-  selector: 'ares-layout-mobile-sidebar',
-  templateUrl: './mobile-sidebar.component.html',
-  styleUrls: ['./mobile-sidebar.component.scss']
+  selector: 'ares-layout-mobile-navbar',
+  templateUrl: './mobile-navbar.component.html',
+  styleUrls: ['./mobile-navbar.component.scss']
 })
-export class MobileSidebarComponent {
+export class MobileNavbarComponent {
 
   config: SwiperConfigInterface = {
     a11y: true,
