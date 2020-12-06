@@ -35,10 +35,22 @@
         height: unset;
       }
 
+      @include media-breakpoint-down(md) {
+        width: 100vw;
+      }
+
       &.register {
         height: 70vh;
         box-shadow: unset;
         background: transparent !important;
+
+        @include media-breakpoint-down(lg) {
+          height: unset;
+        }
+
+        @include media-breakpoint-down(md) {
+          width: 100vw;
+        }
       }
     }
   }
