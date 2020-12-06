@@ -7,6 +7,8 @@
     position: relative;
     box-shadow: inset -3rem 10rem 6rem -5rem rgb(0 0 0 / 65%), inset -3rem -10rem 6rem -5rem rgb(0 0 0 / 65%);
     font-weight: 600;
+    height: 15.94rem;
+    margin-bottom: -2.5rem;
 
     #article {
       overflow: hidden;
@@ -36,6 +38,7 @@
       font-size: 14px;
       font-weight: 600;
       background-color: transparent;
+      border-bottom: 1px solid rgb(16 16 16 / 30%);
 
       .author--look {
         background-color: var(--main-bg-dark);

@@ -251,10 +251,6 @@ export class RegisterComponent implements OnInit, OnDestroy {
         this.f.username.setErrors({
           invalid: true
         });
-
-        this.alertService.error(
-          this.translateService.instant('REGISTER.FORM.INPUT.USERNAME.ERRORS.EXISTS')
-        );
       },
       error: () => {
         this.resetLook();

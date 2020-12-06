@@ -25,8 +25,7 @@
         "USERNAME": {
           "LABEL": "Benutzername",
           "ERRORS": {
-            "EMPTY": "Bitte gebe einen Benutzernamen ein!",
-            "EXISTS": "Wähle einen anderen Benutzernamen!"
+            "EMPTY": "Bitte gebe einen Benutzernamen ein!"
           }
         },
         "PASSWORD": {
