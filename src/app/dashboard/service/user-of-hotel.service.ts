@@ -22,7 +22,7 @@ export class UserOfHotelService {
       .pipe(
         map((resp) => resp.data.user),
         catchError(err => {
-          return null;
+          return [];
         })
       );
   }

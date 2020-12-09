@@ -17,11 +17,8 @@ import { LookAction, LookSize } from '../../../../_shared/model/user/look';
  * @class DashboardHeroComponent
  */
 export class DashboardHeroComponent implements OnInit {
-  counter = 0;
-
   user: User;
 
-  name = environment.app.hotelName;
   date = environment.app.components.dashboard.hero.date;
   time = environment.app.components.dashboard.hero.time;
 
@@ -53,18 +50,6 @@ export class DashboardHeroComponent implements OnInit {
     this.figure$ = this.lookService.get({
       look: this.user.look,
       size: LookSize.LARGE
-    });
-
-    const subscription: Subscription = this.clientService.counter().subscribe({
-      next: (value) => {
-        this.counter = value;
-
-        if (value > 1) {
-          this.name = `${environment.app.hotelName}'s`;
-        }
-      },
-
-      complete: () => subscription.unsubscribe(),
     });
   }
 
