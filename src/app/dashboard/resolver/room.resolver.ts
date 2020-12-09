@@ -6,14 +6,21 @@ import {Room} from '../../community/model/room';
 import {catchError} from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
+/**
+ * @class DashboardRoomResolver
+ */
 export class DashboardRoomResolver implements Resolve<Room | boolean> {
+  /**
+   * DashboardRoomResolver constructor
+   *
+   * @param roomService
+   */
   constructor(private roomService: RoomService) {}
 
   /**
-   * Gets the most visited room and pass the data to the component
    * @param route
    * @param state
-   * @return Observable<Room | boolean>
+   * @returns Observable<Room | boolean>
    */
   resolve(
     route: ActivatedRouteSnapshot,

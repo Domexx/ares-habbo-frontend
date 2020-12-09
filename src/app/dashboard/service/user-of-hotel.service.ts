@@ -1,8 +1,7 @@
 import { User } from 'src/app/_shared/model/user/user';
-import { API } from './../../_shared/model/api';
-import { catchError, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { ApiService } from './../../_service/api.service';
+import { ApiService } from '../../_service/api.service';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -20,10 +19,7 @@ export class UserOfHotelService {
     return this.apiService
       .get('user-of-the-hotel')
       .pipe(
-        map((resp) => resp.data.user),
-        catchError(err => {
-          return [];
-        })
+        map((resp) => resp.data.user)
       );
   }
 }

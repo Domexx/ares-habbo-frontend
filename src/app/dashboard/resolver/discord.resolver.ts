@@ -5,14 +5,21 @@ import {Setting} from '../../_shared/model/setting';
 import {SettingService} from '../../_shared/service/setting.service';
 
 @Injectable({ providedIn: 'root' })
+/**
+ * @class DashboardDiscordResolver
+ */
 export class DashboardDiscordResolver implements Resolve<Setting> {
+  /**
+   * DashboardDiscordResolver constructor
+   *
+   * @param settingService
+   */
   constructor(private settingService: SettingService) {}
 
   /**
-   * Gets the configured Discord URL and passes the URL to the component
    * @param route
    * @param state
-   * @return Observable<Setting>
+   * @returns Observable<Setting>
    */
   resolve(
     route: ActivatedRouteSnapshot,

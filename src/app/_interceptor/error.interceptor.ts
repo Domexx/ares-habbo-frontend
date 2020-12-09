@@ -8,7 +8,7 @@ import {
   HttpInterceptor,
   HttpErrorResponse,
 } from '@angular/common/http';
-import { Observable, of, throwError } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { UserService } from 'src/app/_service/user.service';
 import { AlertService } from '../_shared/service/alert.service';

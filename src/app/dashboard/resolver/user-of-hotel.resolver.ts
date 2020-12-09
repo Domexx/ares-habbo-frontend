@@ -1,25 +1,36 @@
-import { UserOfHotelService } from './../service/user-of-hotel.service';
+import { UserOfHotelService } from '../service/user-of-hotel.service';
 import { Injectable } from '@angular/core';
 import { Resolve } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Setting } from '../../_shared/model/setting';
-import { map } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { User } from 'src/app/_shared/model/user/user';
+import { UserService } from '../../_service/user.service';
 
 @Injectable({ providedIn: 'root' })
-export class DashboardUserOfHotelResolver implements Resolve<User> {
-  constructor(private userOfHotelService: UserOfHotelService) {}
+/**
+ * @class DashboardUserOfHotelResolver
+ */
+export class DashboardUserOfHotelResolver implements Resolve<User | boolean> {
 
   /**
-   * Gets the configured Discord URL and passes the URL to the component
-   * @param route
-   * @return Observable<Setting>
+   * DashboardUserOfHotelResolver constructor
+   *
+   * @param userOfHotelService
    */
-  resolve(): Observable<User> {
+  constructor(
+    private userOfHotelService: UserOfHotelService,
+    private userService: UserService
+  ) {}
+
+  /**
+   * @param route
+   * @returns Observable<Setting>
+   */
+  resolve(): Observable<User | boolean> {
     return this.userOfHotelService.get().pipe(
-      map((resp) => {
-        return resp;
-      })
+      map(resp => resp),
+      catchError(() => of(false))
     );
   }
 }

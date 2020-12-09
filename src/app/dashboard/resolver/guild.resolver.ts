@@ -6,14 +6,21 @@ import {GuildService} from '../../community/service/guild.service';
 import {Guild} from '../../community/model/guild/guild';
 
 @Injectable({ providedIn: 'root' })
+/**
+ * @class DashboardGuildResolver
+ */
 export class DashboardGuildResolver implements Resolve<Guild | boolean> {
+  /**
+   * DashboardGuildResolver constructor
+   *
+   * @param guildService
+   */
   constructor(private guildService: GuildService) {}
 
   /**
-   * Gets a guild with the most members and pass the data to the component
    * @param route
    * @param state
-   * @return Observable<Guild | boolean>
+   * @returns Observable<Guild | boolean>
    */
   resolve(
     route: ActivatedRouteSnapshot,

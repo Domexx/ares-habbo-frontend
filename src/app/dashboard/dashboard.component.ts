@@ -45,6 +45,7 @@ export class DashboardComponent implements OnInit {
    * Initialize the Dashboard component
    */
   ngOnInit(): void {
+    console.log('tes');
     this.user = this.userService.user;
     this.look = this.lookService.get({
       look: this.user.look,
@@ -72,7 +73,7 @@ export class DashboardComponent implements OnInit {
       ? this.roomService.fakeRoom()
       : this.route.snapshot.data.room;
     this.discord = this.route.snapshot.data.discord;
-    this.userOfTheHotel = this.route.snapshot.data.userOfHotel;
+    this.userOfTheHotel = this.route.snapshot.data.userOfHotel ?? null;
 
     this.titleService.setTitle('Dashboard');
   }
