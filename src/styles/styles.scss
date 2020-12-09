@@ -113,14 +113,27 @@ a {
 }
 
 .ares--hero {
-  height: 13rem;
-  margin-bottom: 2.5rem;
+  height: 16rem;
+  margin-bottom: -2.5rem;
   position: relative;
   background-color: var(--main-bg-red-alt);
 
   & > .container {
     height: 100%;
     z-index: 2;
+  }
+}
+
+.section--title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: .5rem;
+
+  & > .sprite {
+    margin-right: .5rem;
   }
 }
 

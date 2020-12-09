@@ -2,15 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/_shared/model/user/user';
 import { UserService } from 'src/app/_service/user.service';
 import { TitleService } from 'src/app/_service/title.service';
-import { Article } from '../../articles/model/article';
+import { Article } from '../articles/model/article';
 import { ActivatedRoute } from '@angular/router';
-import { Friend, FriendPagination } from '../model/friend';
-import { Guild } from '../../community/model/guild/guild';
-import { Room } from '../../community/model/room';
-import { Setting } from '../../_shared/model/setting';
-import { GuildService } from '../../community/service/guild.service';
-import { RoomService } from '../../community/service/room.service';
-import { LookService } from '../../_service/look.service';
+import { Friend, FriendPagination } from './model/friend';
+import { Guild } from '../community/model/guild/guild';
+import { Room } from '../community/model/room';
+import { Setting } from '../_shared/model/setting';
+import { GuildService } from '../community/service/guild.service';
+import { RoomService } from '../community/service/room.service';
+import { LookService } from '../_service/look.service';
 
 @Component({
   selector: 'ares-dashboard',

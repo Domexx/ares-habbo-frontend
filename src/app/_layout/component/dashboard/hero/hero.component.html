@@ -6,12 +6,12 @@
       <div class="row">
         <div class="col-xl-2 col-lg-2 d-xl-block d-lg-block d-none">
           <div class="user--avatar">
-            <img [src]="figure()" [alt]="user?.username" />
+            <img [src]="figure" (mouseover)='onFigureHover()' (mouseleave)='onFigureLeave()' [alt]="user?.username" />
           </div>
         </div>
 
         <div class="col-xl-10 col-lg-10 col-md-12">
-          <div class="d-flex flex-column ml-2 pt-4">
+          <div class="d-flex flex-column ml-2 pt-4 h-100 justify-content-center">
             <h4 class="w-100" [innerHTML]="'DASHBOARD.HERO.WELCOME' | translate: { username: user?.username }"></h4>
             <p class="mb-0 w-100" [innerHTML]="'DASHBOARD.HERO.LOGIN' | translate: { date: lastLogin | date: date : undefined : locale, time: lastLogin | date: time, undefined : locale }"></p>
             <span class="w-100" [innerHTML]="'DASHBOARD.HERO.MOTTO' | translate: { motto: user?.motto }"></span>

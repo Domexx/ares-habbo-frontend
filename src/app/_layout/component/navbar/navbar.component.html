@@ -42,6 +42,9 @@
     </ul>
 
     <ul class="navbar-nav ml-auto">
+      <li class="nav-item d-flex align-items-center h-100 justify-content-center">
+        <span class="nav-link active mr-2" [innerHTML]="'DASHBOARD.HERO.COUNTER' | translate: { online: this.counter, name: this.name }"></span>
+      </li>
       <li class="nav-item">
         <a routerLink="/client" class="btn btn-success py-2 px-xxl-5 px-xl-5 px-l-5 px-md-3 px-sm-3" [translate]="'DASHBOARD.HERO.ENTER'"></a>
       </li>

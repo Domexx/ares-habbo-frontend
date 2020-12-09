@@ -11,17 +11,18 @@ import {
 @Injectable({
   providedIn: 'root',
 })
+/**
+ * @class LookService
+ */
 export class LookService {
-  constructor() {}
-
   /**
-   * Appends the look to the pre-configured Habbo imager URL
+   * Generate look URI
    *
    * @param look
-   * @return string
+   * @returns string
    */
   get(look: string | LookConfig = null): string {
-    if (!look || look === null || !(look as LookConfig).look) {
+    if (!look || !(look as LookConfig).look) {
       return 'assets/images/habbo.gif';
     }
 

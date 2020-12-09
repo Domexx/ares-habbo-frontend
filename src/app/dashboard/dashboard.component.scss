@@ -12,7 +12,7 @@
   }
 
   .user-name {
-    background: transparent linear-gradient(0deg, #8B0E26 0%, #FF1744 100%) 0% 0% no-repeat padding-box;
+    background : transparent linear-gradient(0deg, #8B0E26 0%, #FF1744 100%) 0% 0% no-repeat padding-box;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke: 1px #FF1744;
@@ -29,6 +29,14 @@
       background-color: #40131A;
       color: #a7a7a7;
     }
+  }
+
+  .sprite--dashboard-articles {
+    transform: scale(.9);
+  }
+
+  .section--title {
+    height: 3.5rem;
   }
 
   .user--info {

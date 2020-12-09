@@ -3,17 +3,17 @@
 @import "~bootstrap/scss/mixins/breakpoints";
 
 :host {
-  background-image: url('../../../../../assets/images/dashboard/tree_left.png'), url('../../../../../assets/images/dashboard/tree_right.png'), url('../../../../../assets/images/dashboard/hero-bg.png');
-  background-repeat: no-repeat;
-  background-position: left, right, center;
-  background-size: auto, auto, cover;
+  background-image: url('../../../../../assets/images/dashboard/hero-bg.gif');
+  background-size: 100%;
   min-height: 15rem;
   width: 100%;
   display: flex;
   position: relative;
+  margin-bottom: 2.5rem;
+  overflow: hidden;
 
   @include media-breakpoint-down(lg) {
-    background-image: url('../../../../../assets/images/dashboard/hero-bg.png');
+    background-image: url('../../../../../assets/images/dashboard/hero-bg.gif');
     background-position: center;
     background-size: cover;
   }

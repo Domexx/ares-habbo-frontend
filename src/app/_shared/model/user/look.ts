@@ -20,6 +20,7 @@ export enum LookAction {
   'SIT' = 'sit',
   'LAY' = 'lay',
   'WALK' = 'wlk',
+  'WAVE' = 'wav'
 }
 
 export enum LookSize {

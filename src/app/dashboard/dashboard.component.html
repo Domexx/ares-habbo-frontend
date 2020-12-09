@@ -1,20 +1,31 @@
-<ares-layout-dashboard-hero class="mb-4"></ares-layout-dashboard-hero>
+<ares-layout-dashboard-hero class="ares--hero"></ares-layout-dashboard-hero>
 
 <div class="container">
   <div class="row">
     <div class="col-xl-8 col-lg-8 col-sm-12 col-md-12">
       <div class="row">
         <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-4">
+           <span class="section--title">
+            <i class="sprite sprite--dashboard-pinned-articles"></i>
+            Gepinnte Artikel
+          </span>
           <ares-layout-dashboard-pinned-articles [articles]="pinned"></ares-layout-dashboard-pinned-articles>
         </div>
 
         <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 mb-4">
+          <span class="section--title">
+            <i class="sprite sprite--dashboard-articles"></i>
+            Neuigkeiten
+          </span>
           <ares-layout-dashboard-article-slider [articles]="articles"></ares-layout-dashboard-article-slider>
         </div>
       </div>
-
       <div class="row">
         <div class="col-xl-8 col-lg-9 col-md-12 col-sm-12 mb-4">
+               <span class="section--title">
+        <i class="sprite sprite--news"></i>
+        Freunde
+      </span>
           <ares-layout-dashboard-friends [friends]="friends" [pagination]="friendsPagination"></ares-layout-dashboard-friends>
         </div>
 
@@ -37,6 +48,10 @@
     </div>
 
     <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+      <span class="section--title">
+        <i class="sprite sprite--user-of-the-hotel"></i>
+        User of the Hotel
+      </span>
       <ares-layout-dashboard-user-of-hotel class="card d-flex flex-column p-4 mb-4" [user]="userOfTheHotel"></ares-layout-dashboard-user-of-hotel>
     </div>
   </div>

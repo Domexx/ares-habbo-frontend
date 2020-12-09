@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DashboardComponent } from 'src/app/dashboard/component/dashboard.component';
+import { DashboardComponent } from 'src/app/dashboard/dashboard.component';
 import { ArticleSliderResolver } from './resolver/articles/article-slider.resolver';
 import { PinnedArticlesResolver } from './resolver/articles/pinned.resolver';
 import { DashboardFriendResolver } from './resolver/friends.resolver';
