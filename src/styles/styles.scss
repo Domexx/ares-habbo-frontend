@@ -132,7 +132,10 @@ a {
   align-items: center;
   margin-bottom: .5rem;
 
-  & > .sprite {
+  & > .sprite,
+  & > .icon--news,
+  & > .icon--friends,
+  & > .icon--other {
     margin-right: .5rem;
   }
 }
@@ -152,5 +155,9 @@ a {
     right: 1.5rem;
     top: 1rem;
     text-align: right;
+  }
+
+  .swiper-container {
+    height: 16.5rem !important;
   }
 }

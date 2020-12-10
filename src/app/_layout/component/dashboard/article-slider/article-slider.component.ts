@@ -18,7 +18,6 @@ export class ArticleSliderComponent implements OnInit {
   imager = environment.app.imager;
 
   config: SwiperConfigInterface = {
-    a11y: true,
     direction: 'horizontal',
     slidesPerView: 1,
     keyboard: false,
@@ -29,7 +28,7 @@ export class ArticleSliderComponent implements OnInit {
     allowTouchMove: true,
     loop: true,
     autoplay: true,
-    speed: 500,
+    speed: 500
   };
 
   private pagination: SwiperPaginationInterface = {

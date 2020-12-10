@@ -14,7 +14,7 @@
 
         <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 mb-4">
           <span class="section--title">
-            <i class="sprite sprite--dashboard-articles"></i>
+            <i class="icon--news"></i>
             Neuigkeiten
           </span>
           <ares-layout-dashboard-article-slider [articles]="articles"></ares-layout-dashboard-article-slider>
@@ -22,14 +22,18 @@
       </div>
       <div class="row">
         <div class="col-xl-8 col-lg-9 col-md-12 col-sm-12 mb-4">
-               <span class="section--title">
-        <i class="sprite sprite--news"></i>
-        Freunde
-      </span>
+         <span class="section--title">
+            <i class="icon--friends"></i>
+            Freunde
+          </span>
           <ares-layout-dashboard-friends [friends]="friends" [pagination]="friendsPagination"></ares-layout-dashboard-friends>
         </div>
 
         <div class="col-xl-4 col-lg-3 col-md-12 col-sm-12 mb-4">
+          <span class="section--title">
+            <i class="icon--other"></i>
+            Sonstiges
+          </span>
           <a *ngIf="guild.id !== 0" [routerLink]="['/community/guild', guild.id]">
             <ares-layout-dashboard-guild [guild]="guild" class="card mb-3"></ares-layout-dashboard-guild>
           </a>

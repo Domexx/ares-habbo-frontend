@@ -15,7 +15,7 @@ export class PinnedArticlesComponent implements OnInit {
   imager = environment.app.imager;
 
   config: SwiperConfigInterface = {
-    a11y: true,
+    a11y: false,
     direction: 'horizontal',
     slidesPerView: 1,
     keyboard: false,
@@ -24,6 +24,9 @@ export class PinnedArticlesComponent implements OnInit {
     navigation: false,
     pagination: false,
     allowTouchMove: true,
+    loop: true,
+    autoplay: true,
+    speed: 500
   };
 
   private pagination: SwiperPaginationInterface = {

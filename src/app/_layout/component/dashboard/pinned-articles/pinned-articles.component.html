@@ -1,10 +1,11 @@
 <swiper *ngIf="articles$.length > 0; else noArticles" [config]="config" class="article--slider">
   <ng-container *ngFor="let article of articles$">
-    <a [routerLink]="['/articles', article.id + '-' + article.slug]">
-      <div class="card article">
+    <a class="article" [routerLink]="['/articles', article.id + '-' + article.slug]">
+      <div class="card">
         <div class="card-body d-inline-flex flex-column">
           <div class="article--info d-flex align-items-center">
             <div class="article--user">
+              <!-- TODO change to lookService -->
               <img
                 [src]="imager + article?.user.look + '&amp;action=std&amp;direction=3&amp;head_direction=3&amp;img_format=png&amp;gesture=std&amp;headonly=0&amp;size=s'"
               [alt]="article?.user.username" />
