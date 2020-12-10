@@ -23,10 +23,7 @@ export class PinnedArticlesComponent implements OnInit {
     scrollbar: false,
     navigation: false,
     pagination: false,
-    allowTouchMove: true,
-    loop: true,
-    autoplay: true,
-    speed: 500
+    allowTouchMove: true
   };
 
   private pagination: SwiperPaginationInterface = {
