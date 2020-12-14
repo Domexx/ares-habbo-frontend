@@ -13,6 +13,9 @@ import { LookSize } from '../../../_shared/model/user/look';
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.scss']
 })
+/**
+ * @class ArticleComponent
+ */
 export class ArticleComponent implements OnInit, OnDestroy {
   article: Article;
   comments: Comment[] = [];
@@ -25,6 +28,13 @@ export class ArticleComponent implements OnInit, OnDestroy {
 
   routerSubscription: Subscription;
 
+  /**
+   * ArticleComponent constructor
+   *
+   * @param route
+   * @param titleService
+   * @param lookService
+   */
   constructor(
     private route: ActivatedRoute,
     private titleService: TitleService,
@@ -54,6 +64,9 @@ export class ArticleComponent implements OnInit, OnDestroy {
     this.article.comments++;
   }
 
+  /**
+   * Get author look url
+   */
   look(): string {
     return this.lookService.get({
       look: this.article.user.look,

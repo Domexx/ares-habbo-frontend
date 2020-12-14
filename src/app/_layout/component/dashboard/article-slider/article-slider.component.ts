@@ -1,57 +1,71 @@
-import { Component, Input, OnInit } from '@angular/core';
-import {
-  SwiperConfigInterface,
-  SwiperPaginationInterface,
-} from 'ngx-swiper-wrapper';
-import { ArticleService } from '../../../../articles/service/article.service';
-import { Article } from '../../../../articles/model/article';
+import { Component, Input } from '@angular/core';
 import { environment } from '../../../../../environments/environment';
+import { LookService } from '../../../../_service/look.service';
+import { LookDirection, LookSize } from '../../../../_shared/model/user/look';
 import { LanguageService } from '../../../../_shared/service/language.service';
+import { Article } from '../../../../articles/model/article';
 
 @Component({
   selector: 'ares-layout-dashboard-article-slider',
   templateUrl: './article-slider.component.html',
-  styleUrls: ['./article-slider.component.scss'],
-  providers: [ArticleService],
+  styleUrls: ['./article-slider.component.scss']
 })
-export class ArticleSliderComponent implements OnInit {
+/**
+ * @class ArticleSliderComponent
+ */
+export class ArticleSliderComponent {
   imager = environment.app.imager;
 
-  config: SwiperConfigInterface = {
-    direction: 'horizontal',
-    slidesPerView: 1,
-    keyboard: false,
-    mousewheel: false,
-    scrollbar: false,
-    navigation: false,
-    pagination: false,
-    allowTouchMove: true,
-    loop: true,
-    autoplay: true,
-    speed: 500
-  };
-
-  private pagination: SwiperPaginationInterface = {
-    el: '.swiper-pagination',
-    clickable: true,
-    hideOnClick: false,
+  config = {
+    deactivateLoop: false,
+    indicators: true,
+    fade: true
   };
 
   articles$: Article[];
 
+  /**
+   * ArticleSliderComponent constructor
+   *
+   * @param languageService
+   * @param lookService
+   */
+  constructor(
+    private languageService: LanguageService,
+    private lookService: LookService
+  ) {}
+
+  /**
+   * Generate look url by given look string
+   *
+   * @param look
+   * @returns string
+   */
+  figure(look: string): string {
+    return this.lookService.get({
+      look,
+      direction: LookDirection.SOUTH,
+      headDirection: LookDirection.SOUTH,
+      size: LookSize.SMALL
+    });
+  }
+
+  /**
+   * Get locale code
+   *
+   * @returns string
+   */
+  get locale(): string {
+    return this.languageService.getCurrentCulture();
+  }
+
+  /**
+   * Set articles
+   *
+   * @param items
+   */
   @Input('articles')
   set articles(items: Article[]) {
     this.articles$ = items;
-  }
-
-  constructor(private languageService: LanguageService) {}
-
-  ngOnInit(): void {
-    this.config.pagination = this.pagination;
-    this.config.loopedSlides = this.articles$.length;
-  }
-
-  get locale(): string {
-    return this.languageService.getCurrentCulture();
   }
 }

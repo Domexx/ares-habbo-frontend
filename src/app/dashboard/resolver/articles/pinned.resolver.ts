@@ -2,21 +2,31 @@ import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   Resolve,
-  RouterStateSnapshot,
+  RouterStateSnapshot
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { ArticleService } from '../../../articles/service/article.service';
 import { Article } from '../../../articles/model/article';
 
 @Injectable({ providedIn: 'root' })
+/**
+ * @class PinnedArticlesResolver
+ */
 export class PinnedArticlesResolver implements Resolve<Article[]> {
-  constructor(private articleService: ArticleService) {}
+  /**
+   * PinnedArticlesResolver constructor
+   *
+   * @param articleService
+   */
+  constructor(private articleService: ArticleService) {
+  }
 
   /**
    * Gets the pinned articles and pass the data to the component
+   *
    * @param route
    * @param state
-   * @return Observable<Article[]>
+   * @returns Observable<Article[]>
    */
   resolve(
     route: ActivatedRouteSnapshot,

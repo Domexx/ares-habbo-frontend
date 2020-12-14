@@ -1,0 +1,18 @@
+.carousel {
+  &:focus {
+    outline: unset;
+  }
+}
+
+.article--slider {
+  .carousel-control {
+    display: none;
+  }
+
+  .carousel-indicators {
+    left: unset;
+    bottom: unset;
+    margin-right: 1rem;
+    top: 1.5rem;
+  }
+}
