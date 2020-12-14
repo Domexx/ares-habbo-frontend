@@ -8,16 +8,25 @@ import { Comment, CommentPagination } from '../model/comment';
 import { API } from 'src/app/_shared/model/api';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
+/**
+ * @class ArticleService
+ */
 export class ArticleService {
-  constructor(private apiService: ApiService) {}
+  /**
+   * ArticleService constructor
+   * @param apiService
+   */
+  constructor(private apiService: ApiService) {
+  }
 
   /**
    * Gets 3 articles for the dashboard slider
+   *
    * @param page
    * @param results
-   * @return Observable<Article[]>
+   * @returns Observable<Article[]>
    */
   list(page: number = 1, results: number = 3): Observable<ArticlePagination> {
     return this.apiService
@@ -29,7 +38,7 @@ export class ArticleService {
    * Delete article
    *
    * @param id
-   * @return Observable<Article>
+   * @returns Observable<Article>
    */
   delete(id: number): Observable<Article> {
     return this.apiService
@@ -38,19 +47,25 @@ export class ArticleService {
   }
 
   /**
-   * Gets the pinned articles
-   * @return Observable<Article[]>
+   * Gets a minimum of 3 (based on carousel indicators - change it
+   * if you want more, but don't forget to customize the template)
+   * pinned articles
+   *
+   * @param page
+   * @param results
+   * @returns Observable<Article[]>
    */
-  pinned(): Observable<Article[]> {
+  pinned(page: number = 1, results: number = 3): Observable<Article[]> {
     return this.apiService
-      .get('articles/pinned')
-      .pipe(map((resp) => resp.data));
+      .get(`articles/pinned/${page}/${results}`)
+      .pipe(map((resp) => resp.data.data));
   }
 
   /**
    * Gets a article by id
+   *
    * @param id
-   * @return Observable<Article>
+   * @returns Observable<Article>
    */
   get(id: number): Observable<Article> {
     return this.apiService.get(`articles/${id}`).pipe(map((resp) => resp.data));
@@ -62,7 +77,7 @@ export class ArticleService {
    * @param term
    * @param page
    * @param results
-   * @return Observable<ArticlePagination>
+   * @returns Observable<ArticlePagination>
    */
   search(term: string, page = 1, results = 9): Observable<ArticlePagination> {
     return this.apiService
@@ -72,16 +87,13 @@ export class ArticleService {
 
   /**
    * Gets 8 comments
+   *
    * @param id
    * @param page
    * @param results
-   * @return Observable<CommentPagination>
+   * @returns Observable<CommentPagination>
    */
-  getComments(
-    id: number,
-    page: number = 1,
-    results: number = 8
-  ): Observable<CommentPagination> {
+  getComments(id: number, page: number = 1, results: number = 8): Observable<CommentPagination> {
     return this.apiService
       .get(`comments/${id}/list/${page}/${results}`, {}, false)
       .pipe(map((resp) => resp.data));
@@ -89,9 +101,10 @@ export class ArticleService {
 
   /**
    * Creates a comment for a article
+   *
    * @param id
    * @param content
-   * @return Observable<Comment>
+   * @returns Observable<Comment>
    */
   createComment(id: number, content: string): Observable<Comment> {
     return this.apiService
@@ -99,7 +112,7 @@ export class ArticleService {
         'comments/create',
         {
           article_id: id,
-          content,
+          content
         },
         false
       )

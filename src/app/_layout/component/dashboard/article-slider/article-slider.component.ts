@@ -1,14 +1,14 @@
 import { Component, Input } from '@angular/core';
-import { ArticleService } from '../../../../articles/service/article.service';
-import { Article } from '../../../../articles/model/article';
 import { environment } from '../../../../../environments/environment';
+import { LookService } from '../../../../_service/look.service';
+import { LookDirection, LookSize } from '../../../../_shared/model/user/look';
 import { LanguageService } from '../../../../_shared/service/language.service';
+import { Article } from '../../../../articles/model/article';
 
 @Component({
   selector: 'ares-layout-dashboard-article-slider',
   templateUrl: './article-slider.component.html',
-  styleUrls: ['./article-slider.component.scss'],
-  providers: [ArticleService],
+  styleUrls: ['./article-slider.component.scss']
 })
 /**
  * @class ArticleSliderComponent
@@ -16,9 +16,6 @@ import { LanguageService } from '../../../../_shared/service/language.service';
 export class ArticleSliderComponent {
   imager = environment.app.imager;
 
-  /**
-   * @property
-   */
   config = {
     deactivateLoop: false,
     indicators: true,
@@ -28,21 +25,30 @@ export class ArticleSliderComponent {
   articles$: Article[];
 
   /**
-   * Set articles
-   *
-   * @param items
-   */
-  @Input('articles')
-  set articles(items: Article[]) {
-    this.articles$ = items;
-  }
-
-  /**
    * ArticleSliderComponent constructor
    *
    * @param languageService
+   * @param lookService
    */
-  constructor(private languageService: LanguageService) {}
+  constructor(
+    private languageService: LanguageService,
+    private lookService: LookService
+  ) {}
+
+  /**
+   * Generate look url by given look string
+   *
+   * @param look
+   * @returns string
+   */
+  figure(look: string): string {
+    return this.lookService.get({
+      look,
+      direction: LookDirection.SOUTH,
+      headDirection: LookDirection.SOUTH,
+      size: LookSize.SMALL
+    });
+  }
 
   /**
    * Get locale code
@@ -51,5 +57,15 @@ export class ArticleSliderComponent {
    */
   get locale(): string {
     return this.languageService.getCurrentCulture();
+  }
+
+  /**
+   * Set articles
+   *
+   * @param items
+   */
+  @Input('articles')
+  set articles(items: Article[]) {
+    this.articles$ = items;
   }
 }

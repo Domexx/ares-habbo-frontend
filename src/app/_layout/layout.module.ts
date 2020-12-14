@@ -21,7 +21,7 @@ import { LanguageSelectorComponent } from './component/language-selector/languag
 
 import { FriendsComponent } from './component/dashboard/friends/friends.component';
 import { ArticleSliderComponent } from './component/dashboard/article-slider/article-slider.component';
-import { PinnedArticlesComponent } from './component/dashboard/pinned-articles/pinned-articles.component';
+import { DashboardPinnedArticlesComponent } from './component/dashboard/pinned-articles/pinned-articles.component';
 import { DashboardHeroComponent } from './component/dashboard/hero/hero.component';
 import { GuildComponent } from './component/dashboard/guild/guild.component';
 import { RoomComponent } from './component/dashboard/room/room.component';
@@ -74,7 +74,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     FriendsComponent,
     DashboardHeroComponent,
     ArticleSliderComponent,
-    PinnedArticlesComponent,
+    DashboardPinnedArticlesComponent,
     LoaderComponent,
     DisconnectedComponent,
     ButtonsComponent,
@@ -123,7 +123,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     LanguageSelectorComponent,
     FriendsComponent,
     ArticleSliderComponent,
-    PinnedArticlesComponent,
+    DashboardPinnedArticlesComponent,
     LoaderComponent,
     DashboardHeroComponent,
     DisconnectedComponent,

@@ -55,14 +55,8 @@
     "HERO": {
       "WELCOME": "Willkommen zurück, <strong>{{ username }}</strong>!",
       "LOGIN": "Deine letzte Anmeldung war am {{ date }} um {{ time }}.",
-      "MOTTO": "Motto: <strong>\"{{ motto }}\"</strong>",
-      "COUNTER": "<strong>{{ online }}</strong> {{ name }} online",
-      "ENTER": "Ins Hotel einchecken",
-      "CREDITS": "Taler",
-      "POINTS": "Diamanten",
-      "PIXELS": "Duckets"
+      "MOTTO": "Motto: <strong>\"{{ motto }}\"</strong>"
     },
-    "YOUR_RANK": "DEIN RANG:",
     "SLIDER": {
       "ARTICLES": {
         "TITLE": "Es wurden keine Artikel gefunden!",
@@ -78,17 +72,20 @@
       },
       "NOT_FOUND": "{{ username }} wurde nicht gefunden!"
     },
-    "GUILD": {
-      "TITLE": "Keine Gruppe gefunden",
-      "DESCRIPTION": "Es wurde keine Gruppe gefunden"
-    },
-    "ROOM": {
-      "TITLE": "Kein Raum gefunden",
-      "DESCRIPTION": "Es wurde kein Raum gefunden"
-    },
-    "DISCORD": {
-      "TITLE": "Trete dem {{ hotelName }} Discord bei",
-      "DESCRIPTION": "Hier wirst du nichts verpassen!"
+    "EXTRAS": {
+      "TITLE": "Sonstiges",
+      "GUILD": {
+        "TITLE": "Keine Gruppe gefunden",
+        "DESCRIPTION": "Es wurde keine Gruppe gefunden"
+      },
+      "ROOM": {
+        "TITLE": "Kein Raum gefunden",
+        "DESCRIPTION": "Es wurde kein Raum gefunden"
+      },
+      "DISCORD": {
+        "TITLE": "Trete dem {{ hotelName }} Discord bei",
+        "DESCRIPTION": "Hier wirst du nichts verpassen!"
+      }
     }
   },
   "ARTICLES": {
