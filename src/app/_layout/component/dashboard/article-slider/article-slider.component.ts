@@ -1,8 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
-import {
-  SwiperConfigInterface,
-  SwiperPaginationInterface,
-} from 'ngx-swiper-wrapper';
+import { Component, Input } from '@angular/core';
 import { ArticleService } from '../../../../articles/service/article.service';
 import { Article } from '../../../../articles/model/article';
 import { environment } from '../../../../../environments/environment';
@@ -14,43 +10,45 @@ import { LanguageService } from '../../../../_shared/service/language.service';
   styleUrls: ['./article-slider.component.scss'],
   providers: [ArticleService],
 })
-export class ArticleSliderComponent implements OnInit {
+/**
+ * @class ArticleSliderComponent
+ */
+export class ArticleSliderComponent {
   imager = environment.app.imager;
 
-  config: SwiperConfigInterface = {
-    direction: 'horizontal',
-    slidesPerView: 1,
-    keyboard: false,
-    mousewheel: false,
-    scrollbar: false,
-    navigation: false,
-    pagination: false,
-    allowTouchMove: true,
-    loop: true,
-    autoplay: true,
-    speed: 500
-  };
-
-  private pagination: SwiperPaginationInterface = {
-    el: '.swiper-pagination',
-    clickable: true,
-    hideOnClick: false,
+  /**
+   * @property
+   */
+  config = {
+    deactivateLoop: false,
+    indicators: true,
+    fade: true
   };
 
   articles$: Article[];
 
+  /**
+   * Set articles
+   *
+   * @param items
+   */
   @Input('articles')
   set articles(items: Article[]) {
     this.articles$ = items;
   }
 
+  /**
+   * ArticleSliderComponent constructor
+   *
+   * @param languageService
+   */
   constructor(private languageService: LanguageService) {}
 
-  ngOnInit(): void {
-    this.config.pagination = this.pagination;
-    this.config.loopedSlides = this.articles$.length;
-  }
-
+  /**
+   * Get locale code
+   *
+   * @returns string
+   */
   get locale(): string {
     return this.languageService.getCurrentCulture();
   }

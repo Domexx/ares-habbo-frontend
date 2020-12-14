@@ -1,5 +1,7 @@
 .input-group {
   transition: 0.25s all;
+  display: flex;
+  align-items: center;
 
   & > .input-group-text {
     color: #fff;
@@ -15,6 +17,17 @@
     &.ng-invalid {
       border: 1px solid #b41030;
     }
+  }
+
+  &.input--search {
+    background-image: url('../assets/images/icons/search.png');
+    background-repeat: no-repeat;
+    background-position: 1rem;
+    padding-left: 3rem !important;
+  }
+
+  &::placeholder {
+    font-weight: 600;
   }
 }
 

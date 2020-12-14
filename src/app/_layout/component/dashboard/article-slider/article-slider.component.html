@@ -1,5 +1,8 @@
-<swiper *ngIf="articles$.length > 0; else noArticles" [config]="config" class="article--slider">
-  <ng-container *ngFor="let article of articles$">
+<carousel [noWrap]="config.deactivateLoop"
+          [showIndicators]="config.indicators"
+          [isAnimated]="config.fade"
+          class="article--slider">
+  <slide *ngFor="let article of articles$">
     <div class="card article">
       <div class="card-body d-inline-flex flex-column">
         <div class="article--info d-flex align-items-center">
@@ -47,8 +50,8 @@
         </div>
       </div>
     </div>
-  </ng-container>
-</swiper>
+  </slide>
+</carousel>
 
 <ng-template #noArticles>
   <div class="card article">

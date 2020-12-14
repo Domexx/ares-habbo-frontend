@@ -9,6 +9,7 @@ import {
   SwiperConfigInterface,
   SwiperModule,
 } from 'ngx-swiper-wrapper';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
 
 import { SearchPipe } from './pipe/friends/search.pipe';
 
@@ -107,6 +108,7 @@ const DEFAULT_SWIPER_CONFIG: SwiperConfigInterface = {
     FontAwesomeModule,
     SharedModule,
     MomentModule,
+    CarouselModule.forRoot()
   ],
   providers: [
     {
