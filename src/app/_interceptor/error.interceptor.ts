@@ -41,31 +41,30 @@ export class ErrorInterceptor implements HttpInterceptor {
     private translateService: TranslateService,
     private router: Router,
     private errorService: ErrorService
-  ) {}
+  ) { }
 
   intercept(
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     if (environment.production) {
-     return next.handle(request).pipe(
-       map(response => {
-         // Get error from response
-         if (
-           response instanceof HttpResponse &&
-           response.url.includes(environment.app.endpoint) &&
-           response.body.status === 'error'
-         ) {
-           const body: ErrorResponse = response.body;
-           console.log(body);
+      return next.handle(request).pipe(
+        map(response => {
+          // Get error from response
+          if (
+            response instanceof HttpResponse &&
+            response.url.includes(environment.app.endpoint) &&
+            response.body.status === 'error'
+          ) {
+            const body: ErrorResponse = response.body;
 
-           // Handle error
-           this.errorService.handleCode(body.code);
-         }
+            // Handle error
+            this.errorService.handleCode(body.code);
+          }
 
-         return response;
-       })
-     );
+          return response;
+        })
+      );
     }
     return next.handle(request).pipe(
       catchError((err: HttpErrorResponse | any) => {

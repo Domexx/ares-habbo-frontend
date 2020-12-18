@@ -1,4 +1,4 @@
-import { Injectable, Input } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { ErrorHandler } from '../../_model/error/error-handler.interface';
 import { AlertService } from '../../_shared/service/alert.service';
 
@@ -16,9 +16,10 @@ export class CheckInputHandler implements ErrorHandler {
 
   /**
    * Handle authentication error
+   * 
+   * @TODO translate
    */
   handle(): void {
     this.alertService.error('Bitte überprüfe deine eingegebenen Daten!');
   }
-
 }

@@ -53,7 +53,7 @@ export class GuestbookComponent implements OnInit {
     private alertService: AlertService,
     private translateService: TranslateService,
     private voteService: VoteService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.guestbookForm = this.formBuilder.group({
