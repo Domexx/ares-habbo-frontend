@@ -110,6 +110,7 @@
   & > img {
     position: absolute;
     right: 0;
+    top: 0;
     z-index: 4;
     image-rendering: pixelated;
     transform: translateX(-.8rem) scale(2);

@@ -55,7 +55,13 @@
     "HERO": {
       "WELCOME": "Willkommen zurück, <strong>{{ username }}</strong>!",
       "LOGIN": "Deine letzte Anmeldung war am {{ date }} um {{ time }}.",
-      "MOTTO": "Motto: <strong>\"{{ motto }}\"</strong>"
+      "MOTTO": "Motto: <strong>\"{{ motto }}\"</strong>",
+      "COUNTER": "Es sind <strong>{{ online }}</strong> weitere Spieler online",
+      "ENTER": "Einchecken"
+    },
+    "DISCORD": {
+      "TITLE": "Trete Discord bei",
+      "DESCRIPTION": "um noch mehr zu erfahren!"
     },
     "SLIDER": {
       "ARTICLES": {
@@ -105,12 +111,10 @@
         "DESCRIPTION": "Hier findest du eine Auflistung aktueller Neuigkeiten"
       }
     },
-
     "HERO": {
       "TITLE": "Artikelliste",
       "DESCRIPTION": "Hier kannst du alle Artikel des Hotels sehen, die je veröffentlicht wurden!"
     },
-
     "SEARCH": {
       "FAILED": "\"{{ term }}\" konnte nicht gefunden werden",
       "PLACEHOLDER": "Artikel suchen"
@@ -145,7 +149,11 @@
   },
   "EMPLOYEES": {
     "TITLE": "Mitarbeiter",
-    "EMPTY": "Keine Mitarbeiter gefunden"
+    "EMPTY": "Keine Mitarbeiter gefunden",
+    "HERO": {
+      "TITLE": "Mitarbeiterliste des Hotels",
+      "DESCRIPTION": "Hier findest du alle Mitarbeiter des Hotels, wenn du fragen hast, wende dich an sie!"
+    }
   },
   "CLIENT": {
     "DISCONNECTED": {
