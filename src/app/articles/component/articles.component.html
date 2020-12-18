@@ -1,14 +1,28 @@
 <section class="ares--hero bg-green" [style.backgroundImage]="'url('+ hero +')'">
   <div id="room"></div>
 
-  <div class="container d-flex">
-    <div id="camera"></div>
-    test
+  <div class="container">
+    <div class="row justify-content-xl-center justify-content-lg-center align-items-lg-center align-items-md-start h-100">
+      <div class="col-xl-12 col-lg-12 col-md-12">
+        <div class="row">
+          <div class="col-xl-2 col-lg-2 d-xl-block d-lg-block d-none">
+            <img src="assets/images/articles/hero_article.png" class="object-contain" alt="hero_picture" />
+          </div>
+  
+          <div class="col-xl-10 col-lg-10 col-md-12">
+            <div class="d-flex flex-column ml-2 pt-4 h-100 justify-content-center">
+              <h4 class="w-100" [innerHTML]="'ARTICLES.HERO.TITLE' | translate"></h4>
+              <p class="mb-0 w-100" [innerHTML]="'ARTICLES.HERO.DESCRIPTION' | translate"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <div class="container">
-  <div class="input-group mb-4 has-feedback">
+  <div class="input-group mt-3 mb-5 has-feedback">
     <input class="form-control input--search p-3" type="search" [placeholder]="'ARTICLES.SEARCH.PLACEHOLDER' | translate" [formControl]="searchField" />
   </div>
 
@@ -26,6 +40,10 @@
             <span class="article--title text-ellipsis">{{ article?.title }}</span>
             <span class="article--date text-ellipsis">{{ article?.created_at | date: date }}</span>
           </div>
+          <div class="d-inline-flex align-items-center m-auto mr-2">
+            <i class="sprite sprite--comments-length mt-1 mr-2"></i>
+            <span>{{ article.comments }}</span>
+          </div>
         </a>
       </div>
     </ng-container>
@@ -38,6 +56,10 @@
           <div class="flex-fill d-inline-flex flex-column justify-content-center text-ellipsis">
             <span class="article--title text-ellipsis">{{ article?.title }}</span>
             <span class="article--date text-ellipsis">{{ article?.created_at | date: date }}</span>
+          </div>
+          <div class="d-inline-flex align-items-center m-auto mr-2">
+            <i class="sprite sprite--comments-length mt-1 mr-2"></i>
+            <span>{{ article.comments }}</span>
           </div>
         </a>
       </div>

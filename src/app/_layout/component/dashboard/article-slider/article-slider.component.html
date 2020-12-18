@@ -5,7 +5,7 @@
             class="article--slider">
     <slide *ngFor="let article of articles$">
       <div class="card article">
-        <div class="card-body d-inline-flex flex-column">
+        <div class="card-body mt-1 d-inline-flex flex-column">
           <div class="article--info d-flex align-items-center">
             <div class="article--user">
               <img
@@ -39,9 +39,9 @@
               <div class="article--likes-icon mr-2">
                 <i class="sprite sprite--thumb"></i>
               </div>
-              {{ article.likes }}
+              <strong>{{ article.likes }}</strong>
 
-              <span class="ml-5 mr-2">{{ article.comments }}</span>
+              <span class="ml-5 mr-2"><strong>{{ article.comments }}</strong></span>
               <div class="article--comments-icon">
                 <i class="sprite sprite--article-slider-comments"></i>
               </div>

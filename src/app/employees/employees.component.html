@@ -1,0 +1,49 @@
+<!--
+  ~ Ares (https://ares.to)
+  ~
+  ~ @license https://gitlab.com/arescms/ares-frontend/LICENSE (MIT License)
+  ~
+  -->
+<section class="ares--hero">
+  <div class="container">
+    <div
+      class="row justify-content-xl-center justify-content-lg-center align-items-lg-center align-items-md-start h-100">
+      <div class="col-xl-12 col-lg-12 col-md-12">
+        <div class="row">
+          <div class="col-xl-2 col-lg-2 d-xl-block d-lg-block d-none">
+            <img src='../../assets/images/employees/hero_employee.png' class="mt-5 object-contain" alt="hero_picture" />
+          </div>
+
+          <div class="col-xl-10 col-lg-10 col-md-12">
+            <div class="d-flex flex-column ml-2 pt-4 h-100 justify-content-center">
+              <h4 class="w-100" [innerHTML]="'EMPLOYEES.HERO.TITLE' | translate"></h4>
+              <p class="mb-0 w-100" [innerHTML]="'EMPLOYEES.HERO.DESCRIPTION' | translate"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 mb-3" *ngFor="let rank of ranks">
+      <div class="d-flex mt-2 flex-row">
+        <i class="icon icon--community mr-2"></i>
+        <span class="rank-name">{{ rank.rank_name }}</span>
+      </div>
+      <ng-container *ngIf="rank.users?.length > 0; else noEmployees">
+        <div class="row mt-4">
+          <ares-layout-employees-item class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-4"
+            [class.offline]="employee.online == 0" [employee]="employee" [color]="rank.prefix_color"
+            [badge]="rank.badge" [name]="rank.rank_name" *ngFor="let employee of rank.users">
+          </ares-layout-employees-item>
+        </div>
+      </ng-container>
+      <ng-template #noEmployees>
+        <h6 [translate]="'EMPLOYEES.EMPTY'"></h6>
+      </ng-template>
+    </div>
+  </div>
+</div>

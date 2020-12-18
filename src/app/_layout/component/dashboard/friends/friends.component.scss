@@ -97,6 +97,11 @@
     padding: .4rem;
     color: #3D3D44;
     font-weight: 700;
+
+    &::placeholder {
+      color: #3D3D44;
+      font-weight: 700;
+    }
   }
 
   #search-icon {

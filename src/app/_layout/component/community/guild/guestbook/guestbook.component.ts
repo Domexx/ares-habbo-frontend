@@ -14,7 +14,6 @@ import { GuestbookService } from '../../../../../_shared/service/guestbook.servi
 import { environment } from '../../../../../../environments/environment';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Subscription } from 'rxjs';
 import { AlertService } from '../../../../../_shared/service/alert.service';
 import { TranslateService } from '@ngx-translate/core';
 import { VoteService } from '../../../../../_shared/service/vote.service';
@@ -44,7 +43,7 @@ export class GuestbookComponent implements OnInit {
     this.entries$ = value;
   }
 
-  @Input('id') id: number;
+  @Input('guildId') guildId: number;
 
   constructor(
     private guestbookService: GuestbookService,
@@ -53,7 +52,7 @@ export class GuestbookComponent implements OnInit {
     private alertService: AlertService,
     private translateService: TranslateService,
     private voteService: VoteService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.guestbookForm = this.formBuilder.group({
@@ -70,7 +69,7 @@ export class GuestbookComponent implements OnInit {
     }
 
     const subscription = this.guestbookService
-      .getGuildEntries(this.id, ++this.pagination$.current_page)
+      .getGuildEntries(this.guildId, ++this.pagination$.current_page)
       .subscribe({
         next: (e) => {
           e.data.forEach((value) => this.entries$.push(value));
@@ -181,7 +180,7 @@ export class GuestbookComponent implements OnInit {
     }
 
     const subscription = this.guestbookService
-      .create(this.id, entry.value, GuestbookEntity.GUILD)
+      .create(this.guildId, entry.value, GuestbookEntity.GUILD)
       .subscribe({
         next: (value) => {
           this.entries$.splice(0, 0, value);
