@@ -17,7 +17,7 @@ export class VoteHandler implements ErrorHandler {
 
     /**
      * Handle authentication error
-     * 
+     *
      * @TODO translate
      */
     handle(): void {

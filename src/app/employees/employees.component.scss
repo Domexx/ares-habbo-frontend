@@ -4,9 +4,10 @@
     background-position: bottom;
     background-repeat: no-repeat;
     image-rendering: pixelated;
-    background: url(../../../assets/images/employees/hero_background.png);
+    background-image: url(../../assets/images/employees/hero_background.png);
     position: relative;
     box-shadow: inset -3rem 10rem 6rem -5rem rgb(0 0 0 / 65%), inset -3rem -10rem 6rem -5rem rgb(0 0 0 / 65%);
+    margin-bottom: 2.5rem;
   }
 
   .icon--community {

@@ -60,6 +60,7 @@ export class ErrorInterceptor implements HttpInterceptor {
 
             // Handle error
             this.errorService.handleCode(body.code);
+            return;
           }
 
           return response;

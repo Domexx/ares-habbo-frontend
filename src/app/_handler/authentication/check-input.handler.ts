@@ -16,7 +16,7 @@ export class CheckInputHandler implements ErrorHandler {
 
   /**
    * Handle authentication error
-   * 
+   *
    * @TODO translate
    */
   handle(): void {

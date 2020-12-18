@@ -9,7 +9,6 @@ import { SwiperConfigInterface, SwiperPaginationInterface } from 'ngx-swiper-wra
 export class MobileNavbarComponent {
 
   config: SwiperConfigInterface = {
-    a11y: true,
     direction: 'horizontal',
     slidesPerView: 3,
     keyboard: false,

@@ -3,12 +3,16 @@ import { CheckInputHandler } from '../_handler/authentication/check-input.handle
 import { LogoutHandler } from '../_handler/authentication/logout.handler';
 import { VoteHandler } from '../_handler/vote/vote.handler';
 import { ErrorHandler } from '../_model/error/error-handler.interface';
+import { ErrorEntry } from '../_model/error/error-entry.interface';
 
 @Injectable({
   providedIn: 'root'
 })
+/**
+ * @class ErrorService
+ */
 export class ErrorService {
-  errorHandlers: [{ code: number, class: ErrorHandler }, { code: number, class: ErrorHandler }, { code: number, class: ErrorHandler }] = [
+  errorHandlers: ErrorEntry[] = [
     {
       code: 10020,
       class: this.checkInputHandler
@@ -27,6 +31,8 @@ export class ErrorService {
    * ErrorService constructor
    *
    * @param checkInputHandler
+   * @param logoutHandler
+   * @param voteHandler
    */
   constructor(
     private checkInputHandler: CheckInputHandler,
