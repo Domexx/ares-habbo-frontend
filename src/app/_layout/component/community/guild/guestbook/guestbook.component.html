@@ -12,7 +12,7 @@
       [infiniteScrollThrottle]="50"
       (scrolled)="onScroll()"
       [scrollWindow]="false">
-  <div class="col-12 mb-3 entry" *ngFor="let value of entries$">
+  <div class="col-12 mb-4 entry" *ngFor="let value of entries$">
     <div class="d-flex justify-content-start">
       <img class="align-self-start" [src]="look(value.user.look)" [class.offline]="value.user.online == 0" [alt]="value.user.username" />
 
@@ -41,8 +41,8 @@
   </div>
 </div>
 
-<div class="d-flex justify-content-center align-items-center px-4 py-3">
-  <button class="btn btn-danger w-100 h-25" (click)="openModal(template)" [translate]="'COMMUNITY.GUILD.GUESTBOOK.BUTTON'"></button>
+<div class="d-flex justify-content-center align-items-center px-4 py-3 mt-4">
+  <button class="btn btn-danger w-100" (click)="openModal(template)" [translate]="'COMMUNITY.GUILD.GUESTBOOK.BUTTON'"></button>
 </div>
 
 

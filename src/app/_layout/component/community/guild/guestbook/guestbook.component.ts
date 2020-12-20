@@ -19,6 +19,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { VoteService } from '../../../../../_shared/service/vote.service';
 import { EntityType, VoteType } from '../../../../../_shared/model/vote';
 import { GuestbookPagination } from '../../../../../_shared/model/guestbook';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'ares-layout-community-guild-guestbook',
