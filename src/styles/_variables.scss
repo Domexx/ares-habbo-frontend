@@ -1,0 +1,85 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+
+// Color Palette
+$main-bg-color: #151719;
+$main-bg-red: #b41030;
+$main-bg-red-alt: #a51a33;
+$main-bg-dark: #191919;
+$main-bg-gray: #141517;
+$main-bg-green: #00732b;
+
+// Text
+$text-normal: #fff;
+$text-link: #ff2953;
+$text-link-hover: #e1284d;
+
+// Swiper
+$swiper-theme-color: #ff1744;
+
+// Sidebar
+$sidebar-bg-color: #151719;
+$sidebar-brand-padding-top: 1.07rem;
+$sidebar-brand-padding-bottom: 1.07rem;
+
+// Grid
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 1200px,
+  xl: 1400px,
+);
+
+// Container
+$container-max-widths: (
+  sm: 576px,
+  md: 768px,
+  lg: 1200px,
+  xl: 1400px,
+);
+
+// Input
+$input-bg: #1c1d20;
+$input-border-radius: 2px;
+$input-border-color: #1c1d20;
+$input-color: #ffffff;
+$input-focus-bg: #303235;
+$input-focus-border-color: transparent;
+$input-focus-box-shadow: unset;
+$input-focus-color: #ffffff;
+$input-disabled-bg: #292b2f;
+$input-placeholder-color: #ffffff;
+$input-font-weight: 600;
+$input-font-size: .9rem;
+
+// Cards
+$card-bg: #1B1D20;
+$card-border-radius: 0;
+$card-border-color: unset;
+
+// Buttons
+$btn-font-weight: 600;
+$btn-box-shadow: unset;
+$btn-focus-box-shadow: 0 1px 3px 0 rgba(0, 6, 33, 0.5), 0 0 0 3px rgba(0, 0, 0, 0.2);
+
+// Modal
+$modal-content-bg: $main-bg-color;
+$modal-inner-padding: 1.5rem;
+
+// Dropdown
+$dropdown-bg: $main-bg-dark;
+$dropdown-border-radius: 0 0 0.25rem 0.25rem;
+$dropdown-border-color: transparent;
+$dropdown-box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175);
+$dropdown-item-padding-x: 1.5rem;
+$dropdown-item-padding-y: 0.5rem;
+$dropdown-divider-bg: $main-bg-gray;
+
+// Nav
+$nav-link-font-weight: 600;
+$nav-pills-link-active-bg: $main-bg-red;
+
+// Body
+$body-bg: $main-bg-color;
+$body-color: $text-normal;

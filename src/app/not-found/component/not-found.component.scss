@@ -1,0 +1,40 @@
+:host {
+  height: 100%;
+  width: 100%;
+
+  .container {
+    margin-bottom: 1.5rem;
+
+    & > div {
+      background-image: url('../../../assets/images/404/stars.png');
+      background-repeat: no-repeat;
+      background-position: center;
+
+      .title {
+        font-size: 12rem;
+        font-weight: bold;
+
+        & span {
+          &::before {
+            content: '';
+            background-image: url('../../../assets/images/404/moon.png');
+            background-repeat: no-repeat;
+            height: 156px;
+            width: 156px;
+            display: inline-block;
+            margin-right: -2rem;
+            margin-left: -2rem;
+          }
+        }
+      }
+
+      p {
+        font-size: 1.5rem;
+      }
+
+      .btn {
+        width: 15rem;
+      }
+    }
+  }
+}

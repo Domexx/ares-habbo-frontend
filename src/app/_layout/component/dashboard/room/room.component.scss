@@ -1,0 +1,23 @@
+:host {
+  color: #fff;
+  font-weight: 500;
+
+  img {
+    object-fit: contain;
+    height: 50px;
+    border-radius: 4px;
+  }
+
+  .room--thumbnail {
+    border-radius: 50em;
+    object-fit: none;
+  }
+
+  #room--name {
+    font-size: 17px;
+  }
+
+  #room--members {
+    font-size: 15px;
+  }
+}

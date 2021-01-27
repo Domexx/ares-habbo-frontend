@@ -1,0 +1,164 @@
+/**
+  * @template ARES - 2020
+  * @author necmi & madness
+  * @license GNU General Public License v3.0 <https://gitlab.com/arescms/ares-frontend/LICENSE>
+  */
+
+@import 'variables';
+
+@import '~bootstrap/scss/bootstrap';
+
+@import '~notyf/notyf.min.css';
+@import '~swiper/css/swiper.min.css';
+
+@import 'fonts';
+@import 'modals';
+@import 'buttons';
+@import 'icons';
+@import 'alerts';
+@import 'utilities';
+@import 'navbar';
+@import 'inputs';
+@import 'carousel';
+
+:root {
+  --main-bg-color: #{$main-bg-color};
+  --main-bg-red: #{$main-bg-red};
+  --main-bg-red-alt: #{$main-bg-red-alt};
+  --main-bg-dark: #{$main-bg-dark};
+  --main-bg-gray: #{$main-bg-gray};
+  --main-bg-green: #{$main-bg-green};
+
+  --main-modal-bg: #292b2f;
+  --modal-close-bg: #17181a;
+  --modal-close-bg-hover: #343436;
+
+  --text-normal: #{$text-normal};
+  --text-link: #{$text-link};
+  --text-link-hover: #{$text-link-hover};
+
+  --sidebar-bg-color: #{$sidebar-bg-color};
+  --sidebar-brand-padding-top: #{$sidebar-brand-padding-top};
+  --sidebar-brand-padding-bottom: #{$sidebar-brand-padding-bottom};
+
+  --swiper-theme-color: #{$swiper-theme-color} !important;
+
+  --btn-danger-primary: #b41030;
+  --btn-danger-secondary: #b9213f;
+
+  --hero-background-color: #fc374e;
+
+  --gray: #ebeff0 !important;
+}
+
+html {
+  body {
+    min-height: 100vh;
+    font-family: 'Titillium Web', sans-serif;
+    text-shadow: 0 1px 2px rgb(0 0 0 / 55%);
+    overflow-x: hidden;
+
+    &#login {
+      background: rgb(41,43,47);
+      background: linear-gradient(90deg, rgba(41,43,47,1) 50%, rgba(32,34,37,1) 50%);
+    }
+  }
+}
+
+a {
+  color: var(--text-link);
+  text-decoration: none;
+  transition: color 0.25s;
+  font-weight: 700;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    color: var(--text-link-hover);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 35px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--main-bg-dark);
+  border-radius: 5rem;
+  border: 4px solid transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--main-bg-gray);
+  background-clip: padding-box;
+  border-right: 4px solid var(--main-bg-dark);
+  border-left: 4px solid var(--main-bg-dark);
+  border-radius: 5rem;
+}
+
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none;
+}
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+.ares--logo {
+  background-image: url('../assets/images/logo.png');
+  background-repeat: no-repeat;
+  height: 3.6rem;
+  width: 6.5rem;
+}
+
+.ares--hero {
+  height: 16rem;
+  margin-bottom: -2.5rem;
+  position: relative;
+  background-color: var(--main-bg-red-alt);
+
+  & > .container {
+    height: 100%;
+    z-index: 2;
+  }
+}
+
+.section--title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: .5rem;
+
+  & > .sprite,
+  & > .icon--news,
+  & > .icon--friends,
+  & > .icon--other {
+    margin-right: .5rem;
+  }
+}
+
+/* register */
+.register--component {
+  background-image: url('../assets/images/register/bg.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom center;
+}
+
+/* article--slider */
+.article--slider {
+  .swiper-pagination {
+    left: unset !important;
+    right: 1.5rem;
+    top: 1rem;
+    text-align: right;
+  }
+
+  .swiper-container {
+    height: 16.5rem !important;
+  }
+}

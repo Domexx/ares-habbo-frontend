@@ -1,0 +1,60 @@
+:host {
+  user-select: none;
+  position: fixed;
+  z-index: 102;
+  overflow: hidden;
+  background-color: #6b2626;
+  width: 100vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  font-size: 18px;
+  text-align: center;
+  color: white;
+
+  &:after {
+    content: '';
+    left: 18rem;
+    top: 12rem;
+    width: 32px;
+    height: 44px;
+    position: absolute;
+    opacity: 0;
+    animation: pointer 1.1s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite;
+    background: url('../../../../../assets/images/client/pointer.png');
+  }
+
+  .flash-illustration {
+    margin-top: 10em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 212px;
+    height: 174px;
+    background: url('../../../../../assets/images/client/flash.png');
+  }
+
+  #flash-title {
+    position: relative;
+    color: white;
+    font-size: 310%;
+    text-transform: uppercase;
+  }
+
+  #flash-description > a {
+    font-size: unset;
+    text-decoration: underline;
+  }
+}
+
+@keyframes pointer {
+  0% {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,46 @@
+.carousel-item {
+  height: 100%;
+}
+
+#logo {
+  object-fit: contain;
+  height: 3.5rem;
+  width: 5rem;
+}
+
+#register-anchor {
+  color: #fff;
+  font-weight: 600;
+}
+
+#username-group {
+  position: relative;
+
+  & > img {
+    position: absolute;
+    right: 0;
+    z-index: 4;
+    image-rendering: pixelated;
+    transform: translateX(-.8rem) scale(2);
+    clip-path: inset(0 0 42% 0);
+  }
+
+  & > .mannequin {
+    transform: scaleX(-1) scale(2);
+    clip-path: inset(0 0 42% 0);
+  }
+
+  & > #username {
+    background-image: url('../../assets/images/icons/home/username.png');
+    background-repeat: no-repeat;
+    background-position: 1rem 1.35rem;
+    padding-left: 3rem !important;
+  }
+}
+
+#password {
+  background-image: url('../../assets/images/icons/home/password.png');
+  background-repeat: no-repeat;
+  background-position: 1rem 1.35rem;
+  padding-left: 3rem !important;
+}

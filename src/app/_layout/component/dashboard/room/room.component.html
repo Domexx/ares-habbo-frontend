@@ -1,0 +1,12 @@
+<div class="d-flex flex-row p-4">
+  <img class="mr-3" [class.room--thumbnail]="!hasThumbnail" [src]="thumbnails + room$.id + '.png'" (error)="error($event)" [alt]="room$.name" [title]="room$.name" />
+
+  <div class="flex-fill d-inline-flex flex-column text-ellipsis justify-content-center">
+    <strong id="room--name" class="text-ellipsis pr-2">{{ room$.name }}</strong>
+  </div>
+
+  <div class="d-inline-flex justify-content-center align-items-center">
+    <strong id="room--members" class="pr-1">{{ room$.users }}</strong>
+    <i class="sprite sprite--members"></i>
+  </div>
+</div>

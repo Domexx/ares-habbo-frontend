@@ -1,0 +1,60 @@
+:host {
+  .ares--hero {
+    background-size: cover;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    position: relative;
+    box-shadow: inset -3rem 10rem 6rem -5rem rgb(0 0 0 / 65%), inset -3rem -10rem 6rem -5rem rgb(0 0 0 / 65%);
+    font-weight: 600;
+    height: 15.94rem;
+    margin-bottom: -2.5rem;
+
+    #article {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      .article--title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-align: center;
+      }
+
+      .article--description {
+        overflow: hidden;
+        margin-top: 0.7em;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-align: center;
+      }
+    }
+  }
+
+  .article--card {
+    .card-header {
+      line-height: 2rem;
+      font-size: 14px;
+      font-weight: 600;
+      background-color: transparent;
+      border-bottom: 1px solid rgb(16 16 16 / 30%);
+
+      .author--look {
+        background-color: var(--main-bg-dark);
+        border-radius: 50rem;
+        overflow: hidden;
+        height: 2rem;
+
+        img {
+          margin-top: -.5rem;
+        }
+      }
+    }
+
+    .article--content {
+      font-size: 14px;
+      overflow: hidden;
+    }
+  }
+}

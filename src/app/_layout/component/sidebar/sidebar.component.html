@@ -1,0 +1,73 @@
+<ul id="sidebar--nav" class="h-100 list-group list-group-flush">
+  <li class="sidebar--brand d-flex justify-content-center">
+    <img src="assets/images/logo.png" class="logo--big img-fluid d-xxl-block d-xl-block d-lg-block d-md-none d-sm-none"
+         [alt]="hotelName + ' Logo'"/>
+    <img src="assets/images/icons/ares64x64.png"
+         class="img-fluid image-pixelated d-xxl-none d-xxl-none d-xl-none d-lg-none d-md-block d-sm-block"
+         [alt]="hotelName + ' Logo'"/>
+  </li>
+
+  <li>
+    <a class="sidebar--category text-ellipsis" [translate]="'SIDEBAR.GENERAL.TITLE'"></a>
+    <div class="list-unstyled sidebar--category-nav">
+      <a routerLink="/dashboard" routerLinkActive="active" class="sidebar--entry list-group-item">
+        <img src="assets/images/icons/sidebar/dashboard.png" class="image-pixelated"
+             [alt]="'SIDEBAR.GENERAL.DASHBOARD' | translate"/>
+        <span class="text-ellipsis" [translate]="'SIDEBAR.GENERAL.DASHBOARD'"></span>
+      </a>
+
+      <a routerLink="/settings" routerLinkActive="active" class="sidebar--entry list-group-item">
+        <img src="assets/images/icons/sidebar/settings.png" class="image-pixelated"
+             [alt]="'SIDEBAR.GENERAL.SETTINGS' | translate"/>
+        <span class="text-ellipsis" [translate]="'SIDEBAR.GENERAL.SETTINGS'"></span>
+      </a>
+    </div>
+  </li>
+
+  <li>
+    <a class="sidebar--category text-ellipsis" [translate]="'SIDEBAR.COMMUNITY.TITLE'"></a>
+    <div class="list-unstyled sidebar--category-nav">
+      <a routerLink="/articles" routerLinkActive="active" class="sidebar--entry list-group-item">
+        <img src="assets/images/icons/sidebar/news.png" class="image-pixelated"
+             [alt]="'SIDEBAR.COMMUNITY.NEWS' | translate"/>
+        <span class="text-ellipsis" [translate]="'SIDEBAR.COMMUNITY.NEWS'"></span>
+      </a>
+      <a routerLink="/employees" routerLinkActive="active" class="sidebar--entry list-group-item" container="body">
+        <img src="assets/images/icons/sidebar/employees.png" class="image-pixelated"
+             [alt]="'SIDEBAR.COMMUNITY.EMPLOYEES' | translate"/>
+        <span class="text-ellipsis" [translate]="'SIDEBAR.COMMUNITY.EMPLOYEES'"></span>
+      </a>
+    </div>
+  </li>
+
+  <ng-container *ngIf="hasPermissions()">
+    <li>
+      <a class="sidebar--category text-ellipsis" [translate]="'SIDEBAR.HOBBA.TITLE'"></a>
+      <div class="list-unstyled sidebar--category-nav">
+        <a *ngIf="hasPermission('set-global-setting')" routerLink="/hobba/settings"
+          routerLinkActive="active"
+          class="sidebar--entry list-group-item">
+          <img src="assets/images/icons/sidebar/employees.png" class="image-pixelated"
+               [alt]="'SIDEBAR.HOBBA.SETTINGS' | translate"/>
+          <span class="text-ellipsis" [translate]="'SIDEBAR.HOBBA.SETTINGS'"></span>
+        </a>
+        <a *ngIf="hasPermission('delete-article')" routerLink="/hobba/articles"
+          routerLinkActive="active"
+          class="sidebar--entry list-group-item">
+          <img src="assets/images/icons/sidebar/news.png" class="image-pixelated"
+               [alt]="'SIDEBAR.HOBBA.NEWS' | translate"/>
+          <span class="text-ellipsis" [translate]="'SIDEBAR.HOBBA.NEWS'"></span>
+        </a>
+      </div>
+    </li>
+  </ng-container>
+
+  <li class="mt-auto mb-3">
+    <div class="list-unstyled sidebar--category-nav">
+      <a routerLink="/logout" class="sidebar--entry list-group-item">
+        <img src="assets/images/icons/sidebar/logout.png" class="image-pixelated" [alt]="'SIDEBAR.LOGOUT' | translate"/>
+        <span class="text-ellipsis" [translate]="'SIDEBAR.LOGOUT'"></span>
+      </a>
+    </div>
+  </li>
+</ul>
