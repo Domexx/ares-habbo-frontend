@@ -49,3 +49,7 @@ Thumbs.db
 
 # Environment
 /src/environments/environment.ts
+
+# Nitro Files
+/assets/nitro
+/assets/nitro-assets
