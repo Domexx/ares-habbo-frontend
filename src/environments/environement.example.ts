@@ -1,3 +1,5 @@
+// Don't forget to rename this file to environment.ts
+
 export const environment = {
   production: true,
 
