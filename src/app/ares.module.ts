@@ -8,13 +8,13 @@ import { environment } from '../environments/environment';
 import {
   HttpClientModule,
   HttpClient,
-  HTTP_INTERCEPTORS
+  HTTP_INTERCEPTORS,
 } from '@angular/common/http';
 
 import {
   TranslateModule,
   TranslateLoader,
-  TranslateService
+  TranslateService,
 } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
@@ -40,7 +40,6 @@ import localeDE from '@angular/common/locales/de';
 import localeENUS from '@angular/common/locales/en';
 import { HttpLoaderService } from './_service/http-loader.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
 registerLocaleData(localeDE);
 registerLocaleData(localeENUS);
 
@@ -59,15 +58,15 @@ export function HttpLoaderFactory(http: HttpClient) {
       loader: {
         provide: TranslateLoader,
         useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
-      }
+        deps: [HttpClient],
+      },
     }),
     QuicklinkModule,
     SharedModule,
     LayoutModule,
     ClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [
     HttpLoaderService,
@@ -76,22 +75,21 @@ export function HttpLoaderFactory(http: HttpClient) {
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpLoaderInterceptor,
-      multi: true
+      multi: true,
     },
     {
       provide: LOCALE_ID,
       useFactory: (languageService) => languageService.getCurrentCulture(),
-      deps: [LanguageService]
+      deps: [LanguageService],
     },
-    ErrorService
+    ErrorService,
   ],
-  bootstrap: [AresComponent]
+  bootstrap: [AresComponent],
 })
 /**
  * @class AresModule
  */
 export class AresModule {
-
   /**
    * AresModule constructor
    *

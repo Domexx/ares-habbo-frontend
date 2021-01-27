@@ -33,8 +33,6 @@
     "@types/bootstrap": "^4.5.0",
     "bootstrap": "^5.0.0-alpha2",
     "bootstrap-select": "^1.13.18",
-    "es-swfobject": "^3.0.0",
-    "flash-detect": "^1.1.1",
     "jquery": "^3.5.1",
     "moment": "^2.29.1",
     "ngx-bootstrap": "^6.1.0",

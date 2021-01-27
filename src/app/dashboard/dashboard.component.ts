@@ -45,7 +45,6 @@ export class DashboardComponent implements OnInit {
    * Initialize the Dashboard component
    */
   ngOnInit(): void {
-    console.log('tes');
     this.user = this.userService.user;
     this.look = this.lookService.get({
       look: this.user.look,
